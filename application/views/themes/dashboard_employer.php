@@ -28,7 +28,7 @@ $this->load->view('layouts/header_view');
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: yellow;
+  background-color: lightblue;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 20px;
@@ -191,18 +191,18 @@ $this->load->view('layouts/header_view');
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><b>×</b></a>
   <p><b>National Informatics Centre</b></p>
-  <a href="home.php"><b>New Application</b></a>
-  <a href="purpose.php"><b>Update Application</b></a>
-  <a href="facility.php"><b>Send Reminder</b></a>
-  <a href="feedback.php"><b>Check Status</b></a>
-  <a href="about.php"><b>Update Application</b></a>
+  <a href="<?php echo base_url().'index.php/test/application'?>"><b>New Application</b></a>
+  <a href="#"><b>Update Application</b></a>
+  <a href="#"><b>Send Reminder</b></a>
+  <a href="<?php echo base_url().'index.php/test/status'?>"><b>Check Status</b></a>
+  <a href="#"><b>Update Application</b></a>
   <p><b>Letter</b></p>
-  <a href="review.php"><b>Letter To SPDIB</b></a>
-  <a href="contact.php"><b>Verified Letter To Employer</b></a>
-  <a href="help.php"><b>Unverified Letter To Employer</b></a>
+  <a href="#"><b>Letter To SPDIB</b></a>
+  <a href="#"><b>Verified Letter To Employer</b></a>
+  <a href="#"><b>Unverified Letter To Employer</b></a>
   <p><b>Report</b></p>
-  <a href="disclaimer.php"><b>Monitoring Report</b></a>
-  <a href="login.php"><b>Daily Application Report</b></a>
+  <a href="#"><b>Monitoring Report</b></a>
+  <a href="#"><b>Daily Application Report</b></a>
 	
 </div>
 <a href="#"><button type="submit" class="logout"><b>Logout</b></button></a>
