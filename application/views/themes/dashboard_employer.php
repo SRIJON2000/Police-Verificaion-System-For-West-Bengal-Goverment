@@ -213,9 +213,9 @@ $this->load->view('layouts/header_view');
 <h1 class="main"><b>Welcome To</b></h1>
 <h2 class="main"><b>Police Verification Reporting System</b></h2>
 
-<button class="btna"><b>New Application<b></button>
-<button class="btnb"><b>Update Record</b></button>
-<button class="btnc"><b>Check Status</b></button>
+<button class="btna" type="submit"><b><a href="<?php echo base_url().'index.php/test/application'?>">New Application</a><b></button>
+<button class="btnb" type="submit"><b>Update Record</b></button>
+<button class="btnc" type="submit"><b>Check Status</b></button>
 
 
 <p class="p1">No. of pending enquiries<br/> in the lastday of prevous<br/> quarter</p>
