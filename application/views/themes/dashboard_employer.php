@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Employer Dashboard</title>
 </head>
 <body>
-<h1>Police Verification System</h1>
+<h1 style='text-align:center'>Employer Dashboard</h1>
 <p></p>
 
 </body>
