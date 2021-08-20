@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>PVR Home Page</title>
 </head>
 <body>
-<h1 style='text-align:center'>HOME PAGE</h1>
+<h1 style='text-align:center'>INDRANIL</h1>
 <p></p>
 
 </body>
