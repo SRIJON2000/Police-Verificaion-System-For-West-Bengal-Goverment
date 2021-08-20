@@ -9,11 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <style>
 	.hd
 	{
-		font-size: 45px;
+		font-size: 50px;
 		color: black;
 		text-align:center;
-		border: 2px solid red;
-  		border-radius: 5px;
+  		border-radius: 20px;
 		background-color: orange;
 	}
 	.hd_pic
@@ -40,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 </head>
 <body>
-<img class="hd_pic" src="<?php echo base_url('application/views/pics/govt_of_ind_logo.png')?>">
+<img class="hd_pic" src="<?php echo base_url('pics/govt_of_ind_logo.png')?>">
 <div class="hd"><b>Police Verification Reporting System</b></div><br/>
 <a href="#"><button type="submit" class="hm"><b>Home</b></button></a>
 </body>
