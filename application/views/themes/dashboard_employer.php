@@ -21,6 +21,21 @@ $this->load->view('layouts/header_view');
 		float:right;
 		position: relative;
 	}
+  .my_accnt {
+		min-width: 180px;
+		background: #ee4411;
+		color: #FFFFFF;
+		border-radius: 120px;
+		border: none;
+		font-size: 20px;
+		text-transform: uppercase;
+		font-weight: 300;
+		letter-spacing: 2px;
+		height: 30px;
+		position: fixed;
+    top: 17.6%;
+    left: 76%;
+	}
 	.sidebar {
   height: 100%;
   width: 0;
@@ -103,6 +118,9 @@ $this->load->view('layouts/header_view');
   font-size: 26px;
   cursor: pointer;
   text-align: center;
+  position:fixed;
+  top: 43.5%;
+  left: 3%;
 }
 
 .btnb
@@ -133,7 +151,7 @@ $this->load->view('layouts/header_view');
   text-align: center;
   position:fixed;
   top: 43.5%;
-  left: 69%;
+  left: 67%;
 }
 
 .p1
@@ -205,10 +223,11 @@ $this->load->view('layouts/header_view');
   <a href="#"><b>Daily Application Report</b></a>
 	
 </div>
+<br/><button class="openbtn" onclick="openNav()">☰ Operations</button></div>
 <a href="#"><button type="submit" class="logout"><b>Logout</b></button></a>
-<a href="#"><button type="submit" class="logout"><b>My Account</b></button></a>
+<a href="#"><button type="submit" class="my_accnt"><b>My Account</b></button></a>
 <div id="menu">
-<br/><br/><button class="openbtn" onclick="openNav()">☰ Operations</button></div>
+
 
 <h1 class="main"><b>Welcome To</b></h1>
 <h2 class="main"><b>Police Verification Reporting System</b></h2>

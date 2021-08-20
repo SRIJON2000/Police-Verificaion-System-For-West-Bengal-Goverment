@@ -7,13 +7,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title></title>
 
 <style>
+	.topnav {
+  overflow: hidden;
+  background-color: navy;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: red;
+  color: white;
+}
 	.hd
 	{
-		font-size: 50px;
+		font-size: 35px;
 		color: black;
 		text-align:center;
-  		border-radius: 20px;
-		background-color: orange;
 	}
 	.hd_pic
 	{
@@ -39,8 +59,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 </head>
 <body>
-<img class="hd_pic" src="<?php echo base_url('pics/govt_of_ind_logo.png')?>">
+<img class="hd_pic" src="<?php echo base_url('pics\govt_of_ind_logo.png')?>">
 <div class="hd"><b>Police Verification Reporting System</b></div><br/>
-<a href="#"><button type="submit" class="hm"><b>Home</b></button></a>
+<div class="topnav">
+<a class="active" href="<?php echo base_url().'index.php/test'?>"><b>Home</b></a>
+  </div>
+
+
 </body>
 </html>
