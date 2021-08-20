@@ -186,7 +186,7 @@ $this->load->view('layouts/header_view');
 }
 </style>
 </head>
-<body style="background-color:yellowgreen">
+<body>
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><b>×</b></a>
@@ -213,7 +213,7 @@ $this->load->view('layouts/header_view');
 <h1 class="main"><b>Welcome To</b></h1>
 <h2 class="main"><b>Police Verification Reporting System</b></h2>
 
-<button class="btna" type="submit"><b><a href="<?php echo base_url().'index.php/test/application'?>">New Application</a><b></button>
+<button class="btna" type="submit"><b>New Application<b></button>
 <button class="btnb" type="submit"><b>Update Record</b></button>
 <button class="btnc" type="submit"><b>Check Status</b></button>
 
@@ -232,6 +232,8 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
 }
+
+
 
 </script>
 </body>
