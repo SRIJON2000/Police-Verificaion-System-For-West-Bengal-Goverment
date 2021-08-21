@@ -1,4 +1,7 @@
-
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->view('layouts/header_view');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +36,6 @@
             color: #a5550b;
         }
     </style>
-    <?php include 'layouts/header_view.php'; ?>
     <div id="body_home">
         <h3 class="text-center">WELCOME!</h3>
         <div class="text-center" id="buttons">
@@ -45,7 +47,6 @@
             Administration Login
         </div>
     </div>
-    <?php include 'layouts/footer_view.php'; ?>
 </body>
 </html>
 
