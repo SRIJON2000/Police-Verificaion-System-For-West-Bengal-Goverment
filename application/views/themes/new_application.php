@@ -49,7 +49,7 @@ label {
 
 .col2 {
   position:absolute;
-  width: 10%;
+  width: 9%;
   margin-top: 6px;
   left: 40%;
 }
@@ -63,7 +63,7 @@ label {
 
 .col3 {
   position: absolute;
-  width: 10%;
+  width: 9%;
   margin-top: 6px;
   left: 70%
 }
@@ -119,11 +119,11 @@ label {
     </div>
 
 	<div class="row">
-      <div class="col3">
-        <label for="authaddr"><b>Authority Address</b></label>
+      <div class="col2">
+        <label for="authaddr" ><b>Authority Address</b></label>
       </div>
-      <div class="col3_in">
-        <input type="text" id="authaddress" name="authorityaddress" placeholder="Authority Address">
+      <div class="col2_in">
+        <input type="text" style="width:780px;"id="authaddress" name="authorityaddress" placeholder="Authority Address">
       </div>
     </div><br/><br/><br/><br/><br/>
 	<p style="font-size:40px; text-align:center; color:red">Candidate Personal Details</p><br/>
@@ -207,7 +207,7 @@ label {
       </div>
       <div class="col3_in">
       <select name="gender" id="gender">
-          <option value="Male">Male</option>
+          <option>--Select--</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Others">Others</option>
@@ -240,7 +240,151 @@ label {
       <div class="col3_in">
         <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group">
       </div>
+  </div><br/><br/><br/><br/><br/>
+	<p style="font-size:40px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
+  <div class="row">
+      <div class="col1">
+        <label for="address1"><b>Candidate's Address</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" style="width:780px;" id="address1" name="address1" placeholder="Address...">
+      </div>
   </div><br/><br/><br/><br/>
+
+  <div class="row">
+    <div class="col1">
+        <label for="pin"><b>Pincode</b></label>
+      </div>
+    <div class="col1_in">
+        <input type="text" id="pin" name="pin"  placeholder="Your Pincode..">
+    </div>
+
+    <div class="col2">
+        <label for="district"><b>district</b></label>
+      </div>
+    <div class="col2_in">
+        <input type="text" id="district" name="district"  placeholder="Your District..">
+    </div>
+
+    <div class="col3">
+        <label for="state"><b>State</b></label>
+      </div>
+    <div class="col3_in">
+        <select name="state" id="state" class="form-control">
+              <option>--Select--</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+      </select>
+    </div>
+  </div><br/><br/><br/><br/><br/>
+
+  <p style="font-size:40px; text-align:center; color:red">Candidate's Current Address</p><br/>
+  <div class="row">
+      <div class="col1">
+        <label for="address2"><b>Candidate's Address</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" style="width:780px;" id="address1" name="address1" placeholder="Address...">
+      </div>
+  </div><br/><br/><br/><br/>
+
+  <div class="row">
+    <div class="col1">
+        <label for="pin"><b>Pincode</b></label>
+      </div>
+    <div class="col1_in">
+        <input type="text" id="pin" name="pin"  placeholder="Your Pincode..">
+    </div>
+
+    <div class="col2">
+        <label for="district"><b>district</b></label>
+      </div>
+    <div class="col2_in">
+        <input type="text" id="district" name="district"  placeholder="Your District..">
+    </div>
+
+    <div class="col3">
+        <label for="state"><b>State</b></label>
+      </div>
+    <div class="col3_in">
+        <select name="state" id="state" class="form-control">
+              <option>--Select--</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+      </select>
+    </div>
+  </div>
+
+
+
 
 </form>
 </body>
