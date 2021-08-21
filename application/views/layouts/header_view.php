@@ -8,20 +8,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>POLICE VERIFICATION REPORTING SYSTEM</title>
-</head>
-<body>
+
 <style>
 	#navbar{
-	background-color: rgb(240, 176, 104);
+	/*background-color: rgb(240, 176, 104);*/
+	background-color:lightblue;
 	}
 	#header{
 		padding: 1%;
-		background-color: rgb(223, 148, 63);
+		/*background-color: rgb(223, 148, 63);*/
+		background-color:white;
 	}
 	h1{
-		color: #fff;
+		/*color: #fff;*/
+		color:black;
+	}
+	.nav-link active.hover
+	{
+		color:red;
+
 	}
 	</style>
+	</head>
+<body>
 <div class="col-lg-12 col-md-12">
 	<div id="header">
 		<img src="" alt="Emblame Image Here"><h1 class="text-center">POLICE VERIFICATION REPORTING SYSTEM</h1>
@@ -34,7 +43,10 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/pvr/">Home</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About Us</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -110,6 +122,8 @@
 </style>
 </head>
 <body>
+
+
 <img class="hd_pic" src="<?php //echo base_url().'/view/pics/govt_of_ind_logo.png'?>">
 <!-- Favicon icon -->
 <!-- <link rel="shortcut icon" sizes="32x32" href="<?php //echo $this->config->item('theme_uri');?>pics/govt_of_ind_logo.png"> -->
@@ -120,4 +134,9 @@
 
 
 <!-- </body> -->
-<!-- </html> --> -->
+<!-- </html> --> 
+
+
+
+
+
