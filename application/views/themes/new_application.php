@@ -91,6 +91,15 @@ input[type=submit] {
   cursor: pointer;
 }
 
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -119,7 +128,7 @@ input[type=submit]:hover {
 <body>
 
 <h2 style="text-align:center;font-size:25px;">Application Form</h2>
-  <form>
+  <form id="application">
 
   <div class="row">
       <div class="col1">
@@ -718,7 +727,9 @@ input[type=submit]:hover {
     </div><br/><br/><br/><br/><br/>
     <input class="col2"type="submit" value="Submit" name="apply">
     <input class="col3" style="left: 50%; position: absolute;" type="submit" value="Cancel" name="cancel">
-</form><br/><br/><br/><br/><br/>
+    <button class="col3" style="left: 60%; position: absolute;" onclick="reset()" type="submit" ><b>Reset</b><button>
+  </form>
+<br/><br/><br/><br/><br/>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </body>
 
@@ -786,6 +797,11 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+}
+
+function reset()
+{
+  document.getElementById("application").reset();
 }
 </script>
 <?php $this->load->view('layouts/footer_view'); ?>
