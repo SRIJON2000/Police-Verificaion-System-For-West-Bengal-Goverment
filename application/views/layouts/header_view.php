@@ -11,23 +11,19 @@
 
 <style>
 	#navbar{
-	/*background-color: rgb(240, 176, 104);*/
-	background-color:lightblue;
+	background-color: rgb(240, 176, 104);
+	
 	}
 	#header{
 		padding: 1%;
-		/*background-color: rgb(223, 148, 63);*/
-		background-color:white;
+		background-color: rgb(223, 148, 63);
+		
 	}
 	h1{
-		/*color: #fff;*/
-		color:black;
+		color: #fff;
+		
 	}
-	.nav-link active.hover
-	{
-		color:red;
-
-	}
+	
 	</style>
 	</head>
 <body>
