@@ -5,12 +5,14 @@ $this->load->view('layouts/header_view');
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 <style>
 * {
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -24,25 +26,6 @@ label {
   display: inline-block;
 }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color:white;
-  padding: 20px;
-}
 
 .row {
 	
@@ -88,29 +71,17 @@ input[type=submit]:hover {
   width: 20%;
   margin-top: 6px;
   position: fixed;
-  left: 78%
+  left: 78%;
 }
 
 /* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
+
 </style>
 </head>
 <body>
 
 <h2 style="text-align:center">Application Form</h2>
-<div class="container">
   <form action="/action_page.php">
 
   <div class="row">
@@ -123,10 +94,10 @@ input[type=submit]:hover {
     </div>
 
 	<div class="row">
-      <div class="col2">
+      <div class="col3">
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
-      <div class="col2_in">
+      <div class="col3_in">
         <input type="text" id="rcptdate" name="receiptdate" placeholder="Receipt Date..">
       </div>
     </div><br/><br/><br/><br/><br/><br/>
@@ -141,14 +112,15 @@ input[type=submit]:hover {
     </div>
 
 	<div class="row">
-      <div class="col2">
-        <label for="authaddr"><b>Authority Addres</b></label>
+      <div class="col3">
+        <label for="authaddr"><b>Authority Address</b></label>
       </div>
-      <div class="col2_in">
+      <div class="col3_in">
         <input type="text" id="authaddress" name="authorityaddress" placeholder="Authority Address">
       </div>
     </div><br/><br/><br/><br/><br/>
-	<p style="font-size:40px; text-align:center; color:red">Candidate Personal Details</p>
+	<p style="font-size:40px; text-align:center; color:red">Candidate Personal Details</p><br/>
+  <p class="col1"><b>Candidate Name</b></p><br/><br/><br/><br/>
     <div class="row">
       <div class="col1">
         <label for="fname"><b>First Name</b></label>
@@ -185,6 +157,32 @@ input[type=submit]:hover {
       </div>
     </div>
 
-    
+  <div class="row">
+      <div class="col2">
+        <label for="nationality"><b>Nationality</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text" id="nation" name="nation" value="India" placeholder="Your nation..">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col3">
+        <label for="dob"><b>Date Of Birth</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="date" id="dob" name="dob" style="height: 40px; font-size: 20px">
+      </div>
+  </div><br/><br/><br/><br/>
+   
+  <div class="row">
+      <div class="col1">
+        <label for="mothername"><b>Candidate's Mother Name</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" id="mothername" name="mothername" placeholder="Mother's Name...">
+      </div>
+  </div>
+
 </body>
 </html>
