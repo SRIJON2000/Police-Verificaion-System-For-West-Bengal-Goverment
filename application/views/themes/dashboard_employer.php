@@ -6,7 +6,7 @@ $this->load->view('layouts/header_view');
 <html>
 <head>
 	<title>Employer Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
 <style>
 	.logout {
 		min-width: 180px;
@@ -258,3 +258,48 @@ function closeNav() {
 </script>
 </body>
 </html>
+
+
+
+
+
+.col1 {
+  float: left;
+  width: 10%;
+  margin-top: 6px;
+}
+
+.col1_in {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+
+.col2 {
+  position:relative;
+  width: 10%;
+  margin-top: 6px;
+  left: 37%;
+  float:left;
+}
+
+.col2_in {
+  width: 20%;
+  margin-top: 6px;
+  position: fixed;
+  left: 45%
+}
+
+.col3 {
+  position: fixed;
+  width: 10%;
+  margin-top: 6px;
+  left: 70%
+}
+
+.col3_in {
+  width: 20%;
+  margin-top: 6px;
+  position: fixed;
+  left: 78%
+}
