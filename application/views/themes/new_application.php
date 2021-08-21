@@ -5,14 +5,14 @@ $this->load->view('layouts/header_view');
 <!DOCTYPE html>
 <html>
 <head>
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<base href="<?php echo base_url(); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
 * {
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-}
+
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -28,7 +28,8 @@ label {
 
 
 .row {
-	
+	margin-right: -15px;
+  margin-left: -15px;
 	float:left;
 }
 
@@ -74,6 +75,12 @@ label {
   left: 78%;
 }
 
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
 /* Clear floats after the columns */
 
 
@@ -91,9 +98,9 @@ label {
       <div class="col1_in">
         <input type="text" id="rcptno" name="receiptno" placeholder="Receipt No">
       </div>
-    </div>
+    <!--</div>
 
-	<div class="row">
+	<div class="row">-->
       <div class="col3">
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
@@ -183,6 +190,23 @@ label {
         <input type="text" id="mothername" name="mothername" placeholder="Mother's Name...">
       </div>
   </div>
+  <div class="row">
+      <div class="col2">
+        <label for="nationality"><b>Place Of Birth</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text" id="nation" name="nation" value="India" placeholder="Your nation..">
+      </div>
+  </div><br/><br/><br/><br/>
 
+  <div class="row">
+      <div class="col1">
+        <label for="mothername"><b>Candidate's Wife Name</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" id="mothername" name="mothername" placeholder="Mother's Name...">
+      </div>
+  </div>
+</form>
 </body>
 </html>
