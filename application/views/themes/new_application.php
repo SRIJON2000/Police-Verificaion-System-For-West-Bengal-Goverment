@@ -502,21 +502,21 @@ label {
   </div><br/><br/><br/><br/>
   <div class="row">
     <div class="col1">
-        <label for="spin"><b>Pincode</b></label>
+        <label for="spin"><b>School Pincode</b></label>
       </div>
     <div class="col1_in">
         <input type="text" id="spin" name="spin"  placeholder="Pincode..">
     </div>
 
     <div class="col2">
-        <label for="sdistrict"><b>district</b></label>
+        <label for="sdistrict"><b>School district</b></label>
       </div>
     <div class="col2_in">
         <input type="text" id="sdistrict" name="sdistrict"  placeholder="District..">
     </div>
 
     <div class="col3">
-        <label for="sstate"><b>State</b></label>
+        <label for="sstate"><b>School State</b></label>
       </div>
     <div class="col3_in">
         <select name="sstate" id="sstate" class="form-control">
@@ -580,21 +580,21 @@ label {
   </div><br/><br/><br/><br/>
   <div class="row">
     <div class="col1">
-        <label for="cpin"><b>Pincode</b></label>
+        <label for="cpin"><b>College Pincode</b></label>
       </div>
     <div class="col1_in">
         <input type="text" id="cpin" name="cpin"  placeholder="Pincode..">
     </div>
 
     <div class="col2">
-        <label for="cdistrict"><b>district</b></label>
+        <label for="cdistrict"><b>College district</b></label>
       </div>
     <div class="col2_in">
         <input type="text" id="cdistrict" name="cdistrict"  placeholder="District..">
     </div>
 
     <div class="col3">
-        <label for="cstate"><b>State</b></label>
+        <label for="cstate"><b>College State</b></label>
       </div>
     <div class="col3_in">
         <select name="cstate" id="cstate" class="form-control">
@@ -678,7 +678,7 @@ label {
         <input type="text" id="ps3" name="ps3">
       </div>
     </div><br/><br/><br/><br/><br/>
-
+<input type="submit" id="submit" name="apply">
 </form>
 </body>
 
