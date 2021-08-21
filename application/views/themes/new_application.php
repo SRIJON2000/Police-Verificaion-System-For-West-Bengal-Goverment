@@ -718,7 +718,7 @@ input[type=submit]:hover {
     </div><br/><br/><br/><br/><br/>
     <input class="col2"type="submit" value="Submit" name="apply">
     <input class="col3" style="left: 50%; position: absolute;" type="submit" value="Cancel" name="cancel">
-</form>
+</form><br/><br/><br/><br/><br/>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </body>
 
@@ -788,4 +788,5 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
+<?php $this->load->view('layouts/footer_view2'); ?>
 </html>
