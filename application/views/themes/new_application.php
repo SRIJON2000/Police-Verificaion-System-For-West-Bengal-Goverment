@@ -5,10 +5,10 @@ $this->load->view('layouts/header_view');
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<?php echo base_url(); ?>">
+<title>New Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  body {font-family: Arial, Helvetica, sans-serif;}
+ body {font-family: Arial, Helvetica, sans-serif;}
 * {
   box-sizing: border-box;
 }
@@ -36,19 +36,19 @@ label {
 .col1 {
   width: 10%;
   margin-top: 6px;
-  position:fixed;
+  position:absolute;
   left: 5%;
 }
 
 .col1_in {
   width: 20%;
   margin-top: 6px;
-  position:fixed;
+  position:absolute;
   left: 18%;
 }
 
 .col2 {
-  position:fixed;
+  position:absolute;
   width: 10%;
   margin-top: 6px;
   left: 40%;
@@ -57,12 +57,12 @@ label {
 .col2_in {
   width: 20%;
   margin-top: 6px;
-  position: fixed;
+  position: absolute;
   left: 48%
 }
 
 .col3 {
-  position: fixed;
+  position: absolute;
   width: 10%;
   margin-top: 6px;
   left: 70%
@@ -71,7 +71,7 @@ label {
 .col3_in {
   width: 20%;
   margin-top: 6px;
-  position: fixed;
+  position:absolute;
   left: 78%;
 }
 
@@ -127,29 +127,30 @@ label {
       </div>
     </div><br/><br/><br/><br/><br/>
 	<p style="font-size:40px; text-align:center; color:red">Candidate Personal Details</p><br/>
-  <p class="col1"><b>Candidate Name</b></p><br/><br/><br/><br/>
+  <div class="row">
+    <div class="col1_in">
+        <label for="fname" style="color:blue;"><b>First Name</b></label>
+      </div>
+      <div class="col2_in">
+        <label for="mname" style="color:blue;"><b>Middle Name</b></label>
+      </div>
+      <div class="col3_in">
+        <label for="lname" style="color:blue;"><b>Last Name</b></label>
+      </div>
+  </div><br/><br/>
+
     <div class="row">
       <div class="col1">
-        <label for="fname"><b>First Name</b></label>
+        <p><b>Candidate Name</b></p>
       </div>
       <div class="col1_in">
         <input type="text" id="fname" name="firstname" placeholder="Your name..">
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col2">
-        <label for="mname"><b>Middle Name</b></label>
-      </div>
+    
       <div class="col2_in">
         <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
       </div>
-    </div>
-
-	<div class="row">
-      <div class="col3">
-        <label for="lname"><b>Last Name</b></label>
-      </div>
+    
       <div class="col3_in">
         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
       </div>
@@ -190,23 +191,57 @@ label {
         <input type="text" id="mothername" name="mothername" placeholder="Mother's Name...">
       </div>
   </div>
+
   <div class="row">
       <div class="col2">
-        <label for="nationality"><b>Place Of Birth</b></label>
+        <label for="pob"><b>Place Of Birth</b></label>
       </div>
       <div class="col2_in">
-        <input type="text" id="nation" name="nation" value="India" placeholder="Your nation..">
+        <input type="text" id="pob" name="pob" placeholder="POB">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col3">
+        <label for="gender"><b>Gender</b></label>
+      </div>
+      <div class="col3_in">
+      <select name="gender" id="gender">
+          <option value="Male">Male</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+      </select>
       </div>
   </div><br/><br/><br/><br/>
 
   <div class="row">
       <div class="col1">
-        <label for="mothername"><b>Candidate's Wife Name</b></label>
+        <label for="wifename"><b>Candidate's Wife Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="mothername" name="mothername" placeholder="Mother's Name...">
+        <input type="text" id="wifername" name="wifername" placeholder="Wife's Name...">
       </div>
   </div>
+
+  <div class="row">
+      <div class="col2">
+        <label for="hname"><b>Candidate's Husband Name</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text" id="hname" name="husbandrname" placeholder="Husband's Name...">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col3">
+        <label for="blood group"><b>Blood Group</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group">
+      </div>
+  </div><br/><br/><br/><br/>
+
 </form>
 </body>
 </html>
