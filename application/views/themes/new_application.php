@@ -142,7 +142,7 @@ input[type=submit]:hover {
 
 	<div class="row">
       <div class="col2">
-        <label for="authaddr"><b>Authority Address</b></label>
+        <label for="authaddr"><b>Authority Addres</b></label>
       </div>
       <div class="col2_in">
         <input type="text" id="authaddress" name="authorityaddress" placeholder="Authority Address">
@@ -173,6 +173,15 @@ input[type=submit]:hover {
       </div>
       <div class="col3_in">
         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div><br/><br/><br/><br/>
+
+	<div class="row">
+      <div class="col1">
+        <label for="fathername"><b>Candidate's Father Name</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" id="fathername" name="fathername" placeholder="Father's Name...">
       </div>
     </div>
 
