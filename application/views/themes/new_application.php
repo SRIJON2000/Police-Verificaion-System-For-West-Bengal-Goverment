@@ -62,10 +62,11 @@ label {
 }
 
 .col3 {
-  position: absolute;
+  
   width: 9%;
   margin-top: 6px;
-  left: 70%
+  left: 70%;
+  position: absolute;
 }
 
 .col3_in {
@@ -81,22 +82,51 @@ label {
   padding: 20px;
 }
 
-/* Clear floats after the columns */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+input[type=submit]:hover {
+  background-color: #45a049;
+}
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color:green;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
 </style>
 </head>
 <body>
 
-<h2 style="text-align:center">Application Form</h2>
-  <form action="/action_page.php">
+<h2 style="text-align:center;font-size:25px;">Application Form</h2>
+  <form>
 
   <div class="row">
       <div class="col1">
         <label for="rcptno"><b>Receipt No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="rcptno" name="receiptno" placeholder="Receipt No">
+        <input type="text" id="rcptno" name="receiptno" placeholder="Receipt No" required>
       </div>
     <!--</div>
 
@@ -105,7 +135,7 @@ label {
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="rcptdate" name="receiptdate" placeholder="Receipt Date..">
+        <input type="text" id="rcptdate" name="receiptdate" placeholder="Receipt Date.." required>
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
@@ -114,7 +144,7 @@ label {
         <label for="authnm"><b>Authority Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="authnm" name="authorityname"  placeholder="Authority Name">
+        <input type="text" id="authnm" name="authorityname"  placeholder="Authority Name" required>
       </div>
     </div>
 
@@ -123,10 +153,11 @@ label {
         <label for="authaddr" ><b>Authority Address</b></label>
       </div>
       <div class="col2_in">
-        <input type="text" style="width:780px;"id="authaddress" name="authorityaddress" placeholder="Authority Address">
+        <input type="text" style="width:780px;"id="authaddress" name="authorityaddress" placeholder="Authority Address" required>
       </div>
     </div><br/><br/><br/><br/><br/>
-	<p style="font-size:40px; text-align:center; color:red">Candidate Personal Details</p><br/>
+    <hr size="8" width="90%" color="red">
+	<p style="font-size:30px; text-align:center; color:red">Candidate Personal Details</p><br/>
   <div class="row">
     <div class="col1_in">
         <label for="fname" style="color:blue;"><b>First Name</b></label>
@@ -144,7 +175,7 @@ label {
         <p><b>Candidate Name</b></p>
       </div>
       <div class="col1_in">
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
       </div>
     
       <div class="col2_in">
@@ -152,7 +183,7 @@ label {
       </div>
     
       <div class="col3_in">
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
       </div>
     </div><br/><br/><br/><br/>
 
@@ -161,7 +192,7 @@ label {
         <label for="fathername"><b>Candidate's Father Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="fathername" name="fathername" placeholder="Father's Name...">
+        <input type="text" id="fathername" name="fathername" placeholder="Father's Name..." required>
       </div>
     </div>
 
@@ -170,7 +201,7 @@ label {
         <label for="nationality"><b>Nationality</b></label>
       </div>
       <div class="col2_in">
-        <input type="text" id="nation" name="nation" value="India" placeholder="Your nation..">
+        <input type="text" id="nation" name="nation" value="India" placeholder="Your nation.." required>
       </div>
   </div>
 
@@ -179,7 +210,7 @@ label {
         <label for="dob"><b>Date Of Birth</b></label>
       </div>
       <div class="col3_in">
-        <input type="date" id="dob" name="dob" style="height: 40px; font-size: 20px">
+        <input type="date" id="dob" name="dob" style="height: 40px; font-size: 20px" required>
       </div>
   </div><br/><br/><br/><br/>
    
@@ -188,7 +219,7 @@ label {
         <label for="mothername"><b>Candidate's Mother Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="mothername" name="mothername" placeholder="Mother's Name...">
+        <input type="text" id="mothername" name="mothername" placeholder="Mother's Name..." required>
       </div>
   </div>
 
@@ -197,7 +228,7 @@ label {
         <label for="pob"><b>Place Of Birth</b></label>
       </div>
       <div class="col2_in">
-        <input type="text" id="pob" name="pob" placeholder="POB">
+        <input type="text" id="pob" name="pob" placeholder="POB" required>
       </div>
   </div>
 
@@ -220,7 +251,7 @@ label {
         <label for="aadhar"><b>Aadhaar No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="aadhar" name="aadhaarno" maxlength="12">
+        <input type="text" id="aadhar" name="aadhaarno" maxlength="12" required>
       </div>
   </div>
 
@@ -245,17 +276,18 @@ label {
         <label for="blood group"><b>Blood Group</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group">
+        <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
       </div>
   </div><br/><br/><br/><br/><br/>
-	<p style="font-size:40px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
+  <hr size="8" width="90%" color="red">
+	<p style="font-size:30px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
   
   <div class="row">
       <div class="col1">
         <label for="houseno1"><b>House No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text"  id="houseno1" name="houseno1" >
+        <input type="text"  id="houseno1" name="houseno1" required>
       </div>
   </div>
 
@@ -264,7 +296,7 @@ label {
         <label for="street1"><b>Street/Lane</b></label>
       </div>
       <div class="col2_in">
-        <input type="text"  id="street1" name="street1">
+        <input type="text"  id="street1" name="street1" required>
       </div>
   </div>
   
@@ -273,7 +305,7 @@ label {
         <label for="landmark1"><b>Landmark</b></label>
       </div>
       <div class="col3_in">
-        <input type="text"  id="landmark1" name="landmark1">
+        <input type="text"  id="landmark1" name="landmark1" required>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -283,7 +315,7 @@ label {
         <label for="city1"><b>City</b></label>
       </div>
       <div class="col1_in">
-        <input type="text"  id="city1" name="city1" >
+        <input type="text"  id="city1" name="city1" required>
       </div>
   </div>
 
@@ -292,7 +324,7 @@ label {
         <label for="po1"><b>Post Office</b></label>
       </div>
       <div class="col2_in">
-        <input type="text"  id="po1" name="po1">
+        <input type="text"  id="po1" name="po1" required>
       </div>
   </div>
   
@@ -301,7 +333,7 @@ label {
         <label for="ps1"><b>Police Station</b></label>
       </div>
       <div class="col3_in">
-        <input type="text"  id="ps1" name="ps1">
+        <input type="text"  id="ps1" name="ps1" required>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -310,14 +342,14 @@ label {
         <label for="pin1"><b>Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="pin1" name="pin1"  placeholder="Your Pincode..">
+        <input type="text" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
     </div>
 
     <div class="col2">
         <label for="district1"><b>district</b></label>
       </div>
     <div class="col2_in">
-        <input type="text" id="district1" name="district1"  placeholder="Your District..">
+        <input type="text" id="district1" name="district1"  placeholder="Your District.." required>
     </div>
 
     <div class="col3">
@@ -365,15 +397,15 @@ label {
       </select>
     </div>
   </div><br/><br/><br/><br/><br/>
-  
-  <p style="font-size:40px; text-align:center; color:red"> Candidate's Current Address<input type="checkbox" id="check" onclick="show()">same as above</p><br/>
-  
+  <hr size="8" width="90%" color="red">
+  <p style="font-size:30px; text-align:center; color:red"> Candidate's Current Address</p>
+  <div style="text-align:center;font-size:20px;color:red;"><input type="checkbox" id="check" onclick="show()">Same as Permanent Address</div>
   <div class="row">
       <div class="col1">
         <label for="houseno2"><b>House No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text"  id="houseno2" name="houseno2" >
+        <input type="text"  id="houseno2" name="houseno2" required>
       </div>
   </div>
 
@@ -382,7 +414,7 @@ label {
         <label for="street2"><b>Street/Lane</b></label>
       </div>
       <div class="col2_in">
-        <input type="text"  id="street2" name="street2">
+        <input type="text"  id="street2" name="street2" required>
       </div>
   </div>
   
@@ -391,7 +423,7 @@ label {
         <label for="landmark2"><b>Landmark</b></label>
       </div>
       <div class="col3_in">
-        <input type="text"  id="landmark2" name="landmark2">
+        <input type="text"  id="landmark2" name="landmark2" required>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -401,7 +433,7 @@ label {
         <label for="city2"><b>City</b></label>
       </div>
       <div class="col1_in">
-        <input type="text"  id="city2" name="city2" >
+        <input type="text"  id="city2" name="city2" required>
       </div>
   </div>
 
@@ -410,7 +442,7 @@ label {
         <label for="po2"><b>Post Office</b></label>
       </div>
       <div class="col2_in">
-        <input type="text"  id="po2" name="po2">
+        <input type="text"  id="po2" name="po2" required>
       </div>
   </div>
   
@@ -419,7 +451,7 @@ label {
         <label for="ps2"><b>Police Station</b></label>
       </div>
       <div class="col3_in">
-        <input type="text"  id="ps2" name="ps2">
+        <input type="text"  id="ps2" name="ps2" required>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -428,14 +460,14 @@ label {
         <label for="pin2"><b>Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="pin2" name="pin2"  placeholder="Your Pincode..">
+        <input type="text" id="pin2" name="pin2"  placeholder="Your Pincode.." required>
     </div>
 
     <div class="col2">
         <label for="district2"><b>district</b></label>
       </div>
     <div class="col2_in">
-        <input type="text" id="district2" name="district2"  placeholder="Your District..">
+        <input type="text" id="district2" name="district2"  placeholder="Your District.." required>
     </div>
 
     <div class="col3">
@@ -483,13 +515,18 @@ label {
       </select>
     </div>
   </div><br/><br/><br/><br/>
-	<p style="font-size:40px; text-align:center; color:red">Candidate's Educational Details</p><br/>
+  
+  <hr size="8" width="90%" color="red">
+	<p style="font-size:30px; text-align:center; color:red">Candidate's Educational Details</p><br/>
+  <hr size="1" width="90%" color="red">
+  <div style="text-align:center;"><b>School Details</b></div>
+  <hr size="1" width="90%" color="red">
   <div class="row">
       <div class="col1">
         <label for="sname"><b>School Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="sname" name="sname" placeholder="Full Name...">
+        <input type="text" style="width:780px;" id="sname" name="sname" placeholder="Full Name..." required>
       </div>
   </div><br/><br/><br/><br/>
   <div class="row">
@@ -497,7 +534,7 @@ label {
         <label for="saddress"><b>School Address</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="saddress" name="saddress" placeholder="Address...">
+        <input type="text" style="width:780px;" id="saddress" name="saddress" placeholder="Address..." required>
       </div>
   </div><br/><br/><br/><br/>
   <div class="row">
@@ -505,14 +542,14 @@ label {
         <label for="spin"><b>School Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="spin" name="spin"  placeholder="Pincode..">
+        <input type="text" id="spin" name="spin"  placeholder="Pincode.." required>
     </div>
 
     <div class="col2">
         <label for="sdistrict"><b>School district</b></label>
       </div>
     <div class="col2_in">
-        <input type="text" id="sdistrict" name="sdistrict"  placeholder="District..">
+        <input type="text" id="sdistrict" name="sdistrict"  placeholder="District.." required>
     </div>
 
     <div class="col3">
@@ -560,14 +597,15 @@ label {
       </select>
     </div>
   </div><br/><br/><br/><br/>
-
-  
+  <hr size="1" width="90%" color="red">
+  <div style="text-align:center;"><b>College Details</b></div>
+  <hr size="1" width="90%" color="red">
   <div class="row">
       <div class="col1">
         <label for="cname"><b>College Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="cname" name="cname" placeholder="Full Name...">
+        <input type="text" style="width:780px;" id="cname" name="cname" placeholder="Full Name..." required>
       </div>
   </div><br/><br/><br/><br/>
   <div class="row">
@@ -575,7 +613,7 @@ label {
         <label for="caddress"><b>College Address</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="caddress" name="caddress" placeholder="Address...">
+        <input type="text" style="width:780px;" id="caddress" name="caddress" placeholder="Address..." required>
       </div>
   </div><br/><br/><br/><br/>
   <div class="row">
@@ -583,14 +621,14 @@ label {
         <label for="cpin"><b>College Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="cpin" name="cpin"  placeholder="Pincode..">
+        <input type="text" id="cpin" name="cpin"  placeholder="Pincode.." required>
     </div>
 
     <div class="col2">
         <label for="cdistrict"><b>College district</b></label>
       </div>
     <div class="col2_in">
-        <input type="text" id="cdistrict" name="cdistrict"  placeholder="District..">
+        <input type="text" id="cdistrict" name="cdistrict"  placeholder="District.." required>
     </div>
 
     <div class="col3">
@@ -638,13 +676,13 @@ label {
       </select>
     </div>
   </div><br/><br/><br/><br/><br/><br/><br/>
-
+  <hr size="8" width="90%" color="red">
   <div class="row">
       <div class="col1">
         <label for="refno"><b>Reference No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="refno" name="refno" placeholder="Ref No">
+        <input type="text" id="refno" name="refno" placeholder="Ref No" required>
       </div>
     <!--</div>
 
@@ -653,7 +691,7 @@ label {
         <label for="refdate"><b>Reference Date</b></label>
       </div>
       <div class="col3_in">
-        <input type="date" id="refdate" name="refdate" style="height: 40px; font-size: 20px">
+        <input type="date" id="refdate" name="refdate" style="height: 40px; font-size: 20px" required>
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
@@ -662,7 +700,7 @@ label {
         <label for="dp"><b>Defence Personnel</b></label>
       </div>
       <div class="col1_in">
-      <select name="dp" id="dp">
+      <select name="dp" id="dp" required>
           <option>--Select--</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
@@ -671,15 +709,17 @@ label {
     </div>
 
 	<div class="row">
-      <div class="col2">
+      <div class="col3">
         <label for="ps3" ><b>Police Station</b></label>
       </div>
-      <div class="col2_in">
+      <div class="col3_in">
         <input type="text" id="ps3" name="ps3">
       </div>
     </div><br/><br/><br/><br/><br/>
-<input type="submit" id="submit" name="apply">
+    <input class="col2"type="submit" value="Submit" name="apply">
+    <input class="col3" style="left: 50%; position: absolute;" type="submit" value="Cancel" name="cancel">
 </form>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </body>
 
 <script>
@@ -732,6 +772,20 @@ function show()
     document.getElementById("state2").value="--Select--";
   }
 }
+var mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 </script>
 </html>
