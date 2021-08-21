@@ -60,6 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <img class="hd_pic" src="<?php echo base_url().'/view/pics/govt_of_ind_logo.png'?>">
+<!-- Favicon icon -->
+<link rel="shortcut icon" sizes="32x32" href="<?php echo $this->config->item('theme_uri');?>images/ub_logo.png">
 <div class="hd"><b>Police Verification Reporting System</b></div><br/>
 <div class="topnav">
 <a class="active" href="<?php echo base_url().'index.php/test'?>"><b>Home</b></a>
