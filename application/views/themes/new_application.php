@@ -788,5 +788,5 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
-<?php $this->load->view('layouts/footer_view2'); ?>
+<?php $this->load->view('layouts/footer_view'); ?>
 </html>
