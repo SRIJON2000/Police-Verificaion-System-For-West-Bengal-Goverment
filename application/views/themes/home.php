@@ -17,7 +17,8 @@ $this->load->view('layouts/header_view');
             box-sizing: border-box;
         }
         body{
-            background-color: rgb(240, 176, 104);
+            /*background-color: rgb(240, 176, 104);*/
+            background-color:white;
         }
         #body_home{
             height:600px;
