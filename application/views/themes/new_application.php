@@ -217,19 +217,26 @@ label {
 
   <div class="row">
       <div class="col1">
-        <label for="wifename"><b>Candidate's Wife Name</b></label>
+        <label for="aadhar"><b>Aadhaar No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="wifername" name="wifername" placeholder="Wife's Name...">
+        <input type="text" id="aadhar" name="aadhaarno" maxlength="12">
       </div>
   </div>
 
   <div class="row">
       <div class="col2">
-        <label for="hname"><b>Candidate's Husband Name</b></label>
+        <label for="caste"><b>Caste</b></label>
       </div>
       <div class="col2_in">
-        <input type="text" id="hname" name="husbandrname" placeholder="Husband's Name...">
+      <select name="caste" id="caste">
+          <option>--Select--</option>
+          <option value="gen">General</option>
+          <option value="obc-A">OBC-A</option>
+          <option value="obc-B">OBC-B</option>
+          <option value="sc">SC</option>
+          <option value="st">ST</option>
+      </select>
       </div>
   </div>
 
@@ -242,35 +249,82 @@ label {
       </div>
   </div><br/><br/><br/><br/><br/>
 	<p style="font-size:40px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
+  
   <div class="row">
       <div class="col1">
-        <label for="address1"><b>Candidate's Address</b></label>
+        <label for="houseno1"><b>House No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="address1" name="address1" placeholder="Address...">
+        <input type="text"  id="houseno1" name="houseno1" >
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col2">
+        <label for="street1"><b>Street/Lane</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text"  id="street1" name="street1">
+      </div>
+  </div>
+  
+  <div class="row">
+      <div class="col3">
+        <label for="landmark1"><b>Landmark</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="text"  id="landmark1" name="landmark1">
+      </div>
+  </div><br/><br/><br/><br/>
+
+
+  <div class="row">
+      <div class="col1">
+        <label for="city1"><b>City</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text"  id="city1" name="city1" >
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col2">
+        <label for="po1"><b>Post Office</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text"  id="po1" name="po1">
+      </div>
+  </div>
+  
+  <div class="row">
+      <div class="col3">
+        <label for="ps1"><b>Police Station</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="text"  id="ps1" name="ps1">
       </div>
   </div><br/><br/><br/><br/>
 
   <div class="row">
     <div class="col1">
-        <label for="pin"><b>Pincode</b></label>
+        <label for="pin1"><b>Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="pin" name="pin"  placeholder="Your Pincode..">
+        <input type="text" id="pin1" name="pin1"  placeholder="Your Pincode..">
     </div>
 
     <div class="col2">
-        <label for="district"><b>district</b></label>
+        <label for="district1"><b>district</b></label>
       </div>
     <div class="col2_in">
-        <input type="text" id="district" name="district"  placeholder="Your District..">
+        <input type="text" id="district1" name="district1"  placeholder="Your District..">
     </div>
 
     <div class="col3">
-        <label for="state"><b>State</b></label>
+        <label for="state1"><b>State</b></label>
       </div>
     <div class="col3_in">
-        <select name="state" id="state" class="form-control">
+        <select name="state1" id="state1" class="form-control">
               <option>--Select--</option>
               <option value="Andhra Pradesh">Andhra Pradesh</option>
               <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -311,37 +365,84 @@ label {
       </select>
     </div>
   </div><br/><br/><br/><br/><br/>
-
-  <p style="font-size:40px; text-align:center; color:red">Candidate's Current Address</p><br/>
+  
+  <p style="font-size:40px; text-align:center; color:red"> Candidate's Current Address<input type="checkbox" id="check" onclick="show()">same as above</p><br/>
+  
   <div class="row">
       <div class="col1">
-        <label for="address2"><b>Candidate's Address</b></label>
+        <label for="houseno2"><b>House No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="address1" name="address1" placeholder="Address...">
+        <input type="text"  id="houseno2" name="houseno2" >
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col2">
+        <label for="street2"><b>Street/Lane</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text"  id="street2" name="street2">
+      </div>
+  </div>
+  
+  <div class="row">
+      <div class="col3">
+        <label for="landmark2"><b>Landmark</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="text"  id="landmark2" name="landmark2">
+      </div>
+  </div><br/><br/><br/><br/>
+
+
+  <div class="row">
+      <div class="col1">
+        <label for="city2"><b>City</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text"  id="city2" name="city2" >
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col2">
+        <label for="po2"><b>Post Office</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text"  id="po2" name="po2">
+      </div>
+  </div>
+  
+  <div class="row">
+      <div class="col3">
+        <label for="ps2"><b>Police Station</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="text"  id="ps2" name="ps2">
       </div>
   </div><br/><br/><br/><br/>
 
   <div class="row">
     <div class="col1">
-        <label for="pin"><b>Pincode</b></label>
+        <label for="pin2"><b>Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="pin" name="pin"  placeholder="Your Pincode..">
+        <input type="text" id="pin2" name="pin2"  placeholder="Your Pincode..">
     </div>
 
     <div class="col2">
-        <label for="district"><b>district</b></label>
+        <label for="district2"><b>district</b></label>
       </div>
     <div class="col2_in">
-        <input type="text" id="district" name="district"  placeholder="Your District..">
+        <input type="text" id="district2" name="district2"  placeholder="Your District..">
     </div>
 
     <div class="col3">
-        <label for="state"><b>State</b></label>
+        <label for="state2"><b>State</b></label>
       </div>
     <div class="col3_in">
-        <select name="state" id="state" class="form-control">
+        <select name="state2" id="state2" class="form-control">
               <option>--Select--</option>
               <option value="Andhra Pradesh">Andhra Pradesh</option>
               <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -381,11 +482,256 @@ label {
               <option value="West Bengal">West Bengal</option>
       </select>
     </div>
-  </div>
+  </div><br/><br/><br/><br/>
+	<p style="font-size:40px; text-align:center; color:red">Candidate's Educational Details</p><br/>
+  <div class="row">
+      <div class="col1">
+        <label for="sname"><b>School Name</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" style="width:780px;" id="sname" name="sname" placeholder="Full Name...">
+      </div>
+  </div><br/><br/><br/><br/>
+  <div class="row">
+      <div class="col1">
+        <label for="saddress"><b>School Address</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" style="width:780px;" id="saddress" name="saddress" placeholder="Address...">
+      </div>
+  </div><br/><br/><br/><br/>
+  <div class="row">
+    <div class="col1">
+        <label for="spin"><b>Pincode</b></label>
+      </div>
+    <div class="col1_in">
+        <input type="text" id="spin" name="spin"  placeholder="Pincode..">
+    </div>
 
+    <div class="col2">
+        <label for="sdistrict"><b>district</b></label>
+      </div>
+    <div class="col2_in">
+        <input type="text" id="sdistrict" name="sdistrict"  placeholder="District..">
+    </div>
 
+    <div class="col3">
+        <label for="sstate"><b>State</b></label>
+      </div>
+    <div class="col3_in">
+        <select name="sstate" id="sstate" class="form-control">
+              <option>--Select--</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+      </select>
+    </div>
+  </div><br/><br/><br/><br/>
 
+  
+  <div class="row">
+      <div class="col1">
+        <label for="cname"><b>College Name</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" style="width:780px;" id="cname" name="cname" placeholder="Full Name...">
+      </div>
+  </div><br/><br/><br/><br/>
+  <div class="row">
+      <div class="col1">
+        <label for="caddress"><b>College Address</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" style="width:780px;" id="caddress" name="caddress" placeholder="Address...">
+      </div>
+  </div><br/><br/><br/><br/>
+  <div class="row">
+    <div class="col1">
+        <label for="cpin"><b>Pincode</b></label>
+      </div>
+    <div class="col1_in">
+        <input type="text" id="cpin" name="cpin"  placeholder="Pincode..">
+    </div>
+
+    <div class="col2">
+        <label for="cdistrict"><b>district</b></label>
+      </div>
+    <div class="col2_in">
+        <input type="text" id="cdistrict" name="cdistrict"  placeholder="District..">
+    </div>
+
+    <div class="col3">
+        <label for="cstate"><b>State</b></label>
+      </div>
+    <div class="col3_in">
+        <select name="cstate" id="cstate" class="form-control">
+              <option>--Select--</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+      </select>
+    </div>
+  </div><br/><br/><br/><br/><br/><br/><br/>
+
+  <div class="row">
+      <div class="col1">
+        <label for="refno"><b>Reference No</b></label>
+      </div>
+      <div class="col1_in">
+        <input type="text" id="refno" name="refno" placeholder="Ref No">
+      </div>
+    <!--</div>
+
+	<div class="row">-->
+      <div class="col3">
+        <label for="refdate"><b>Reference Date</b></label>
+      </div>
+      <div class="col3_in">
+        <input type="date" id="refdate" name="refdate" style="height: 40px; font-size: 20px">
+      </div>
+    </div><br/><br/><br/><br/><br/><br/>
+
+	<div class="row">
+	<div class="col1">
+        <label for="dp"><b>Defence Personnel</b></label>
+      </div>
+      <div class="col1_in">
+      <select name="dp" id="dp">
+          <option>--Select--</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+      </select>
+      </div>
+    </div>
+
+	<div class="row">
+      <div class="col2">
+        <label for="ps3" ><b>Police Station</b></label>
+      </div>
+      <div class="col2_in">
+        <input type="text" id="ps3" name="ps3">
+      </div>
+    </div><br/><br/><br/><br/><br/>
 
 </form>
 </body>
+
+<script>
+
+function show()
+{
+  var street1 = document.getElementById("street1");
+  var houseno1 = document.getElementById("houseno1");
+  var landmark1 = document.getElementById("landmark1");
+  var city1 = document.getElementById("city1");
+  var po1= document.getElementById("po1");
+  var ps1 = document.getElementById("ps1");
+  var pin1 = document.getElementById("pin1");
+  var district1 = document.getElementById("district1");
+  var state1= document.getElementById("state1");
+  
+  var street2 = document.getElementById("street2");
+  var houseno2 = document.getElementById("houseno2");
+  var landmark2 = document.getElementById("landmark2");
+  var city2 = document.getElementById("city2");
+  var po2= document.getElementById("po2");
+  var ps2 = document.getElementById("ps2");
+  var pin2= document.getElementById("pin2");
+  var district2 = document.getElementById("district2");
+  var state2= document.getElementById("state2");
+
+  var checkBox=document.getElementById("check");
+
+  if (checkBox.checked == true){
+    street2.value=street1.value;
+    houseno2.value=houseno1.value;
+    landmark2.value=landmark1.value;
+    city2.value=city1.value;
+    po2.value=po1.value;
+    ps2.value=ps1.value;
+    pin2.value=pin1.value;
+    district2.value= district1.value;
+    state2.value=state1.value;
+  } 
+  else
+  {
+    document.getElementById("street2").value="";
+  document.getElementById("houseno2").value="";
+  document.getElementById("landmark2").value="";
+  document.getElementById("city2").value="";
+  document.getElementById("po2").value="";
+  document.getElementById("ps2").value="";
+   document.getElementById("pin2").value="";
+   document.getElementById("district2").value="";
+    document.getElementById("state2").value="--Select--";
+  }
+}
+
+</script>
 </html>
