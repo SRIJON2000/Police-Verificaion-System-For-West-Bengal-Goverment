@@ -36,6 +36,15 @@ $this->load->view('layouts/header_view');
         h3{
             color: #a5550b;
         }
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
 
 </style>
 </head>
@@ -47,11 +56,11 @@ $this->load->view('layouts/header_view');
         <h3 class="text-center">WELCOME!</h3>
         <div class="text-center" id="buttons">
             <img src="" alt="office image here">
-            Office Login
+            <button style="width:auto;"><b>Office Login</b></button>
         </div>
         <div class="text-center" id="buttons">
             <img src="" alt="Administrative image here">
-            Administration Login
+            <button style="width:auto;"><b>Administration Login</b></button>
         </div>
     </div>
     
