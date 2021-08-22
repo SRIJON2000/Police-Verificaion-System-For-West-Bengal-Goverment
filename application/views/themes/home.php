@@ -63,6 +63,7 @@ $this->load->view('layouts/header_view');
     </div>
     
 </body>
+<?php $this->load->view('layouts/footer_view'); ?>
 </html>
 
 <!-- <!DOCTYPE html>
