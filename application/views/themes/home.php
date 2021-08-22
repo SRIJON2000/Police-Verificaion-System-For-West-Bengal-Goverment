@@ -56,11 +56,11 @@ $this->load->view('layouts/header_view');
         <h3 class="text-center">WELCOME!</h3>
         <div class="text-center" id="buttons">
             <img src="" alt="office image here">
-            <button style="width:auto;"><b>Office Login</b></button>
+            <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'index.php/test/employer_login' ?>'"><b>Office Login</b></button>
         </div>
         <div class="text-center" id="buttons">
             <img src="" alt="Administrative image here">
-            <button style="width:auto;"><b>Administration Login</b></button>
+            <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'index.php/test/admin_login' ?>'"><b>AdministrationLogin</b></button>
         </div>
     </div>
     
