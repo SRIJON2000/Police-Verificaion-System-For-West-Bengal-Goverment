@@ -31,7 +31,7 @@ $this->load->view('layouts/header_view');
             margin-bottom: 2%;
             margin-top:2%;
             padding: 3%;
-            background: linear-gradient(to right, rgb(253, 253, 253), rgb(255, 136, 0));
+            background: linear-gradient(to right, rgb(253, 253, 253), rgb(196, 188, 188));
         }
         h3{
             color: #a5550b;
@@ -49,15 +49,15 @@ $this->load->view('layouts/header_view');
 </style>
 </head>
 <body>
-    <!-- <a class="header"style="position:absolute;left:87%;top:11%" href="http://localhost/pvr/">Register Your Office</a> -->
+    
     <div id="body_home">
-        <h3 class="text-center">WELCOME!</h3>
+        <h3 class="text-center"><b>WELCOME!</b></h3>
         <div class="text-center" id="buttons">
-            <img src="" alt="office image here">
+            <img src="<?php echo base_url();?>/application/views/pics/office.png" alt="office image here" height="100" width="85">
             <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'index.php/test/employer_login' ?>'"><b>Office Login</b></button>
         </div>
         <div class="text-center" id="buttons">
-            <img src="" alt="Administrative image here">
+            <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">
             <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'index.php/test/admin_login' ?>'"><b>AdministrationLogin</b></button>
         </div>
     </div>

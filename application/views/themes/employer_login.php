@@ -19,7 +19,7 @@ input[type=text], input[type=password],select {
   box-sizing: border-box;
 }
 
-button {
+button,input[type=button] {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -107,7 +107,7 @@ span.psw {
     </div>   
     <br/><br/><br/><br/><br/><br/>
     <div class="row">
-    <button type="submit" class="col2_in">Login</button>
+    <input type="button" class="col2_in" value="Login">
     </div><br/><br/><br/><br/><br/><br/>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
