@@ -101,10 +101,12 @@ body {
   color: white;
 }
 
-.header-right {
+.header-left {
   float: left;
 }
-
+.header-right {
+  float: right;
+}
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
@@ -112,9 +114,7 @@ body {
     text-align: left;
   }
   
-  .header-right {
-    float: none;
-  }
+  
 }
 </style>
 </head>
@@ -122,7 +122,7 @@ body {
 
 <div class="header">
   <div class="logo" style="text-align:center;font-size:40px"><b>Police Verification Reporting System</b></div>
-  <div class="header-right">
+  <div class="header-left">
     <a class="active" href="http://localhost/pvr/">Home</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
