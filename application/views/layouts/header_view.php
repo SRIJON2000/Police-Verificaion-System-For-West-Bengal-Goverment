@@ -113,15 +113,17 @@ body {
     display: block;
     text-align: left;
   }
-  
-  
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo" style="text-align:center;font-size:40px"><b>Police Verification Reporting System</b></div>
+  <div id="pvrhd">
+    <div class="logo text-center" style=" font-size:40px"><b>Police Verification Reporting System</b></div>
+    <img style="position:absolute;top:3%;left:90%;"src="<?php echo base_url(); ?>/application/views/pics/govt_of_ind_logo.png" alt="emblame picture" height="100" width="85">
+  </div>
+  
   <div class="header-left">
     <a class="active" href="http://localhost/pvr/">Home</a>
     <a href="#contact">Contact</a>
