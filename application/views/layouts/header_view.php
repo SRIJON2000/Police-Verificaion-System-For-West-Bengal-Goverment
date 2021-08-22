@@ -126,10 +126,10 @@ body {
   
   
   <div class="header-left">
-    <a class="active" href="http://localhost/pvr/">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <?php if ($_SERVER['PHP_SELF']=='/pvr/index.php'){echo '<a href="#about">Register Your Office</a>';};?>
+    <a class="active" href="http://localhost/pvr/"><b>Home</b></a>
+    <a href="#contact"><b>Contact US</b></a>
+    <a href="#about"><b>About</b></a>
+    <?php if ($_SERVER['PHP_SELF']=='/pvr/index.php'){echo '<a href="#about"><b>Register Your Office</b></a>';};?>
     
     
   </div>

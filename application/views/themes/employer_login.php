@@ -11,7 +11,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password],select {
-  width: 50%;
+  width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -91,32 +91,37 @@ span.psw {
 </head>
 <body>
 
-<h2 style="text-align:center;">Office/Institution Login</h2>
+<h2 style="text-align:center;">Office / Institution Login</h2>
 
 <form action="/action_page.php" method="post">
   <div class="container">
     
     <div class="row">
-    <label for="uname" class="col2"><b>Username/User Id</b></label>
+    <label for="uname" class="col2_in"><b>Username/User Id</b></label>
+    </div><br/>
+    <div class="row">
     <input class="col2_in" type="text" placeholder="Enter Username" name="uname" required>
     </div>
-    <br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
     <div class="row">
-    <label class="col2" for="psw"><b>Password</b></label>
+    <label class="col2_in" for="psw"><b>Password</b></label>
+    </div><br/>
+    <div class="row">
     <input class="col2_in" type="password" placeholder="Enter Password" name="psw" required>
-    </div>   
-    <br/><br/><br/><br/><br/><br/>
-    <div class="row">
-    <input type="button" class="col2_in" value="Login">
-    </div><br/><br/><br/><br/><br/><br/>
-    <label>
+    </div><br/><br/><br/><br/>
+    <label class="col2_in">
       <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    </label>  
+    <br/><br/><br/>
+    <div class="row">
+    <input type="button" class="col2_in" value="Login" name="login">
+    </div><br/><br/><br/><br/>
+    <span class="col2_in"><a href="#"><b>Forgot Password?</b></a></span><br/><br/><br/><br/><br/>
+    
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <button type="button" class="cancelbtn">Back</button>
   </div>
 </form>
 
