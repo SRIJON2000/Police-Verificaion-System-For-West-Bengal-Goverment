@@ -285,7 +285,17 @@ input[type=submit]:hover {
         <label for="blood group"><b>Blood Group</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="bloodgroup" name="bloodgroup" placeholder="Blood Group" required>
+      <select name="blood" id="blood">
+          <option>--Select--</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="AB-">AB-</option>
+          <option value="AB+">AB+</option>
+      </select>
       </div>
   </div><br/><br/><br/><br/><br/>
   <hr size="8" width="90%" color="red">
@@ -730,7 +740,7 @@ input[type=submit]:hover {
     <button class="col3" style="left: 60%; position: absolute;" onclick="reset()" type="submit" ><b>Reset</b><button>
   </form>
 <br/><br/><br/><br/><br/>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
 </body>
 
 <script>
