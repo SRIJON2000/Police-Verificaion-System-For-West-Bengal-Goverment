@@ -10,8 +10,8 @@ $this->load->view('layouts/header_view');
 body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
 
-input[type=text], input[type=password] {
-  width: 100%;
+input[type=text], input[type=password],select {
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -26,7 +26,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 20%;
 }
 
 button:hover {
@@ -68,25 +68,47 @@ span.psw {
      width: 100%;
   }
 }
+
+.col2 {
+  position:absolute;
+  width: 9%;
+  margin-top: 6px;
+  left: 30%;
+}
+
+.col2_in {
+  width: 20%;
+  margin-top: 6px;
+  position: absolute;
+  left: 40%
+}
+.row {
+	margin-right: -15px;
+  margin-left: -15px;
+	float:left;
+}
 </style>
 </head>
 <body>
 
-<h2 >Login Form</h2>
+<h2 style="text-align:center;">Office/Institution Login</h2>
 
 <form action="/action_page.php" method="post">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit">Login</button>
+    
+    <div class="row">
+    <label for="uname" class="col2"><b>Username/User Id</b></label>
+    <input class="col2_in" type="text" placeholder="Enter Username" name="uname" required>
+    </div>
+    <br/><br/><br/><br/><br/><br/>
+    <div class="row">
+    <label class="col2" for="psw"><b>Password</b></label>
+    <input class="col2_in" type="password" placeholder="Enter Password" name="psw" required>
+    </div>   
+    <br/><br/><br/><br/><br/><br/>
+    <div class="row">
+    <button type="submit" class="col2_in">Login</button>
+    </div><br/><br/><br/><br/><br/><br/>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -99,4 +121,5 @@ span.psw {
 </form>
 
 </body>
+<?php $this->load->view('layouts/footer_view'); ?>
 </html>
