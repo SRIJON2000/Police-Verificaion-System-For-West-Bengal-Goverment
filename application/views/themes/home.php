@@ -49,9 +49,7 @@ $this->load->view('layouts/header_view');
 </style>
 </head>
 <body>
-    <div class="header">
-    <a style="position:absolute;left:87%;top:15%" href="http://localhost/pvr/">Register Your Office</a>
-    </div>
+    <a class="header"style="position:absolute;left:87%;top:11%" href="http://localhost/pvr/">Register Your Office</a>
     <div id="body_home">
         <h3 class="text-center">WELCOME!</h3>
         <div class="text-center" id="buttons">
