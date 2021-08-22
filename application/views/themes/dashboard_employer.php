@@ -109,13 +109,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-primary text-white mb-4">
                                     <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" ><b>Number</b></p><br/>
+                                        <p class="small text-white stretched-link" ><b>Number</b></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
                                     </div>
                                 </button>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <button class="card bg-warning text-white mb-4">
+                                <button  class="card bg-warning text-white mb-4">
                                     <div class="card-body"><b>No. of request received during the quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                           <p class="small text-white stretched-link text-center" ><b>Number</b></p>

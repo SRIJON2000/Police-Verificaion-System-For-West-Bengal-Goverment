@@ -22,7 +22,7 @@
     </style>
 <footer id="footer2" class="footer-home text-center" >
       <div class="copyRightsText">
-               <p style="text-align:center;">© Developed and designed by NIC<a href="http://www.nic.in/" target="_blank" id="link">National Informatics Centre</a>
+               <p style="text-align:center;">© Developed and designed by <a href="http://www.nic.in/" target="_blank" id="link">National Informatics Centre</a>
         </div>      
 </footer>
 </body>
