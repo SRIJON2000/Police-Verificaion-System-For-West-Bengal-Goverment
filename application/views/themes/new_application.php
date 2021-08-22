@@ -7,7 +7,9 @@ $this->load->view('layouts/header_view');
 <head>
 <title>New Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 <style>
+  
  body {font-family: Arial, Helvetica, sans-serif;}
 * {
   box-sizing: border-box;
@@ -732,9 +734,10 @@ input[type=submit]:hover {
         <input type="text" id="ps3" name="ps3">
       </div>
     </div><br/><br/><br/><br/><br/>
-    <input class="col2"type="submit" value="Submit" name="apply">
-    <input class="col3" style="left: 50%; position: absolute;" type="submit" value="Cancel" name="cancel">
-    <button class="col3" style="left: 60%; position: absolute;" onclick="reset()" type="submit" ><b>Reset</b><button>
+    <button class="col2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
+    <input class="col2" style="left: 50%; position: absolute;" type="submit" value="Back" name="back">
+    <input class="col3" style="left: 60%; position: absolute;"  type="submit" value="Submit" name="apply">
+    
   </form>
 <br/><br/><br/><br/><br/>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
