@@ -535,7 +535,7 @@ input[type=submit]:hover {
     </div>
   </div><br/><br/><br/><br/>
   
-  <hr size="8" width="90%" color="red">
+  <!--<hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate's Educational Details</p><br/>
   <hr size="1" width="90%" color="red">
   <div style="text-align:center;"><b>School Details</b></div>
@@ -694,7 +694,7 @@ input[type=submit]:hover {
               <option value="West Bengal">West Bengal</option>
       </select>
     </div>
-  </div><br/><br/><br/><br/><br/><br/><br/>
+  </div>--><br/><br/><br/><br/><br/><br/><br/>
   <hr size="8" width="90%" color="red">
   <div class="row">
       <div class="col1">
@@ -703,9 +703,6 @@ input[type=submit]:hover {
       <div class="col1_in">
         <input type="text" id="refno" name="refno" placeholder="Ref No" required>
       </div>
-    <!--</div>
-
-	<div class="row">-->
       <div class="col3">
         <label for="refdate"><b>Reference Date</b></label>
       </div>
