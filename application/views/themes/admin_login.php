@@ -111,6 +111,19 @@ span.psw {
     <div class="row">
     <input class="col2_in" type="password" placeholder="Enter Password" name="psw" required>
     </div><br/><br/><br/><br/> 
+    <div class="row">
+    <label class="col2_in" for="type"><b>Type</b></label>
+    </div><br/><br/>
+    <div class="row">
+    <select name="type" id="type"class="col2_in">
+          <option>--Select--</option>
+          <option value="ca">CA Section</option>
+          <option value="vr">VR Section</option>
+          <option value="ocvr">OC VR</option>
+          <option value="adm">ADM (VR Section)</option>
+          <option value="spdib">SP DIB</option>
+      </select>
+    </div><br/><br/><br/><br/> 
     <label class="col2_in">
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>  
