@@ -84,7 +84,7 @@ label {
   padding: 20px;
 }
 
-input[type=submit] {
+input[type=submit],button,#back {
   background-color: #04AA6D;
   color: white;
   padding: 12px 20px;
@@ -737,7 +737,7 @@ input[type=submit]:hover {
       </div>
     </div><br/><br/><br/><br/><br/>
     <button class="col2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
-    <input class="col2" style="left: 50%; position: absolute;" type="submit" value="Back" name="back">
+    <a class="col2_in" id="back" href="<?php base_url()?>dashboard_admin" style="left: 50%;width: 8%;text-decoration:none; position: absolute;">Back</a>
     <input class="col3" style="left: 60%; position: absolute;"  type="submit" value="Submit" name="apply">
     
   </form>
@@ -815,6 +815,13 @@ function reset()
 {
   document.getElementById("application").reset();
 }
+
+// function back()
+// {
+//   <?php
+//   redirect(base_url().'index.php/test/dashboard_admin')
+//   ?>
+// }
 </script>
 <?php $this->load->view('layouts/footer_view'); ?>
 </html>

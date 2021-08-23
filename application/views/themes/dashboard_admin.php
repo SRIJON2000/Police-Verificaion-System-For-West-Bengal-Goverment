@@ -55,7 +55,7 @@ $user=$this->session->userdata();
                             </a>
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?php base_url().'index.php/test/application'?>">New Application</a>
+                                    <a class="nav-link" href="<?php base_url()?>application">New Application</a>
                                     <a class="nav-link" href="#">Check Status</a>
                                     <a class="nav-link" href="#">Update Application</a>
                                     <a class="nav-link" href="#">Send Reminder</a>
@@ -249,11 +249,7 @@ $user=$this->session->userdata();
         <script src="<?php echo base_url();?>/theme_css2/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>/theme_css2/js/datatables-simple-demo.js"></script>
-        <script>
-            function logout(){
-            <?php $this->session->sess_destroy();
-            redirect('index.php/test/admin_login');?>}
-        </script>
+        
     
     </div>
     </body>
