@@ -25,6 +25,7 @@ class Login extends CI_Controller
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
+            
             $this->load->view('themes/admin_login');
         }
         else
@@ -44,42 +45,31 @@ class Login extends CI_Controller
         
         $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
         $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
-        
+        //$this->form_validation->set_rules('type', 'Type', 'required');
+
         if($this->form_validation->run() == FALSE)
         {
+            $this->session->set_flashdata('error', 'Invalid Username/User ID or password');
             $this->index();
         }
         else
         {
             $email = strtolower($this->security->xss_clean($this->input->post('uname')));
             $password = $this->input->post('psw');
+            $type=$this->input->post('type');
             
-            $result = $this->login_model->loginMe($email, $password);
+            $result = $this->login_model->loginMe($email, $password,$type);
             
             if(!empty($result))
             {
-                //$lastLogin = $this->login_model->lastLoginInfo($result->userId);
-				//$str = $this->db->last_query();
-				//echo "<pre>";  print_r($str);
-				//exit;
 	
-                $sessionArray = array('userId'=>$result->userId,                    
-                                        'role'=>$result->roleId,
-                                        'roleText'=>$result->role,
-                                        'name'=>$result->name,
-                                       // 'lastLogin'=> $lastLogin->createdDtm,
-                                        'isLoggedIn' => TRUE
-                                );
+                $sessionArray = array('username'=>$email,                    
+                                        'office_name'=>$result->office_name,
+                                    'user_type'=>$result->user_type);
 
                 $this->session->set_userdata($sessionArray);
-
-                unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
-
-                $loginInfo = array("userId"=>$result->userId, "sessionData" => json_encode($sessionArray), "machineIp"=>$_SERVER['REMOTE_ADDR'], "userAgent"=>getBrowserAgent(), "agentString"=>$this->agent->agent_string(), "platform"=>$this->agent->platform());
-
-                $this->login_model->lastLogin($loginInfo);
-                
-                redirect('/dashboard');
+                unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
+                redirect('index.php/test/dashboard_admin');
             }
             else
             {

@@ -28,5 +28,10 @@
         {
             $this->load->view('themes/check_application_status');
         }
+        function logout()
+        {
+            $this->session->sess_destroy();
+            $this->admin_login();
+        }
     }
 ?>

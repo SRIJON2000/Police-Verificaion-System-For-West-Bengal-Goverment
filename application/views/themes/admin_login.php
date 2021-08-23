@@ -1,6 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,8 +91,15 @@ span.psw {
 </style>
 </head>
 <body>
-
+<?php $error = $this->session->flashdata('error');?>
 <h2 style="text-align:center;">Administration Login</h2>
+<h3 style="text-align:center;color:red">
+<?php 
+if (!empty($error))
+  echo $error;
+  $this->session->sess_destroy();
+?>
+</h3>
 
 <form action="<?php echo base_url();?>index.php/login/login" method="post">
   <div class="container">
@@ -117,8 +125,8 @@ span.psw {
           <option>--Select--</option>
           <option value="ca">CA Section</option>
           <option value="vr">VR Section</option>
-          <option value="ocvr">OC VR</option>
-          <option value="adm">ADM (VR Section)</option>
+          <option value="1">OC VR</option>
+          <option value="2">ADM (VR Section)</option>
           <option value="spdib">SP DIB</option>
       </select>
     </div><br/><br/><br/><br/> 
