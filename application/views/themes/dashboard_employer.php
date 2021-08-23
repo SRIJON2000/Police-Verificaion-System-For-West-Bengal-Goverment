@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title icon="">Dashboard Employer</title>
+        <link rel = "icon" href ="<?php echo base_url();?>/application/views/pics/office.png" type = "image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
