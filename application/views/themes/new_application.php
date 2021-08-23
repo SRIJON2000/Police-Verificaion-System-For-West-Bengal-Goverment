@@ -720,8 +720,10 @@ input[type=submit]:hover {
       <div class="col1_in">
       <select name="dp" id="dp" required>
           <option>--Select--</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+          <option value="Navy">Navy</option>
+          <option value="Airforce">Airforce</option>
+          <option value="Army">Army</option>
+          <option value="Non Defence">Non-Defence</option>
       </select>
       </div>
     </div>
