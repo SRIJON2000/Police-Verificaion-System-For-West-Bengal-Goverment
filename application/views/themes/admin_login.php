@@ -21,7 +21,7 @@ input[type=text], input[type=password],select {
   box-sizing: border-box;
 }
 
-button,input[type=button] {
+button,input[type=submit] {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -104,7 +104,7 @@ span.psw {
     <div class="row">
     <input class="col2_in" type="text" placeholder="Enter Username" name="uname" required>
     </div>
-    <br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
     <div class="row">
     <label class="col2_in" for="psw"><b>Password</b></label>
     </div><br/>
