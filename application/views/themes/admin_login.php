@@ -132,7 +132,7 @@ span.psw {
     <input type="submit" class="col2_in" value="Login" name="login">
     </div>
     </form><br/><br/><br/><br/>
-    <span class="col2_in"><a href="#"><b>Forgot Password?</b></a></span><br/><br/><br/><br/><br/>
+    <span class="col2_in"><a href="#"><b>Forgot Password?</b></a></span><br/>
     
   </div>
 
