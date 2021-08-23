@@ -95,11 +95,11 @@ span.psw {
 
 <h2 style="text-align:center;">Administration Login</h2>
 
-<form action="<?php echo base_url();?>index.php/test/dashboard_admin" method="post">
+<form action="<?php echo base_url();?>index.php/login/login" method="post">
   <div class="container">
     
     <div class="row">
-    <label for="uname" class="col2_in"><b>Username/User Id</b></label>
+    <label for="uname" class="col2_in"><b>Username / User Id</b></label>
     </div><br/>
     <div class="row">
     <input class="col2_in" type="text" placeholder="Enter Username" name="uname" required>
