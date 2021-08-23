@@ -1,6 +1,11 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
+$this->load->helper('date');
+$format = "%Y-%M-%d";
+$a=mdate($format);
+$date=date_create($a,timezone_open("Indian/Reunion"));
+//echo date_format($date,"Y-m-d H:i:sP") . "<br>";
 ?>
 <!DOCTYPE html>
 <html>
@@ -130,7 +135,7 @@ input[type=submit]:hover {
 <body>
 
 <h2 style="text-align:center;font-size:25px;">Application Form</h2>
-  <form id="application">
+  <form id="application" action="<?php echo base_url();?>index.php/login/login" method="post">
 
   <div class="row">
       <div class="col1">
@@ -146,7 +151,7 @@ input[type=submit]:hover {
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="rcptdate" name="receiptdate" placeholder="Receipt Date.." required>
+        <input type="text" id="rcptdate" name="receiptdate" value="<?php $format = "%Y-%M-%d";echo mdate($format);?>" placeholder="Receipt Date.." required disabled>
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
@@ -250,9 +255,9 @@ input[type=submit]:hover {
       <div class="col3_in">
       <select name="gender" id="gender">
           <option>--Select--</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Others">Others</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+          <option value="3">Others</option>
       </select>
       </div>
   </div><br/><br/><br/><br/>
@@ -273,16 +278,16 @@ input[type=submit]:hover {
       <div class="col2_in">
       <select name="caste" id="caste">
           <option>--Select--</option>
-          <option value="gen">General</option>
-          <option value="obc-A">OBC-A</option>
-          <option value="obc-B">OBC-B</option>
-          <option value="sc">SC</option>
-          <option value="st">ST</option>
+          <option value="1">General</option>
+          <option value="2">OBC-A</option>
+          <option value="3">OBC-B</option>
+          <option value="4">SC</option>
+          <option value="5">ST</option>
       </select>
       </div>
-  </div>
+  </div><br/><br/><br/><br/><br/>
 
-  <div class="row">
+  <!-- <div class="row"> 
       <div class="col3">
         <label for="blood group"><b>Blood Group</b></label>
       </div>
@@ -299,7 +304,7 @@ input[type=submit]:hover {
           <option value="AB+">AB+</option>
       </select>
       </div>
-  </div><br/><br/><br/><br/><br/>
+  </div><br/><br/><br/><br/><br/> -->
   <hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
   
@@ -414,7 +419,7 @@ input[type=submit]:hover {
               <option value="Tripura">Tripura</option>
               <option value="Uttar Pradesh">Uttar Pradesh</option>
               <option value="Uttarakhand">Uttarakhand</option>
-              <option value="West Bengal">West Bengal</option>
+              <option value="19">West Bengal</option>
       </select>
     </div>
   </div><br/><br/><br/><br/><br/>
@@ -532,7 +537,7 @@ input[type=submit]:hover {
               <option value="Tripura">Tripura</option>
               <option value="Uttar Pradesh">Uttar Pradesh</option>
               <option value="Uttarakhand">Uttarakhand</option>
-              <option value="West Bengal">West Bengal</option>
+              <option value="19">West Bengal</option>
       </select>
     </div>
   </div><br/><br/><br/><br/>
@@ -696,7 +701,7 @@ input[type=submit]:hover {
               <option value="West Bengal">West Bengal</option>
       </select>
     </div>
-  </div>--><br/><br/><br/><br/><br/><br/><br/>
+  </div>--><br/><br/><br/>
   <hr size="8" width="90%" color="red">
   <div class="row">
       <div class="col1">

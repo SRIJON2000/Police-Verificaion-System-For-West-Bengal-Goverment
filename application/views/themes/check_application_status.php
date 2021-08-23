@@ -140,51 +140,51 @@
             <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
               <div class="step completed">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-cart"></i></div>
+                  <div class="step-icon"><i class="pe-7s-mail"></i></div>
                 </div>
                 <h4 class="step-title">Application Submitted</h4>
               </div>
 			  <div class="step">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-home"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">CA Section</h4>
               </div>
 
               <div class="step completed">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-config"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">VR Section</h4>
               </div>
               <div class="step completed">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-medal"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">OC VR</h4>
               </div>
               <div class="step">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-car"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">CP/SB/SP DIB</h4>
               </div>
               <div class="step">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-home"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">IB</h4>
               </div>
 			  <div class="step">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-home"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">ADM</h4>
               </div>
 
 			  <div class="step">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-home"></i></div>
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">VR Certificate Generated</h4>
               </div>

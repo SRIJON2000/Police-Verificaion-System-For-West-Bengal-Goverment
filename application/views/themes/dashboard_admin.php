@@ -56,7 +56,7 @@ $user=$this->session->userdata();
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="<?php base_url()?>application">New Application</a>
-                                    <a class="nav-link" href="#">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
                                     <a class="nav-link" href="#">Update Application</a>
                                     <a class="nav-link" href="#">Send Reminder</a>
                                 </nav>
