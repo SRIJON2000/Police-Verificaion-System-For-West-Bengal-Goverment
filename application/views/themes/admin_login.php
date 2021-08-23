@@ -95,7 +95,7 @@ span.psw {
 
 <h2 style="text-align:center;">Administration Login</h2>
 
-<form action="/action_page.php" method="post">
+<form action="<?php echo base_url();?>index.php/test/dashboard_admin" method="post">
   <div class="container">
     
     <div class="row">
@@ -129,8 +129,9 @@ span.psw {
     </label>  
     <br/><br/><br/>
     <div class="row">
-    <input type="button" class="col2_in" value="Login" name="login">
-    </div><br/><br/><br/><br/>
+    <input type="submit" class="col2_in" value="Login" name="login">
+    </div>
+    </form><br/><br/><br/><br/>
     <span class="col2_in"><a href="#"><b>Forgot Password?</b></a></span><br/><br/><br/><br/><br/>
     
   </div>
@@ -138,7 +139,7 @@ span.psw {
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Back</button>
   </div>
-</form>
+
 
 </body>
 <?php $this->load->view('layouts/footer_view'); ?>
