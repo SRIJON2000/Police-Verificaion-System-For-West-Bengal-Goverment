@@ -1,6 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
+$this->load->library('session');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +59,7 @@ $this->load->view('layouts/header_view');
         </div>
         <div class="text-center" id="buttons">
             <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">
-            <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'index.php/test/admin_login' ?>'"><b>AdministrationLogin</b></button>
+            <button style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'index.php/test/dashboard_admin';}else {echo base_url().'index.php/test/admin_login'; } ?>'"><b>AdministrationLogin</b></button>
         </div>
     </div>
     
