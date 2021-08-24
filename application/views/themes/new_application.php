@@ -267,7 +267,7 @@ input[type=submit]:hover {
         <label for="aadhar"><b>Aadhaar No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="aadhar" name="aadhaarno" maxlength="12" required>
+        <input type="number"style="height: 40px; font-size: 20px" id="aadhar" name="aadhaarno" maxlength="12" required>
       </div>
   </div>
 
@@ -313,7 +313,7 @@ input[type=submit]:hover {
         <label for="houseno1"><b>House No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text"  id="houseno1" name="houseno1" required>
+        <input type="number" style="height: 40px; font-size: 20px" id="houseno1" name="houseno1" required>
       </div>
   </div>
 
@@ -368,7 +368,7 @@ input[type=submit]:hover {
         <label for="pin1"><b>Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
+        <input type="number" style="height: 40px; font-size: 20px"id="pin1" name="pin1"  placeholder="Your Pincode.." required>
     </div>
 
     <div class="col2">
@@ -431,7 +431,7 @@ input[type=submit]:hover {
         <label for="houseno2"><b>House No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text"  id="houseno2" name="houseno2" required>
+        <input type="number" style="height: 40px; font-size: 20px" id="houseno2" name="houseno2" required>
       </div>
   </div>
 
@@ -486,7 +486,7 @@ input[type=submit]:hover {
         <label for="pin2"><b>Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="pin2" name="pin2"  placeholder="Your Pincode.." required>
+        <input type="number" style="height: 40px; font-size: 20px" id="pin2" name="pin2"  placeholder="Your Pincode.." required>
     </div>
 
     <div class="col2">
@@ -568,7 +568,7 @@ input[type=submit]:hover {
         <label for="spin"><b>School Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="spin" name="spin"  placeholder="Pincode.." required>
+        <input type="number" style="height: 40px; font-size: 20px"id="spin" name="spin"  placeholder="Pincode.." required>
     </div>
 
     <div class="col2">
@@ -647,7 +647,7 @@ input[type=submit]:hover {
         <label for="cpin"><b>College Pincode</b></label>
       </div>
     <div class="col1_in">
-        <input type="text" id="cpin" name="cpin"  placeholder="Pincode.." required>
+        <input type="number" style="height: 40px; font-size: 20px" id="cpin" name="cpin"  placeholder="Pincode.." required>
     </div>
 
     <div class="col2">
