@@ -33,12 +33,46 @@ class application extends CI_Controller
     /**
      * This function used to logged in user
      */
-    public function login()
+    public function newapp()
     {
         $this->load->library('form_validation');
         
+        $this->form_validation->set_rules('receiptno', 'Receipt No', 'required|trim');
+        $this->form_validation->set_rules('rcptdate', 'Receipt Date', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
         $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
         $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
+        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
+        $this->form_validation->set_rules('psw', 'Password', 'required|max_length[32]');
+        $this->form_validation->set_rules('type', 'Type', 'required');
         $this->form_validation->set_rules('type', 'Type', 'required');
 
         if($this->form_validation->run() == FALSE)

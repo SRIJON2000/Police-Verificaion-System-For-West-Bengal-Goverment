@@ -135,7 +135,7 @@ input[type=submit]:hover {
 <body>
 
 <h2 style="text-align:center;font-size:25px;">Application Form</h2>
-  <form id="application" action="<?php echo base_url();?>index.php/login/login" method="post">
+  <form id="application" action="<?php echo base_url();?>index.php/application/newapp" method="post">
 
   <div class="row">
       <div class="col1">
