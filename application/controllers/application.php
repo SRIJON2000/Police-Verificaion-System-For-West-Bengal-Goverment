@@ -90,7 +90,7 @@ class application extends CI_Controller
 
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Invalid Username/User ID or password');
+            $this->session->set_flashdata('error', 'Invalid');
             $this->index();
         }
         else
