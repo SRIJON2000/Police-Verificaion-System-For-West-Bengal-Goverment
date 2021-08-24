@@ -30,8 +30,12 @@
         }
         function logout()
         {
-            //$this->session->sess_destroy();
+            $this->session->sess_destroy();
             $this->admin_login();
+        }
+        function test()
+        {
+            $this->load->view('themes/test');
         }
     }
 ?>
