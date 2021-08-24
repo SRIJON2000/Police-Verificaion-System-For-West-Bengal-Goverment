@@ -2,7 +2,7 @@
 class login_model extends CI_Model
 {
     
-    function loginMe($email, $password,$type)
+    function loginMe($email, $password)
     {
         $this->db->select('password,office_id_fk');
         $this->db->from('pvr_login');

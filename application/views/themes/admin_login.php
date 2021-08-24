@@ -118,23 +118,6 @@ if (!empty($error))
     <input class="col2_in" type="password" placeholder="Enter Password" name="psw" required>
     </div><br/><br/><br/><br/> 
     <div class="row">
-    <label class="col2_in" for="type"><b>Type</b></label>
-    </div><br/><br/>
-    <div class="row">
-    <select name="type" id="type"class="col2_in">
-          <option>--Select--</option>
-          <option value="ca">CA Section</option>
-          <option value="vr">VR Section</option>
-          <option value="1">OC VR</option>
-          <option value="2">ADM (VR Section)</option>
-          <option value="spdib">SP DIB</option>
-      </select>
-    </div><br/><br/><br/><br/> 
-    <label class="col2_in">
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>  
-    <br/><br/><br/>
-    <div class="row">
     <input type="submit" class="col2_in" value="Login" name="login">
     </div>
     </form><br/><br/><br/><br/>
