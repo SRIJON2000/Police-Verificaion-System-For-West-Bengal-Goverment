@@ -285,9 +285,9 @@ input[type=submit]:hover {
           <option value="5">ST</option>
       </select>
       </div>
-  </div><br/><br/><br/><br/><br/>
+  </div>
 
-  <!-- <div class="row"> 
+  <div class="row"> 
       <div class="col3">
         <label for="blood group"><b>Blood Group</b></label>
       </div>
@@ -304,7 +304,7 @@ input[type=submit]:hover {
           <option value="AB+">AB+</option>
       </select>
       </div>
-  </div><br/><br/><br/><br/><br/> -->
+  </div><br/><br/><br/><br/><br/>
   <hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
   
@@ -542,7 +542,7 @@ input[type=submit]:hover {
     </div>
   </div><br/><br/><br/><br/>
   
-  <!--<hr size="8" width="90%" color="red">
+  <hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate's Educational Details</p><br/>
   <hr size="1" width="90%" color="red">
   <div style="text-align:center;"><b>School Details</b></div>
@@ -701,7 +701,7 @@ input[type=submit]:hover {
               <option value="West Bengal">West Bengal</option>
       </select>
     </div>
-  </div>--><br/><br/><br/>
+  </div><br/><br/><br/><br/>
   <hr size="8" width="90%" color="red">
   <div class="row">
       <div class="col1">
