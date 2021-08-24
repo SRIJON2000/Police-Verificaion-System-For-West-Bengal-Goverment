@@ -49,7 +49,7 @@ class Login extends CI_Controller
 
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Invalid Username/User ID or password');
+            $this->session->set_flashdata('error', 'Invalid Input !!!!');
             $this->index();
         }
         else
@@ -59,21 +59,23 @@ class Login extends CI_Controller
             $type=$this->input->post('type');
             
             $result = $this->login_model->loginMe($email, $password,$type);
-            
             if(!empty($result))
             {
 	
                 $sessionArray = array('username'=>$email,                    
-                                        'office_name'=>$result->office_name,
-                                    'user_type'=>$result->user_type);
-
+                                        'office_name'=>$result['office_name'],
+                                    'user_type'=>$result['user_type']);
+                
+                
+                $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
+                
                 unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
                 redirect('index.php/test/dashboard_admin');
             }
             else
             {
-                $this->session->set_flashdata('error', 'Incorrect Username/User ID or password');
+                $this->session->set_flashdata('error', 'Incorrect Username or password !!!');
                 $this->index();
             }
         }

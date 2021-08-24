@@ -4,28 +4,29 @@ class login_model extends CI_Model
     
     function loginMe($email, $password,$type)
     {
-        $this->db->select('password','office_id_fk');
+        $this->db->select('password,office_id_fk');
         $this->db->from('pvr_login');
         $this->db->where('username',$email);
         $query = $this->db->get();
         $user = $query->row();
         
+        
+
         if(!empty($user)){
-            //$hashed_password=crypt($password);
             $hashed_password=hash( "sha256", $password );
-            echo $hashed_password;
             if($user->password==$hashed_password){
                 $this->db->select('office_name');
                 $this->db->from('pvr_master_office');
                 $this->db->where('office_id_pk',$user->office_id_fk);
-                $query = $this->db->get();
-                $office = $query->row();
+                $query1 = $this->db->get();
+                $office = $query1->row();
+
 
                 $this->db->select('desig_name');
                 $this->db->from('pvr_master_designation');
                 $this->db->where('desig_id_pk',$type);
-                $query = $this->db->get();
-                $desig = $query->row();
+                $query2 = $this->db->get();
+                $desig = $query2->row();
 
                 $result=array('office_name'=>$office->office_name,
                                 'user_type'=>$desig->desig_name);
