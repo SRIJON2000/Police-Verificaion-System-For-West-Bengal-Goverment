@@ -736,10 +736,10 @@ input[type=submit]:hover {
       <div class="col1_in">
       <select name="dp" id="dp" required>
           <option>--Select--</option>
-          <option value="Navy">Navy</option>
-          <option value="Airforce">Airforce</option>
-          <option value="Army">Army</option>
-          <option value="Non Defence">Non-Defence</option>
+          <option value="1">Navy</option>
+          <option value="2">Airforce</option>
+          <option value="3">Army</option>
+          <option value="4">Non-Defence</option>
       </select>
       </div>
     </div>
@@ -749,7 +749,7 @@ input[type=submit]:hover {
         <label for="ps3" ><b>Police Station</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="ps3" name="ps3">
+        <input type="text" id="ps3" value="Howrah"name="ps3">
       </div>
     </div><br/><br/><br/><br/><br/>
     <button class="col2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>

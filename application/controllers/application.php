@@ -8,37 +8,15 @@ class application extends CI_Controller
     }
     public function index()
     {
-        $this->isLoggedIn();
+        redirect('index.php/test/applications');
     }
-    /**
-     * This function used to check the user is logged in or not
-     */
-    function isLoggedIn()
-    {
-        $isLoggedIn = $this->session->userdata('isLoggedIn');
-        
-        if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
-        {
-            
-            $this->load->view('themes/admin_login');
-        }
-        else
-        {
-            /*redirect('/dashboard');*/
-            $this->load->view('themes/dashboard_admin');
-        }
-    }
-    
-    
-    /**
-     * This function used to logged in user
-     */
+  
     public function newapp()
     {
         $this->load->library('form_validation');
         
         $this->form_validation->set_rules('receiptno', 'Receipt No', 'required|trim');
-        $this->form_validation->set_rules('rcptdate', 'Receipt Date', 'required');
+        $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
         $this->form_validation->set_rules('authorityname', 'Authority Name', 'required|trim|max_length[128]');
         $this->form_validation->set_rules('authorityaddress', 'Authority Address', 'required|max_length[128]|trim');
         $this->form_validation->set_rules('firstname', 'First Name', 'required|max_length[32]|trim');
@@ -97,7 +75,7 @@ class application extends CI_Controller
         {
             
             $data=array('receiptno'=>$this->input->post('receiptno'),
-            'rcptdate'=>$this->input->post('rcptdate'),
+            'receiptdate'=>$this->input->post('receiptdate'),
             'authorityname'=>$this->input->post('authorityname'),
             'authorityaddress'=>$this->input->post('authorityaddress'),
             'firstname'=>$this->input->post('firstname'),
@@ -147,24 +125,9 @@ class application extends CI_Controller
             'ps3'=>$this->input->post('ps3'));
             
             
-            $result = $this->application_model->submit($data);
+            $this->application_model->submit($data);
+            redirect('index.php/test/dashboard_admin');
             
-            if(!empty($result))
-            {
-	
-                $sessionArray = array('username'=>$email,                    
-                                        'office_name'=>$result->office_name,
-                                    'user_type'=>$result->user_type);
-
-                $this->session->set_userdata($sessionArray);
-                unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
-                redirect('index.php/test/dashboard_admin');
-            }
-            else
-            {
-                $this->session->set_flashdata('error', 'Incorrect Username/User ID or password');
-                $this->index();
-            }
         }
     }
 }
