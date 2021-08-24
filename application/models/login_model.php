@@ -4,7 +4,7 @@ class login_model extends CI_Model
     
     function loginMe($email, $password)
     {
-        $this->db->select('password,office_id_fk');
+        $this->db->select('password,office_id_fk,desig_id_fk');
         $this->db->from('pvr_login');
         $this->db->where('username',$email);
         $query = $this->db->get();
@@ -24,7 +24,7 @@ class login_model extends CI_Model
 
                 $this->db->select('desig_name');
                 $this->db->from('pvr_master_designation');
-                $this->db->where('desig_id_pk',$type);
+                $this->db->where('desig_id_pk',$user->desig_id_fk);
                 $query2 = $this->db->get();
                 $desig = $query2->row();
 
