@@ -95,11 +95,59 @@ class application extends CI_Controller
         }
         else
         {
-            $email = strtolower($this->security->xss_clean($this->input->post('uname')));
-            $password = $this->input->post('psw');
-            $type=$this->input->post('type');
             
-            $result = $this->login_model->loginMe($email, $password,$type);
+            $data=array('receiptno'=>$this->input->post('receiptno'),
+            'rcptdate'=>$this->input->post('rcptdate'),
+            'authorityname'=>$this->input->post('authorityname'),
+            'authorityaddress'=>$this->input->post('authorityaddress'),
+            'firstname'=>$this->input->post('firstname'),
+            'middlename'=>$this->input->post('middlename'),
+            'lastname'=>$this->input->post('lastname'),
+            'fathername'=>$this->input->post('fathername'),
+            'nation'=>$this->input->post('nation'),
+            'dob'=>$this->input->post('dob'),
+            'mothername'=>$this->input->post('mothername'),
+            'pob'=>$this->input->post('pob'),
+            'gender'=>$this->input->post('gender'),
+            'aadhaarno'=>$this->input->post('aadhaarno'),
+            'caste'=>$this->input->post('caste'),
+            'blood'=>$this->input->post('blood'),
+            'houseno1'=>$this->input->post('houseno1'),
+            'street1'=>$this->input->post('street1'),
+            'landmark1'=>$this->input->post('landmark1'),
+            'city1'=>$this->input->post('city1'),
+            'po1'=>$this->input->post('po1'),
+            'ps1'=>$this->input->post('ps1'),
+            'pin1'=>$this->input->post('pin1'),
+            'district1'=>$this->input->post('district1'),
+            'State1'=>$this->input->post('State1'),
+            'houseno2'=>$this->input->post('houseno2'),
+            'street2'=>$this->input->post('street2'),
+            'landmark2'=>$this->input->post('landmark2'),
+            'city2'=>$this->input->post('city2'),
+            'po2'=>$this->input->post('po2'),
+            'ps2'=>$this->input->post('ps2'),
+            'pin2'=>$this->input->post('pin2'),
+            'district2'=>$this->input->post('district2'),
+            'State2'=>$this->input->post('State2'),
+
+            'sname'=>$this->input->post('sname'),
+            'saddress'=>$this->input->post('saddress'),
+            'spin'=>$this->input->post('spin'),
+            'sdistrict'=>$this->input->post('sdistrict'),
+            'sstate'=>$this->input->post('sstate'),
+            'cname'=>$this->input->post('cname'),
+            'caddress'=>$this->input->post('caddress'),
+            'cpin'=>$this->input->post('cpin'),
+            'cdistrict'=>$this->input->post('cdistrict'),
+            'cstate'=>$this->input->post('cstate'),
+            'refno'=>$this->input->post('refno'),
+            'refdate'=>$this->input->post('refdate'),
+            'dp'=>$this->input->post('dp'),
+            'ps3'=>$this->input->post('ps3'));
+            
+            
+            $result = $this->application_model->submit($data);
             
             if(!empty($result))
             {
