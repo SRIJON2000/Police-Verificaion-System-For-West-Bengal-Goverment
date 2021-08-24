@@ -376,7 +376,7 @@ input[type=submit]:hover {
     </div>
     <div class="col2_in">
     <select class="form-control" id="inputState1" name="state1">
-                        <option value="SelectState">Select State</option>
+                        <option value="">--------------------------Select State-------------------------</option>
                         <option value="Andra Pradesh">Andra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                         <option value="Assam">Assam</option>
@@ -417,11 +417,11 @@ input[type=submit]:hover {
                       </select>
   </div>
   <div class="col3">
-    <label for="inputDistrict1">District</label>
+    <label for="inputDistrict1"><b>District</b></label>
 </div>
 <div class="col3_in">
     <select class="form-control" id="inputDistrict1" name="district1">
-        <option value="">-- select one -- </option>
+        <option value="">--------------------------Select State-------------------------</option>
     </select>
   </div>
 
@@ -498,7 +498,7 @@ input[type=submit]:hover {
     </div>
     <div class="col2_in">
     <select class="form-control" id="inputState2" name="state2">
-                        <option value="SelectState">Select State</option>
+                        <option value="">--------------------------Select State-------------------------</option>
                         <option value="Andra Pradesh">Andra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                         <option value="Assam">Assam</option>
@@ -539,11 +539,11 @@ input[type=submit]:hover {
                       </select>
   </div>
   <div class="col3">
-    <label for="inputDistrict2">District</label>
+    <label for="inputDistrict2"><b>District</b></label>
 </div>
 <div class="col3_in">
     <select class="form-control" id="inputDistrict2" name="district2">
-        <option value="">-- select one -- </option>
+        <option value="">--------------------------Select State-------------------------</option>
     </select>
   </div>
 </div>
@@ -583,7 +583,7 @@ input[type=submit]:hover {
     </div>
     <div class="col2_in">
     <select class="form-control" id="inputState3" name="sstate">
-                        <option value="SelectState">Select State</option>
+                        <option value="">--------------------------Select State-------------------------</option>
                         <option value="Andra Pradesh">Andra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                         <option value="Assam">Assam</option>
@@ -624,11 +624,11 @@ input[type=submit]:hover {
                       </select>
   </div>
   <div class="col3">
-    <label for="inputDistrict3">District</label>
+    <label for="inputDistrict3"><b>District</b></label>
 </div>
 <div class="col3_in">
     <select class="form-control" id="inputDistrict3" name="sdistrict">
-        <option value="">-- select one -- </option>
+        <option value="">--------------------------Select State-------------------------</option>
     </select>
   </div>
   </div><br/><br/><br/><br/>
@@ -664,7 +664,7 @@ input[type=submit]:hover {
     </div>
     <div class="col2_in">
     <select class="form-control" id="inputState4" name="cstate">
-                        <option value="SelectState">Select State</option>
+                        <option value="">--------------------------Select State-------------------------</option>
                         <option value="Andra Pradesh">Andra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                         <option value="Assam">Assam</option>
@@ -705,11 +705,11 @@ input[type=submit]:hover {
                       </select>
   </div>
   <div class="col3">
-    <label for="inputDistrict4">District</label>
+    <label for="inputDistrict4"><b>District</b></label>
 </div>
 <div class="col3_in">
     <select class="form-control" id="inputDistrict4" name="cdistrict">
-        <option value="">-- select one -- </option>
+        <option value="">--------------------------Select State-------------------------</option>
     </select>
   </div>
   </div><br/><br/><br/><br/>
@@ -778,8 +778,8 @@ function show()
   var po1= document.getElementById("po1");
   var ps1 = document.getElementById("ps1");
   var pin1 = document.getElementById("pin1");
-  var district1 = document.getElementById("district1");
-  var state1= document.getElementById("state1");
+  var district1 = document.getElementById("inputDistrict1");
+  var state1= document.getElementById("inputState1");
   
   var street2 = document.getElementById("street2");
   var houseno2 = document.getElementById("houseno2");
@@ -788,8 +788,8 @@ function show()
   var po2= document.getElementById("po2");
   var ps2 = document.getElementById("ps2");
   var pin2= document.getElementById("pin2");
-  var district2 = document.getElementById("district2");
-  var state2= document.getElementById("state2");
+  var district2 = document.getElementById("inputDistrict2");
+  var state2= document.getElementById("inputState2");
 
   var checkBox=document.getElementById("check");
 
@@ -801,8 +801,10 @@ function show()
     po2.value=po1.value;
     ps2.value=ps1.value;
     pin2.value=pin1.value;
-    district2.value= district1.value;
+    //district2.value= district1.value;
     state2.value=state1.value;
+
+    $("#inputDistrict2").html("<option value='"+district1.value+"'>"+district1.value+"</option>");
   } 
   else
   {
@@ -813,8 +815,8 @@ function show()
   document.getElementById("po2").value="";
   document.getElementById("ps2").value="";
    document.getElementById("pin2").value="";
-   document.getElementById("district2").value="";
-    document.getElementById("state2").value="--Select--";
+   document.getElementById("inputDistrict2").value="--Select--";
+    document.getElementById("inputState2").value="--Select--";
   }
 }
 var mybutton = document.getElementById("myBtn");
