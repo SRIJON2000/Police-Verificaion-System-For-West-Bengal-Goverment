@@ -99,7 +99,6 @@ $error = $this->session->flashdata('error');
 if (!empty($error))
   echo $error;
   unset($_SESSION['error']);
-  //$this->session->sess_destroy();
 ?>
 </h3>
 
