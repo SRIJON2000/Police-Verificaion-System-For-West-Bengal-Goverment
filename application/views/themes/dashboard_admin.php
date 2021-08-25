@@ -15,6 +15,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        input[type=submit]{
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        </style>
     </head>
     <body>
     <?php 
@@ -148,25 +158,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <thead>
                                         <tr>
                                             <th>Candidate Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
                                             <th>Application date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Candidate Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
+                                        <th>Candidate Name</th>
                                             <th>Application date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+
                                         <tr>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <td><input type="submit" value="Check Status">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="View Details"></td>
+                                           
                                             
                                         </tr>
                                         

@@ -155,7 +155,7 @@ input[type=submit]:hover {
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
-	<div class="row">
+	<!-- <div class="row">
 	<div class="col1">
         <label for="authnm"><b>Authority Name</b></label>
       </div>
@@ -171,7 +171,7 @@ input[type=submit]:hover {
       <div class="col2_in">
         <input type="text" style="width:780px;"id="authaddress" name="authorityaddress" placeholder="Authority Address" required>
       </div>
-    </div><br/><br/><br/><br/><br/>
+    </div><br/><br/><br/><br/><br/> -->
     <hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate Personal Details</p><br/>
   <div class="row">

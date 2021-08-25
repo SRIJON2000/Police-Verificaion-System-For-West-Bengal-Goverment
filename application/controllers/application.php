@@ -17,8 +17,8 @@ class application extends CI_Controller
         
         $this->form_validation->set_rules('receiptno', 'Receipt No', 'required|trim');
         $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
-        $this->form_validation->set_rules('authorityname', 'Authority Name', 'required|trim|max_length[128]');
-        $this->form_validation->set_rules('authorityaddress', 'Authority Address', 'required|max_length[128]|trim');
+        // $this->form_validation->set_rules('authorityname', 'Authority Name', 'required|trim|max_length[128]');
+        // $this->form_validation->set_rules('authorityaddress', 'Authority Address', 'required|max_length[128]|trim');
         $this->form_validation->set_rules('firstname', 'First Name', 'required|max_length[32]|trim');
         $this->form_validation->set_rules('middlename', 'Middle Name', 'required|max_length[32]|trim');
         $this->form_validation->set_rules('lastname', 'Lats Name', 'required|max_length[32]|trim');
@@ -76,8 +76,8 @@ class application extends CI_Controller
             
             $data=array('receiptno'=>$this->input->post('receiptno'),
             'receiptdate'=>$this->input->post('receiptdate'),
-            'authorityname'=>$this->input->post('authorityname'),
-            'authorityaddress'=>$this->input->post('authorityaddress'),
+            // 'authorityname'=>$this->input->post('authorityname'),
+            // 'authorityaddress'=>$this->input->post('authorityaddress'),
             'firstname'=>$this->input->post('firstname'),
             'middlename'=>$this->input->post('middlename'),
             'lastname'=>$this->input->post('lastname'),

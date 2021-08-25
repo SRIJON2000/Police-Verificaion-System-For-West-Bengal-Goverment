@@ -78,11 +78,11 @@ class application_model extends CI_Model
         $candidate_district_id1=$this->fetch_district_id($d->district1);
         $candidate_district_id2=$this->fetch_district_id($d->district2);
 
-
+        $e=0;
         $candidate_detail=array(
             'candidate_id_pk'=>$maxcandidate_id->candidate_id_pk,
             'reference_no_fk'=>$d->refno,
-            'employer_id_fk'=>,
+            'employer_id_fk'=>$e,
             'profile_id_fk'=>$maxprofile_id->profile_id_pk,
             'candidate_f_name'=>$d->firstname,
             'candidate_m_name'=>$d->middlename,
