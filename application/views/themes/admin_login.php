@@ -1,6 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
+$this->load->library('session');
 
 ?>
 <!DOCTYPE html>
@@ -91,13 +92,14 @@ span.psw {
 </style>
 </head>
 <body>
-<?php $error = $this->session->flashdata('error');?>
 <h2 style="text-align:center;">Administration Login</h2>
 <h3 style="text-align:center;color:red">
 <?php 
+$error = $this->session->flashdata('error');
 if (!empty($error))
   echo $error;
-  $this->session->sess_destroy();
+  unset($_SESSION['error']);
+  //$this->session->sess_destroy();
 ?>
 </h3>
 
