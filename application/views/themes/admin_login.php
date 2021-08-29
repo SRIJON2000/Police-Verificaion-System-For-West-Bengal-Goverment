@@ -126,8 +126,8 @@ if (!empty($error))
     
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Back</button>
+  <div style=" padding-left:1%; background-color:#f1f1f1;">
+    <button style="border-radius: 5px;" type="button" class="cancelbtn">Back</button>
   </div>
 
 

@@ -22,6 +22,7 @@ class Login extends CI_Controller
     function isLoggedIn()
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
+        $usertype = $this->session->userdata('user_type');
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
@@ -31,7 +32,12 @@ class Login extends CI_Controller
         else
         {
             /*redirect('/dashboard');*/
-            $this->load->view('themes/dashboard_vr');
+            if($usertype == "ADDITIONAL DISTRICT MAGISTRATE")
+                $this->load->view('themes/dashboard_admin');
+            else if($usertype == "OCVR")
+                $this->load->view('themes/dashboard_ocvr');
+            else if($usertype == "VR")
+                $this->load->view('themes/dashboard_vr');
         }
     }
     
