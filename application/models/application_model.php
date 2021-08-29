@@ -95,7 +95,7 @@ class application_model extends CI_Model
             'candidate_landmark1'=>$d->landmark1,
             'candidate_city1'=>$d->city1,
             'candidate_post_office1'=>$d->po1,
-            'candidate_police_station_id1_fk'=>,
+            // 'candidate_police_station_id1_fk'=>,
             'candidate_pin1_fk'=>$candidate_pin_id1,
             'candidate_district_id1_fk'=>$candidate_district_id1,
             'candidate_photo_path'=>'test/path',

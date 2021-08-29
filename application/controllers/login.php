@@ -31,7 +31,7 @@ class Login extends CI_Controller
         else
         {
             /*redirect('/dashboard');*/
-            $this->load->view('themes/dashboard_admin');
+            $this->load->view('themes/dashboard_vr');
         }
     }
     

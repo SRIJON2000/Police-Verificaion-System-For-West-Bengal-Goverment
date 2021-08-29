@@ -12,6 +12,14 @@
         {
             $this->load->view('themes/dashboard_admin');
         }
+        function dashboard_ocvr()
+        {
+            $this->load->view('themes/dashboard_ocvr');
+        }
+        function dashboard_vr()
+        {
+            $this->load->view('themes/dashboard_vr');
+        }        
         function admin_login()
         {
             $this->load->view('themes/admin_login');
