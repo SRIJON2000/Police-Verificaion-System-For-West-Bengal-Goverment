@@ -8,9 +8,9 @@
         {
             $this->load->view('themes/dashboard_employer');
         }
-        function dashboard_admin()
+        function dashboard_adm()
         {
-            $this->load->view('themes/dashboard_admin');
+            $this->load->view('themes/dashboard_adm');
         }
         function dashboard_ocvr()
         {

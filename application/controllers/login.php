@@ -33,7 +33,7 @@ class Login extends CI_Controller
         {
             /*redirect('/dashboard');*/
             if($usertype == "ADDITIONAL DISTRICT MAGISTRATE")
-                $this->load->view('themes/dashboard_admin');
+                $this->load->view('themes/dashboard_adm');
             else if($usertype == "OCVR")
                 $this->load->view('themes/dashboard_ocvr');
             else if($usertype == "VR")
@@ -77,7 +77,7 @@ class Login extends CI_Controller
                 $this->session->set_userdata($sessionArray);
                 
                 unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
-                redirect('index.php/test/dashboard_admin');
+                redirect('index.php/test/dashboard_adm');
             }
             else
             {
