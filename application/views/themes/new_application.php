@@ -744,6 +744,17 @@ input[type=submit]:hover {
       </div>
     </div>
 
+    <div class="col2">
+        <label for="category"><b>Category</b></label>
+      </div>
+      <div class="col2_in">
+      <select name="category" id="category" required>
+          <option>--Select--</option>
+          <option value="1">Arban</option>
+          <option value="2">Rural</option>
+      </select>
+      </div> 
+
 	<div class="row">
       <div class="col3">
         <label for="ps3" ><b>Police Station</b></label>
