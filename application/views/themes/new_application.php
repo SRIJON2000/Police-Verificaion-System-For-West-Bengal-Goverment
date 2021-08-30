@@ -151,7 +151,7 @@ input[type=submit]:hover {
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="rcptdate" name="receiptdate" value="<?php $format = "%Y-%M-%d";echo mdate($format);?>" placeholder="Receipt Date.." required disabled>
+        <input type="date" id="rcptdate" style="height: 40px; font-size: 20px" name="receiptdate"  required>
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
@@ -172,7 +172,7 @@ input[type=submit]:hover {
         <input type="text" style="width:780px;"id="authaddress" name="authorityaddress" placeholder="Authority Address" required>
       </div>
     </div><br/><br/><br/><br/><br/> -->
-    <hr size="8" width="90%" color="red">
+    <br/><hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate Personal Details</p><br/>
   <div class="row">
     <div class="col1_in">
@@ -764,7 +764,7 @@ input[type=submit]:hover {
       </div>
     </div><br/><br/><br/><br/><br/>
     <button class="col2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
-    <a class="col2_in" id="back" href="<?php base_url()?>dashboard_admin" style="left: 50%;width: 8%;text-decoration:none; position: absolute;">Back</a>
+    <a class="col2_in" id="back" href="<?php base_url()?>dashboard_adm" style="left: 50%;width: 8%;text-decoration:none; position: absolute;">Back</a>
     <input class="col3" style="left: 60%; position: absolute;"  type="submit" value="Submit" name="apply">
     
   </form>
