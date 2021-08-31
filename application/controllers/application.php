@@ -8,7 +8,7 @@ class Application extends CI_Controller
     }
     public function index()
     {
-        redirect('Home/applications');
+        redirect('Home/application');
     }
   
     public function newapp()

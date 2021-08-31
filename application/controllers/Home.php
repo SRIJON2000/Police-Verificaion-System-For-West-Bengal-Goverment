@@ -45,6 +45,11 @@
         
         function application()
         {
+            $gender=$this->Application_model->fetch_gender();
+            $caste =$this->Application_model->fetch_caste();
+            $state=$this->Application_model->fetch_state();
+            $district=$this->Application_model->fetch_district();
+            $policestation=$this->Application_model->fetch_policestation();
             $this->load->view('themes/new_application');
         }
         

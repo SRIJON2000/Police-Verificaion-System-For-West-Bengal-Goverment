@@ -1,10 +1,34 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 class Application_model extends CI_Model
 {
-    function fetch_all()
+    function fetch_gender()
     {
-        
+        $gender = $this->db->get('pvr_master_gender'); 
+        return $gender;
     }
+    function fetch_state()
+    {
+        $state = $this->db->get('pvr_master_state'); 
+        return $state;
+    }
+    function fetch_caste()
+    {
+        $caste = $this->db->get('pvr_master_caste'); 
+        return $caste;
+    }
+    function fetch_policestation()
+    {
+        $ps = $this->db->get('pvr_master_policestation'); 
+        return $ps;
+    }
+    function fetch_district()
+    {
+        $district = $this->db->get('pvr_master_district'); 
+        return $district;
+    }
+
+
+
     function submit($d)
     {
         $school_district_id=$this->fetch_district_id($d->sdistrict);
