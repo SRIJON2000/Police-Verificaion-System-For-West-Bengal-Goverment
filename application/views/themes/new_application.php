@@ -6,6 +6,7 @@ $this->load->view('layouts/header_view');
 // $a=mdate($format);
 // $date=date_create($a,timezone_open("Indian/Reunion"));
 // echo date_format($date,"Y-m-d H:i:sP") . "<br>";
+$state_id='';
 ?>
 <!DOCTYPE html>
 <html>
@@ -287,13 +288,14 @@ hr{
       <select name="gender" id="gender">
           <option>--Select--</option>
           <?php
-            $gender1=$gender;
-            foreach($gender1 as $gen=>$gen_val)
+            foreach($genders as $gender)
             {
-              //$gen=$gender->row();
-              echo '<option value="'.$gen.'">'.$gen_val.'</option>';
+          ?>
+              <option value="<?php echo $gender['gender_id_pk']; ?>">
+							<?php echo $gender['gender_name']; ?></option>
+            <?php 
             }
-            ?>
+          ?>
       </select>
       </div>
   </div><br/><br/><br/><br/>
@@ -314,11 +316,15 @@ hr{
       <div class="col2_in">
       <select name="caste" id="caste">
           <option>--Select--</option>
-          <option value="1">General</option>
-          <option value="2">OBC-A</option>
-          <option value="3">OBC-B</option>
-          <option value="4">SC</option>
-          <option value="5">ST</option>
+          <?php
+            foreach($castes as $caste)
+            {
+          ?>
+              <option value="<?php echo $caste['caste_id_pk']; ?>">
+							<?php echo $caste['caste_name']; ?></option>
+            <?php 
+            }
+          ?>
       </select>
       </div>
   </div>
@@ -395,7 +401,18 @@ hr{
         <label for="ps1"><b>Police Station</b></label>
       </div>
       <div class="col3_in">
-        <input type="text"  id="ps1" name="ps1" required>
+      <select name="ps1" id="ps1">
+          <option>--Select--</option>
+          <?php
+            foreach($policestations as $ps)
+            {
+          ?>
+              <option value="<?php echo $ps['ps_id_pk']; ?>">
+							<?php echo $ps['ps_name']; ?></option>
+            <?php 
+            }
+          ?>
+      </select>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -411,9 +428,17 @@ hr{
     <label for="state1"><b>State</b></label>
     </div>
     <div class="col2_in">
-    <select class="form-control" id="inputState1" name="state1">
-                        <option value="">--------------------------Select State-------------------------</option>
-                        
+    <select class="form-control" id="state1" name="state1" onchange="get_district()">
+                        <option value="">------------Select State----------</option>
+                        <?php
+                                  foreach($states as $state)
+                                  {
+                                ?>
+                                    <option value="<?php echo $state['state_id_pk']; ?>">
+                                    <?php echo $state['state_name']; ?></option>
+                                  <?php 
+                                  }
+                         ?>
                       </select>
   </div>
   <div class="col3">
@@ -421,7 +446,19 @@ hr{
   </div>
   <div class="col3_in">
     <select class="form-control" id="inputDistrict1" name="district1">
-        <option value="">--------------------------Select State-------------------------</option>
+        <option value="">-------------Select District---------</option>
+        <?php
+                  foreach($districts as $district)
+                 {
+                   if($district['state_id_fk']==$state_id)
+                   {
+           ?>
+                  <option value="<?php echo $state['state_id_pk']; ?>">
+                  <?php echo $state['district_name']; ?></option>
+        <?php 
+                   }
+          }
+        ?>
     </select>
   </div>
 
@@ -737,5 +774,10 @@ function reset()
   document.getElementById("application").reset();
 }
 
+function get_district()
+{
+  var state_id=document.getElementById('state1');
+  <?php $state_id = "<script language=javascript>document.write(state_id);</script>" ?>
+}
 </script>
 </html>

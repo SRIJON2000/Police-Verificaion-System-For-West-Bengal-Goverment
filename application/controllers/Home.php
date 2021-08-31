@@ -46,12 +46,16 @@
         
         function application()
         {
-            $gender=$this->Application_model->fetch_gender();
-            $caste =$this->Application_model->fetch_caste();
-            $state=$this->Application_model->fetch_state();
-            $district=$this->Application_model->fetch_district();
-            $policestation=$this->Application_model->fetch_policestation();
-            $this->load->view('themes/new_application',$gender);
+            $data['genders']=$this->Application_model->fetch_gender();
+            $data['castes'] =$this->Application_model->fetch_caste();
+            $data['states']=$this->Application_model->fetch_state();
+            if($this->input->post('state1') != "")
+		{
+			$data['districts'] = $this->spm_model->get_district($this->input->post('state1'));
+		}
+            //$data['districts']=$this->Application_model->fetch_district();
+            $data['policestations']=$this->Application_model->fetch_policestation();
+            $this->load->view('themes/new_application',$data);
         }
         
         function status()
