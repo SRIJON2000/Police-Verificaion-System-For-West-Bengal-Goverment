@@ -8,92 +8,13 @@ $this->load->library('session');
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+<link rel="stylesheet" href="<?php echo base_url(); ?>\application\views\themes\CSS\stylesheet1.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-input[type=text], input[type=password],select {
-  width: 20%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button,input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-
-.col2 {
-  position:absolute;
-  width: 9%;
-  margin-top: 6px;
-  left: 30%;
-}
-
-.col2_in {
-  width: 20%;
-  margin-top: 6px;
-  position: absolute;
-  left: 40%
-}
-.row {
-	margin-right: -15px;
-  margin-left: -15px;
-	float:left;
-}
-</style>
 </head>
-<body>
-<h2 style="text-align:center;">Administration Login</h2>
-<h3 style="text-align:center;color:red">
+<body class="text-center row">
+<h2 class="txt-bold">Administration Login</h2>
+<h3 class="danger">
 <?php 
 $error = $this->session->flashdata('error');
 if (!empty($error))
@@ -102,35 +23,27 @@ if (!empty($error))
 ?>
 </h3>
 
-<form action="<?php echo base_url();?>Login/login" method="post">
-  <div class="container">
+<form action="<?php echo base_url();?>Login/login" method="post" class="form col-lg-12 col-md-12">
+  <div class="row text-center" id="login_form_style">
     
-    <div class="row">
-    <label for="uname" class="col2_in"><b>Username / User Id</b></label>
-    </div><br/>
-    <div class="row">
-    <input class="col2_in" type="text" placeholder="Enter Username" name="uname" required>
-    </div>
-    <br/><br/><br/><br/><br/>
-    <div class="row">
-    <label class="col2_in" for="psw"><b>Password</b></label>
-    </div><br/>
-    <div class="row">
-    <input class="col2_in" type="password" placeholder="Enter Password" name="psw" required>
-    </div><br/><br/><br/><br/> 
-    <div class="row">
-    <input type="submit" class="col2_in" value="Login" name="login">
-    </div>
-    </form><br/><br/><br/><br/>
-    <span class="col2_in"><a href="#"><b>Forgot Password?</b></a></span><br/>
-    
+      <div class="from-group col-md-12 mt-2">
+        <label for="uname"><b>Username / User Id</b></label><br>
+        <input id="ip_field_login" class="text-center mt-1" type="text" placeholder="Enter Username" name="uname" required>
+      </div>
+      <br/><br/>
+      <div class="form-group col-md-12 mt-2">
+        <label for="psw"><b>Password</b></label><br/>
+        <input id="ip_field_login" class="text-center mt-1" type="password" placeholder="Enter Password" name="psw" required>
+      </div><br/><br/><br>
+        <input type="submit" id="loginbtn" class="text-center btn bg-success text-light border-dark mt-3" value="Login" name="login">
+        <span class="mt-2"><a href="#"><b>Forgot Password?</b></a></span><br/>
+      </div>
+</form>
+
+  <div class="col-sm-1 mt-10" id="backbtn_login">
+    <button class=" btn bg-secondary border-dark text-light">Back</button>
   </div>
-
-  <div style=" padding-left:1%; background-color:#f1f1f1;">
-    <button style="border-radius: 5px;" type="button" class="cancelbtn">Back</button>
-  </div>
-
-
+  <br><br>
 </body>
 <?php $this->load->view('layouts/footer_view'); ?>
 </html>

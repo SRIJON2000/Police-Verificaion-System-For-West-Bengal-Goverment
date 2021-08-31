@@ -13,136 +13,131 @@ $state_id='';
 <head>
 <title>New Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-<style>
-  
- body {font-family: Arial, Helvetica, sans-serif;}
-* {
-  box-sizing: border-box;
-}
+<link rel="stylesheet" href="<?php echo base_url(); ?>\application\views\themes\CSS\stylesheet1.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-
-.row {
-	margin-right: -15px;
-  margin-left: -15px;
-	float:left;
-}
-
-.col1 {
-  width: 10%;
-  margin-top: 6px;
-  position:absolute;
-  left: 5%;
-}
-
-.col1_in {
-  width: 20%;
-  margin-top: 6px;
-  position:absolute;
-  left: 18%;
-}
-
-.col2 {
-  position:absolute;
-  width: 9%;
-  margin-top: 6px;
-  left: 40%;
-}
-
-.col2_in {
-  width: 20%;
-  margin-top: 6px;
-  position: absolute;
-  left: 48%
-}
-
-.col3 {
-  
-  width: 9%;
-  margin-top: 6px;
-  left: 70%;
-  position: absolute;
-}
-
-.col3_in {
-  width: 20%;
-  margin-top: 6px;
-  position:absolute;
-  left: 78%;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-input[type=submit],button,#back {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color:green;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
-}
-
-#myBtn:hover {
-  background-color: #555;
-}
-
-hr{
-  width:90%; border-top:10px solid red ;margin:auto;
-}
-</style>
 </head>
  <body>
-
+<style>
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  
+  .row_style {
+      margin-right: -15px;
+    margin-left: -15px;
+      float:left;
+  }
+  
+  .col1 {
+    width: 10%;
+    margin-top: 6px;
+    position:absolute;
+    left: 5%;
+  }
+  
+  .col1_in {
+    width: 20%;
+    margin-top: 6px;
+    position:absolute;
+    left: 18%;
+  }
+  
+  .col2 {
+    position:absolute;
+    width: 9%;
+    margin-top: 6px;
+    left: 40%;
+  }
+  
+  .col2_in {
+    width: 20%;
+    margin-top: 6px;
+    position: absolute;
+    left: 48%
+  }
+  
+  .col3 {
+    
+    width: 9%;
+    margin-top: 6px;
+    left: 70%;
+    position: absolute;
+  }
+  
+  .col3_in {
+    width: 20%;
+    margin-top: 6px;
+    position:absolute;
+    left: 78%;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  input[type=submit],button,#back {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color:green;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }
+  
+  hr{
+    width:90%; border-top:10px solid red ;margin:auto;
+  }
+</style>
   <h2 style="text-align:center;font-size:25px;">Application Form</h2>
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
 
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="rcptno"><b>Receipt No</b></label>
       </div>
@@ -151,7 +146,7 @@ hr{
       </div>
     <!--</div>
 
-	<div class="row">-->
+	<div class="row_style">-->
       <div class="col3">
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
@@ -160,7 +155,7 @@ hr{
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
-    <div class="row">
+    <div class="row_style">
       <div class="col1">
         <label for="officename"><b>Office Name</b></label>
       </div>
@@ -168,7 +163,7 @@ hr{
         <input type="text" style="width:780px;" id="officename" name="officename" placeholder="Full Name..." required>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="officeaddress1"><b>Office Address1</b></label>
       </div>
@@ -176,7 +171,7 @@ hr{
         <input type="text" style="width:780px;" id="officeaddress1" name="officeaddress1"  required>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="officeaddress1"><b>Office Address2</b></label>
       </div>
@@ -186,7 +181,7 @@ hr{
   </div><br/><br/><br/><br/>
 
 
-	<!-- <div class="row">
+	<!-- <div class="row_style">
 	<div class="col1">
         <label for="authnm"><b>Authority Name</b></label>
       </div>
@@ -195,7 +190,7 @@ hr{
       </div>
     </div>
 
-	<div class="row">
+	<div class="row_style">
       <div class="col2">
         <label for="authaddr" ><b>Authority Address</b></label>
       </div>
@@ -206,7 +201,7 @@ hr{
     <hr><br/>
     
 	<p style="font-size:30px; text-align:center; color:red">Candidate Personal Details</p><br/>
-  <div class="row">
+  <div class="row_style">
     <div class="col1_in">
         <label for="fname" style="color:blue;"><b>First Name</b></label>
       </div>
@@ -218,7 +213,7 @@ hr{
       </div>
   </div><br/><br/>
 
-    <div class="row">
+    <div class="row_style">
       <div class="col1">
         <p><b>Candidate Name</b></p>
       </div>
@@ -235,7 +230,7 @@ hr{
       </div>
     </div><br/><br/><br/><br/>
 
-	<!-- <div class="row">
+	<!-- <div class="row_style">
       <div class="col1">
         <label for="fathername"><b>Candidate's Father Name</b></label>
       </div>
@@ -244,7 +239,7 @@ hr{
       </div>
     </div>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="nationality"><b>Nationality</b></label>
       </div>
@@ -253,16 +248,14 @@ hr{
       </div>
   </div> -->
 
-  <div class="row">
-      <div class="col3">
+  <div class="row_style">
+      <div class="col1">
         <label for="dob"><b>Date Of Birth</b></label>
       </div>
-      <div class="col3_in">
+      <div class="col1_in">
         <input type="date" id="dob" name="dob" style="height: 40px; font-size: 20px" required>
-      </div>
-  </div><br/><br/><br/><br/>
-   
-  <!-- <div class="row">
+      </div>  
+  <!-- <div class="row_style">
       <div class="col1">
         <label for="mothername"><b>Candidate's Mother Name</b></label>
       </div>
@@ -271,7 +264,7 @@ hr{
       </div>
   </div>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="pob"><b>Place Of Birth</b></label>
       </div>
@@ -280,11 +273,10 @@ hr{
       </div>
   </div> -->
 
-  <div class="row">
-      <div class="col3">
+      <div class="col2">
         <label for="gender"><b>Gender</b></label>
       </div>
-      <div class="col3_in">
+      <div class="col2_in">
       <select name="gender" id="gender">
           <option>--Select--</option>
           <?php
@@ -298,18 +290,17 @@ hr{
           ?>
       </select>
       </div>
-  </div><br/><br/><br/><br/>
 
-  <div class="row">
-      <div class="col1">
+      <div class="col3">
         <label for="aadhar"><b>Aadhaar No</b></label>
       </div>
-      <div class="col1_in">
+      <div class="col3_in">
         <input type="number"style="height: 40px; font-size: 20px" id="aadhar" name="aadhaarno" maxlength="12" required>
       </div>
   </div>
+  <br/><br/><br/><br/>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="caste"><b>Caste</b></label>
       </div>
@@ -329,7 +320,7 @@ hr{
       </div>
   </div>
 
-  <!-- <div class="row"> 
+  <!-- <div class="row_style"> 
       <div class="col3">
         <label for="blood group"><b>Blood Group</b></label>
       </div>
@@ -350,7 +341,7 @@ hr{
   <hr size="8" width="90%" color="red">
 	<p style="font-size:30px; text-align:center; color:red">Candidate's Permanent Address</p><br/>
   
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="houseno1"><b>House No</b></label>
       </div>
@@ -359,7 +350,7 @@ hr{
       </div>
   </div>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="street1"><b>Street/Lane</b></label>
       </div>
@@ -368,7 +359,7 @@ hr{
       </div>
   </div>
   
-  <div class="row">
+  <div class="row_style">
       <div class="col3">
         <label for="landmark1"><b>Landmark</b></label>
       </div>
@@ -378,7 +369,7 @@ hr{
   </div><br/><br/><br/><br/>
 
 
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="city1"><b>City</b></label>
       </div>
@@ -387,7 +378,7 @@ hr{
       </div>
   </div>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="po1"><b>Post Office</b></label>
       </div>
@@ -396,7 +387,7 @@ hr{
       </div>
   </div>
   
-  <div class="row">
+  <div class="row_style">
       <div class="col3">
         <label for="ps1"><b>Police Station</b></label>
       </div>
@@ -416,7 +407,7 @@ hr{
       </div>
   </div><br/><br/><br/><br/>
 
-  <div class="row">
+  <div class="row_style">
     <div class="col1">
         <label for="pin1"><b>Pincode</b></label>
       </div>
@@ -468,7 +459,7 @@ hr{
   <hr size="8" width="90%" color="red">
   <p style="font-size:30px; text-align:center; color:red"> Candidate's Current Address</p>
   <div style="text-align:center;font-size:20px;color:red;"><input type="checkbox" id="check" onclick="show()">Same as Permanent Address</div>
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="houseno2"><b>House No</b></label>
       </div>
@@ -477,7 +468,7 @@ hr{
       </div>
   </div>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="street2"><b>Street/Lane</b></label>
       </div>
@@ -486,7 +477,7 @@ hr{
       </div>
   </div>
   
-  <div class="row">
+  <div class="row_style">
       <div class="col3">
         <label for="landmark2"><b>Landmark</b></label>
       </div>
@@ -496,7 +487,7 @@ hr{
   </div><br/><br/><br/><br/>
 
 
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="city2"><b>City</b></label>
       </div>
@@ -505,7 +496,7 @@ hr{
       </div>
   </div>
 
-  <div class="row">
+  <div class="row_style">
       <div class="col2">
         <label for="po2"><b>Post Office</b></label>
       </div>
@@ -514,7 +505,7 @@ hr{
       </div>
   </div>
   
-  <div class="row">
+  <div class="row_style">
       <div class="col3">
         <label for="ps2"><b>Police Station</b></label>
       </div>
@@ -534,7 +525,7 @@ hr{
       </div>
   </div><br/><br/><br/><br/>
 
-  <div class="row">
+  <div class="row_style">
     <div class="col1">
         <label for="pin2"><b>Pincode</b></label>
       </div>
@@ -575,7 +566,7 @@ hr{
   <hr size="1" width="90%" color="red">
   <div style="text-align:center;"><b>School Details</b></div>
   <hr size="1" width="90%" color="red">
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="sname"><b>School Name</b></label>
       </div>
@@ -583,7 +574,7 @@ hr{
         <input type="text" style="width:780px;" id="sname" name="sname" placeholder="Full Name..." required>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="saddress"><b>School Address</b></label>
       </div>
@@ -591,7 +582,7 @@ hr{
         <input type="text" style="width:780px;" id="saddress" name="saddress" placeholder="Address..." required>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row">
+  <div class="row_style">
     <div class="col1">
         <label for="spin"><b>School Pincode</b></label>
       </div>
@@ -620,7 +611,7 @@ hr{
   <hr size="1" width="90%" color="red">
   <div style="text-align:center;"><b>College Details</b></div>
   <hr size="1" width="90%" color="red">
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="cname"><b>College Name</b></label>
       </div>
@@ -628,7 +619,7 @@ hr{
         <input type="text" style="width:780px;" id="cname" name="cname" placeholder="Full Name..." required>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="caddress"><b>College Address</b></label>
       </div>
@@ -636,7 +627,7 @@ hr{
         <input type="text" style="width:780px;" id="caddress" name="caddress" placeholder="Address..." required>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row">
+  <div class="row_style">
     <div class="col1">
         <label for="cpin"><b>College Pincode</b></label>
       </div>
@@ -663,7 +654,7 @@ hr{
   </div>
   </div><br/><br/><br/><br/> --><br/><br/><br/>
   <!-- <hr> -->
-  <div class="row">
+  <div class="row_style">
       <div class="col1">
         <label for="refno"><b>Reference No</b></label>
       </div>
@@ -678,7 +669,7 @@ hr{
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
-	<div class="row">
+	<div class="row_style">
 	<div class="col1">
         <label for="dp"><b>Defence Personnel</b></label>
       </div>
@@ -704,7 +695,7 @@ hr{
       </select>
       </div> 
 
-	<div class="row">
+	<div class="row_style">
       <div class="col3">
         <label for="ps3" ><b>Police Station</b></label>
       </div>
