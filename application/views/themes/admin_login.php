@@ -102,7 +102,7 @@ if (!empty($error))
 ?>
 </h3>
 
-<form action="<?php echo base_url();?>index.php/login/login" method="post">
+<form action="<?php echo base_url();?>Login/login" method="post">
   <div class="container">
     
     <div class="row">

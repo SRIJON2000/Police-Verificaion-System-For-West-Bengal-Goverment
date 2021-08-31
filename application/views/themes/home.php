@@ -53,13 +53,15 @@ $this->load->library('session');
     
     <div id="body_home">
         <h3 class="text-center"><b>WELCOME!</b></h3>
-        <div class="text-center" id="buttons">
+        <!--
+            <div class="text-center" id="buttons">
             <img src="<?php echo base_url();?>/application/views/pics/office.png" alt="office image here" height="100" width="85">
-            <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'index.php/test/employer_login' ?>'"><b>Office Login</b></button>
+            <button style="width:auto;" onclick="window.location.href = '<?php echo base_url().'Home/employer_login' ?>'"><b>Office Login</b></button>
         </div>
+    -->
         <div class="text-center" id="buttons">
             <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">
-            <button style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'index.php/test/dashboard_adm';}else {echo base_url().'index.php/test/admin_login'; } ?>'"><b>AdministrationLogin</b></button>
+            <button style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>AdministrationLogin</b></button>
         </div>
     </div>
     

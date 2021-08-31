@@ -1,14 +1,14 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
-class application extends CI_Controller
+class Application extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('application_model');
+        $this->load->model('Application_model');
     }
     public function index()
     {
-        redirect('index.php/test/applications');
+        redirect('Home/applications');
     }
   
     public function newapp()
@@ -125,8 +125,8 @@ class application extends CI_Controller
             'ps3'=>$this->input->post('ps3'));
             
             
-            $this->application_model->submit($data);
-            redirect('index.php/test/dashboard_admin');
+            $this->Application_model->submit($data);
+            redirect('Home/dashboard_admin');
             
         }
     }

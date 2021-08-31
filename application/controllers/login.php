@@ -77,7 +77,7 @@ class Login extends CI_Controller
                 $this->session->set_userdata($sessionArray);
                 
                 unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
-                redirect('index.php/test/dashboard_adm');
+                redirect('Home/dashboard_adm');
             }
             else
             {

@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url()?>index.php/test/logout">Logout</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
