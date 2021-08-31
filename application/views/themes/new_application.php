@@ -519,7 +519,18 @@ hr{
         <label for="ps2"><b>Police Station</b></label>
       </div>
       <div class="col3_in">
-        <input type="text"  id="ps2" name="ps2" required>
+      <select name="ps1" id="ps1">
+          <option>--Select--</option>
+          <?php
+            foreach($policestations as $ps)
+            {
+          ?>
+              <option value="<?php echo $ps['ps_id_pk']; ?>">
+							<?php echo $ps['ps_name']; ?></option>
+            <?php 
+            }
+          ?>
+      </select>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -536,7 +547,15 @@ hr{
     <div class="col2_in">
     <select class="form-control" id="inputState2" name="state2">
                         <option value="">--------------------------Select State-------------------------</option>
-                        
+                        <?php
+                                  foreach($states as $state)
+                                  {
+                                ?>
+                                    <option value="<?php echo $state['state_id_pk']; ?>">
+                                    <?php echo $state['state_name']; ?></option>
+                                  <?php 
+                                  }
+                         ?>
                       </select>
   </div>
   <div class="col3">
@@ -544,7 +563,8 @@ hr{
   </div>
   <div class="col3_in">
     <select class="form-control" id="inputDistrict2" name="district2">
-        <option value="">--------------------------Select State-------------------------</option>
+        <option value="">----------Select State----------</option>
+        
     </select>
   </div>
   </div>
