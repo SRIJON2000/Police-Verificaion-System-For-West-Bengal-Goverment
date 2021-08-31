@@ -5,6 +5,7 @@
         function __construct()
         {
             parent::__construct();
+            $this->load->model('Application_model');
         }
         
         function index()
@@ -50,7 +51,7 @@
             $state=$this->Application_model->fetch_state();
             $district=$this->Application_model->fetch_district();
             $policestation=$this->Application_model->fetch_policestation();
-            $this->load->view('themes/new_application');
+            $this->load->view('themes/new_application',$gender);
         }
         
         function status()

@@ -7,7 +7,7 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('login_model');
+        $this->load->model('Login_model');
     }
     /**
      * Index Page for this controller.
@@ -63,7 +63,7 @@ class Login extends CI_Controller
             $email = strtolower($this->security->xss_clean($this->input->post('uname')));
             $password = $this->input->post('psw');
             
-            $result = $this->login_model->loginMe($email, $password);
+            $result = $this->Login_model->loginMe($email, $password);
             if(!empty($result))
             {
 	

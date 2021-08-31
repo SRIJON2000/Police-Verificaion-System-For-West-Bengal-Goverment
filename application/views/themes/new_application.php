@@ -1,14 +1,11 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
-$this->load->helper('date');
-$format = "%Y-%M-%d";
-$a=mdate($format);
-$date=date_create($a,timezone_open("Indian/Reunion"));
-//echo date_format($date,"Y-m-d H:i:sP") . "<br>";
-
-$gender
-
+// $this->load->helper('date');
+// $format = "%Y-%M-%d";
+// $a=mdate($format);
+// $date=date_create($a,timezone_open("Indian/Reunion"));
+// echo date_format($date,"Y-m-d H:i:sP") . "<br>";
 ?>
 <!DOCTYPE html>
 <html>
@@ -139,9 +136,9 @@ hr{
 }
 </style>
 </head>
-<body>
+ <body>
 
-<h2 style="text-align:center;font-size:25px;">Application Form</h2>
+  <h2 style="text-align:center;font-size:25px;">Application Form</h2>
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
 
   <div class="row">
@@ -205,7 +202,7 @@ hr{
         <input type="text" style="width:780px;"id="authaddress" name="authorityaddress" placeholder="Authority Address" required>
       </div>
     </div><br/><br/><br/><br/><br/> -->
-    <hr></hr><br/>
+    <hr><br/>
     
 	<p style="font-size:30px; text-align:center; color:red">Candidate Personal Details</p><br/>
   <div class="row">
@@ -289,9 +286,14 @@ hr{
       <div class="col3_in">
       <select name="gender" id="gender">
           <option>--Select--</option>
-          <option value="1">Male</option>
-          <option value="2">Female</option>
-          <option value="3">Others</option>
+          <?php
+            $gender1=$gender;
+            foreach($gender1 as $gen=>$gen_val)
+            {
+              //$gen=$gender->row();
+              echo '<option value="'.$gen.'">'.$gen_val.'</option>';
+            }
+            ?>
       </select>
       </div>
   </div><br/><br/><br/><br/>
@@ -416,8 +418,8 @@ hr{
   </div>
   <div class="col3">
     <label for="inputDistrict1"><b>District</b></label>
-</div>
-<div class="col3_in">
+  </div>
+  <div class="col3_in">
     <select class="form-control" id="inputDistrict1" name="district1">
         <option value="">--------------------------Select State-------------------------</option>
     </select>
@@ -502,13 +504,13 @@ hr{
   </div>
   <div class="col3">
     <label for="inputDistrict2"><b>District</b></label>
-</div>
-<div class="col3_in">
+  </div>
+  <div class="col3_in">
     <select class="form-control" id="inputDistrict2" name="district2">
         <option value="">--------------------------Select State-------------------------</option>
     </select>
   </div>
-</div>
+  </div>
     <br/><br/><br/><br/>
   
   <hr>
@@ -551,8 +553,8 @@ hr{
   </div>
   <div class="col3">
     <label for="inputDistrict3"><b>District</b></label>
-</div>
-<div class="col3_in">
+  </div>
+  <div class="col3_in">
     <select class="form-control" id="inputDistrict3" name="sdistrict">
         <option value="">--------------------------Select State-------------------------</option>
     </select>
@@ -593,11 +595,11 @@ hr{
                         <option value="">--------------------------Select State-------------------------</option>
                         
                       </select>
-  </div>
-  <div class="col3">
+    </div>
+    <div class="col3">
     <label for="inputDistrict4"><b>District</b></label>
-</div>
-<div class="col3_in">
+  </div>
+  <div class="col3_in">
     <select class="form-control" id="inputDistrict4" name="cdistrict">
         <option value="">--------------------------Select State-------------------------</option>
     </select>
@@ -658,10 +660,10 @@ hr{
     <input class="col3" style="left: 60%; position: absolute;"  type="submit" value="Submit" name="apply">
     
   </form>
-<br/><br/><br/><br/><br/>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
+  <br/><br/><br/><br/><br/>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
+  <?php $this->load->view('layouts/footer_view'); ?>
 </body>
-
 <script>
 
 function show()
@@ -736,6 +738,4 @@ function reset()
 }
 
 </script>
-
-<?php $this->load->view('layouts/footer_view'); ?>
 </html>
