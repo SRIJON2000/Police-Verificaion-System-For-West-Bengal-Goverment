@@ -7,14 +7,16 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Login_model');
+        // it will attempt to determine whether the user agent browsing your site is a web browser, a mobile device, or a robot
+       // $this->load->library('user_agent'); 
     }
     /**
      * Index Page for this controller.
      */
     public function index()
     {
-        $this->isLoggedIn();
+        
+         $this->isLoggedIn();	
     }
     /**
      * This function used to check the user is logged in or not
@@ -47,12 +49,32 @@ class Login extends CI_Controller
      */
     public function login()
     {
-        $this->load->library('form_validation');
-        
-        $this->form_validation->set_rules('uname', 'Username', 'required|valid_email|max_length[128]|trim');
-        $this->form_validation->set_rules('psw', 'Password', 'required');
-        
 
+              
+       
+       //Form validation Rules
+            $this->load->library('form_validation');
+			$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+			$config = array(
+				array(
+					'field' => 'login_id',
+					'label' => 'Username',
+					'rules' => 'trim|required|max_length[30]'
+				),
+				array(
+					'field' => 'password',
+					'label' => 'Password',
+					'rules' => 'trim|required'
+				),
+				array(
+					'field' => 'captcha',
+					'label' => 'Captcha',
+					'rules' => 'trim'
+				)
+			);
+            $this->form_validation->set_rules($config);
+        
+        
         if($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('error', 'Invalid Input !!!!');
@@ -60,18 +82,18 @@ class Login extends CI_Controller
         }
         else
         {
-            $email = strtolower($this->security->xss_clean($this->input->post('uname')));
-            $password = $this->input->post('psw');
+            $this->load->model('Login_model');
+            $email = strtolower($this->security->xss_clean($this->input->post('login_id')));
+            $password = $this->input->post('password');
             
             $result = $this->Login_model->loginMe($email, $password);
             if(!empty($result))
             {
 	
                 $sessionArray = array('username'=>$email,                    
-                                        'office_name'=>$result['office_name'],
+                                    'office_name'=>$result['office_name'],
                                     'user_type'=>$result['user_type'],
                                     'isloggedin'=>True);
-                
                 
                 $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
@@ -86,6 +108,40 @@ class Login extends CI_Controller
             }
         }
     }
+
+
+    function load_captcha()
+	{
+		$this->load->helper('captcha');
+		$vals = array(
+			//'word'          => 'AbCd',
+			'img_path'      => './captcha/',
+			'img_url'       => 'captcha/',
+			'font_path'     => './captcha4.ttf',
+			'img_width'     => '132',
+			'img_height'    => 38,
+			'expiration'    => 7200,
+			'word_length'   => 5,
+			'font_size'     => 16,
+			//'img_id'        => 'Imageid',
+			'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
+	
+			// White background and border, black text and red grid
+			'colors'        => array(
+					'background' => array(255, 255, 255),
+					'border' => array(200, 200, 200),
+					'text' => array(100, 100, 100),
+					'grid' => array(200, 200, 200)
+			)
+		);
+		$cap = create_captcha($vals);
+		$captcha_word = hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key'));
+		$captcha = array('image'=>$cap['image'],'word'=>$captcha_word);
+		echo json_encode($captcha);
+
+	}
+
+    
 
     /**
      * This function used to load forgot password view

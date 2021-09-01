@@ -36,7 +36,30 @@
         
         function admin_login()
         {
-            $this->load->view('themes/admin_login');
+       //captcha
+       $this->load->helper('captcha');
+       $vals = array(
+       
+           'img_path'      => './captcha/',
+           'img_url'       => 'captcha/',
+           'img_width'     => '132',
+           'img_height'    => 38,
+           'expiration'    => 7200,
+           'word_length'   => 5,
+           'font_size'     => 16,
+           'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
+
+           // White background and border, black text and red grid
+           'colors'        => array(
+                   'background' => array(255, 255, 255),
+                   'border' => array(200, 200, 200),
+                   'text' => array(100, 100, 100),
+                   'grid' => array(200, 200, 200)
+           )
+       );
+        $data['cap'] = create_captcha($vals);
+       
+       $this->load->view('themes/admin_login',$data);
         }
         
         function employer_login()
