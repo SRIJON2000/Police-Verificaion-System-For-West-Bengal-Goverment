@@ -72,6 +72,7 @@
             $data['genders']=$this->Application_model->fetch_gender();
             $data['castes'] =$this->Application_model->fetch_caste();
             $data['states']=$this->Application_model->fetch_state();
+            $data['defences']=$this->Application_model->fetch_defence();
             if($this->input->post('state1') != "")
 		{
 			$data['districts'] = $this->spm_model->get_district($this->input->post('state1'));

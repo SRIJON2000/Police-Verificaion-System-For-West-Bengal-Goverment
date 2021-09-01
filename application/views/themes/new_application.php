@@ -173,10 +173,10 @@ $state_id='';
   </div><br/><br/><br/><br/>
   <div class="row_style">
       <div class="col1">
-        <label for="officeaddress1"><b>Office Address2</b></label>
+        <label for="officeaddress2"><b>Office Address2</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="officeaddress1" name="officeaddress1"  required>
+        <input type="text" style="width:780px;" id="officeaddress2" name="officeaddress2"  required>
       </div>
   </div><br/><br/><br/><br/>
 
@@ -433,10 +433,10 @@ $state_id='';
                       </select>
   </div>
   <div class="col3">
-    <label for="inputDistrict1"><b>District</b></label>
+    <label for="district1"><b>District</b></label>
   </div>
   <div class="col3_in">
-    <select class="form-control" id="inputDistrict1" name="district1">
+    <select class="form-control" id="district1" name="district1">
         <option value="">-------------Select District---------</option>
         <?php
                   foreach($districts as $district)
@@ -510,7 +510,7 @@ $state_id='';
         <label for="ps2"><b>Police Station</b></label>
       </div>
       <div class="col3_in">
-      <select name="ps1" id="ps1">
+      <select name="ps2" id="ps2">
           <option>--Select--</option>
           <?php
             foreach($policestations as $ps)
@@ -536,7 +536,7 @@ $state_id='';
     <label for="state2"><b>State</b></label>
     </div>
     <div class="col2_in">
-    <select class="form-control" id="inputState2" name="state2">
+    <select class="form-control" id="state2" name="state2">
                         <option value="">--------------------------Select State-------------------------</option>
                         <?php
                                   foreach($states as $state)
@@ -550,10 +550,10 @@ $state_id='';
                       </select>
   </div>
   <div class="col3">
-    <label for="inputDistrict2"><b>District</b></label>
+    <label for="district2"><b>District</b></label>
   </div>
   <div class="col3_in">
-    <select class="form-control" id="inputDistrict2" name="district2">
+    <select class="form-control" id="district2" name="district2">
         <option value="">----------Select State----------</option>
         
     </select>
@@ -671,23 +671,28 @@ $state_id='';
 
 	<div class="row_style">
 	<div class="col1">
-        <label for="dp"><b>Defence Personnel</b></label>
+        <label for="defence"><b>Defence Personnel</b></label>
       </div>
       <div class="col1_in">
-      <select name="dp" id="dp" required>
+      <select name="defence" id="defence" required>
           <option>--Select--</option>
-          <option value="1">Navy</option>
-          <option value="2">Airforce</option>
-          <option value="3">Army</option>
-          <option value="4">Non-Defence</option>
+          <?php
+                foreach($defences as $defence)
+                {
+          ?>
+          <option value="<?php echo $defence['df_type_id_pk']; ?>">
+          <?php echo $defence['df_type']; ?></option>
+          <?php 
+          }
+          ?>
       </select>
       </div>
     </div>
 
-    <div class="col2">
+    <div class="col3">
         <label for="category"><b>Category</b></label>
       </div>
-      <div class="col2_in">
+      <div class="col3_in">
       <select name="category" id="category" required>
           <option>--Select--</option>
           <option value="1">Urban</option>
@@ -695,14 +700,14 @@ $state_id='';
       </select>
       </div> 
 
-	<div class="row_style">
+	<!-- <div class="row_style">
       <div class="col3">
         <label for="ps3" ><b>Police Station</b></label>
       </div>
       <div class="col3_in">
         <input type="text" id="ps3" value="Howrah"name="ps3">
       </div>
-    </div><br/><br/><br/><br/><br/>
+    </div>--><br/><br/><br/><br/><br/>
     <button class="col2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
     <a class="col2_in" id="back" href="<?php base_url()?>dashboard_adm" style="left: 50%;width: 8%;text-decoration:none; position: absolute;">Back</a>
     <input class="col3" style="left: 60%; position: absolute;"  type="submit" value="Submit" name="apply">

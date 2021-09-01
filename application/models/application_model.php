@@ -37,7 +37,13 @@ class Application_model extends CI_Model
         $query =$this->db->get();
 		return $query->result_array();
     }
-
+    function fetch_defence()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_master_defence');
+        $query =$this->db->get();
+		return $query->result_array();
+    }
 
 
     // function submit($d)
