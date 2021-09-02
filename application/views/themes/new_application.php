@@ -1,10 +1,10 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
-$this->load->helper('date');
-$format = "%Y-%M-%d";
-$a=mdate($format);
-$date=date_create($a,timezone_open("Indian/Reunion"));
+// $this->load->helper('date');
+// $format = "%Y-%M-%d";
+// $a=mdate($format);
+// $date=date_create($a,timezone_open("Indian/Reunion"));
 // echo date_format($date,"Y-m-d H:i:sP") . "<br>";
 $state_id='';
 ?>
@@ -151,7 +151,7 @@ $state_id='';
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
       <div class="col3_in">
-        <input type="date" id="rcptdate" value="<?php echo date_format($date,"Y-m-d H:i:sP");?>" style="height: 40px; font-size: 20px" name="receiptdate"  disabled>
+        <input type="date" id="rcptdate" style="height: 40px; font-size: 20px" name="receiptdate"  required>
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
@@ -441,12 +441,13 @@ $state_id='';
         <?php
                   foreach($districts as $district)
                  {
-                      
+                   if($district['state_id_fk']==$state_id)
+                   {
            ?>
-                  <option value="<?php echo $district['district_id_pk']; ?>">
-                  <?php echo $district['district_name']; ?></option>
+                  <option value="<?php echo $state['state_id_pk']; ?>">
+                  <?php echo $state['district_name']; ?></option>
         <?php 
-                          
+                   }
           }
         ?>
     </select>

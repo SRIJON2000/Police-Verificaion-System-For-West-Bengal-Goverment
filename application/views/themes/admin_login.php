@@ -10,7 +10,7 @@ $this->load->library('session');
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login Panel</title>
-<link rel="stylesheet" href="<?php echo base_url(); ?>\application\views\themes\CSS\stylesheet1.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes/CSS/stylesheet1.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
@@ -53,6 +53,8 @@ if (!empty($error))
   echo $error;
   unset($_SESSION['error']);
 ?>
+
+
 </h3>
 
 <div class="limiter">
@@ -64,7 +66,7 @@ if (!empty($error))
       <p>Provide username and password for login</p>
 
 <?php echo (isset($error_message)) ? $error_message : "";?>
-    <?php echo form_open('Login/login', array('class' => 'login_form','name' => 'login_form', 'id' => 'login_form','autocomplete'=>'off')); ?>
+    <?php echo form_open('Login', array('class' => 'login_form','name' => 'login_form', 'id' => 'login_form','autocomplete'=>'off')); ?>
     
     <div class="wrap-input100 validate-input " >
 							<input class="input100" type="text" name="login_id" value="<?php echo set_value('login_id'); ?>" placeholder="Username" placeholder="Username">

@@ -7,74 +7,44 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // it will attempt to determine whether the user agent browsing your site is a web browser, a mobile device, or a robot
-       // $this->load->library('user_agent'); 
+       
     }
     /**
      * Index Page for this controller.
      */
     public function index()
     {
-        
-         $this->isLoggedIn();	
-    }
-    /**
-     * This function used to check the user is logged in or not
-     */
-    function isLoggedIn()
-    {
-        $isLoggedIn = $this->session->userdata('isLoggedIn');
-        $usertype = $this->session->userdata('user_type');
-        
-        if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
-        {
-            
-            $this->load->view('themes/admin_login');
-        }
-        else
-        {
-            /*redirect('/dashboard');*/
-            if($usertype == "ADDITIONAL DISTRICT MAGISTRATE")
-                $this->load->view('themes/dashboard_adm');
-            else if($usertype == "OCVR")
-                $this->load->view('themes/dashboard_ocvr');
-            else if($usertype == "VR")
-                $this->load->view('themes/dashboard_vr');
-        }
+        $this->do_login();
     }
     
-    
-    /**
-     * This function used to logged in user
-     */
-    public function login()
-    {
 
-              
-       
-       //Form validation Rules
-            $this->load->library('form_validation');
-			$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
-			$config = array(
-				array(
-					'field' => 'login_id',
-					'label' => 'Username',
-					'rules' => 'trim|required|max_length[30]'
-				),
-				array(
-					'field' => 'password',
-					'label' => 'Password',
-					'rules' => 'trim|required'
-				),
-				array(
-					'field' => 'captcha',
-					'label' => 'Captcha',
-					'rules' => 'trim'
-				)
-			);
-            $this->form_validation->set_rules($config);
+    function do_login()
+    {
+        //Form validation Rules
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
         
+        $config = array(
+            array(
+                'field' => 'login_id',
+                'label' => 'Username',
+                'rules' => 'trim|required|max_length[30]'
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'Password',
+                'rules' => 'trim|required'
+            ),
+            array(
+                'field' => 'captcha',
+                'label' => 'Captcha',
+                'rules' => 'trim'
+            )
+        );
+        //set validation rules.
+        $this->form_validation->set_rules($config);
         
+
         if($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('error', 'Invalid Input !!!!');
@@ -89,11 +59,10 @@ class Login extends CI_Controller
             $result = $this->Login_model->loginMe($email, $password);
             if(!empty($result))
             {
-	
+
                 $sessionArray = array('username'=>$email,                    
                                     'office_name'=>$result['office_name'],
                                     'user_type'=>$result['user_type'],
-                                    'office_id'=>$result['office_id'],
                                     'isloggedin'=>True);
                 
                 $this->load->library('session');
@@ -105,11 +74,11 @@ class Login extends CI_Controller
             else
             {
                 $this->session->set_flashdata('error', 'Incorrect Username or password !!!');
-                $this->index();
+                
             }
         }
-    }
 
+    }
 
     function load_captcha()
 	{
