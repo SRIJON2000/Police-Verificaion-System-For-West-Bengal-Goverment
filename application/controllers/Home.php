@@ -5,6 +5,7 @@
         function __construct()
         {
             parent::__construct();
+            $this->load->model('Application_model');
         }
         
         function index()
@@ -74,7 +75,6 @@
         
         function load_captcha()
          {
-            $this->load->model('Application_model');
             //captcha generation
             $this->load->helper('captcha');
             $vals = array(
@@ -97,8 +97,10 @@
                         )
                     );
        //store the captcha in cap variable. 
-             $data['cap'] = create_captcha($vals);
+             $data['cap']=create_captcha($vals);
              return $data;
+           
+           
          }
         
 
