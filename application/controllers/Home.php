@@ -73,13 +73,16 @@
             $data['castes'] =$this->Application_model->fetch_caste();
             $data['states']=$this->Application_model->fetch_state();
             $data['defences']=$this->Application_model->fetch_defence();
-            if($this->input->post('state1') != "")
-		{
-			$data['districts'] = $this->spm_model->get_district($this->input->post('state1'));
-		}
-            //$data['districts']=$this->Application_model->fetch_district();
             $data['policestations']=$this->Application_model->fetch_policestation();
+            $data['districts'] = $this->Application_model->fetch_district();
             $this->load->view('themes/new_application',$data);
+            // if($this->input->post('state1') != "")
+		    // {
+			//     $data['districts'] = $this->Application_model->fetch_district($this->input->post('state1'));
+            //     $this->load->view('themes/new_application',$data);
+		    // }
+            
+            
         }
         
         function status()

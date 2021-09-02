@@ -441,13 +441,12 @@ $state_id='';
         <?php
                   foreach($districts as $district)
                  {
-                   if($district['state_id_fk']==$state_id)
-                   {
+                      
            ?>
-                  <option value="<?php echo $state['state_id_pk']; ?>">
-                  <?php echo $state['district_name']; ?></option>
+                  <option value="<?php echo $district['district_id_pk']; ?>">
+                  <?php echo $district['district_name']; ?></option>
         <?php 
-                   }
+                          
           }
         ?>
     </select>
