@@ -12,6 +12,7 @@ class Login extends CI_Controller
     /**
      * Index Page for this controller.
      */
+    
     public function index()
     {
         $this->do_login();
@@ -63,6 +64,9 @@ class Login extends CI_Controller
                 $sessionArray = array('username'=>$email,                    
                                     'office_name'=>$result['office_name'],
                                     'user_type'=>$result['user_type'],
+                                    'office_district'=>$result['office_district'],
+                                    'office_state'=>$result['office_state'],
+                                    'department'=>$result['department'],
                                     'isloggedin'=>True);
                 
                 $this->load->library('session');
@@ -80,36 +84,36 @@ class Login extends CI_Controller
 
     }
 
-    function load_captcha()
-	{
-		$this->load->helper('captcha');
-		$vals = array(
-			//'word'          => 'AbCd',
-			'img_path'      => './captcha/',
-			'img_url'       => 'captcha/',
-			'font_path'     => './captcha4.ttf',
-			'img_width'     => '132',
-			'img_height'    => 38,
-			'expiration'    => 7200,
-			'word_length'   => 5,
-			'font_size'     => 16,
-			//'img_id'        => 'Imageid',
-			'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
+    // function load_captcha()
+	// {
+	// 	$this->load->helper('captcha');
+	// 	$vals = array(
+	// 		//'word'          => 'AbCd',
+	// 		'img_path'      => './captcha/',
+	// 		'img_url'       => 'captcha/',
+	// 		'font_path'     => './captcha4.ttf',
+	// 		'img_width'     => '132',
+	// 		'img_height'    => 38,
+	// 		'expiration'    => 7200,
+	// 		'word_length'   => 5,
+	// 		'font_size'     => 16,
+	// 		//'img_id'        => 'Imageid',
+	// 		'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
 	
-			// White background and border, black text and red grid
-			'colors'        => array(
-					'background' => array(255, 255, 255),
-					'border' => array(200, 200, 200),
-					'text' => array(100, 100, 100),
-					'grid' => array(200, 200, 200)
-			)
-		);
-		$cap = create_captcha($vals);
-		$captcha_word = hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key'));
-		$captcha = array('image'=>$cap['image'],'word'=>$captcha_word);
-		echo json_encode($captcha);
+	// 		// White background and border, black text and red grid
+	// 		'colors'        => array(
+	// 				'background' => array(255, 255, 255),
+	// 				'border' => array(200, 200, 200),
+	// 				'text' => array(100, 100, 100),
+	// 				'grid' => array(200, 200, 200)
+	// 		)
+	// 	);
+	// 	$cap = create_captcha($vals);
+	// 	$captcha_word = hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key'));
+	// 	$captcha = array('image'=>$cap['image'],'word'=>$captcha_word);
+	// 	echo json_encode($captcha);
 
-	}
+	// }
 
     
 
@@ -269,6 +273,8 @@ class Login extends CI_Controller
             redirect("/login");
         }
     }*/
+
+    
 }
 
 ?>

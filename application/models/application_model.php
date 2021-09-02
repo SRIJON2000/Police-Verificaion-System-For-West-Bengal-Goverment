@@ -44,6 +44,14 @@ class Application_model extends CI_Model
         $query =$this->db->get();
 		return $query->result_array();
     }
+    function fetch_employer($district_id)
+    {
+        $this->db->select('employer_id_pk,employer_name');
+        $this->db->from('pvr_employer');
+        $this->db->where('district_id_fk',$district_id);
+        $query =$this->db->get();
+		return $query->result_array();
+    }
 
 
     // function submit($d)

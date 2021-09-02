@@ -9,8 +9,9 @@ class Application extends CI_Controller
     public function index()
     {
         redirect('Home/application');
+        
     }
-  
+    
     public function newapp()
     {
         $this->load->library('form_validation');

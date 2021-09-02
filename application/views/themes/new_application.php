@@ -157,13 +157,24 @@ $state_id='';
 
     <div class="row_style">
       <div class="col1">
-        <label for="officename"><b>Office Name</b></label>
+        <label for="employer"><b>Office/Employer Name</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" style="width:780px;" id="officename" name="officename" placeholder="Full Name..." required>
+      <select name="employer" id="employer">
+          <option>--Select Office--</option>
+          <?php
+            foreach($employers as $employer)
+            {
+          ?>
+              <option value="<?php echo $employer['employer_id_pk']; ?>">
+							<?php echo $employer['employer_name']; ?></option>
+            <?php 
+            }
+          ?>
+      </select>
       </div>
   </div><br/><br/><br/><br/>
-  <div class="row_style">
+  <!-- <div class="row_style">
       <div class="col1">
         <label for="officeaddress1"><b>Office Address1</b></label>
       </div>
@@ -178,7 +189,7 @@ $state_id='';
       <div class="col1_in">
         <input type="text" style="width:780px;" id="officeaddress2" name="officeaddress2"  required>
       </div>
-  </div><br/><br/><br/><br/>
+  </div><br/><br/><br/><br/> -->
 
 
 	<!-- <div class="row_style">
@@ -441,13 +452,12 @@ $state_id='';
         <?php
                   foreach($districts as $district)
                  {
-                   if($district['state_id_fk']==$state_id)
-                   {
+                   
            ?>
-                  <option value="<?php echo $state['state_id_pk']; ?>">
-                  <?php echo $state['district_name']; ?></option>
+                  <option value="<?php echo $district['district_id_pk']; ?>">
+                  <?php echo $district['district_name']; ?></option>
         <?php 
-                   }
+                   
           }
         ?>
     </select>
@@ -537,7 +547,7 @@ $state_id='';
     </div>
     <div class="col2_in">
     <select class="form-control" id="state2" name="state2">
-                        <option value="">--------------------------Select State-------------------------</option>
+                        <option value="">-------------Select State----------</option>
                         <?php
                                   foreach($states as $state)
                                   {
@@ -554,8 +564,18 @@ $state_id='';
   </div>
   <div class="col3_in">
     <select class="form-control" id="district2" name="district2">
-        <option value="">----------Select State----------</option>
-        
+        <option value="">----------Select District----------</option>
+        <?php
+                  foreach($districts as $district)
+                 {
+                   
+           ?>
+                  <option value="<?php echo $district['district_id_pk']; ?>">
+                  <?php echo $district['district_name']; ?></option>
+        <?php 
+                   
+          }
+        ?>
     </select>
   </div>
   </div>
@@ -728,8 +748,8 @@ function show()
   var po1= document.getElementById("po1");
   var ps1 = document.getElementById("ps1");
   var pin1 = document.getElementById("pin1");
-  var district1 = document.getElementById("inputDistrict1");
-  var state1= document.getElementById("inputState1");
+  var district1 = document.getElementById("district1");
+  var state1= document.getElementById("state1");
   
   var street2 = document.getElementById("street2");
   var houseno2 = document.getElementById("houseno2");
@@ -738,8 +758,8 @@ function show()
   var po2= document.getElementById("po2");
   var ps2 = document.getElementById("ps2");
   var pin2= document.getElementById("pin2");
-  var district2 = document.getElementById("inputDistrict2");
-  var state2= document.getElementById("inputState2");
+  var district2 = document.getElementById("district2");
+  var state2= document.getElementById("state2");
 
   var checkBox=document.getElementById("check");
 
@@ -751,10 +771,10 @@ function show()
     po2.value=po1.value;
     ps2.value=ps1.value;
     pin2.value=pin1.value;
-    //district2.value= district1.value;
+    district2.value= district1.value;
     state2.value=state1.value;
 
-    $("#inputDistrict2").html("<option value='"+district1.value+"'>"+district1.value+"</option>");
+    //$("#inputDistrict2").html("<option value='"+district1.value+"'>"+district1.value+"</option>");
   } 
   else
   {
@@ -765,8 +785,8 @@ function show()
   document.getElementById("po2").value="";
   document.getElementById("ps2").value="";
    document.getElementById("pin2").value="";
-   document.getElementById("inputDistrict2").value="--Select--";
-    document.getElementById("inputState2").value="--Select--";
+   document.getElementById("district2").value="--Select--";
+    document.getElementById("state2").value="--Select--";
   }
 }
 var mybutton = document.getElementById("myBtn");

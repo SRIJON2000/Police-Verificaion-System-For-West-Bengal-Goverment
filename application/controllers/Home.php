@@ -14,7 +14,11 @@
             
         }
 
-        
+        function admin_login()
+        {
+            $data=$this->load_captcha();
+            $this->load->view('themes/admin_login',$data);
+        }
         function dashboard_employer()
         {
             $this->load->view('themes/dashboard_employer');
@@ -35,11 +39,6 @@
             $this->load->view('themes/dashboard_vr');
         }        
         
-        function admin_login()
-        {
-            $data=$this->load_captcha();
-            $this->load->view('themes/admin_login',$data);
-        }
         
         function employer_login()
         {
@@ -52,11 +51,8 @@
             $data['castes'] =$this->Application_model->fetch_caste();
             $data['states']=$this->Application_model->fetch_state();
             $data['defences']=$this->Application_model->fetch_defence();
-            if($this->input->post('state1') != "")
-		{
-			$data['districts'] = $this->spm_model->get_district($this->input->post('state1'));
-		}
-            //$data['districts']=$this->Application_model->fetch_district();
+            $data['employers']=$this->Application_model->fetch_employer($this->session->userdata('office_district'));
+            $data['districts']=$this->Application_model->fetch_district();
             $data['policestations']=$this->Application_model->fetch_policestation();
             $this->load->view('themes/new_application',$data);
         }
