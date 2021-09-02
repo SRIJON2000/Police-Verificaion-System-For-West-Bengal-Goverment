@@ -77,7 +77,7 @@ class Application extends CI_Controller
         else
         {
             
-            $data=array('receiptno'=>$this->input->post('receiptno'),
+            $form_data=array('receiptno'=>$this->input->post('receiptno'),
             'receiptdate'=>$this->input->post('receiptdate'),
             'officename'=>$this->input->post('officename'),
             'officeaddress1'=>$this->input->post('officeaddress1'),
@@ -112,7 +112,7 @@ class Application extends CI_Controller
             'defence'=>$this->input->post('defence'));
             
             
-            $this->Application_model->submit($data);
+            $this->Application_model->submit($form_data);
             redirect('Home/dashboard_admin');
             
         }

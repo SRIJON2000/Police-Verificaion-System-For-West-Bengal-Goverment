@@ -93,6 +93,7 @@ class Login extends CI_Controller
                 $sessionArray = array('username'=>$email,                    
                                     'office_name'=>$result['office_name'],
                                     'user_type'=>$result['user_type'],
+                                    'office_id'=>$result['office_id'],
                                     'isloggedin'=>True);
                 
                 $this->load->library('session');

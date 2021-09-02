@@ -29,7 +29,8 @@ class Login_model extends CI_Model
                 $desig = $query2->row();
 
                 $result=array('office_name'=>$office->office_name,
-                                'user_type'=>$desig->desig_name);
+                                'user_type'=>$desig->desig_name,
+                                'office_id'=>$user->office_id_fk);
 
                 return $result;
             } else {
