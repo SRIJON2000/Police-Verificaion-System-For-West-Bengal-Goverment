@@ -74,7 +74,6 @@
         
         function load_captcha()
          {
-            $this->load->model('Application_model');
             //captcha generation
             $this->load->helper('captcha');
             $vals = array(
