@@ -54,6 +54,7 @@
             $data['employers']=$this->Application_model->fetch_employer($this->session->userdata('office_district'));
             $data['districts']=$this->Application_model->fetch_district();
             $data['policestations']=$this->Application_model->fetch_policestation();
+            $data['receiptno']=$this->generate_receipt_No($this->session->userdata('office_district'),$this->session->userdata('office_state'));
             $this->load->view('themes/new_application',$data);
         }
         
@@ -98,6 +99,31 @@
            
            
          }
+    public function generate_receipt_No($district_id,$state_id)
+	{
+		$code='';
+		$length = 6;
+		$rand_unique_no = rand(0, 99999);
+		for($i = 1; $i < $length - strlen($rand_unique_no); $i++ ){
+        	$code .= '0';
+        }
+		$state_code=$this->Application_model->fetch_state_code($state_id);
+        $district_code=$this->Application_model->fetch_district_code($district_id);
+		$current_year=date('y');
+		
+		$hash = $state_code.$district_code.$current_year.$code.$rand_unique_no;
+		$check_exist_code = $this->Application_model->check_receipt_no($hash);
+		if($check_exist_code==TRUE)
+		{
+			return $hash;
+			
+		}
+		else
+		{
+			$this->generate_receipt_No($state_id,$district_id);
+		}
+	}
+
         
 
     }

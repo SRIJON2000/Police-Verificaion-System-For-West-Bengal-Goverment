@@ -52,7 +52,41 @@ class Application_model extends CI_Model
         $query =$this->db->get();
 		return $query->result_array();
     }
-
+    function fetch_state_code($state_id)
+    {
+        $this->db->select('state_name_code');
+        $this->db->from('pvr_master_state');
+        $this->db->where('state_id_pk',$state_id);
+        $query =$this->db->get();
+        $state_code=$query->row();
+		return $state_code->state_name_code;
+    } 
+    function fetch_district_code($district_id)
+    {
+        $this->db->select('district_name_code');
+        $this->db->from('pvr_master_district');
+        $this->db->where('district_id_pk',$district_id);
+        $query =$this->db->get();
+        $district_code=$query->row();
+		return $district_code->district_name_code;
+    } 
+    function check_receipt_no($hash)
+    {
+        $code = $this->db->select('*')
+						 ->from('pvr_receipt_no')
+						 ->where('receipt_no',$hash)
+						 ->get();
+		$result = $code->result_array();
+		$count = count($result);
+		if($count == 0)
+		{
+			return TRUE;	
+		}
+		else
+		{
+			return FALSE;
+		}
+    }
 
     // function submit($d)
     // {

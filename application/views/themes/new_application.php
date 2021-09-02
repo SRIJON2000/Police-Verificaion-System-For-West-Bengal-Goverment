@@ -142,7 +142,7 @@ $state_id='';
         <label for="rcptno"><b>Receipt No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="rcptno" name="receiptno" placeholder="Receipt No" required>
+        <input type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" required disabled>
       </div>
     <!--</div>
 
