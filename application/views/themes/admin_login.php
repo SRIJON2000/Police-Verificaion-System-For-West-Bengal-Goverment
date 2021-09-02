@@ -48,7 +48,7 @@ $this->load->library('session');
        <?php echo form_error('login_id'); ?> 
      </div>
 
-		<div class="form-group mt-3 wrap-input100 validate-input"  >
+		<div class="form-group mt-3 wrap-input100 validate-input">
 		  <input class="text-center input100" type="password" name="password" placeholder="Enter Password">
 		  <span class="focus-input100"></span>
 		  <span class="symbol-input100">
