@@ -189,9 +189,9 @@ class Application_model extends CI_Model
         }
 
         $pvr_data=array(
-            'pvr_id_pk'=>
-            'receipt_id_fk'=>
-            'candidate_id_fk'=>
+            'pvr_id_pk'=>$maxpvr_id,
+            'receipt_id_fk'=>$maxreceipt_id,
+            'candidate_id_fk'=>$maxcandidate_id,
             'application_date'=>
             'pvr_type_fk'=>
             'pvr_sent_to_id_fk'=>
@@ -200,10 +200,11 @@ class Application_model extends CI_Model
             'pvr_final_status_id_fk'=>
             'remarks'=>
             'pvr_report_id_fk'=>
+            'district_id_fk'=>$this->session->userdata('office_district')
         );
 
         $this->db->insert('pvr_vr_detail',$pvr_data);
-
+        
 
 
     }

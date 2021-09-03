@@ -26,6 +26,7 @@
         
         function dashboard_adm()
         {
+            $data['applications']=$this->Application_model->fetch_all_applications();
             $this->load->view('themes/dashboard_adm');
         }
         
