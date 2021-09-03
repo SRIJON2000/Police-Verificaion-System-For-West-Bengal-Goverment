@@ -88,124 +88,126 @@ class Application_model extends CI_Model
 		}
     }
 
-    // function submit($d)
-    // {
-    //     $school_district_id=$this->fetch_district_id($d->sdistrict);
-    //     $college_district_id=$this->fetch_district_id($d->cdistrict);
-
-    //     $school_pin_id=$this->fetch_pin_id($d->spin,$school_district_id);
-    //     $college_pin_id=$this->fetch_pin_id($d->cpin,$college_district_id);
-
-    //     $this->db->select_max('profile_id_pk');
-    //     $this->db->from('pvr_candidate_profile');
-    //     $query=$this->db->get();
-    //     $maxprofile_id=$query->row();
-        
-    //     if(empty($maxprofile_id))
-    //     {
-    //         $maxprofile_id->profile_id_pk=1;
-    //     }
-    //     else
-    //     {
-    //         $maxprofile_id->profile_id_pk=$maxprofile_id->profile_id_pk+1;
-    //     }
-
-    //     $profile_data=array(
-    //         'profile_id_pk'=>$maxprofile_id->profile_id_pk,
-    //         'candidate_father_name'=>$d->fathername,
-    //         'candidate_mother_name'=>$d->mothername,
-    //         'candidate_nationality'=>$d->nation,
-    //         'candidate_dob'=>$d->dob,
-    //         'candidate_school_name'=>$d->sname,
-    //         'candidate_school_address'=>$d->saddress,
-    //         'candidate_school_district_id_fk'=>$school_district_id,
-    //         'candidate_college_name'=>$d->cname,
-    //         'candidate_college_address'=>$d->caddress,
-    //         'candidate_college_district_id_fk'=>$college_district_id,
-    //         'candidate_aadhaar_no'=>$d->aadhaarno,
-    //         'candidate_school_pin_id_fk'=>$d->$school_pin_id,
-    //         'candidate_college_pin_id_fk'=>$d->$college_pin_id
-            
-    //     );
-    //     $this->db->insert('pvr_candidate_profile',$profile_data);
-
-    //     $receiptdata=array(
-    //         'receipt_no'=>$d->receiptno,
-    //         'receipt_date'=>$d->receiptdate,
-    //     );
-    //     $this->db->insert('pvr_receipt_no',$receiptdata);
-    //     $refdata=array(
-    //         'refno_pk'=>$d->refno,
-    //         'receipt_no_fk'=>$d->receiptno,
-    //         'ref_date'=>$d->refdate
-    //     );
-    //     $this->db->insert('pvr_reference_no',$refdata);
-
-    //     $this->db->select_max('candidate_id_pk');
-    //     $this->db->from('pvr_candidate_details');
-    //     $query=$this->db->get();
-    //     $maxcandidate_id=$query->row();
-        
-    //     if(empty($maxcandidate_id))
-    //     {
-    //         $maxcandidate_id->candidate_id_pk=1;
-    //     }
-    //     else
-    //     {
-    //         $maxcandidate_id->candidate_id_pk=$maxcandidate_id->candidate_id_pk+1;
-    //     }
-
-    //     $candidate_pin_id1=$this->fetch_pin_id($d->pin1);
-    //     $candidate_pin_id2=$this->fetch_pin_id($d->pin2);
-
-    //     $candidate_district_id1=$this->fetch_district_id($d->district1);
-    //     $candidate_district_id2=$this->fetch_district_id($d->district2);
-
-    //     $e=0;
-    //     $candidate_detail=array(
-    //         'candidate_id_pk'=>$maxcandidate_id->candidate_id_pk,
-    //         'reference_no_fk'=>$d->refno,
-    //         'employer_id_fk'=>$e,
-    //         'profile_id_fk'=>$maxprofile_id->profile_id_pk,
-    //         'candidate_f_name'=>$d->firstname,
-    //         'candidate_m_name'=>$d->middlename,
-    //         'candidate_l_name'=>$d->lastname,
-    //         'candidate_gender_id'=>$d->gender,
-    //         'candidate_caste_id_fk'=>$d->caste,
-    //         'candidate_aadhaar_no'=>$d->aadhaarno,
-    //         'candidate_house_no1'=>$d->houseno1,
-    //         'candidate_street1'=>$d->street1,
-    //         'candidate_landmark1'=>$d->landmark1,
-    //         'candidate_city1'=>$d->city1,
-    //         'candidate_post_office1'=>$d->po1,
-    //         // 'candidate_police_station_id1_fk'=>,
-    //         'candidate_pin1_fk'=>$candidate_pin_id1,
-    //         'candidate_district_id1_fk'=>$candidate_district_id1,
-    //         'candidate_photo_path'=>'test/path',
-    //         'candidate_defence_type_id_fk'=>$d->dp,
-    //         'candidate_house_no2'=>$d->houseno2,
-    //         'candidate_street2'=>$d->street2,
-    //         'candidate_landmark2'=>$d->landmark2,
-    //         'candidate_city2'=>$d->city2,
-    //         'candidate_post_office2'=>$d->po1,
-    //         'candidate_police_station_id2_fk'=>,
-    //         'candidate_pin2_fk'=>$candidate_pin_id2,
-    //         'candidate_district_id2_fk'=>$candidate_district_id2
-
-    //     );
-    //     $this->db->insert('pvr_candidate_details',$candidate_detail);
-
-    // }
-
-    function fetch_district_id($district_name)
+    function submit($data)
     {
-        $this->db->select('district_id_pk');
-        $this->db->from('pvr_master_district');
-        $this->db->where('district_name',$district_name);
+        /******************************Populating Receipt No Table*************************/
+        $this->db->select_max('receipt_id_pk');
+        $this->db->from('pvr_receipt_no');
         $query=$this->db->get();
-        $district_id=$query->row();
-        return $$district_id->district_id_pk;
+        $maxreceipt_id=$query->row();
+        
+        if(empty($maxreceipt_id))
+        {
+            $maxreceipt_id=1;
+        }
+        else
+        {
+            $maxreceipt_id=$maxreceipt_id+1;
+        }
+
+        $receiptdata=array(
+            'receipt_id_pk'=>$maxreceipt_id,
+            'receipt_date'=>$data->receiptdate,
+            'receipt_no'=>$data->receiptno
+        );
+        $this->db->insert('pvr_receipt_no',$receiptdata);
+
+        /******************************Populating Reference No Table*************************/
+        $refdata=array(
+            'ref_no_pk'=>$data->refno,
+            'receipt_id_fk'=>$maxreceipt_id,
+            'ref_date'=>$data->refdate
+        );
+        $this->db->insert('pvr_reference_no',$refdata);
+
+        /******************************Populating Candidate Details Table*************************/
+        $this->db->select_max('candidate_id_pk');
+        $this->db->from('pvr_candidate_details');
+        $query=$this->db->get();
+        $maxcandidate_id=$query->row();
+        
+        if(empty($maxcandidate_id))
+        {
+            $maxcandidate_id=1;
+        }
+        else
+        {
+            $maxcandidate_id=$maxcandidate_id+1;
+        }
+
+        $candidate_pin_id1=$this->fetch_pin_id($data->pin1,$data->district1);
+        $candidate_pin_id2=$this->fetch_pin_id($data->pin2,$data->district2);
+
+       
+        $candidate_detail=array(
+            'candidate_id_pk'=>$maxcandidate_id,
+            'reference_no_fk'=>$data->refno,
+            'employer_id_fk'=>$data->employer,
+            'profile_id_fk'=>NULL,
+            'candidate_f_name'=>$data->firstname,
+            'candidate_m_name'=>$data->middlename,
+            'candidate_l_name'=>$data->lastname,
+            'candidate_gender_id'=>$data->gender,
+            'candidate_caste_id_fk'=>$data->caste,
+            'candidate_aadhaar_no'=>$data->aadhaarno,
+            'candidate_house_no1'=>$data->houseno1,
+            'candidate_street1'=>$data->street1,
+            'candidate_landmark1'=>$data->landmark1,
+            'candidate_city1'=>$data->city1,
+            'candidate_post_office1'=>$data->po1,
+            'candidate_police_station_id1_fk'=>$data->ps1,
+            'candidate_pin1_fk'=>$candidate_pin_id1,
+            'candidate_district_id1_fk'=>$data->district1,
+            'candidate_photo_path'=>'test/path',
+            'candidate_defence_type_id_fk'=>$data->defence,
+            'candidate_house_no2'=>$data->houseno2,
+            'candidate_street2'=>$data->street2,
+            'candidate_landmark2'=>$data->landmark2,
+            'candidate_city2'=>$data->city2,
+            'candidate_post_office2'=>$data->po1,
+            'candidate_police_station_id2_fk'=>$data->ps2,
+            'candidate_pin2_fk'=>$candidate_pin_id2,
+            'candidate_district_id2_fk'=>$data->district2
+
+        );
+        $this->db->insert('pvr_candidate_details',$candidate_detail);
+
+
+        /******************************Populating PVR Details Table*************************/
+        $this->db->select_max('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $query=$this->db->get();
+        $maxpvr_id=$query->row();
+        
+        if(empty($maxpvr_id))
+        {
+            $maxpvr_id=1;
+        }
+        else
+        {
+            $maxpvr_id=$maxpvr_id+1;
+        }
+
+        $pvr_data=array(
+            'pvr_id_pk'=>
+            'receipt_id_fk'=>
+            'candidate_id_fk'=>
+            'application_date'=>
+            'pvr_type_fk'=>
+            'pvr_sent_to_id_fk'=>
+            'memo_id_fk'=>
+            'pvr_with_id_fk'=>
+            'pvr_final_status_id_fk'=>
+            'remarks'=>
+            'pvr_report_id_fk'=>
+        );
+
+
+
+
     }
+
+    
 
     function fetch_pin_id($pin,$district_id)
     {
@@ -230,22 +232,18 @@ class Application_model extends CI_Model
             {
                 $maxpin_id=$maxpin_id+1;
             }
-            $p=array(
+            $pin=array(
                 'pincode_id_pk'=>$maxpin_id,
                 'pincode_no'=>$pin,
                 'district_id_fk'=>$district_id
             );
 
-            $this->db->insert('pvr_master_pincode',$p);
+            $this->db->insert('pvr_master_pincode',$pin);
             return $maxpin_id;
         }
         else
           return $pin_id->pincode_id_pk;
     }
 
-    function fetch_police_station_id()
-    {
-
-    }
 }
 ?>
