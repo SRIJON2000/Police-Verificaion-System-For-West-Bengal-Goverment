@@ -202,6 +202,7 @@ class Application_model extends CI_Model
             'pvr_report_id_fk'=>
         );
 
+        $this->db->insert('pvr_vr_detail',$pvr_data);
 
 
 
