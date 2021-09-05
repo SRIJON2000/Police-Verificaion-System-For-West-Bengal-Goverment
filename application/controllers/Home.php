@@ -55,6 +55,7 @@
             $data['employers']=$this->Application_model->fetch_employer($this->session->userdata('office_district'));
             $data['districts']=$this->Application_model->fetch_district();
             $data['policestations']=$this->Application_model->fetch_policestation();
+            $data['categories']=$this->Application_model->fetch_category();
             $data['receiptno']=$this->generate_receipt_No($this->session->userdata('office_district'),$this->session->userdata('office_state'));
             $this->load->view('themes/new_application',$data);
         }

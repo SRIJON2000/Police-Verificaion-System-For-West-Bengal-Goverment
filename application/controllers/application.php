@@ -63,6 +63,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('refno', 'Reference No', 'required');
         $this->form_validation->set_rules('refdate', 'Reference Date', 'required');
         $this->form_validation->set_rules('defence', 'Defence Personnel', 'required');
+        $this->form_validation->set_rules('category', 'Category', 'required');
         //$this->form_validation->set_rules('ps3', 'Police Station', 'required|max_length[32]|trim');
         
 
@@ -120,13 +121,38 @@ class Application extends CI_Controller
             // 'cstate'=>$this->input->post('cstate'),
             'refno'=>$this->input->post('refno'),
             'refdate'=>$this->input->post('refdate'),
-            'defence'=>$this->input->post('defence'));
+            'defence'=>$this->input->post('defence'),
+            'category'=>$this->input->post('category'));
             
-            
-            $this->Application_model->submit($data);
+            $memo_no=generate_memo();
+
+            $this->Application_model->submit($data,$memo_no);
             redirect('Home/dashboard_admin');
             
         }
+    }
+    function generate_memo()
+    {
+        $code='';
+		$length = 6;
+		$rand_unique_no = rand(0, 99999);
+		for($i = 1; $i < $length - strlen($rand_unique_no); $i++ ){
+        	$code .= '0';
+        }
+		//$state_code=$this->Application_model->fetch_state_code($state_id);
+        //$district_code=$this->Application_model->fetch_district_code($district_id);
+		$current_year=date('y');
+		
+		$hash = $current_year.$code.$rand_unique_no.'/VR';
+		$check_exist_code = $this->Application_model->check_memo_no($hash);
+		if($check_exist_code==TRUE)
+		{
+			return $hash;
+			
+		}
+		else
+		{
+			$this->generate_memo();
     }
 }
 ?>

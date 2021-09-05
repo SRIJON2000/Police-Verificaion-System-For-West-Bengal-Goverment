@@ -715,8 +715,15 @@ $state_id='';
       <div class="col3_in">
       <select name="category" id="category" required>
           <option>--Select--</option>
-          <option value="1">Urban</option>
-          <option value="2">Rural</option>
+          <?php
+                foreach($categories as $category)
+                {
+          ?>
+          <option value="<?php echo $category['sent_to_id_pk']; ?>">
+          <?php echo $category['sent_to']; ?></option>
+          <?php 
+          }
+          ?>
       </select>
       </div> 
 

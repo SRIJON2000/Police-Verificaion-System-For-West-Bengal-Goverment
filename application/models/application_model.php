@@ -52,6 +52,13 @@ class Application_model extends CI_Model
         $query =$this->db->get();
 		return $query->result_array();
     }
+    function fetch_category()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_master_sent_to');
+        $query =$this->db->get();
+		return $query->result_array();
+    }
     function fetch_state_code($state_id)
     {
         $this->db->select('state_name_code');
@@ -70,6 +77,7 @@ class Application_model extends CI_Model
         $district_code=$query->row();
 		return $district_code->district_name_code;
     } 
+    
     function check_receipt_no($hash)
     {
         $code = $this->db->select('*')
@@ -87,8 +95,25 @@ class Application_model extends CI_Model
 			return FALSE;
 		}
     }
+    function check_memo_no($hash)
+    {
+        $code = $this->db->select('*')
+						 ->from('pvr_memo')
+						 ->where('memo_no',$hash)
+						 ->get();
+		$result = $code->result_array();
+		$count = count($result);
+		if($count == 0)
+		{
+			return TRUE;	
+		}
+		else
+		{
+			return FALSE;
+		}
+    }
 
-    function submit($data)
+    function submit($data,$memo_no)
     {
         /******************************Populating Receipt No Table*************************/
         $this->db->select_max('receipt_id_pk');
@@ -172,6 +197,28 @@ class Application_model extends CI_Model
         );
         $this->db->insert('pvr_candidate_details',$candidate_detail);
 
+        /******************************Populating PVR Memo Table*************************/
+
+        $this->db->select_max('memo_id_pk');
+        $this->db->from('pvr_memo');
+        $query=$this->db->get();
+        $maxmemo_id=$query->row();
+        
+        if(empty($maxmemo_id))
+        {
+            $maxmemo_id=1;
+        }
+        else
+        {
+            $maxmemo_id=$maxmemo_id+1;
+        }
+        $memo_data=array(
+            'memo_id_pk'=>$maxmemo_id,
+            'memo_no'=>$memo_no,
+            'memo_issued_by_fk'=>,
+            'issue_date'=>$data->receiptdate
+        );
+        $this->db->insert('pvr_memo',$memo_data);
 
         /******************************Populating PVR Details Table*************************/
         $this->db->select_max('pvr_id_pk');
@@ -192,15 +239,15 @@ class Application_model extends CI_Model
             'pvr_id_pk'=>$maxpvr_id,
             'receipt_id_fk'=>$maxreceipt_id,
             'candidate_id_fk'=>$maxcandidate_id,
-            'application_date'=>
-            'pvr_type_fk'=>
-            'pvr_sent_to_id_fk'=>
-            'memo_id_fk'=>
-            'pvr_with_id_fk'=>
-            'pvr_final_status_id_fk'=>
-            'remarks'=>
-            'pvr_report_id_fk'=>
-            'district_id_fk'=>$this->session->userdata('office_district')
+            'application_date'=>$data->receiptdate,
+            'pvr_type_fk'=>$data->defence,
+            'memo_id_fk'=>$maxmemo_id,
+            'pvr_with_id_fk'=>,
+            'pvr_final_status_id_fk'=>,
+            'remarks'=>,
+            'pvr_report_id_fk'=>,
+            'district_id_fk'=>$this->session->userdata('office_district'),
+            'sent_to_id_fk'=>$data->category
         );
 
         $this->db->insert('pvr_vr_detail',$pvr_data);
@@ -246,6 +293,8 @@ class Application_model extends CI_Model
         else
           return $pin_id->pincode_id_pk;
     }
+
+    
 
 }
 ?>
