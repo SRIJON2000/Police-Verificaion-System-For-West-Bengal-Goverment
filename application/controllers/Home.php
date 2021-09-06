@@ -26,7 +26,7 @@
         
         function dashboard_adm()
         {
-            $data['applications']=$this->Application_model->fetch_all_applications();
+          //  $data['applications']=$this->Application_model->fetch_all_applications();
             $this->load->view('themes/dashboard_adm');
         }
         
@@ -85,8 +85,8 @@
            'expiration'    => 7200,
            'word_length'   => 5,
            'font_size'     => 16,
-           'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
-
+           //'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
+           'pool'          => '123456789ABCDEFGHJKMNPQRSTUVWXYZ',
            // White background and border, black text and red grid
                    'colors' => array(
                    'background' => array(255, 255, 255),

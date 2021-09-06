@@ -2,55 +2,64 @@
 class Login_model extends CI_Model
 {
     
-    function loginMe($email, $password)
+    function loginMe($email, $password, $salt)
     {
         $this->db->select('password,office_id_fk,desig_id_fk,dept_id_fk');
         $this->db->from('pvr_login');
         $this->db->where('username',$email);
         $query = $this->db->get();
         $user = $query->row();
-        
-        
+       // $password=hash("sha256", $user->password.$salt); //added because password is not encrypted at login page. Will be removed.
 
-        if(!empty($user)){
-            $hashed_password=hash( "sha256", $password );
-            if($user->password==$hashed_password){
-                $this->db->select('office_name,district_id_fk');
-                $this->db->from('pvr_master_office');
-                $this->db->where('office_id_pk',$user->office_id_fk);
-                $query1 = $this->db->get();
-                $office = $query1->row();
+            if(!empty($user))
+            {
+                //database password is salted and hashed
+            $salted_hashed_password=hash("sha256", $user->password.$salt);
+            
+                //compare the salted hased passwords
+                if($password==$salted_hashed_password)
+                {
+                    $this->db->select('office_name,district_id_fk');
+                    $this->db->from('pvr_master_office');
+                    $this->db->where('office_id_pk',$user->office_id_fk);
+                    $query1 = $this->db->get();
+                    $office = $query1->row();
 
 
-                $this->db->select('desig_name');
-                $this->db->from('pvr_master_designation');
-                $this->db->where('desig_id_pk',$user->desig_id_fk);
-                $query2 = $this->db->get();
-                $desig = $query2->row();
+                    $this->db->select('desig_name');
+                    $this->db->from('pvr_master_designation');
+                    $this->db->where('desig_id_pk',$user->desig_id_fk);
+                    $query2 = $this->db->get();
+                    $desig = $query2->row();
 
-                $this->db->select('dept_name');
-                $this->db->from('pvr_master_department');
-                $this->db->where('dept_id_pk',$user->dept_id_fk);
-                $query3 = $this->db->get();
-                $dept= $query3->row();
+                    $this->db->select('dept_name');
+                    $this->db->from('pvr_master_department');
+                    $this->db->where('dept_id_pk',$user->dept_id_fk);
+                    $query3 = $this->db->get();
+                    $dept= $query3->row();
 
-                $this->db->select('state_id_fk');
-                $this->db->from('pvr_master_district');
-                $this->db->where('district_id_pk',$office->district_id_fk);
-                $query4 = $this->db->get();
-                $state= $query4->row();
+                    $this->db->select('state_id_fk');
+                    $this->db->from('pvr_master_district');
+                    $this->db->where('district_id_pk',$office->district_id_fk);
+                    $query4 = $this->db->get();
+                    $state= $query4->row();
 
-                $result=array('office_name'=>$office->office_name,
-                                'user_type'=>$desig->desig_name,
-                                'office_district'=>$office->district_id_fk,
-                                'office_state'=>$state->state_id_fk,
-                                'department'=>$dept->dept_name);
-
-                return $result;
-            } else {
-                return array();
-            }
-        } else {
+                    $result=array('office_name'=>$office->office_name,
+                                    'user_type'=>$desig->desig_name,
+                                    'office_district'=>$office->district_id_fk,
+                                    'office_state'=>$state->state_id_fk,
+                                    'department'=>$dept->dept_name);
+                    
+                    unset($_SESSION['salt']); //line added
+                    return $result;
+                } 
+                else 
+                {
+                    return array();
+                }
+        } 
+        else 
+        {
             return array();
         }
     }
