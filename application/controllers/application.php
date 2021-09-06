@@ -143,7 +143,7 @@ class Application extends CI_Controller
         //$district_code=$this->Application_model->fetch_district_code($district_id);
 		$current_year=date('y');
 		
-		$hash = $current_year.$code.$rand_unique_no.'/VR';
+		$hash =$code.$rand_unique_no.'/VR/'.$current_year;
 		$check_exist_code = $this->Application_model->check_memo_no($hash);
 		if($check_exist_code==TRUE)
 		{

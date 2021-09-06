@@ -215,8 +215,8 @@ class Application_model extends CI_Model
         $memo_data=array(
             'memo_id_pk'=>$maxmemo_id,
             'memo_no'=>$memo_no,
+            'issue_date'=>$data->receiptdate,
             'memo_issued_by_fk'=>NULL,
-            'issue_date'=>$data->receiptdate
         );
         $this->db->insert('pvr_memo',$memo_data);
 

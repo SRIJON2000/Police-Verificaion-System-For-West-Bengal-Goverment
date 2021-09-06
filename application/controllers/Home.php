@@ -16,7 +16,7 @@
 
         function admin_login()
         {
-            $data=$this->load_captcha();
+            $data['cap']=$this->load_captcha();
             $this->load->view('themes/admin_login',$data);
         }
         function dashboard_employer()
@@ -98,7 +98,6 @@
        //store the captcha in cap variable. 
              $data['cap']=create_captcha($vals);
              return $data;
-           
            
          }
     public function generate_receipt_No($district_id,$state_id)
