@@ -124,7 +124,7 @@ class Application extends CI_Controller
             'defence'=>$this->input->post('defence'),
             'category'=>$this->input->post('category'));
             
-            $memo_no=generate_memo();
+            $memo_no=$this->generate_memo();
 
             $this->Application_model->submit($data,$memo_no);
             redirect('Home/dashboard_admin');
@@ -153,6 +153,7 @@ class Application extends CI_Controller
 		else
 		{
 			$this->generate_memo();
+        }
     }
 }
 ?>
