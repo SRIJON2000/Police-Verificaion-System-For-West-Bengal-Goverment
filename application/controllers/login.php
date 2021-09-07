@@ -148,7 +148,7 @@ class Login extends CI_Controller
 	// 	$vals = array(
 	// 		//'word'          => 'AbCd',
 	// 		'img_path'      => './captcha/',
-	// 		'img_url'       => 'captcha/',
+	// 		'img_url'       => 'http://localhost/PVR/captcha/',
 	// 		'font_path'     => './captcha4.ttf',
 	// 		'img_width'     => '132',
 	// 		'img_height'    => 38,
