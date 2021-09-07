@@ -111,67 +111,68 @@ class Login extends CI_Controller
 		}
 	}
 
-    function load_captcha()
-         {
-            //captcha generation
-            $this->load->helper('captcha');
-            $vals = array(
-       
-           'img_path'      => './captcha/',
-           'img_url'       => 'http://localhost/PVR/captcha/',
-           'img_width'     => '132',
-           'img_height'    => 38,
-           'expiration'    => 7200,
-           'word_length'   => 5,
-           'font_size'     => 16,
-           //'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
-           'pool'          => '123456789ABCDEFGHJKMNPQRSTUVWXYZ',
-           // White background and border, black text and red grid
-                   'colors' => array(
-                   'background' => array(255, 255, 255),
-                   'border' => array(200, 200, 200),
-                   'text' => array(100, 100, 100),
-                   'grid' => array(200, 200, 200)
-                        )
-                    );
-       //store the captcha in cap variable. 
-             $data['cap']=create_captcha($vals);
-             return $data;
-           
-           
-         }
-
-
     // function load_captcha()
-	// {
-	// 	$this->load->helper('captcha');
-	// 	$vals = array(
-	// 		//'word'          => 'AbCd',
-	// 		'img_path'      => './captcha/',
-	// 		'img_url'       => 'http://localhost/PVR/captcha/',
-	// 		'font_path'     => './captcha4.ttf',
-	// 		'img_width'     => '132',
-	// 		'img_height'    => 38,
-	// 		'expiration'    => 7200,
-	// 		'word_length'   => 5,
-	// 		'font_size'     => 16,
-	// 		//'img_id'        => 'Imageid',
-	// 		'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
-	
-	// 		// White background and border, black text and red grid
-	// 		'colors'        => array(
-	// 				'background' => array(255, 255, 255),
-	// 				'border' => array(200, 200, 200),
-	// 				'text' => array(100, 100, 100),
-	// 				'grid' => array(200, 200, 200)
-	// 		)
-	// 	);
-	// 	$cap = create_captcha($vals);
-	// 	$captcha_word = hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key'));
-	// 	$captcha = array('image'=>$cap['image'],'word'=>$captcha_word);
-	// 	echo json_encode($captcha);
+    //      {
+    //         //captcha generation
+    //         $this->load->helper('captcha');
+    //         $vals = array(
+       
+    //        'img_path'      => './captcha/',
+    //        'img_url'       => 'http://localhost/PVR/captcha/',
+    //        'img_width'     => '132',
+    //        'img_height'    => 38,
+    //        'expiration'    => 7200,
+    //        'word_length'   => 5,
+    //        'font_size'     => 16,
+    //        //'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
+    //        'pool'          => '123456789ABCDEFGHJKMNPQRSTUVWXYZ',
+    //        // White background and border, black text and red grid
+    //                'colors' => array(
+    //                'background' => array(255, 255, 255),
+    //                'border' => array(200, 200, 200),
+    //                'text' => array(100, 100, 100),
+    //                'grid' => array(200, 200, 200)
+    //                     )
+    //                 );
+    //    //store the captcha in cap variable. 
+    //          $data['cap']=create_captcha($vals);
+    //          return $data;
+           
+           
+    //      }
 
-	// }
+
+    function load_captcha()
+	{
+		$this->load->helper('captcha');
+		$vals = array(
+			//'word'          => 'AbCd',
+			'img_path'      => './captcha/',
+			'img_url'       => 'http://localhost/PVR/captcha/',
+			'font_path'     => './captcha4.ttf',
+			'img_width'     => '132',
+			'img_height'    => 38,
+			'expiration'    => 7200,
+			'word_length'   => 5,
+			'font_size'     => 16,
+			//'img_id'        => 'Imageid',
+			'pool'          => '123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ',
+	
+			// White background and border, black text and red grid
+			'colors'        => array(
+					'background' => array(255, 255, 255),
+					'border' => array(200, 200, 200),
+					'text' => array(100, 100, 100),
+					'grid' => array(200, 200, 200)
+			)
+		);
+		$cap = create_captcha($vals);
+		$captcha_word = hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key'));
+		$captcha = array('image'=>$cap['image'],'word'=>$captcha_word);
+		//echo json_encode($captcha);
+        return $captcha; 
+
+	}
 
     
 
