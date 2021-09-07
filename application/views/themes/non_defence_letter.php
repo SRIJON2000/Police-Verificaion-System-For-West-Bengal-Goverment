@@ -11,34 +11,36 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>\application\views\themes\CSS\stylesheet1.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <title>Letter</title>
         <style>
-               #letter{
-                background-color: #fffdfd;
-                width: 70%;
-                height: 1000px;
-                margin: 65px auto;
-                border: 2px solid #000;
-             }  
-             #letter_body  {
-                width: 96%;
-                height: 867px;
-                margin-top: 5% !important;
-                margin: 2%;
-                padding: 2%;
-                border: 2px solid #000;
-             } 
-             #letter-date{
-                padding-right: 160px !important;
-             }
-             #letter-content{
-                padding-left:10px; 
-                display:inline-block;
-             }
+            #letter{
+  background-color: #fffdfd;
+  width: 70%;
+  height: 1000px;
+  margin: 65px auto;
+  border: 2px solid #000;
+}  
+#letter_body  {
+  width: 96%;
+  height: 867px;
+  margin-top: 5% !important;
+  margin: 2%;
+  padding: 2%;
+  border: 2px solid #000;
+} 
+#letter-date{
+  padding-right: 160px !important;
+}
+#letter-content{
+  padding-left:10px; 
+  display:inline-block;
+}
 
         </style>
     </head>
+
     <body>
         <div id="letter">
             <h4 class="text-center mt-2" >Verified Report for Non-Defence</h4>
@@ -85,7 +87,7 @@
             </div>      
         </div>
 
-        <button class="btn bg-secondary text-light m-auto">Print</button> <br><br>
+        <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br>
     </body>
     <?php $this->load->view('layouts/footer_view'); ?>
     </html>
