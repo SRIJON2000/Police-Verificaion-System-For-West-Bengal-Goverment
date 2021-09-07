@@ -29,6 +29,10 @@
           //  $data['applications']=$this->Application_model->fetch_all_applications();
             $this->load->view('themes/dashboard_adm');
         }
+        function non_defence_letter()
+        {
+            $this->load->view('themes/non_defence_letter');
+        }
         
         function dashboard_ocvr()
         {
