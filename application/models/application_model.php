@@ -1,6 +1,10 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 class Application_model extends CI_Model
 {
+    function fetch_all_application($district_id)
+    {
+        
+    }
     function fetch_gender()
     {
         
@@ -115,6 +119,8 @@ class Application_model extends CI_Model
 
     function submit($data,$memo_no)
     {
+        $format = "%Y-%M-%d";
+        $date=mdate($format);
         /******************************Populating Receipt No Table*************************/
         $this->db->select_max('receipt_id_pk');
         $this->db->from('pvr_receipt_no');
@@ -215,12 +221,12 @@ class Application_model extends CI_Model
         $memo_data=array(
             'memo_id_pk'=>$maxmemo_id,
             'memo_no'=>$memo_no,
-            'issue_date'=>$data->receiptdate,
-            'memo_issued_by_fk'=>NULL,
+            'issue_date'=>$date,
+            'memo_issued_by_fk'=>$this->session->userdata('department'),
         );
         $this->db->insert('pvr_memo',$memo_data);
 
-        /******************************Populating PVR Details Table*************************/
+        /******************************Populating PVR_WITH Table*************************/
         $this->db->select_max('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
         $query=$this->db->get();
@@ -235,16 +241,79 @@ class Application_model extends CI_Model
             $maxpvr_id=$maxpvr_id+1;
         }
 
+        /************************************************************************************/
+
+        $this->db->select_max('pvr_with_id_pk');
+        $this->db->from('pvr_with');
+        $query=$this->db->get();
+        $maxpvrwith_id=$query->row();
+        
+        if(empty($maxpvrwith_id))
+        {
+            $maxpvrwith_id=1;
+        }
+        else
+        {
+            $maxpvrwith_id=$maxpvrwith_id+1;
+        }
+
+        /************************************************************************************/
+
+        $this->db->select('dept_name');
+        $this->db->from('pvr_master_department');
+        $this->db->where('dept_id_pk',$this->session->userdata('department'));
+        $query = $this->db->get();
+        $dept = $query->row();
+
+        /************************************************************************************/
+
+        $pvr_with_data=array(
+                'pvr_with_id_pk'=>$maxpvrwith_id,
+                'pvr_id_fk'=>$maxpvr_id,
+                'pvr_with_status'=>$dept->dept_name,
+                'pvr_with_date'=>$date
+            );
+
+        $this->db->insert('pvr_with',$pvr_with_data);
+
+        /******************************Populating PVR Final Status Table*************************/
+
+        $this->db->select_max('pvr_final_status_id_pk');
+        $this->db->from('pvr_final_status');
+        $query=$this->db->get();
+        $maxpvrfinalstatuswith_id=$query->row();
+        
+        if(empty($maxpvrfinalstatuswith_id))
+        {
+            $maxpvrfinalstatuswith_id=1;
+        }
+        else
+        {
+            $maxpvrfinalstatuswith_id=$maxpvrfinalstatuswith_id+1;
+        }
+
+        $pvr_finalstatus_data=array(
+
+            'pvr_final_status_id_pk'=>$maxpvrfinalstatuswith_id,
+            'pvr_id_fk'=>$maxpvr_id,
+            'final_status_name'=>'Under Process'
+        );
+
+        $this->db->insert('pvr_final_status',$pvr_finalstatus_data);
+
+        /******************************Populating PVR Details Table*************************/
+        
+
         $pvr_data=array(
             'pvr_id_pk'=>$maxpvr_id,
             'receipt_id_fk'=>$maxreceipt_id,
             'candidate_id_fk'=>$maxcandidate_id,
-            'application_date'=>$data->receiptdate,
+            'application_date'=>$date,
             'pvr_type_fk'=>$data->defence,
             'memo_id_fk'=>$maxmemo_id,
-            'pvr_with_id_fk'=>NULL,
-            'pvr_final_status_id_fk'=>NULL,
-            'remarks'=>NULL,
+            'pvr_with_id_fk'=>$maxpvrwith_id,
+            'pvr_final_status_id_fk'=>$maxpvrfinalstatuswith_id,
+            'remarks'=>'test',
             'pvr_report_id_fk'=>NULL,
             'district_id_fk'=>$this->session->userdata('office_district'),
             'sent_to_id_fk'=>$data->category
