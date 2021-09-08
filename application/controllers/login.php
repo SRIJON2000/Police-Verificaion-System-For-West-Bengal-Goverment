@@ -40,6 +40,7 @@ class Login extends CI_Controller
                 'field' => 'captcha',
                 'label' => 'Captcha',
                 'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
+                //'rules' => ''
             )
         );
 
