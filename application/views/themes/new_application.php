@@ -2,11 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
 $this->load->helper('date');
-$format = "%Y-%M-%d";
-$a=mdate($format);
-$date=date_create($a,timezone_open("Indian/Reunion"));
+// $format = "%Y-%M-%d";
+// $a=mdate($format);
+// $date=date_create($a,timezone_open("Indian/Reunion"));
 //echo date_format($date,"Y-m-d H:i:sP") . "<br>";
-$state_id='';
+//$format = "%dd-%mm-%yyyy";
+$d=date('d-m-y');
 ?>
 <!DOCTYPE html>
 <html>
@@ -142,7 +143,7 @@ $state_id='';
         <label for="rcptno"><b>Receipt No</b></label>
       </div>
       <div class="col1_in">
-        <input type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" required disabled>
+        <input type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No">
       </div>
     <!--</div>
 
@@ -151,7 +152,7 @@ $state_id='';
         <label for="rcptdate"><b>Receipt Date</b></label>
       </div>
       <div class="col3_in">
-        <input type="text" id="rcptdate" value="<?php echo $a;?>" style="height: 40px; font-size: 20px" name="receiptdate"  required disabled>
+        <input type="date" id="rcptdate"  style="height: 40px; font-size: 20px" name="receiptdate">
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 

@@ -14,11 +14,12 @@ class Login_model extends CI_Model
             if(!empty($user))
             {
                 //database password is salted and hashed
-            $salted_hashed_password=hash("sha256", $user->password.$salt);
+            //$salted_hashed_password=hash("sha256", $user->password.$salt);
+            $salted_hashed_password=hash("sha256", $user->password);
             
                 //compare the salted hased passwords
-                if($password==$salted_hashed_password)
-                {
+                //if($password==$salted_hashed_password)
+                //{
                     $this->db->select('office_name,district_id_fk');
                     $this->db->from('pvr_master_office');
                     $this->db->where('office_id_pk',$user->office_id_fk);
@@ -48,15 +49,16 @@ class Login_model extends CI_Model
                                     'user_type'=>$desig->desig_name,
                                     'office_district'=>$office->district_id_fk,
                                     'office_state'=>$state->state_id_fk,
-                                    'department'=>$dept->dept_name);
+                                    'department'=>$dept->dept_name,
+                                    'department_id'=>$user->dept_id_fk);
                     
                     unset($_SESSION['salt']); //line added
                     return $result;
-                } 
-                else 
-                {
-                    return array();
-                }
+                //} 
+               // else 
+                //{
+                    //return array();
+                //}
         } 
         else 
         {

@@ -16,7 +16,7 @@ class Application extends CI_Controller
     {
         $this->load->library('form_validation');
         
-        $this->form_validation->set_rules('receiptno', 'Receipt No', 'required|trim');
+        $this->form_validation->set_rules('receiptno', 'Receipt No', 'required');
         $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
         $this->form_validation->set_rules('employer','Employer Name','required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required|max_length[32]|trim');
@@ -127,7 +127,7 @@ class Application extends CI_Controller
             $memo_no=$this->generate_memo();
 
             $this->Application_model->submit($data,$memo_no);
-            redirect('Home/dashboard_admin');
+            redirect('Home/dashboard_adm');
             
         }
     }

@@ -119,8 +119,8 @@ class Application_model extends CI_Model
 
     function submit($data,$memo_no)
     {
-        $format = "%Y-%M-%d";
-        $date=mdate($format);
+        // $format = "%Y-%M-%d";
+        // $date=mdate($format);
         /******************************Populating Receipt No Table*************************/
         $this->db->select_max('receipt_id_pk');
         $this->db->from('pvr_receipt_no');
@@ -129,25 +129,25 @@ class Application_model extends CI_Model
         
         if(empty($maxreceipt_id))
         {
-            $maxreceipt_id=1;
+            $maxreceipt_id->receipt_id_pk=1;
         }
         else
         {
-            $maxreceipt_id=$maxreceipt_id+1;
+            $maxreceipt_id->receipt_id_pk=$maxreceipt_id->receipt_id_pk+1;
         }
 
         $receiptdata=array(
-            'receipt_id_pk'=>$maxreceipt_id,
-            'receipt_date'=>$data->receiptdate,
-            'receipt_no'=>$data->receiptno
+            'receipt_id_pk'=>$maxreceipt_id->receipt_id_pk,
+            'receipt_date'=>$data['receiptdate'],
+            'receipt_no'=>$data['receiptno']
         );
         $this->db->insert('pvr_receipt_no',$receiptdata);
 
         /******************************Populating Reference No Table*************************/
         $refdata=array(
-            'ref_no_pk'=>$data->refno,
-            'receipt_id_fk'=>$maxreceipt_id,
-            'ref_date'=>$data->refdate
+            'ref_no_pk'=>$data['refno'],
+            'receipt_id_fk'=>$maxreceipt_id->receipt_id_pk,
+            'ref_date'=>$data['refdate']
         );
         $this->db->insert('pvr_reference_no',$refdata);
 
@@ -159,46 +159,46 @@ class Application_model extends CI_Model
         
         if(empty($maxcandidate_id))
         {
-            $maxcandidate_id=1;
+            $maxcandidate_id->candidate_id_pk=1;
         }
         else
         {
-            $maxcandidate_id=$maxcandidate_id+1;
+            $maxcandidate_id->candidate_id_pk=$maxcandidate_id->candidate_id_pk+1;
         }
 
-        $candidate_pin_id1=$this->fetch_pin_id($data->pin1,$data->district1);
-        $candidate_pin_id2=$this->fetch_pin_id($data->pin2,$data->district2);
+        $candidate_pin_id1=$this->fetch_pin_id($data['pin1'],$data['district1']);
+        $candidate_pin_id2=$this->fetch_pin_id($data['pin2'],$data['district2']);
 
        
         $candidate_detail=array(
-            'candidate_id_pk'=>$maxcandidate_id,
-            'reference_no_fk'=>$data->refno,
-            'employer_id_fk'=>$data->employer,
+            'candidate_id_pk'=>$maxcandidate_id->candidate_id_pk,
+            'reference_no_fk'=>$data['refno'],
+            'employer_id_fk'=>$data['employer'],
             'profile_id_fk'=>NULL,
-            'candidate_f_name'=>$data->firstname,
-            'candidate_m_name'=>$data->middlename,
-            'candidate_l_name'=>$data->lastname,
-            'candidate_gender_id'=>$data->gender,
-            'candidate_caste_id_fk'=>$data->caste,
-            'candidate_aadhaar_no'=>$data->aadhaarno,
-            'candidate_house_no1'=>$data->houseno1,
-            'candidate_street1'=>$data->street1,
-            'candidate_landmark1'=>$data->landmark1,
-            'candidate_city1'=>$data->city1,
-            'candidate_post_office1'=>$data->po1,
-            'candidate_police_station_id1_fk'=>$data->ps1,
+            'candidate_f_name'=>$data['firstname'],
+            'candidate_m_name'=>$data['middlename'],
+            'candidate_l_name'=>$data['lastname'],
+            'candidate_gender_id_fk'=>$data['gender'],
+            'candidate_caste_id_fk'=>$data['caste'],
+            'candidate_aadhaar_no'=>$data['aadhaarno'],
+            'candidate_house_no1'=>$data['houseno1'],
+            'candidate_street1'=>$data['street1'],
+            'candidate_landmark1'=>$data['landmark1'],
+            'candidate_city1'=>$data['city1'],
+            'candidate_post_office1'=>$data['po1'],
+            'candidate_police_station_id1_fk'=>$data['ps1'],
             'candidate_pin1_fk'=>$candidate_pin_id1,
-            'candidate_district_id1_fk'=>$data->district1,
+            'candidate_district_id1_fk'=>$data['district1'],
             'candidate_photo_path'=>'test/path',
-            'candidate_defence_type_id_fk'=>$data->defence,
-            'candidate_house_no2'=>$data->houseno2,
-            'candidate_street2'=>$data->street2,
-            'candidate_landmark2'=>$data->landmark2,
-            'candidate_city2'=>$data->city2,
-            'candidate_post_office2'=>$data->po1,
-            'candidate_police_station_id2_fk'=>$data->ps2,
+            'candidate_defence_type_id_fk'=>$data['defence'],
+            'candidate_house_no2'=>$data['houseno2'],
+            'candidate_street2'=>$data['street2'],
+            'candidate_landmark2'=>$data['landmark2'],
+            'candidate_city2'=>$data['city2'],
+            'candidate_post_office2'=>$data['po1'],
+            'candidate_police_station_id2_fk'=>$data['ps2'],
             'candidate_pin2_fk'=>$candidate_pin_id2,
-            'candidate_district_id2_fk'=>$data->district2
+            'candidate_district_id2_fk'=>$data['district2']
 
         );
         $this->db->insert('pvr_candidate_details',$candidate_detail);
@@ -212,17 +212,17 @@ class Application_model extends CI_Model
         
         if(empty($maxmemo_id))
         {
-            $maxmemo_id=1;
+            $maxmemo_id->memo_id_pk=1;
         }
         else
         {
-            $maxmemo_id=$maxmemo_id+1;
+            $maxmemo_id->memo_id_pk=$maxmemo_id->memo_id_pk+1;
         }
         $memo_data=array(
-            'memo_id_pk'=>$maxmemo_id,
+            'memo_id_pk'=>$maxmemo_id->memo_id_pk,
             'memo_no'=>$memo_no,
-            'issue_date'=>$date,
-            'memo_issued_by_fk'=>$this->session->userdata('department'),
+            'issue_date'=>$data['receiptdate'],
+            'issued_by_dept_id_fk'=>$this->session->userdata('department_id'),
         );
         $this->db->insert('pvr_memo',$memo_data);
 
@@ -234,11 +234,11 @@ class Application_model extends CI_Model
         
         if(empty($maxpvr_id))
         {
-            $maxpvr_id=1;
+            $maxpvr_id->pvr_id_pk=1;
         }
         else
         {
-            $maxpvr_id=$maxpvr_id+1;
+            $maxpvr_id->pvr_id_pk=$maxpvr_id->pvr_id_pk+1;
         }
 
         /************************************************************************************/
@@ -250,28 +250,28 @@ class Application_model extends CI_Model
         
         if(empty($maxpvrwith_id))
         {
-            $maxpvrwith_id=1;
+            $maxpvrwith_id->pvr_with_id_pk=1;
         }
         else
         {
-            $maxpvrwith_id=$maxpvrwith_id+1;
+            $maxpvrwith_id->pvr_with_id_pk=$maxpvrwith_id->pvr_with_id_pk+1;
         }
 
         /************************************************************************************/
 
         $this->db->select('dept_name');
         $this->db->from('pvr_master_department');
-        $this->db->where('dept_id_pk',$this->session->userdata('department'));
+        $this->db->where('dept_id_pk',$this->session->userdata('department_id'));
         $query = $this->db->get();
         $dept = $query->row();
 
         /************************************************************************************/
 
         $pvr_with_data=array(
-                'pvr_with_id_pk'=>$maxpvrwith_id,
-                'pvr_id_fk'=>$maxpvr_id,
+                'pvr_with_id_pk'=>$maxpvrwith_id->pvr_with_id_pk,
+                //'pvr_id_fk'=>$maxpvr_id->pvr_id_pk,
                 'pvr_with_status'=>$dept->dept_name,
-                'pvr_with_date'=>$date
+                'pvr_with_date'=>$data['receiptdate']
             );
 
         $this->db->insert('pvr_with',$pvr_with_data);
@@ -285,17 +285,17 @@ class Application_model extends CI_Model
         
         if(empty($maxpvrfinalstatuswith_id))
         {
-            $maxpvrfinalstatuswith_id=1;
+            $maxpvrfinalstatuswith_id->pvr_final_status_id_pk=1;
         }
         else
         {
-            $maxpvrfinalstatuswith_id=$maxpvrfinalstatuswith_id+1;
+            $maxpvrfinalstatuswith_id->pvr_final_status_id_pk=$maxpvrfinalstatuswith_id->pvr_final_status_id_pk+1;
         }
 
         $pvr_finalstatus_data=array(
 
-            'pvr_final_status_id_pk'=>$maxpvrfinalstatuswith_id,
-            'pvr_id_fk'=>$maxpvr_id,
+            'pvr_final_status_id_pk'=>$maxpvrfinalstatuswith_id->pvr_final_status_id_pk,
+            //'pvr_id_fk'=>$maxpvr_id,
             'final_status_name'=>'Under Process'
         );
 
@@ -305,18 +305,18 @@ class Application_model extends CI_Model
         
 
         $pvr_data=array(
-            'pvr_id_pk'=>$maxpvr_id,
-            'receipt_id_fk'=>$maxreceipt_id,
-            'candidate_id_fk'=>$maxcandidate_id,
-            'application_date'=>$date,
-            'pvr_type_fk'=>$data->defence,
-            'memo_id_fk'=>$maxmemo_id,
-            'pvr_with_id_fk'=>$maxpvrwith_id,
-            'pvr_final_status_id_fk'=>$maxpvrfinalstatuswith_id,
+            'pvr_id_pk'=>$maxpvr_id->pvr_id_pk,
+            'receipt_id_fk'=>$maxreceipt_id->receipt_id_pk,
+            'candidate_id_fk'=>$maxcandidate_id->candidate_id_pk,
+            'application_date'=>$data['receiptdate'],
+            'pvr_type_fk'=>$data['defence'],
+            'memo_id_fk'=>$maxmemo_id->memo_id_pk,
+            'pvr_with_id_fk'=>$maxpvrwith_id->pvr_with_id_pk,
+            'pvr_final_status_id_fk'=>$maxpvrfinalstatuswith_id->pvr_final_status_id_pk,
             'remarks'=>'test',
             'pvr_report_id_fk'=>NULL,
             'district_id_fk'=>$this->session->userdata('office_district'),
-            'sent_to_id_fk'=>$data->category
+            'sent_to_id_fk'=>$data['category']
         );
 
         $this->db->insert('pvr_vr_detail',$pvr_data);
@@ -344,14 +344,14 @@ class Application_model extends CI_Model
 
             if(empty($maxpin_id))
             {
-                $maxpin_id=1;
+                $maxpin_id->pincode_id_pk=1;
             }
             else
             {
-                $maxpin_id=$maxpin_id+1;
+                $maxpin_id->pincode_id_pk=$maxpin_id->pincode_id_pk+1;
             }
             $pin=array(
-                'pincode_id_pk'=>$maxpin_id,
+                'pincode_id_pk'=>$maxpin_id->pincode_id_pk,
                 'pincode_no'=>$pin,
                 'district_id_fk'=>$district_id
             );

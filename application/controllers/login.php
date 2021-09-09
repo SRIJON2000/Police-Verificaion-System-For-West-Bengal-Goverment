@@ -39,8 +39,8 @@ class Login extends CI_Controller
             array(
                 'field' => 'captcha',
                 'label' => 'Captcha',
-                'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
-                //'rules' => ''
+                //'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
+                'rules' => ''
             )
         );
 
@@ -74,6 +74,7 @@ class Login extends CI_Controller
                                     'office_district'=>$result['office_district'],
                                     'office_state'=>$result['office_state'],
                                     'department'=>$result['department'],
+                                    'department_id'=>$result['department_id'],
                                     'isloggedin'=>True);
                 
                 $this->load->library('session');
