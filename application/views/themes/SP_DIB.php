@@ -1,3 +1,6 @@
+<!-- written by Indranil Sen -->
+
+
 <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->view('layouts/header_view');
@@ -80,7 +83,17 @@
                        <div class="d-flex justify-content-end fw-bold">Yours faithfully,</div> 
                          <br>
                         <div class="d-flex justify-content-end fw-bold">For District Magistrate Howrah </div>
-                      <!--  <div class="d-flex justify-content-end fw-bold">Howrah </div>-->
+                        <div class="mt-4  d-flex  justify-content-between">
+                            <div class="ml-4  d-flex  justify-content-between">Name of the Candidate:</div>
+                            <div>Name of the Employer</div><br>
+                                                </div>
+                            <div class="m-4  d-flex  justify-content-between ">
+                            <div class="ml-4  d-flex  justify-content-between">___________________</div>
+                            <div>____________________</div>
+
+                            </div>                    
+
+                        <!--  <div class="d-flex justify-content-end fw-bold">Howrah </div>-->
             </div>      
         </div>
 
