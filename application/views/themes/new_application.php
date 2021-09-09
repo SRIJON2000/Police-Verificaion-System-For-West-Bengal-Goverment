@@ -317,30 +317,30 @@ $d=date('d-m-y');
   <div class="text-danger text-center" ><input type="checkbox" id="check" onclick="show()">Same as Permanent Address</div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-        <label for="houseno1"><b>House No</b></label>
-        <input type="number" style="height: 40px; font-size: 20px" id="houseno1" name="houseno1" required>
+        <label for="houseno2"><b>House No</b></label>
+        <input type="number" style="height: 40px; font-size: 20px" id="houseno2" name="houseno2" required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-        <label for="street1"><b>Street/Lane</b></label>
-        <input type="text"  id="street1" name="street1" required>
+        <label for="street2"><b>Street/Lane</b></label>
+        <input type="text"  id="street2" name="street2" required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-        <label for="landmark1"><b>Landmark</b></label>
-        <input type="text"  id="landmark1" name="landmark1" required>
+        <label for="landmark2"><b>Landmark</b></label>
+        <input type="text"  id="landmark2" name="landmark2" required>
       </div>
   </div><br/>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <label for="city1"><b>City</b></label>
-      <input type="text"  id="city1" name="city1" required>
+      <label for="city2"><b>City</b></label>
+      <input type="text"  id="city2" name="city2" required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-        <label for="po1"><b>Post Office</b></label>
-        <input type="text"  id="po1" name="po1" required>
+        <label for="po2"><b>Post Office</b></label>
+        <input type="text"  id="po2" name="po2" required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-        <label for="ps1"><b>Police Station</b></label>
-        <select name="ps1" id="ps1">
+        <label for="ps2"><b>Police Station</b></label>
+        <select name="ps2" id="ps2">
           <option>--Select--</option>
           <?php
             foreach($policestations as $ps)
@@ -356,12 +356,12 @@ $d=date('d-m-y');
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <label for="pin1"><b>Pincode</b></label>
-      <input type="number" style="height: 40px; font-size: 20px"id="pin1" name="pin1"  placeholder="Your Pincode.." required>
+      <label for="pin2"><b>Pincode</b></label>
+      <input type="number" style="height: 40px; font-size: 20px"id="pin2" name="pin2"  placeholder="Your Pincode.." required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <label for="state1"><b>State</b></label>
-      <select id="state1" name="state1" onchange="get_district()">
+      <label for="state2"><b>State</b></label>
+      <select id="state2" name="state2" onchange="get_district()">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -375,8 +375,8 @@ $d=date('d-m-y');
                       </select>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <label for="district1"><b>District</b></label>
-    <select  id="district1" name="district1">
+      <label for="district2"><b>District</b></label>
+    <select  id="district2" name="district2">
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
