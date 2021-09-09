@@ -26,8 +26,8 @@
         
         function dashboard_adm()
         {
-          //$data['applications']=$this->Application_model->fetch_all_applications();
-            $this->load->view('themes/dashboard_adm');
+            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $this->load->view('themes/dashboard_adm',$data);
         }
         function non_defence_letter()
         {

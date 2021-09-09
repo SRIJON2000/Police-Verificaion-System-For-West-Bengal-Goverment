@@ -24,6 +24,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             border-radius: 4px;
             cursor: pointer;
         }
+        a.action
+        {
+            text-decoration:none;
+            background-color: #04AA6D;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
         </style>
     </head>
     <body>
@@ -158,6 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <thead>
                                         <tr>
                                             <th>Candidate Name</th>
+                                            <th>Office Name</th>
                                             <th>Application date</th>
                                             <th>Action</th>
                                         </tr>
@@ -165,20 +176,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <tfoot>
                                         <tr>
                                         <th>Candidate Name</th>
-                                            <th>Application date</th>
-                                            <th>Action</th>
+                                        <th>Office Name</th>
+                                        <th>Application date</th>
+                                        <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
+                                    <?php
+                                        foreach($applications as $application)
+                                        {
+                                    ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td><input type="submit" value="Check Status">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="View Details"></td>
-                                           
+                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
+                                            <td><?php echo $application['employer_id_fk'] ?></td>
+                                            <td><?php echo $application['application_date'] ?></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details"><b>View Details</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                             
                                         </tr>
-                                        
+                                    <?php
+                                        }
+                                    ?>    
                                         
                                         
                                     </tbody>

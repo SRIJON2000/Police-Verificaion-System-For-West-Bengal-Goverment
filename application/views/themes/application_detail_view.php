@@ -67,7 +67,7 @@ tr td,tr th{border: 1px solid;}*/
     <section class="content-header">
         <h1>Applicant Details</h1>
         <ol class="breadcrumb">
-            <li><a href="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><i class="fa fa-dashboard"></i> Dashboard</li>
             
             <li class="active">Applicant Details</li>
         </ol>

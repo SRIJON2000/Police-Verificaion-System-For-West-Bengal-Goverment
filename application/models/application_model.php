@@ -1,9 +1,14 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 class Application_model extends CI_Model
 {
-    function fetch_all_application($district_id)
+    function fetch_all_applications($district_id)
     {
-        
+        $this->db->select('*');
+        $this->db->from('pvr_vr_detail');
+        $this->db->join('pvr_candidate_details', 'pvr_candidate_details.candidate_id_pk = pvr_vr_detail.candidate_id_fk');
+        $this->db->where('district_id_fk',$district_id);
+        $query =$this->db->get();
+        return $query->result_array();
     }
     function fetch_gender()
     {
