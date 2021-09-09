@@ -33,6 +33,15 @@
         {
             $this->load->view('themes/non_defence_letter');
         }
+
+        function defence_letter()
+        {
+            $this->load->view('themes/defence_letter');
+        }
+        function SP_DIB()
+        {
+            $this->load->view('themes/SP_DIB');
+        }
         
         function dashboard_ocvr()
         {
