@@ -1,4 +1,8 @@
-
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->view('layouts/header_view');
+$this->load->library('session');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,25 +12,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
  
-  <title>Department of Technical Education Training and Skill Development</title>
+  <!-- <title>Application Details</title> -->
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="themes_css3/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes_css3/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css"> 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="themes_css3/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes_css3/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="themes_css3/adminlte/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes_css3/adminlte/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Extra CSS -->
   <!-- jQuery 3 -->
 <script src="themes/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="themes_css3/adminlte/training_partner/style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes_css3/adminlte/training_partner/style.css">
     <!-- Theme style -->
-  <link rel="stylesheet" href="themes_css3/adminlte/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes_css3/adminlte/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="themes_css3/adminlte/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/themes_css3/adminlte/dist/css/skins/_all-skins.min.css">
 
+
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -41,211 +47,10 @@
   
 </head>
 <!--<body class="hold-transition skin-red-light sidebar-mini">-->
-<body class="hold-transition skin-blue-light sidebar-mini">
+<body>
 <!-- Site wrapper -->
-<div class="wrapper">
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img src="themes_css3/adminlte/dist/img/bb_logo.png" width="40" alt="User Image"></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <!-- <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="themes_css3/adminlte/dist/img/ub_logo.png" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>-->
-          <!-- Notifications: style can be found in dropdown.less -->
-          <!--<li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>-->
-          <!-- Added by Koustabh on 03/01/2019 starts -->
-          <li>
-          	<a href="http://localhost/recruitment/">
-          		Back To Home
-          	</a>
-          </li>
-          <!-- Added by Koustabh on 03/01/2019 ends -->
-          <li class="dropdown user user-menu">
-          	
-          	
-          	
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<!--              <img src="themes_css3/adminlte/dist/img/ub_logo.png" class="user-image" alt="User Image">-->
-              <span>Admin</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="themes_css3/adminlte/dist/img/ub_logo.png" class="img-circle" alt="User Image">
-
-                <p>
-                  Admin                  <small>Admin</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <!--<div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>-->
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-              	                <div class="pull-left">
-               			   			   
-                </div>
-                                <div class="pull-right">
-                  <a href="login/logout" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <!-- <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li> -->
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- =============================================== -->
-
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-     
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <!-- <li class="header">MAIN NAVIGATION</li> -->
-        
-        <!-- Search Start -->
-		<!-- Search End -->
-		
-        <li class="">
-          <a href="dashboard">
-            <i class="fa fa-dashboard text-aqua"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        	        <li class="treeview active">
-	          <a href="spm">
-	            <i class="fa fa-list text-aqua"></i> <span>SPM</span>
-	            <span class="pull-right-container">
-	              <i class="fa fa-angle-left pull-right"></i>
-	            </span>
-	          </a>
-	                  	<ul class="treeview-menu">
-        			            <li class=""><a href="spm/list_of_spm_registration"><i class="fa fa-list text-teal"></i> Applicant List</a>
-	                    	<ul class="treeview-menu">
-        			        </ul>
-        	            </li>
-	            	        </ul>
-        	        </li>
-	        
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- =============================================== -->        
 <style>
 /*table {border: 1px solid;}
 tr td,tr th{border: 1px solid;}*/
@@ -262,7 +67,7 @@ tr td,tr th{border: 1px solid;}*/
     <section class="content-header">
         <h1>Applicant Details</h1>
         <ol class="breadcrumb">
-            <li><a href="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><i class="fa fa-dashboard"></i> Dashboard</li>
             
             <li class="active">Applicant Details</li>
         </ol>
@@ -270,8 +75,11 @@ tr td,tr th{border: 1px solid;}*/
     <section class="content print_view">
     	<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 >Applicant Details <a href="http://localhost/recruitment/admin/spm/List_of_spm_registration" class="btn btn-primary" style="float: right;">Back</a></h3>
-			</div>      
+				<h3 ><a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
+			</div>   
+            <?php foreach($details as $detail)
+         {
+            ?>   
         	<div class="box-body">
                 <div class="panel panel-default">
                   
@@ -283,51 +91,57 @@ tr td,tr th{border: 1px solid;}*/
                                         Basic Details
                                     </li>
                                      <li class="list-group-item">
-                                        <b>Applicant ID: </b>WB20VMY5889624                                    </li>
+                                        <b>Receipt No: </b><?php echo $detail['receipt_no'] ?></li>
                                      <li class="list-group-item">
-                                        <b>Position Applied For</b> :
+                                        <b>Receipt Date</b> :
                                                                                      
-                                                <b>&nbsp;1.&nbsp;</b>Social Worker                                        
+                                            <b>&nbsp;&nbsp;</b><?php echo $detail['receipt_date']?>                                       
                                                                             </li>
-                                   
+
+                                        <li class="list-group-item">
+                                            <b>Reference No: </b><?php echo $detail['ref_no_pk'] ?></li>
+                                        <li class="list-group-item">
+                                            <b>Refrence Date</b> :
+                                            <b>&nbsp;&nbsp;</b><?php echo $detail['ref_date']?>                                       
+                                                                            </li>
                                     <li class="list-group-item">
-                                        <b>Applicant Name: </b>Koustabh  Biswas                                    </li>
+                                            <b>Memo No: </b><?php echo $detail['memo_no'] ?></li>
+                                    
                                     <li class="list-group-item">
-                                        <b>Gurdian Name: </b>Dhiman Chandra Biswas                                    </li>
+                                        <b>Candidate Name: </b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></li>
+                    
                                     <li class="list-group-item">
-                                        <b>Category: </b>General                                    </li>
+                                        <b>Caste: </b><?php echo $detail['caste_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Religion: </b>HINDU                                    </li>
+                                        <b>Gender: </b><?php echo $detail['gender_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Date of Birth: </b>23/09/1992                                    </li>
-                                     <li class="list-group-item">
-                                        <b>Age: </b>27                                    </li>
-                                     <li class="list-group-item">
-                                        <b>Pan Number: </b>AWSPV1232D                                    </li>
+                                        <b>Aadhaar No: </b><?php echo $detail['candidate_aadhaar_no'] ?></li>
+                                    
                                     
                                 </ul>
                                 <ul class="list-group">
                                     <li class="list-group-item active">
-                                        Present Address
+                                        Candidate Present Address
                                     </li>
                                     <li class="list-group-item">
-                                        <b>House No:</b> 21/1                                    </li>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_house_no1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Street Name:</b> Sahid Sunil Sen Sarani                                    </li>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_street1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Post Office:</b> Dum Dum                                    </li>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_city1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Police Station :</b> Baguihati                                    </li>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_landmark1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>State:</b> WEST BENGAL                                    </li>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_post_office1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>District:</b> KOLKATA                                    </li>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail['ps_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Subdiv:</b> KOLKATA                                    </li>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail['state_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Block / Municipality:</b> KOLKATA CORPORATION                                    </li>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail['district_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Pincode:</b> 700028                                    </li>
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail['pincode_no'] ?></li>
+                    
                                  
                                 </ul>
                                 <!-- newly added by Koustabh 12/09/2018 starts -->
@@ -340,41 +154,41 @@ tr td,tr th{border: 1px solid;}*/
                             <div class="col-md-6">
                                 <ul class="list-group">
                                     <li class="list-group-item active">
-                                        Contact Details
+                                        Office Details
                                     </li>
                                     <li class="list-group-item">
-                                        <b><i class="fa fa-mobile"></i> Primary Contact No: </b>9830778402                                    </li>
+                                        <b>Office Name: </b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b><i class="fa fa-phone"></i> Secondary Contact No: </b>9830778402                                    </li>
+                                        <b>Primary Address:</b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_add1'] ?></li>
+                                    <li class="list-group-item">
+                                        <b>Secondary Address: </b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_add2'] ?></li>
                                      
-                                    <li class="list-group-item hide_in_print">
-                                        <b><i class="fa fa-at"></i> Email ID: </b><a href="mailto:biswas.koustabh@gmail.com">biswas.koustabh@gmail.com</a>
-                                    </li>
+                                
                                      
                                     
                                 </ul>
                                 <ul class="list-group">
                                     <li class="list-group-item active">
-                                        Permanent Address
+                                        Candidate Permanent Address
                                     </li>
                                     <li class="list-group-item">
-                                        <b>House No:</b> 21/1                                    </li>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_house_no1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Street Name:</b> Sahid Sunil Sen Sarani                                    </li>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_street1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Post Office:</b> Dum Dum                                    </li>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_city1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Police Station :</b> Baguihati                                    </li>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_landmark1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>State:</b> WEST BENGAL                                    </li>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_post_office1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>District:</b> KOLKATA                                    </li>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail['ps_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Subdiv:</b> KOLKATA                                    </li>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail['state_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Block / Municipality:</b> KOLKATA CORPORATION                                    </li>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail['district_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Pincode:</b> 700028                                    </li>
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail['pincode_no'] ?></li>
                                  
                                 </ul>
                                 
@@ -382,7 +196,7 @@ tr td,tr th{border: 1px solid;}*/
                             </div>
                              
                         </div>
-                         <div class="col-md-12">
+                         <!-- <div class="col-md-12">
                             <ul class="list-group">
                                 <li class="list-group-item active">Experience</li>
                                 <li class="list-group-item">
@@ -457,8 +271,8 @@ tr td,tr th{border: 1px solid;}*/
                                     </table>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="col-md-12">
+                        </div> -->
+                        <!-- <div class="col-md-12">
                              <div class="col-md-6">
                                 <ul class="list-group">
                                     <li class="list-group-item active">Photo</li>
@@ -474,21 +288,26 @@ tr td,tr th{border: 1px solid;}*/
                                         <img src="http://localhost/recruitment/files/public/spm/signature/WB20VMY5889624.jpg" class="img-responsive">
                                     </li>
                                 </ul>
-                            </div>
-                         </div>
+                            </div> -->
+                         <!-- </div>
                          <input type="hidden" name="" id="spm_id" value="180">
-                    	<button type="button" class="btn btn-primary " id="intimation_mail"    style="float: right;">Send Intimation Mail</button>
-                  </div>
+                    	<button type="button" class="btn btn-primary " id="intimation_mail"    style="float: right;">Send Intimation Mail</button> -->
+                  <!-- </div>
                 </div>
             </div>
             <div class="box-footer"></div>
-		</div>
+		</div> -->
     </section>
 </div>
-  <div class="modal fade" id="intimation_modal" role="dialog">
+<?php 
+    
+         }
+?>
+
+  <!-- <div class="modal fade" id="intimation_modal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
+      
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -508,18 +327,11 @@ tr td,tr th{border: 1px solid;}*/
       </div>
       
     </div>
-  </div>
+  </div> -->
 
       
 
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.1
-    </div>
-    <strong>Copyright &copy; 2021 <a href="javascript:void(0);">District Administration Howrah</a>.</strong> All rights
-    reserved.
-  </footer>
-
+  
 
 </div>
 <!-- ./wrapper -->
@@ -552,4 +364,5 @@ tr td,tr th{border: 1px solid;}*/
 
 
 </body>
+<?php $this->load->view('layouts/footer_view'); ?>
 </html>

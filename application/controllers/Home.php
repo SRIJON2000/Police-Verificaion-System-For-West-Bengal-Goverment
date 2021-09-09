@@ -26,8 +26,8 @@
         
         function dashboard_adm()
         {
-          //$data['applications']=$this->Application_model->fetch_all_applications();
-            $this->load->view('themes/dashboard_adm');
+            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $this->load->view('themes/dashboard_adm',$data);
         }
         function non_defence_letter()
         {
@@ -131,9 +131,10 @@
 		}
 	}
 
-       function test()
+       function application_details($pvr_id)
        {
-            $this->load->view('themes/application_detail_view');
+            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/application_detail_view',$data);
        } 
 
     }
