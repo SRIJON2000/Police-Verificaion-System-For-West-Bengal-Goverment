@@ -188,9 +188,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ?>
                                         <tr>
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
-                                            <td><?php echo $application['employer_id_fk'] ?></td>
+                                            <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details"><b>View Details</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                             
                                         </tr>
                                     <?php

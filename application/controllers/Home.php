@@ -131,9 +131,10 @@
 		}
 	}
 
-       function application_details()
+       function application_details($pvr_id)
        {
-            $this->load->view('themes/application_detail_view');
+            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/application_detail_view',$data);
        } 
 
     }

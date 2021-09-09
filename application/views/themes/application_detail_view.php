@@ -12,7 +12,7 @@ $this->load->library('session');
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
  
-  <title>Application Details</title>
+  <!-- <title>Application Details</title> -->
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -75,8 +75,11 @@ tr td,tr th{border: 1px solid;}*/
     <section class="content print_view">
     	<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 >Applicant Details <a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
-			</div>      
+				<h3 ><a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
+			</div>   
+            <?php foreach($details as $detail)
+         {
+            ?>   
         	<div class="box-body">
                 <div class="panel panel-default">
                   
@@ -88,51 +91,57 @@ tr td,tr th{border: 1px solid;}*/
                                         Basic Details
                                     </li>
                                      <li class="list-group-item">
-                                        <b>Applicant ID: </b>WB20VMY5889624                                    </li>
+                                        <b>Receipt No: </b><?php echo $detail['receipt_no'] ?></li>
                                      <li class="list-group-item">
-                                        <b>Position Applied For</b> :
+                                        <b>Receipt Date</b> :
                                                                                      
-                                                <b>&nbsp;1.&nbsp;</b>Social Worker                                        
+                                            <b>&nbsp;&nbsp;</b><?php echo $detail['receipt_date']?>                                       
                                                                             </li>
-                                   
+
+                                        <li class="list-group-item">
+                                            <b>Reference No: </b><?php echo $detail['ref_no_pk'] ?></li>
+                                        <li class="list-group-item">
+                                            <b>Refrence Date</b> :
+                                            <b>&nbsp;&nbsp;</b><?php echo $detail['ref_date']?>                                       
+                                                                            </li>
                                     <li class="list-group-item">
-                                        <b>Applicant Name: </b>Koustabh  Biswas                                    </li>
+                                            <b>Memo No: </b><?php echo $detail['memo_no'] ?></li>
+                                    
                                     <li class="list-group-item">
-                                        <b>Gurdian Name: </b>Dhiman Chandra Biswas                                    </li>
+                                        <b>Candidate Name: </b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></li>
+                    
                                     <li class="list-group-item">
-                                        <b>Category: </b>General                                    </li>
+                                        <b>Caste: </b><?php echo $detail['caste_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Religion: </b>HINDU                                    </li>
+                                        <b>Gender: </b><?php echo $detail['gender_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Date of Birth: </b>23/09/1992                                    </li>
-                                     <li class="list-group-item">
-                                        <b>Age: </b>27                                    </li>
-                                     <li class="list-group-item">
-                                        <b>Pan Number: </b>AWSPV1232D                                    </li>
+                                        <b>Aadhaar No: </b><?php echo $detail['candidate_aadhaar_no'] ?></li>
+                                    
                                     
                                 </ul>
                                 <ul class="list-group">
                                     <li class="list-group-item active">
-                                        Present Address
+                                        Candidate Present Address
                                     </li>
                                     <li class="list-group-item">
-                                        <b>House No:</b> 21/1                                    </li>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_house_no1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Street Name:</b> Sahid Sunil Sen Sarani                                    </li>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_street1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Post Office:</b> Dum Dum                                    </li>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_city1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Police Station :</b> Baguihati                                    </li>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_landmark1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>State:</b> WEST BENGAL                                    </li>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_post_office1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>District:</b> KOLKATA                                    </li>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail['ps_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Subdiv:</b> KOLKATA                                    </li>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail['state_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Block / Municipality:</b> KOLKATA CORPORATION                                    </li>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail['district_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Pincode:</b> 700028                                    </li>
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail['pincode_no'] ?></li>
+                    
                                  
                                 </ul>
                                 <!-- newly added by Koustabh 12/09/2018 starts -->
@@ -145,41 +154,41 @@ tr td,tr th{border: 1px solid;}*/
                             <div class="col-md-6">
                                 <ul class="list-group">
                                     <li class="list-group-item active">
-                                        Contact Details
+                                        Office Details
                                     </li>
                                     <li class="list-group-item">
-                                        <b><i class="fa fa-mobile"></i> Primary Contact No: </b>9830778402                                    </li>
+                                        <b>Office Name: </b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b><i class="fa fa-phone"></i> Secondary Contact No: </b>9830778402                                    </li>
+                                        <b>Primary Address:</b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_add1'] ?></li>
+                                    <li class="list-group-item">
+                                        <b>Secondary Address: </b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_add2'] ?></li>
                                      
-                                    <li class="list-group-item hide_in_print">
-                                        <b><i class="fa fa-at"></i> Email ID: </b><a href="mailto:biswas.koustabh@gmail.com">biswas.koustabh@gmail.com</a>
-                                    </li>
+                                
                                      
                                     
                                 </ul>
                                 <ul class="list-group">
                                     <li class="list-group-item active">
-                                        Permanent Address
+                                        Candidate Permanent Address
                                     </li>
                                     <li class="list-group-item">
-                                        <b>House No:</b> 21/1                                    </li>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_house_no1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Street Name:</b> Sahid Sunil Sen Sarani                                    </li>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_street1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Post Office:</b> Dum Dum                                    </li>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_city1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Police Station :</b> Baguihati                                    </li>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_landmark1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>State:</b> WEST BENGAL                                    </li>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_post_office1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>District:</b> KOLKATA                                    </li>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail['ps_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Subdiv:</b> KOLKATA                                    </li>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail['state_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Block / Municipality:</b> KOLKATA CORPORATION                                    </li>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail['district_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Pincode:</b> 700028                                    </li>
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail['pincode_no'] ?></li>
                                  
                                 </ul>
                                 
@@ -187,7 +196,7 @@ tr td,tr th{border: 1px solid;}*/
                             </div>
                              
                         </div>
-                         <div class="col-md-12">
+                         <!-- <div class="col-md-12">
                             <ul class="list-group">
                                 <li class="list-group-item active">Experience</li>
                                 <li class="list-group-item">
@@ -262,8 +271,8 @@ tr td,tr th{border: 1px solid;}*/
                                     </table>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="col-md-12">
+                        </div> -->
+                        <!-- <div class="col-md-12">
                              <div class="col-md-6">
                                 <ul class="list-group">
                                     <li class="list-group-item active">Photo</li>
@@ -279,21 +288,26 @@ tr td,tr th{border: 1px solid;}*/
                                         <img src="http://localhost/recruitment/files/public/spm/signature/WB20VMY5889624.jpg" class="img-responsive">
                                     </li>
                                 </ul>
-                            </div>
-                         </div>
+                            </div> -->
+                         <!-- </div>
                          <input type="hidden" name="" id="spm_id" value="180">
-                    	<button type="button" class="btn btn-primary " id="intimation_mail"    style="float: right;">Send Intimation Mail</button>
-                  </div>
+                    	<button type="button" class="btn btn-primary " id="intimation_mail"    style="float: right;">Send Intimation Mail</button> -->
+                  <!-- </div>
                 </div>
             </div>
             <div class="box-footer"></div>
-		</div>
+		</div> -->
     </section>
 </div>
-  <div class="modal fade" id="intimation_modal" role="dialog">
+<?php 
+    
+         }
+?>
+
+  <!-- <div class="modal fade" id="intimation_modal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
+      
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -313,7 +327,7 @@ tr td,tr th{border: 1px solid;}*/
       </div>
       
     </div>
-  </div>
+  </div> -->
 
       
 
@@ -350,4 +364,5 @@ tr td,tr th{border: 1px solid;}*/
 
 
 </body>
+<?php $this->load->view('layouts/footer_view'); ?>
 </html>
