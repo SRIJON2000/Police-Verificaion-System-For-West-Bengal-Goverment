@@ -131,7 +131,7 @@
 		}
 	}
 
-       function test()
+       function application_details()
        {
             $this->load->view('themes/application_detail_view');
        } 
