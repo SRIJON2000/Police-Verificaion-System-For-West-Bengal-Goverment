@@ -16,6 +16,7 @@ class Application_model extends CI_Model
         $this->db->select('*');
         $this->db->from('pvr_vr_detail');
         $this->db->join('pvr_candidate_details', 'pvr_candidate_details.candidate_id_pk = pvr_vr_detail.candidate_id_fk');
+        $this->db->join('pvr_master_sent_to','pvr_master_sent_to.sent_to_id_pk=pvr_vr_detail.sent_to_id_fk');
         $this->db->join('pvr_employer','pvr_employer.employer_id_pk=pvr_candidate_details.employer_id_fk');
         $this->db->join('pvr_receipt_no','pvr_receipt_no.receipt_id_pk=pvr_vr_detail.receipt_id_fk');
         $this->db->join('pvr_master_gender','pvr_master_gender.gender_id_pk=pvr_candidate_details.candidate_gender_id_fk');
@@ -25,18 +26,25 @@ class Application_model extends CI_Model
         $this->db->join('pvr_master_state as state1','state1.state_id_pk=district1.state_id_fk');
         $this->db->join('pvr_master_pincode as pincode1','pincode1.pincode_id_pk=pvr_candidate_details.candidate_pin1_fk');
         $this->db->join('pvr_master_policestation as ps1','ps1.ps_id_pk=pvr_candidate_details.candidate_police_station_id1_fk');
-
+        $this->db->join('pvr_reference_no','pvr_reference_no.ref_no_pk=pvr_candidate_details.reference_no_fk');
+        $this->db->join('pvr_memo','pvr_memo.memo_id_pk=pvr_vr_detail.memo_id_fk');
+        $this->db->where('pvr_vr_detail.pvr_id_pk',$pvr_id);
+        $query1 =$this->db->get();
+        return $query1->result_array();
+        
+    }
+    function fetch_second_address($pvr_id)
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_vr_detail');
+        $this->db->join('pvr_candidate_details', 'pvr_candidate_details.candidate_id_pk = pvr_vr_detail.candidate_id_fk');
         $this->db->join('pvr_master_district as district2','district2.district_id_pk=pvr_candidate_details.candidate_district_id2_fk');
         $this->db->join('pvr_master_state as state2','state2.state_id_pk=district2.state_id_fk');
         $this->db->join('pvr_master_pincode as pincode2','pincode2.pincode_id_pk=pvr_candidate_details.candidate_pin2_fk');
         $this->db->join('pvr_master_policestation as ps2','ps2.ps_id_pk=pvr_candidate_details.candidate_police_station_id2_fk');
-        
-        $this->db->join('pvr_reference_no','pvr_reference_no.ref_no_pk=pvr_candidate_details.reference_no_fk');
-        $this->db->join('pvr_memo','pvr_memo.memo_id_pk=pvr_vr_detail.memo_id_fk');
-        
         $this->db->where('pvr_vr_detail.pvr_id_pk',$pvr_id);
-        $query =$this->db->get();
-        return $query->result_array();
+        $query2 =$this->db->get();
+        return $query2->result_array();
     }
     function fetch_gender()
     {

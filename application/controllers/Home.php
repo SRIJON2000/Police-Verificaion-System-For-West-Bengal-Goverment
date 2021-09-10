@@ -142,7 +142,8 @@
 
        function application_details($pvr_id)
        {
-            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
+            $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
             $this->load->view('themes/application_detail_view',$data);
        } 
 

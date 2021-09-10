@@ -77,7 +77,7 @@ tr td,tr th{border: 1px solid;}*/
 			<div class="box-header with-border">
 				<h3 ><a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
 			</div>   
-            <?php foreach($details as $detail)
+            <?php foreach($details1 as $detail)
          {
             ?>   
         	<div class="box-body">
@@ -116,8 +116,10 @@ tr td,tr th{border: 1px solid;}*/
                                         <b>Gender: </b><?php echo $detail['gender_name'] ?></li>
                                     <li class="list-group-item">
                                         <b>Aadhaar No: </b><?php echo $detail['candidate_aadhaar_no'] ?></li>
-                                    
-                                    
+                                    <li class="list-group-item">
+                                        <b>VR Type: </b><?php echo $detail['df_type'] ?></li>
+                                    <li class="list-group-item">
+                                        <b>VR Sending to : </b><?php echo $detail['sent_to'] ?></li>
                                 </ul>
                                 <ul class="list-group">
                                     <li class="list-group-item active">
@@ -171,25 +173,30 @@ tr td,tr th{border: 1px solid;}*/
                                     <li class="list-group-item active">
                                         Candidate Permanent Address
                                     </li>
+                                    <?php foreach($details2 as $detail2)
+                                    {
+                                        ?>
                                     <li class="list-group-item">
-                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_house_no1'] ?></li>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_house_no2'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_street1'] ?></li>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_street2'] ?></li>
                                     <li class="list-group-item">
-                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_city1'] ?></li>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_city2'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_landmark1'] ?></li>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_landmark2'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_post_office1'] ?></li>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_post_office1'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail['ps_name'] ?></li>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['ps_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail['state_name'] ?></li>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['state_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail['district_name'] ?></li>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['district_name'] ?></li>
                                     <li class="list-group-item">
-                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail['pincode_no'] ?></li>
-                                 
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['pincode_no'] ?></li>
+                                 <?php 
+                                }
+                                 ?>
                                 </ul>
                                 
                                 
@@ -301,7 +308,7 @@ tr td,tr th{border: 1px solid;}*/
 </div>
 <?php 
     
-         }
+        }
 ?>
 
   <!-- <div class="modal fade" id="intimation_modal" role="dialog">
