@@ -5,7 +5,7 @@ $this->load->view('layouts/header_view');
 <!DOCTYPE html>
 <html>
 <head>
-<title>New Application</title>
+<title>Add Office</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<?php echo base_url();?>\application\views\themes\CSS\stylesheet1.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -44,7 +44,7 @@ $this->load->view('layouts/header_view');
     font-size:20px;
   }
 </style>
-  <h3 class="text-center">Application Form</h3>
+  <h3 class="text-center">Add Office</h3>
   <form id="application" action="<?php echo base_url();?>Application/addoffice" method="post">
 
   <div class="row row_new_app">
