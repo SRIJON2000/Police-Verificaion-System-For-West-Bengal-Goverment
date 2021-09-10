@@ -72,7 +72,10 @@
             $data['receiptno']=$this->generate_receipt_No($this->session->userdata('office_district'),$this->session->userdata('office_state'));
             $this->load->view('themes/new_application',$data);
         }
-        
+        function addoffice()
+        {
+            $this->load->view('themes/add_office');
+        }
         function status()
         {
             $this->load->view('themes/check_application_status');

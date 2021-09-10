@@ -131,6 +131,28 @@ class Application extends CI_Controller
             
         }
     }
+    function addoffice()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('employer', 'Office Name', 'required');
+        $this->form_validation->set_rules('addr1', 'Office Address1', 'required');
+        $this->form_validation->set_rules('addr2','Office Address1','required');
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', 'Invalid');
+            redirect('Home/addoffice');
+        }
+        else
+        {
+            $data=array(
+                'employer_name'=>$this->input->post('employer'),
+                'employer_addr1'=>$this->input->post('addr1'),
+                'employer_addr2'=>$this->input->post('addr2'),
+            );
+            $this->Application_model->addoffice($data);
+            redirect('Home/dashboard_adm');
+        }
+    }
     function generate_memo()
     {
         $code='';

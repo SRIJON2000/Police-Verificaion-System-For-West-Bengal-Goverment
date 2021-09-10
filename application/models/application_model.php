@@ -366,7 +366,31 @@ class Application_model extends CI_Model
 
     }
 
-    
+    function addoffice($data)
+    {
+            $this->db->select_max('employer_id_pk');
+            $this->db->from('pvr_employer');
+            $query=$this->db->get();
+            $maxemp_id=$query->row();
+
+            if(empty($maxemp_id))
+            {
+                $maxemp_id->employer_id_pk=1;
+            }
+            else
+            {
+                $maxemp_id->employer_id_pk=$maxemp_id->employer_id_pk+1;
+            }
+            $emp=array(
+                'employer_id_pk'=>$maxemp_id->employer_id_pk,
+                'profile_id_fk'=>NULL,
+                'employer_name'=>$data['employer_name'],
+                'employer_add1'=>$data['employer_addr1'],
+                'employer_add2'=>$data['employer_addr2'],
+                'district_id_fk'=>$this->session->userdata('office_district')
+            );
+            $this->db->insert('pvr_employer',$emp);
+    }
 
     function fetch_pin_id($pin,$district_id)
     {
