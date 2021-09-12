@@ -45,12 +45,19 @@ class Login_model extends CI_Model
                     $query4 = $this->db->get();
                     $state= $query4->row();
 
+                    $this->db->select('district_name');
+                    $this->db->from('pvr_master_district');
+                    $this->db->where('district_id_pk',$office->district_id_fk);
+                    $query5 = $this->db->get();
+                    $district= $query5->row();
+
                     $result=array('office_name'=>$office->office_name,
                                     'user_type'=>$desig->desig_name,
                                     'office_district'=>$office->district_id_fk,
                                     'office_state'=>$state->state_id_fk,
                                     'department'=>$dept->dept_name,
-                                    'department_id'=>$user->dept_id_fk);
+                                    'department_id'=>$user->dept_id_fk,
+                                    'district_name'=>$district->district_name);
                     
                     unset($_SESSION['salt']); //line added
                     return $result;

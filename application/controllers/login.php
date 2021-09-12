@@ -75,6 +75,7 @@ class Login extends CI_Controller
                                     'office_state'=>$result['office_state'],
                                     'department'=>$result['department'],
                                     'department_id'=>$result['department_id'],
+                                    'district_name'=>$result['district_name'],
                                     'isloggedin'=>True);
                 
                 $this->load->library('session');
