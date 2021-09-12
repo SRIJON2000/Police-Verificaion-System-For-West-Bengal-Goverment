@@ -57,11 +57,11 @@ $d=date('d-m-y');
   <div class="row row_new_app">
     <div class="col-lg-6 col-md-12 p-3 d-flex justify-content-around ">    
         <label for="rcptno"><b>Receipt No</b></label>
-        <input class="text-center" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No">
+        <input class="text-center" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
     </div>
     <div class="col-lg-6 col-md-12 p-3 d-flex justify-content-around">
         <label for="rcptdate"><b>Receipt Date</b></label>
-        <input class="text-center" type="date" id="rcptdate"  style="height: 40px; font-size: 20px" name="receiptdate">
+        <input class="text-center" type="date" id="rcptdate"  value="<?php echo date('Y-m-d');?>" style="height: 40px; font-size: 20px" name="receiptdate" readonly>
     </div>
     <div class="col-lg-6 col-md-12 p-3 d-flex justify-content-around">
       <label for="employer"><b>Office/Employer Name</b></label>
