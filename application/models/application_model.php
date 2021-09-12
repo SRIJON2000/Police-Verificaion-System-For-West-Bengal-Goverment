@@ -162,6 +162,7 @@ class Application_model extends CI_Model
     {
         // $format = "%Y-%M-%d";
         // $date=mdate($format);
+        $date=date('Y-m-d');
         /******************************Populating Receipt No Table*************************/
         $this->db->select_max('receipt_id_pk');
         $this->db->from('pvr_receipt_no');
@@ -262,7 +263,7 @@ class Application_model extends CI_Model
         $memo_data=array(
             'memo_id_pk'=>$maxmemo_id->memo_id_pk,
             'memo_no'=>$memo_no,
-            'issue_date'=>$data['receiptdate'],
+            'issue_date'=>$date,
             'issued_by_dept_id_fk'=>$this->session->userdata('department_id'),
         );
         $this->db->insert('pvr_memo',$memo_data);
@@ -312,7 +313,7 @@ class Application_model extends CI_Model
                 'pvr_with_id_pk'=>$maxpvrwith_id->pvr_with_id_pk,
                 //'pvr_id_fk'=>$maxpvr_id->pvr_id_pk,
                 'pvr_with_status'=>$dept->dept_name,
-                'pvr_with_date'=>$data['receiptdate']
+                'pvr_with_date'=>$date
             );
 
         $this->db->insert('pvr_with',$pvr_with_data);
@@ -349,7 +350,7 @@ class Application_model extends CI_Model
             'pvr_id_pk'=>$maxpvr_id->pvr_id_pk,
             'receipt_id_fk'=>$maxreceipt_id->receipt_id_pk,
             'candidate_id_fk'=>$maxcandidate_id->candidate_id_pk,
-            'application_date'=>$data['receiptdate'],
+            'application_date'=>$date,
             'pvr_type_fk'=>$data['defence'],
             'memo_id_fk'=>$maxmemo_id->memo_id_pk,
             'pvr_with_id_fk'=>$maxpvrwith_id->pvr_with_id_pk,
