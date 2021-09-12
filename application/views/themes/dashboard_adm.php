@@ -297,14 +297,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </tbody>
                                 </table>
                             </div>
-                        </div>  
-
-
-
-
-                        
-                        
-                        
+                        </div>    
                     <?php
                         }
                     ?>   
