@@ -38,9 +38,22 @@
         {
             $this->load->view('themes/defence_letter');
         }
+        function generate_pdf()
+        {
+            $this->load->view('themes/generate_pdf_view');
+        }
+
         function SP_DIB()
         {
             $this->load->view('themes/SP_DIB');
+        }
+        function CP_LETTER()
+        {
+            $this->load->view('themes/cp_letter');
+        }
+        function EMPLOYEE_LETTER()
+        {
+            $this->load->view('themes/emp_letter');
         }
         
         function dashboard_ocvr()
