@@ -357,7 +357,9 @@ class Application_model extends CI_Model
             'remarks'=>'test',
             'pvr_report_id_fk'=>NULL,
             'district_id_fk'=>$this->session->userdata('office_district'),
-            'sent_to_id_fk'=>$data['category']
+            'sent_to_id_fk'=>$data['category'],
+            'ocvr_approval'=>0,
+            'adm_approval'=>0
         );
 
         $this->db->insert('pvr_vr_detail',$pvr_data);
