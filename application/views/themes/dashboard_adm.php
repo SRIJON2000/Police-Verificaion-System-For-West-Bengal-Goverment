@@ -228,8 +228,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php
                                         foreach($applications as $application)
                                         {
-                                            if($application['ocvr_approval']==0)
-                                            {
+                                            
                                     ?>
                                         <tr>
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
@@ -239,7 +238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             
                                         </tr>
                                     <?php
-                                            }
+                                            
                                         }
                                     ?>    
                                         
@@ -283,7 +282,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php
                                         foreach($applications as $application)
                                         {
+                                            if($application['ocvr_approval']==0)
+                                        {  
                                     ?>
+                                    
+                                            
+                                    
+
                                         <tr>
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
@@ -291,8 +296,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details and Approve</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                             
                                         </tr>
+                                
                                     <?php
-                                        }
+                                          } 
+                                      }
                                     ?>    
                                     </tbody>
                                 </table>

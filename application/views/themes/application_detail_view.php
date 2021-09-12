@@ -43,7 +43,27 @@ $this->load->library('session');
   <!-- Google Font -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
   
-  
+<style>
+.button {
+  background-color: transparent;
+  border: 0;
+  color: #fefbef;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 1.5rem;
+  width: 100%; /* Large, mobile-friendly touch target */
+
+  /* Media Queries */
+  @media (min-width: 37.5em) {
+    width: auto; /* Smaller buttons on larger screens */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+</style>  
   
 </head>
 <!--<body class="hold-transition skin-red-light sidebar-mini">-->
@@ -197,12 +217,21 @@ tr td,tr th{border: 1px solid;}*/
                                  <?php 
                                 }
                                  ?>
+                                 <br/><br/>
+                                 <p id="b" style="font-size:20px;color:green;"></p>
+                                 <?php 
+                                    if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
+                                    {
+                                 ?>
+                                 <br/><br/><div id="a"><button onclick="approve()" class="btn btn-primary" style="width: 20%;" ><b>Approve</b></button></div>
+                                <?php } ?>
                                 </ul>
                                 
                                 
                             </div>
                              
                         </div>
+                        <!-- <button style="width: 20%;background-color: transparent;border: 10;">Approve</button> -->
                          <!-- <div class="col-md-12">
                             <ul class="list-group">
                                 <li class="list-group-item active">Experience</li>
@@ -367,7 +396,14 @@ tr td,tr th{border: 1px solid;}*/
         });
     });*/
 	</script>
-
+<script>
+    function approve()
+    {
+        document.getElementById("a").remove();
+        //document.getElementById("a").outerHTML="<button class="btn btn-primary" style="width: 20%;" ><b>Approve</b></button>";
+        document.getElementById("b").innerHTML="<b>The Application is successfully approved</b>";
+    }
+    </script>
 
 
 </body>
