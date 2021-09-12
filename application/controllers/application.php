@@ -20,7 +20,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
         $this->form_validation->set_rules('employer','Employer Name','required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required|max_length[32]|trim');
-        $this->form_validation->set_rules('middlename', 'Middle Name', 'required|max_length[32]|trim');
+        $this->form_validation->set_rules('middlename', 'Middle Name', 'max_length[32]|trim');
         $this->form_validation->set_rules('lastname', 'Lats Name', 'required|max_length[32]|trim');
         //$this->form_validation->set_rules('fathername', 'Father Name', 'required|max_length[32]|trim');
         //$this->form_validation->set_rules('nation', 'Nation', 'required');
