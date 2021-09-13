@@ -38,7 +38,7 @@
         {
             $this->load->view('themes/defence_letter');
         }
-        function generate_pdf()
+        function generate_pdf_view()
         {
             $this->load->view('themes/generate_pdf_view');
         }

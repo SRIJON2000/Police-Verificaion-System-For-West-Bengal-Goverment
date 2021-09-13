@@ -2,8 +2,8 @@
 
 <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
-        $this->load->view('layouts/header_view');
-        $this->load->library('session');
+       // $this->load->view('layouts/header_view');
+       // $this->load->library('session');
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -43,7 +43,7 @@
     </head>
 
     <body>
-        <div id="letter">
+        <div id="letter" >
             <h4 class="text-center mt-2" >Verified Report for Non-Defence</h4>
             <div  id="letter_body">
                     <div class="text-center">
@@ -90,7 +90,7 @@
 
         <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br>
     </body>
-    <?php $this->load->view('layouts/footer_view'); ?>
+    <!-- <?php //$this->load->view('layouts/footer_view'); ?> -->
     <script language="javascript" type="text/javascript">
           /* <![CDATA[ */
             document.write('<a href="makepdf.php?url=' + encodeURIComponent(location.href) +'">');

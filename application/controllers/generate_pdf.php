@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 //include('vendor/autoload.php');
-require_once APPPATH.'third_party\vendor\autoload.php';
- include_once APPPATH.'third_party\vendor\mpdf\mpdf\src\Mpdf.php';
+//use Dompdf\Dompdf;
+require_once APPPATH.'third_party\vendor\mpdf\dompdf\autoload.inc.php';
+ //include_once APPPATH.'third_party\vendor\mpdf\mpdf\src\Mpdf.php';
  
 class Generate_pdf extends CI_Controller
 {
@@ -12,13 +13,38 @@ class Generate_pdf extends CI_Controller
 		//$this->load->model('generate_pdf_model');
 		
     }
+    //use dompdf\dompdf;
 	public function generate_pdf()
     {
-        $mpdf = new \Mpdf\Mpdf();
+       // use Dompdf\Dompdf;
+
+        //initialize dompdf class
+
+        $dompdf = new Dompdf\Dompdf();
         $html = $this->load->view('themes/non_defence_letter',[],true);
-        $mpdf->WriteHTML($html);
-        $mpdf->Output(); // opens in browser
-        //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation
+        // $customPaper = array(0,0,360,360);
+        // $dompdf->set_paper($customPaper);
+        //$dompdf->setPaper('letter', 'landscape');
+        //$dompdf->set('defaultFont', 'Courier');
+        // $options = $dompdf->getOptions();
+        //     $options->setDefaultFont('Courier');
+        //     $dompdf->setOptions($options);
+
+        // Render the HTML as PDF
+        $dompdf->render();
+        
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("download", array("Attachment" => 0));
+
+        // $mpdf = new \Mpdf\Mpdf();
+        // $html = $this->load->view('themes/non_defence_letter',[],true);
+        // $mpdf->WriteHTML($html);
+        // $mpdf->Output(); // opens in browser
+        // //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
     }
 }
 ?>
