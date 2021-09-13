@@ -17,61 +17,61 @@
        
         <style>
             #letter{
-  background-color: #fffdfd;
-  width: 70%;
-  height: 1000px;
-  margin: 65px auto;
-  border: 2px solid #000;
-}  
-#letter_body  {
-  width: 96%;
-  height: 867px;
-  margin-top: 5% !important;
-  margin: 2%;
-  padding: 2%;
-  border: 2px solid #000;
-} 
-#letter-date{
-  padding-right: 160px !important;
-}
-#letter-content{
-  padding-left:10px; 
-  display:inline-block;
-}
+                background-color: #fffdfd;
+                margin: auto;
+                border: 2px solid #000;
+            }  
+            #letter_body  {
+              margin: 2%;
+              padding: 2%;
+              border: 2px solid #000;
+            } 
+            #letter-date{
+              padding-right: 12% !important;
+            }
+            #letter-content{
+              padding-left:10px; 
+              display:inline-block;
+            }
+            .line{
+              display: flex;
+              justify-content:space-between;
+            }
 
         </style>
     </head>
 
-    <body>
-        <div id="letter" >
-            <h4 class="text-center mt-2" >Verified Report for Non-Defence</h4>
-            <div  id="letter_body">
-                    <div class="text-center">
-                                   <p class="d-flex justify-content-end mt-1 mr-2" > CONFIDENTIAL</p>
-                        <h3 class="text-center  fw-bold"> GOVERNMENT OF WEST BENGAL </h3>
-                       <h3 class="text-center fw-bold"> OFFICE OF THE DISTRICT MAGISTRATE & COLLECTOR</h3>
+    <body class="row">
 
-                       <h3 class="mb-4"> <u> HOWRAH <br>
+        <div id="letter" class="mt-5 col-lg-6 col-md-12" >
+            <h4 class="text-center mt-2" align="center" >Verified Report for Non-Defence</h4>
+            <div  id="letter_body" class="mt-5">
+                    <div class="text-center">
+                                   <p class="d-flex justify-content-end mt-1 mr-2" align="right"> CONFIDENTIAL</p>
+                        <h3 class="text-center  fw-bold" align="center"> GOVERNMENT OF WEST BENGAL </h3>
+                       <h3 class="text-center fw-bold" align="center"> OFFICE OF THE DISTRICT MAGISTRATE & COLLECTOR</h3>
+
+                       <h3 class="mb-4 text-center" align="center"> <u> HOWRAH <br>
                         V R Section</u></h3> 
-                        <div class="mt-4 d-flex  justify-content-between">
-                                <div > Memo No.       /VR  </div>
-                                <div id="letter-date">	Dated:</div>  
+                        <div class="mt-4 d-flex col-12 justify-content-between line">
+                                <div align="left" > Memo No.       /VR  </div>
+                                <div align="right" id="letter-date">	Dated:</div>  
                                 
                         </div>
 
-                        <div class="mt-4 d-flex justify-content-start">To </div>
+                        <div class="mt-4 d-lg-flex justify-content-start">To </div>
                         <div class="d-flex justify-content-start"> __________________________________ </div>
-
-                       <div class="mt-4 text-center"><b> Sub: Police Verification Report in respect of _________ </b></div>
-
-                       <div class="mt-4 d-flex  justify-content-between">
-                                <div > Ref: _______  </div>
-                                <div class="flex-grow-1 bd-highlight">	Dated:</div>  
+<br>
+                       <div class=" text-center" align="center"><b> Sub: Police Verification Report in respect of _________ </b></div>
+<br>
+                       <div class=" d-flex line justify-content-between">
+                                <div align="left"> Ref: _______  </div>
+                                <div align="right" class="flex-grow-1 bd-highlight" id="letter-date">	Dated:</div>  
                                 
                         </div>
                         </div>
                         <p class="mt-4"> <div class="d-flex justify-content-start">Sir,</div>  <br>
-                               <div > <div id="letter-content">With</div>  reference to the captioned subject, findings of the field enquiry report by the Superintendent of Police (DIB) Rural/The Commissioner of <br> Police/Assistant Commissioner of Police, Special Branch, Howrah and others are listed below: </div>
+                               <div > With reference to the captioned subject, findings of the field enquiry report by the Superintendent of Police (DIB) Rural/The Commissioner of Police/Assistant Commissioner of Police, Special Branch, Howrah and others are listed below: </div>
                                <ol>
                                      <li> Nothing adverse found in the official records against the candidate(s). YES/NO (If NO: report enclosed)</li>
                                     <li>	The identity of candidate(s) has been established beyond doubt</li>
@@ -81,21 +81,20 @@
                                     <li>	Any other remarks :</li>
                                 </ol> 
                         </p>
-                       <div class="d-flex justify-content-end fw-bold">Yours faithfully,</div> 
-                        Enclosed : V.R.in original <br>
-                        <div class="d-flex justify-content-end fw-bold">For District Magistrate </div>
-                        <div class="d-flex justify-content-end fw-bold">Howrah </div>
+                       <div class="d-flex justify-content-end" align="right"><b>Yours faithfully,<b></div>
+                       <br> 
+                        Enclosed : V.R.in original <br><br>
+                        <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate<b></div>
+                        <div class="d-flex justify-content-end fw-bold" align="right"><b>Howrah<b></div>
             </div>      
         </div>
-
-        <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br>
     </body>
     <!-- <?php //$this->load->view('layouts/footer_view'); ?> -->
     <script language="javascript" type="text/javascript">
           /* <![CDATA[ */
-            document.write('<a href="makepdf.php?url=' + encodeURIComponent(location.href) +'">');
-            document.write('Create PDF file of this page');
-            document.write('</a>');
+            // document.write('<a href="makepdf.php?url=' + encodeURIComponent(location.href) +'">');
+            // document.write('Create PDF file of this page');
+            // document.write('</a>');
           /* ]]> */
         </script>
     </html>

@@ -29,6 +29,9 @@
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $this->load->view('themes/dashboard_adm',$data);
         }
+        function preview_pdf(){
+            $this->load->view('themes/preview_pdf');
+        }
         function non_defence_letter()
         {
             $this->load->view('themes/non_defence_letter');
