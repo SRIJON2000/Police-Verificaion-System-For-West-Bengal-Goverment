@@ -119,20 +119,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     }
                                 ?>
                             </div>
-
+                            <?php 
+                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE' || $this->session->userdata('user_type')=='OFFICER IN CHARGE' )
+                                    {
+                            ?>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Letter
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#">Letter To SPDIB</a>
                                     <a class="nav-link" href="#">Verified Letter To Employer</a>
                                     <a class="nav-link" href="#">Unverified Letter To Employer</a>
                                 </nav>
+                                
                             </div>
-                            
+                            <?php 
+                                    }
+                                ?>
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Report
