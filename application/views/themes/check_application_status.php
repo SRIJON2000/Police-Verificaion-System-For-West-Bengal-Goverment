@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard Employer</title>
+        <title>Application Status</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -127,13 +127,17 @@
 	</head>
     <body>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+<?php 
+    foreach($details1 as $detail)
+  {
+?>
 <div class="container padding-bottom-3x mb-1">
         <div class="card mb-3">
-          <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Receipt No - </span><span class="text-medium">34VB5540K83</span></div>
+          <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Receipt No - </span><span class="text-medium"><b><?php echo $detail['receipt_no'];?></b></span></div>
           <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Candidate Name:</span> Srijon Mallick</b></div>
+            <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Candidate Name:</span><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></b></div>
             <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Status:</span>On the way</b></div>
-			<div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Application Date:</span> SEP 09, 2017</b></div>
+			<div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Application Date:</span><?php echo $detail['application_date'];?></b></div>
             <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Expected Date:</span> SEP 09, 2017</b></div>
           </div>
           <div class="card-body">
@@ -198,9 +202,11 @@
             <input class="custom-control-input" type="checkbox" id="notify_me" checked="">
             <label class="custom-control-label" for="notify_me">Notify me when application is verified</label>
           </div>
-          <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="orderDetails" data-toggle="modal" data-target="#orderDetails">View Application Details</a></div>
+          <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/application_details/<?php echo $detail['pvr_id_pk']?>" data-toggle="modal" data-target="#orderDetails">View Application Details</a></div>
         </div>
       </div>
-
+<?php 
+   }
+?>
 </body>
 </html>
