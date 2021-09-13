@@ -25,7 +25,7 @@
     <script language="javascript" type="text/javascript">
           /* <![CDATA[ */
             document.write('<a href="makepdf.php?url=' + encodeURIComponent(location.href) +'">');
-            document.write('Create PDF file of this page');
+            //document.write('Create PDF file of this page');
             document.write('</a>');
           /* ]]> */
         </script>
