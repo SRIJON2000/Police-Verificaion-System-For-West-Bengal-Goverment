@@ -430,7 +430,12 @@ class Application_model extends CI_Model
         else
           return $pin_id->pincode_id_pk;
     }
-
+    function ocvr_approve($pvr_id)
+    {
+        $this->db->set('ocvr_approval',1);
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $this->db->update('pvr_vr_detail');
+    }
     
 
 }

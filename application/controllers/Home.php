@@ -59,15 +59,15 @@
             $this->load->view('themes/emp_letter');
         }
         
-        function dashboard_ocvr()
-        {
-            $this->load->view('themes/dashboard_ocvr');
-        }
+        // function dashboard_ocvr()
+        // {
+        //     $this->load->view('themes/dashboard_ocvr');
+        // }
         
-        function dashboard_vr()
-        {
-            $this->load->view('themes/dashboard_vr');
-        }        
+        // function dashboard_vr()
+        // {
+        //     $this->load->view('themes/dashboard_vr');
+        // }        
         
         
         function employer_login()
@@ -92,9 +92,10 @@
         {
             $this->load->view('themes/add_office');
         }
-        function status()
+        function status($pvr_id)
         {
-            $this->load->view('themes/check_application_status');
+            $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/check_application_status',$data);
         }
         
         function logout()

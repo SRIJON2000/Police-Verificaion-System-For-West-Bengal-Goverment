@@ -177,5 +177,11 @@ class Application extends CI_Controller
 			$this->generate_memo();
         }
     }
+    function ocvr_approve($pvr_id)
+    {
+        $this->Application_model->ocvr_approve($pvr_id);
+        $data['success']='The Application has been approved successfully';
+        redirect('Home/application_details/'.$pvr_id);
+    }
 }
 ?>

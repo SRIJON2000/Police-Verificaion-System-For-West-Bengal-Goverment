@@ -218,13 +218,26 @@ tr td,tr th{border: 1px solid;}*/
                                 }
                                  ?>
                                  <br/><br/>
-                                 <p id="b" style="font-size:20px;color:green;"></p>
+                                 
                                  <?php 
                                     if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
                                     {
+                                        if($detail['ocvr_approval']==0)
+                                        {
                                  ?>
-                                 <br/><br/><div id="a"><button onclick="approve()" class="btn btn-primary" style="width: 20%;" ><b>Approve</b></button></div>
-                                <?php } ?>
+                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-primary" style="width: 20%;" ><b>Approve</b></a></div>
+                                <?php 
+                                    } 
+                                    else
+                                    {
+                                ?>
+                                <p id="b" style="font-size:20px;color:green;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
+                                <a href="#" class="btn btn-primary" style="width: 20%;" ><b>Generate Letter</b></a>
+                                <?php 
+                                    } 
+                                    
+                                }
+                                ?>
                                 </ul>
                                 
                                 
