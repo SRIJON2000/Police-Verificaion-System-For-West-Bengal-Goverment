@@ -16,33 +16,33 @@
         <title>Letter</title>
         <style>
             #letter{
-  background-color: #fffdfd;
-  width: 70%;
-  height: 1000px;
-  margin: 65px auto;
-  border: 2px solid #000;
-}  
-#letter_body  {
-  width: 96%;
-  height: 867px;
-  margin-top: 5% !important;
-  margin: 2%;
-  padding: 2%;
-  border: 2px solid #000;
-} 
-#letter-date{
-  padding-right: 160px !important;
-}
-#letter-content{
-  padding-left:10px; 
-  display:inline-block;
-}
+                    background-color: #fffdfd;
+                    width: 70%;
+                    height: 1000px;
+                    margin: 65px auto;
+                    border: 2px solid #000;
+                  }  
+                  #letter_body  {
+                    width: 96%;
+                    height: 867px;
+                    margin-top: 5% !important;
+                    margin: 2%;
+                    padding: 2%;
+                    border: 2px solid #000;
+                  } 
+                  #letter-date{
+                    padding-right: 160px !important;
+                  }
+                  #letter-content{
+                    padding-left:10px; 
+                    display:inline-block;
+                  }
 
         </style>
     </head>
 
-    <body>
-        <div id="letter">
+    <body class="row">
+        <div id="letter" class="mt-5 col-lg-6 col-md-12">
             <h4 class="text-center mt-2" >Send unverified Police Verification letter to Employer</h4>
             <div  id="letter_body">
                     <div class="text-center">
