@@ -294,10 +294,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             if($application['ocvr_approval']==0)
                                         {  
                                     ?>
-                                    
+                                        <tr>
+                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
+                                            <td><?php echo $application['employer_name'] ?></td>
+                                            <td><?php echo $application['application_date'] ?></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details and Approve</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                             
-                                    
+                                        </tr>
+                                
+                                    <?php
+                                          } 
+                                      }
+                                    ?>    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>  
+                        
 
+
+
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                <b>Applications Pending For Approval</b>
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Candidate Name</th>
+                                            <th>Office Name</th>
+                                            <th>Application date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tfoot>
+                                        <tr>
+                                        <th>Candidate Name</th>
+                                        <th>Office Name</th>
+                                        <th>Application date</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </tfoot> -->
+                                    <tbody>
+                                    <?php
+                                        foreach($applications as $application)
+                                        {
+                                            if($application['ocvr_approval']==0)
+                                        {  
+                                    ?>
                                         <tr>
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>

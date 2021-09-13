@@ -26,7 +26,7 @@ $this->load->view('layouts/header_view');
 					<td>
 						NON-DEFENCE LETTER
 					</td><td>
-						<a style="text-decoration: none;" href="<?php echo base_url()?>Home/non_defence_letter" class="btn text-light bg-secondary" target="blank">PREVIEW</a>
+						<a style="text-decoration: none;" href="<?php echo base_url()?>Home/non_defence_letter/" class="btn text-light bg-secondary" target="blank">PREVIEW</a>
 					</td><td>
 						<button class="btn text-light bg-primary" >PRINT</button>
 					</td>

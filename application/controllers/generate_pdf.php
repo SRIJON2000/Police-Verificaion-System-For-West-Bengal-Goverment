@@ -11,17 +11,18 @@ class Generate_pdf extends CI_Controller
 	{	
 		parent::__construct();
 		//$this->load->model('generate_pdf_model');
-		
+		$this->load->model('Application_model');
     }
     //use dompdf\dompdf;
-	public function generate_pdf()
+	public function generate_pdf($pvr_id)
     {
        // use Dompdf\Dompdf;
 
         //initialize dompdf class
 
         $dompdf = new Dompdf\Dompdf();
-        $html = $this->load->view('themes/non_defence_letter',[],true);
+        $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+        $html = $this->load->view('themes/non_defence_letter',$data,true);
         $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation

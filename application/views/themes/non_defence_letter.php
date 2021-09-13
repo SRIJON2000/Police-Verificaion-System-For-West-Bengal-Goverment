@@ -42,7 +42,9 @@
     </head>
 
     <body class="row">
-
+    <?php foreach($details as $detail)
+         {
+            ?>
         <div id="letter" class="mt-5 col-lg-6 col-md-12" >
             <h4 class="text-center mt-2" align="center" >Verified Report for Non-Defence</h4>
             <div  id="letter_body" class="mt-5">
@@ -54,19 +56,19 @@
                        <h3 class="mb-4 text-center" align="center"> <u> HOWRAH <br>
                         V R Section</u></h3> 
                         <div class="mt-4 d-flex col-12 justify-content-between line">
-                                <div align="left" > Memo No.       /VR  </div>
-                                <div align="right" id="letter-date">	Dated:</div>  
+                                <div align="left" > Memo No. :<?php echo $detail['memo_no'];?></div>
+                                <div align="right" id="letter-date">	Dated: <?php echo $detail['application_date'];?></div>  
                                 
                         </div>
 
                         <div class="mt-4 d-lg-flex justify-content-start">To </div>
-                        <div class="d-flex justify-content-start"> __________________________________ </div>
+                        <div class="d-flex justify-content-start"><?php echo $detail['sent_to'];?></div>
 <br>
                        <div class=" text-center" align="center"><b> Sub: Police Verification Report in respect of _________ </b></div>
 <br>
                        <div class=" d-flex line justify-content-between">
-                                <div align="left"> Ref: _______  </div>
-                                <div align="right" class="flex-grow-1 bd-highlight" id="letter-date">	Dated:</div>  
+                                <div align="left"> Ref. No. :<?php echo $detail['ref_no_pk'];?></div>
+                                <div align="right" class="flex-grow-1 bd-highlight" id="letter-date">	Dated: <?php echo $detail['ref_date'];?></div>  
                                 
                         </div>
                         </div>
@@ -88,6 +90,9 @@
                         <div class="d-flex justify-content-end fw-bold" align="right"><b>Howrah<b></div>
             </div>      
         </div>
+        <?php 
+         }
+            ?>
     </body>
     <!-- <?php //$this->load->view('layouts/footer_view'); ?> -->
     <script language="javascript" type="text/javascript">

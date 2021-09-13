@@ -232,7 +232,7 @@ tr td,tr th{border: 1px solid;}*/
                                     {
                                 ?>
                                 <p id="b" style="font-size:20px;color:green;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
-                                <a href="#" class="btn btn-primary" style="width: 20%;" ><b>Generate Letter</b></a>
+                                <a href="<?php echo base_url()?>Home/preview_pdf/<?php echo $detail['pvr_id_pk']?>" taget="blank" class="btn btn-primary" style="width: 20%;"><b>Generate Letter</b></a>
                                 <?php 
                                     } 
                                     

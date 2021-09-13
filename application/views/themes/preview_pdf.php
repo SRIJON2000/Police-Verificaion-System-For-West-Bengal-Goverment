@@ -17,11 +17,14 @@
     </head>
 
     <body>
-        <?php $this->load->view('themes/non_defence_letter'); ?>
+        
+        <?php $this->load->view('themes/non_defence_letter',$details); ?>
         <br>
         <br>
-        <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br>
-    </body>
+        <?php foreach($details as $detail){?>
+        <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br>
+        <?php }?>
+      </body>
     <script language="javascript" type="text/javascript">
           /* <![CDATA[ */
             document.write('<a href="makepdf.php?url=' + encodeURIComponent(location.href) +'">');
