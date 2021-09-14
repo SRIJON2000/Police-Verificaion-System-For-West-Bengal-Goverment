@@ -24,6 +24,8 @@ class Generate_pdf extends CI_Controller
         $data['details']=$this->Application_model->fetch_application_details($pvr_id);
         $html = $this->load->view('themes/SP_DIB',$data,true);
         $dompdf->loadHtml($html);
+        // $html1 = $this->load->view('themes/non_defence_letter',$data,true);
+        // $dompdf->loadHtml($html1);
 
         // (Optional) Setup the paper size and orientation
         // $customPaper = array(0,0,360,360);
