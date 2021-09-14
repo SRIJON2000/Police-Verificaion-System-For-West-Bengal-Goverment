@@ -41,7 +41,7 @@
     </head>
 
     <body class="row">
-
+<?php foreach($details as $detail){ ?>
 <div id="letter" class="mt-5 col-lg-6 col-md-12" >
     <h4 class="text-center mt-2" align="center" >New Verification for Police Verification of SP DIB</h4>
     <div  id="letter_body" class="mt-5">
@@ -53,8 +53,8 @@
                <h3 class="mb-4 text-center" align="center"> <u> HOWRAH <br>
                 V R Section</u></h3> 
                 <div class="mt-4 d-flex col-12 justify-content-between line">
-                        <div align="left" > Memo No.       /VR  </div>
-                        <div align="right" id="letter-date">	Dated:</div>  
+                        <div align="left" > Memo No.: <?php echo $detail['memo_no'];?>  </div>
+                        <div align="right" id="letter-date">	Dated: <?php echo $detail['application_date'];?></div>  
                         
                 </div>
 
@@ -66,17 +66,19 @@
                                <div > I am forwarding herewith verification papers in respect of the person specified below for an enquiry and report from your side through DIG(IB),West Bengal.The desired report along with  the papers in original may please be sent within a short period.<br> <br> Thanking You. </div> 
                         </p>
                        <div class="d-flex justify-content-end fw-bold" align="right"><b>Yours faithfully,</b></div> 
-                         <br>
+                         <br><br>
                         <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate Howrah</b> </div>
-                        <div class="mt-4  d-flex  justify-content-between line" align="center" style="margin:5%; margin-left:15%;">
-                            <div >Name of the Candidate: <br><br>__________________</div>
-                            <div>Name of the Employer:<br><br>___________________</div><br>
+                        <br>
+                        <div class="  d-flex  justify-content-between line" align="center" style="margin:5%; margin-left:15%;">
+                            <div align="left">Name of the Candidate: <br><br><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']; ?></div>
+                            <div align="right">Name of the Employer:<br><br><?php echo $detail['employer_name']?></div><br>
                         </div>
                 </div>                    
 
                         <!--  <div class="d-flex justify-content-end fw-bold">Howrah </div>-->
             </div>      
         </div>
+        <?php }?>
     </body>
 <?php //$this->load->view('layouts/footer_view'); ?>
 </html>
