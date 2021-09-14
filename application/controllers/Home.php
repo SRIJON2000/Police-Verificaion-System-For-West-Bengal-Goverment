@@ -61,6 +61,10 @@
         {
             $this->load->view('themes/emp_letter');
         }
+        function quarterly_report()
+        {
+            $this->load->view('themes/quarterly_report');
+        }
         
         // function dashboard_ocvr()
         // {
