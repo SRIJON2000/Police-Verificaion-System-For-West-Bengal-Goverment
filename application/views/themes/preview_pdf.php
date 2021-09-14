@@ -17,12 +17,28 @@
     </head>
 
     <body>
-        
-        <?php $this->load->view('themes/non_defence_letter',$details); ?>
+        <?php foreach($details as $detail)
+        {
+          if($detail['sent_to']=='SP DIB RURAL')
+          {
+          ?>
+
+        <?php //$this->load->view('themes/non_defence_letter',$details); ?>
+        <br>
+        <br>
+        <?php //foreach($details as $detail){?>
+        <!-- <div class="text-centre d-flex justify-content-center"><a href="<?php //echo base_url()?>Generate_pdf/generate_pdf/<?php //echo $detail['pvr_id_pk']?>" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br> -->
+        <?php //}?>
+
+        <?php $this->load->view('themes/SP_DIB',$details); ?>
         <br>
         <br>
         <?php foreach($details as $detail){?>
-        <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br>
+        <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br> 
+        <?php }?>
+        
+
+        
         <?php }?>
       </body>
     <script language="javascript" type="text/javascript">
