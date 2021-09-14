@@ -61,7 +61,7 @@ $this->load->library('session');
     -->
         <div class="text-center" id="buttons">
             <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">
-            <button style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>AdministrationLogin</b></button>
+            <button style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>Administration Login</b></button>
         </div>
     </div>
     
