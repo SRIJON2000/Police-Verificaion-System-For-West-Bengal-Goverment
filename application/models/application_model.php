@@ -29,6 +29,7 @@ class Application_model extends CI_Model
         $this->db->join('pvr_master_pincode as pincode1','pincode1.pincode_id_pk=pvr_candidate_details.candidate_pin1_fk');
         $this->db->join('pvr_master_policestation as ps1','ps1.ps_id_pk=pvr_candidate_details.candidate_police_station_id1_fk');
         $this->db->join('pvr_reference_no','pvr_reference_no.ref_no_pk=pvr_candidate_details.reference_no_fk');
+        $this->db->join('pvr_with','pvr_with.pvr_with_id_pk=pvr_vr_detail.pvr_with_id_fk');
         $this->db->join('pvr_memo','pvr_memo.memo_id_pk=pvr_vr_detail.memo_id_fk');
         $this->db->where('pvr_vr_detail.pvr_id_pk',$pvr_id);
         $query1 =$this->db->get();
@@ -437,6 +438,24 @@ class Application_model extends CI_Model
         $this->db->set('ocvr_approval',1);
         $this->db->where('pvr_id_pk',$pvr_id);
         $this->db->update('pvr_vr_detail');
+
+        $this->db->select('dept_name');
+        $this->db->from('pvr_master_department');
+        $this->db->where('dept_id_pk',$this->session->userdata('department_id'));
+        $query = $this->db->get();
+        $dept = $query->row();
+
+        $this->db->select('pvr_with_id_fk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $query = $this->db->get();
+        $pvrwithid = $query->row();
+
+
+        $this->db->set('pvr_with_status',$dept->dept_name);
+        $this->db->where('pvr_with_id_pk',$pvrwithid->pvr_with_id_fk);
+        $this->db->update('pvr_with');
+
     }
     
 
