@@ -48,6 +48,9 @@ div.d {
     </head>
 
     <body>
+      <?php foreach($details as $detail)
+      {
+        ?>
         <div id="letter" class ="col-lg-6 col-md-12">
             <h4 class="text-center mt-2" align="center" >New application for Police Verification to CP Letter
 </h4>
@@ -60,8 +63,8 @@ div.d {
                        <h3 class="mb-4" align="center"> <u> HOWRAH <br>
                         V R Section</u></h3> 
                         <div class="mt-4 d-flex  justify-content-between">
-                                <div align="left"> Memo No.              \VR  </div>
-                                <div id="letter-date" align="right">	Dated:</div>  
+                                <div align="left"> Memo No. : <?php echo $detail['memo_no'];?></div>
+                                <div id="letter-date" align="right">	Dated: <?php echo $detail['application_date'];?></div>  
                                 
                         </div>
 
@@ -89,17 +92,19 @@ the papers in original may please be sent within a short period.   </div> <br>
               
                       
                         <div class="mt-4  d-flex  justify-content-between line" align="center" style="margin:5%; margin-left:15%;">
-                            <div >Name of the Candidate: <br><br>__________________</div>
-                            <div>Name of the Employer:<br><br>___________________</div><br>
+                            <div >Name of the Candidate: <br><br><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']; ?></div>
+                            <div>Name of the Employer:<br><br><?php echo $detail['employer_name']?></div><br>
                         </div>
                         
                         
                         
             </div>      
         </div>
-
+        <?php 
+      }
+        ?>
         <!-- <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br> -->
     </body>
-    <?php// $this->load->view('layouts/footer_view'); ?>
+    
     </html>
 

@@ -138,7 +138,7 @@
             <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Candidate Name:</span><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></b></div>
             <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Status:</span>On the way</b></div>
 			<div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Application Date:</span><?php echo $detail['application_date'];?></b></div>
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Expected Date:</span> SEP 09, 2017</b></div>
+            <!-- <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Expected Date:</span> SEP 09, 2017</b></div> -->
           </div>
           <div class="card-body">
             <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
