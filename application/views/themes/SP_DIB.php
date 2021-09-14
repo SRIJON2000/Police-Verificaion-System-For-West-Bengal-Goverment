@@ -68,10 +68,10 @@
                        <div class="d-flex justify-content-end fw-bold" align="right"><b>Yours faithfully,</b></div> 
                          <br><br>
                         <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate Howrah</b> </div>
-                        <br>
+                        <br><br><br>
                         <div class="  d-flex  justify-content-between line" align="center" style="margin:5%; margin-left:15%;">
-                            <div align="left">Name of the Candidate: <br><br><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']; ?></div>
-                            <div align="right">Name of the Employer:<br><br><?php echo $detail['employer_name']?></div><br>
+                            <div align="left">Name of the Candidate<br><br><b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']; ?></b></div>
+                            <div align="right"><div align="right">Name of the Employer</div><br><b><?php echo $detail['employer_name']?></b></div><br>
                         </div>
                 </div>                    
 

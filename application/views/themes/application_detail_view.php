@@ -225,14 +225,14 @@ tr td,tr th{border: 1px solid;}*/
                                         if($detail['ocvr_approval']==0)
                                         {
                                  ?>
-                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-primary" style="width: 20%;" ><b>Approve</b></a></div>
+                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a></div>
                                 <?php 
                                     } 
                                     else
                                     {
                                 ?>
                                 <p id="b" style="font-size:20px;color:green;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
-                                <a href="<?php echo base_url()?>Home/preview_pdf/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-primary" style="width: 20%;"><b>Generate Letter</b></a>
+                                <a href="<?php echo base_url()?>Home/preview_pdf/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success" style="width: 20%;"><b>Generate Letter</b></a>
                                 <?php 
                                     } 
                                     

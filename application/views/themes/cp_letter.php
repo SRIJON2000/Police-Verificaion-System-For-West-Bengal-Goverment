@@ -92,8 +92,8 @@ the papers in original may please be sent within a short period.   </div> <br>
               
                       
                         <div class="mt-4  d-flex  justify-content-between line" align="center" style="margin:5%; margin-left:15%;">
-                            <div >Name of the Candidate: <br><br><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']; ?></div>
-                            <div>Name of the Employer:<br><br><?php echo $detail['employer_name']?></div><br>
+                        <div align="left">Name of the Candidate<br><br><b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']; ?></b></div>
+                            <div align="right"><div align="left">Name of the Employer</div><br><b><?php echo $detail['employer_name']?></b></div><br>
                         </div>
                         
                         
