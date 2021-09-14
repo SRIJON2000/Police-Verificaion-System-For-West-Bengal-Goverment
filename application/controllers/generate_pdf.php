@@ -22,7 +22,7 @@ class Generate_pdf extends CI_Controller
 
         $dompdf = new Dompdf\Dompdf();
         $data['details']=$this->Application_model->fetch_application_details($pvr_id);
-        $html = $this->load->view('themes/non_defence_letter',$data,true);
+        $html = $this->load->view('themes/SP_DIB',$data,true);
         $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation

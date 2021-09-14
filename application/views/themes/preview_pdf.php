@@ -34,7 +34,9 @@
         <br>
         <br>
         <?php foreach($details as $detail){?>
-        <div class="text-centre d-flex justify-content-center"><a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" class="btn bg-secondary text-light m-auto" >Print</a></div><br><br> 
+        <div class="text-centre d-flex justify-content-center">
+          <a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" 
+              class="btn bg-secondary text-light m-auto" >Print</a></div><br><br> 
         <?php }?>
         
 
