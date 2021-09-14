@@ -32,7 +32,7 @@
                 <?php }}
                 if($detail['sent_to']=='CP HOWRAH')
                 {?>
-                <?php $this->load->view('themes/SP_DIB',$details); ?>
+                <?php $this->load->view('themes/cp_letter',$details); ?>
                 <br>
                 <br>
                 <?php foreach($details as $detail){?>
