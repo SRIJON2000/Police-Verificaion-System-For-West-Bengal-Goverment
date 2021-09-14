@@ -47,7 +47,7 @@ div.d {
         </style>
     </head>
 
-    <body>
+    <body><br><br>
       <?php foreach($details as $detail)
       {
         ?>
@@ -99,10 +99,14 @@ the papers in original may please be sent within a short period.   </div> <br>
                         
                         
             </div>      
-        </div>
+        </div><br><br>
+        <div class="text-centre d-flex justify-content-center">
+                  <a href="<?php echo base_url()?>Generate_pdf/CP/<?php echo $detail['pvr_id_pk']?>" 
+                      class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
         <?php 
       }
         ?>
+        
         <!-- <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br> -->
     </body>
     

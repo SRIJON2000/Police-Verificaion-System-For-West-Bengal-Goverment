@@ -14,7 +14,7 @@ class Generate_pdf extends CI_Controller
 		$this->load->model('Application_model');
     }
     //use dompdf\dompdf;
-	public function generate_pdf($pvr_id)
+	public function SP_DIB($pvr_id)
     {
        // use Dompdf\Dompdf;
 
@@ -24,19 +24,54 @@ class Generate_pdf extends CI_Controller
         $data['details']=$this->Application_model->fetch_application_details($pvr_id);
         $html = $this->load->view('themes/SP_DIB',$data,true);
         $dompdf->loadHtml($html);
-        // $html1 = $this->load->view('themes/non_defence_letter',$data,true);
-        // $dompdf->loadHtml($html1);
+        
+        $dompdf->render();
+        
 
-        // (Optional) Setup the paper size and orientation
-        // $customPaper = array(0,0,360,360);
-        // $dompdf->set_paper($customPaper);
-        //$dompdf->setPaper('letter', 'landscape');
-        //$dompdf->set('defaultFont', 'Courier');
-        // $options = $dompdf->getOptions();
-        //     $options->setDefaultFont('Courier');
-        //     $dompdf->setOptions($options);
+        // Output the generated PDF to Browser
+        $dompdf->stream("download", array("Attachment" => 0));
 
-        // Render the HTML as PDF
+        // $mpdf = new \Mpdf\Mpdf();
+        // $html = $this->load->view('themes/non_defence_letter',[],true);
+        // $mpdf->WriteHTML($html);
+        // $mpdf->Output(); // opens in browser
+        // //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
+    }
+    public function CP($pvr_id)
+    {
+       // use Dompdf\Dompdf;
+
+        //initialize dompdf class
+
+        $dompdf = new Dompdf\Dompdf();
+        $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+        $html = $this->load->view('themes/cp_letter',$data,true);
+        $dompdf->loadHtml($html);
+        
+        $dompdf->render();
+        
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("download", array("Attachment" => 0));
+
+        // $mpdf = new \Mpdf\Mpdf();
+        // $html = $this->load->view('themes/non_defence_letter',[],true);
+        // $mpdf->WriteHTML($html);
+        // $mpdf->Output(); // opens in browser
+        // //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
+    }
+    public function application($pvr_id)
+    {
+       // use Dompdf\Dompdf;
+
+        //initialize dompdf class
+
+        $dompdf = new Dompdf\Dompdf();
+        $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
+        $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
+        $html = $this->load->view('themes/print_application',$data,true);
+        $dompdf->loadHtml($html);
+        
         $dompdf->render();
         
 

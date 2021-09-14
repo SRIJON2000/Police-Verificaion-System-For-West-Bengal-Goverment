@@ -78,7 +78,11 @@
                         <!--  <div class="d-flex justify-content-end fw-bold">Howrah </div>-->
             </div>      
         </div>
+        <div class="text-centre d-flex justify-content-center">
+                  <a href="<?php echo base_url()?>Generate_pdf/SP_DIB/<?php echo $detail['pvr_id_pk']?>" 
+                      class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
         <?php }?>
+
     </body>
 <?php //$this->load->view('layouts/footer_view'); ?>
 </html>

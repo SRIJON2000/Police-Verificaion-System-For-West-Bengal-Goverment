@@ -84,8 +84,10 @@
                         <div class="d-flex justify-content-end fw-bold" align="right">Howrah </div>
             </div>      
         </div>
-
+        <div class="text-centre d-flex justify-content-center">
+                  <a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" 
+                      class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
         <!-- <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br> -->
     </body>
-<?php// $this->load->view('layouts/footer_view'); ?>
+
 </html>

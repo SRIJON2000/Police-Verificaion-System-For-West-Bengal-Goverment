@@ -1,6 +1,5 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->view('layouts/header_view');
 $this->load->library('session');
 ?>
 <!DOCTYPE html>
@@ -11,6 +10,7 @@ $this->load->library('session');
     <title>Application Details</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
  
   <!-- <title>Application Details</title> -->
   <!-- Tell the browser to be responsive to screen width -->
@@ -85,18 +85,18 @@ tr td,tr th{border: 1px solid;}*/
 </style>
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Applicant Details</h1>
-        <ol class="breadcrumb">
+        <h1>Applicantion Details</h1>
+        <!-- <ol class="breadcrumb">
             <li><i class="fa fa-dashboard"></i> Dashboard</li>
             
             <li class="active">Applicant Details</li>
-        </ol>
+        </ol> -->
     </section> 
     <section class="content print_view">
     	<div class="box box-primary">
-			<div class="box-header with-border">
+			<!-- <div class="box-header with-border">
 				<h3 ><a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
-			</div>   
+			</div>    -->
             <?php foreach($details1 as $detail)
          {
             ?>   
@@ -218,28 +218,6 @@ tr td,tr th{border: 1px solid;}*/
                                 }
                                  ?>
                                  <br/><br/>
-                                 
-                                 <?php 
-                                    if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
-                                    {
-                                        if($detail['ocvr_approval']==0)
-                                        {
-                                 ?>
-                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a></div>
-                                <?php 
-                                    } 
-                                    else
-                                    {
-                                ?>
-                                <p id="b" style="font-size:20px;color:green;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
-                                
-                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Home/<?php if($detail['sent_to']=='CP HOWRAH'){echo 'cp_letter';}else{echo 'SP_DIB';}?>/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Generate Letter</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="<?php echo base_url()?>Home/print_application/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Print Application</b></a></div>
-                                <?php 
-                                    } 
-                                    
-                                }
-                                ?>
                                 </ul>
                                 
                                 
@@ -350,6 +328,7 @@ tr td,tr th{border: 1px solid;}*/
 		</div> -->
     </section>
 </div>
+
 <?php 
     
         }
@@ -385,6 +364,9 @@ tr td,tr th{border: 1px solid;}*/
   
 
 </div>
+<div class="text-centre d-flex justify-content-center">
+                  <a href="<?php echo base_url()?>Generate_pdf/application/<?php echo $detail['pvr_id_pk']?>" 
+                      class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
 <!-- ./wrapper -->
 <!-- Bootstrap 3.3.7 -->
 <script src="themes/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -422,5 +404,4 @@ tr td,tr th{border: 1px solid;}*/
 
 
 </body>
-<?php $this->load->view('layouts/footer_view'); ?>
 </html>

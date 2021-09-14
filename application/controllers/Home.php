@@ -29,14 +29,20 @@
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $this->load->view('themes/dashboard_adm',$data);
         }
-        function preview_pdf($pvr_id) 
+        // function preview_pdf($pvr_id) 
+        // {
+        //     $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+        //     $this->load->view('themes/preview_pdf',$data);
+        // }
+        function print_application($pvr_id)
+        {
+            $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
+            $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
+            $this->load->view('themes/print_application',$data);
+        }
+        function non_defence_letter($pvr_id)
         {
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
-            $this->load->view('themes/preview_pdf',$data);
-        }
-        function non_defence_letter()
-        {
-            //$data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/non_defence_letter');
         }
 
@@ -49,13 +55,15 @@
             $this->load->view('themes/generate_pdf_view');
         }
 
-        function SP_DIB()
+        function SP_DIB($pvr_id)
         {
-            $this->load->view('themes/SP_DIB');
+            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/SP_DIB',$data);
         }
-        function cp_letter()
+        function cp_letter($pvr_id)
         {
-            $this->load->view('themes/cp_letter');
+            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/cp_letter',$data);
         }
         function emp_letter()
         {
