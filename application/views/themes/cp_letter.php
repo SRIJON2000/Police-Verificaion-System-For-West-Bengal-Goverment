@@ -2,8 +2,8 @@
 
 <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
-        $this->load->view('layouts/header_view');
-        $this->load->library('session');
+      //  $this->load->view('layouts/header_view');
+      //  $this->load->library('session');
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -16,27 +16,26 @@
         <title>Letter</title>
         <style>
             #letter{
-  background-color: #fffdfd;
-  width: 70%;
-  height: 1000px;
-  margin: 65px auto;
-  border: 2px solid #000;
-}  
-#letter_body  {
-  width: 96%;
-  height: 867px;
-  margin-top: 5% !important;
-  margin: 2%;
-  padding: 2%;
-  border: 2px solid #000;
-} 
-#letter-date{
-  padding-right: 160px !important;
-}
-#letter-content{
-  padding-left:10px; 
-  display:inline-block;
-}
+                background-color: #fffdfd;
+                margin: auto;
+                border: 2px solid #000;
+            }  
+            #letter_body  {
+              margin: 2%;
+              padding: 2%;
+              border: 2px solid #000;
+            } 
+            #letter-date{
+              padding-right: 12% !important;
+            }
+            #letter-content{
+              padding-left:10px; 
+              display:inline-block;
+            }
+            .line{
+              display: flex !important;
+              justify-content:space-between !important;
+            }
 div.c {
   text-indent: 10%;
 }
@@ -49,20 +48,20 @@ div.d {
     </head>
 
     <body>
-        <div id="letter">
-            <h4 class="text-center mt-2" >New application for Police Verification to CP Letter
+        <div id="letter" class ="col-lg-6 col-md-12">
+            <h4 class="text-center mt-2" align="center" >New application for Police Verification to CP Letter
 </h4>
             <div  id="letter_body">
                     <div class="text-center">
-                                   <p class="d-flex justify-content-end mt-1 mr-2" > CONFIDENTIAL</p>
-                        <h3 class="text-center  fw-bold"> GOVERNMENT OF WEST BENGAL </h3>
-                       <h3 class="text-center fw-bold"> OFFICE OF THE DISTRICT MAGISTRATE & COLLECTOR</h3>
+                                   <p class="d-flex justify-content-end mt-1 mr-2 " align="right" > CONFIDENTIAL</p>
+                        <h3 class="text-center  fw-bold" align="center"> GOVERNMENT OF WEST BENGAL </h3>
+                       <h3 class="text-center fw-bold" align="center"> OFFICE OF THE DISTRICT MAGISTRATE & COLLECTOR</h3>
 
-                       <h3 class="mb-4"> <u> HOWRAH <br>
+                       <h3 class="mb-4" align="center"> <u> HOWRAH <br>
                         V R Section</u></h3> 
                         <div class="mt-4 d-flex  justify-content-between">
-                                <div > Memo No.              \VR  </div>
-                                <div id="letter-date">	Dated:</div>  
+                                <div align="left"> Memo No.              \VR  </div>
+                                <div id="letter-date" align="right">	Dated:</div>  
                                 
                         </div>
 
@@ -83,24 +82,24 @@ enquiry and report from your side through DIG(IB),West Bengal.The desired report
 the papers in original may please be sent within a short period.   </div> <br> 
 <div class="d-flex justify-content-start">Thanking you.</div>  
                         </p>
-                       <div class="d-flex justify-content-end fw-bold">Yours faithfully,</div> 
+                       <div class="d-flex justify-content-end fw-bold"align="right">Yours faithfully,</div> 
                         <br>
-                        <div class="d-flex justify-content-end fw-bold">For District Magistrate Howrah</div>
+                        <div class="d-flex justify-content-end fw-bold" align="right">For District Magistrate Howrah</div>
                         <br>
-                        <div class="c">
-                        <h5> <pre><u>Name of The Candidate:</u>                            <u>Name of The Employer:</u></pre></div> </h5>
-                        <div class="d">
-                        <h5> <pre>______________________                            _____________________</pre></div> </h5>
+              
                       
-                        
+                        <div class="mt-4  d-flex  justify-content-between line" align="center" style="margin:5%; margin-left:15%;">
+                            <div >Name of the Candidate: <br><br>__________________</div>
+                            <div>Name of the Employer:<br><br>___________________</div><br>
+                        </div>
                         
                         
                         
             </div>      
         </div>
 
-        <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br>
+        <!-- <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br> -->
     </body>
-    <?php $this->load->view('layouts/footer_view'); ?>
+    <?php// $this->load->view('layouts/footer_view'); ?>
     </html>
 

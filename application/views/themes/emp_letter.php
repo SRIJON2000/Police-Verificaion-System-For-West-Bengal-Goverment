@@ -2,8 +2,8 @@
 
 <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
-        $this->load->view('layouts/header_view');
-        $this->load->library('session');
+      //  $this->load->view('layouts/header_view');
+      //  $this->load->library('session');
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -16,50 +16,51 @@
         <title>Letter</title>
         <style>
             #letter{
-                    background-color: #fffdfd;
-                    width: 70%;
-                    height: 1000px;
-                    margin: 65px auto;
-                    border: 2px solid #000;
-                  }  
-                  #letter_body  {
-                    width: 96%;
-                    height: 867px;
-                    margin-top: 5% !important;
-                    margin: 2%;
-                    padding: 2%;
-                    border: 2px solid #000;
-                  } 
-                  #letter-date{
-                    padding-right: 160px !important;
-                  }
-                  #letter-content{
-                    padding-left:10px; 
-                    display:inline-block;
-                  }
+                background-color: #fffdfd;
+                margin: auto;
+                border: 2px solid #000;
+            }  
+            #letter_body  {
+              margin: 2%;
+              padding: 2%;
+              border: 2px solid #000;
+            } 
+            #letter-date{
+              padding-right: 12% !important;
+            }
+            #letter-content{
+              padding-left:10px; 
+              display:inline-block;
+            }
+            .line{
+              display: flex;
+              justify-content:space-between;
+            }
 
         </style>
     </head>
 
     <body class="row">
         <div id="letter" class="mt-5 col-lg-6 col-md-12">
-            <h4 class="text-center mt-2" >Send unverified Police Verification letter to Employer</h4>
-            <div  id="letter_body">
+            <h4 class="text-center mt-2" align="center" >Send unverified Police Verification letter to Employer</h4>
+            <div  id="letter_body" class="mt-5" >
                     <div class="text-center">
-                                   <p class="d-flex justify-content-end mt-1 mr-2" > CONFIDENTIAL</p>
-                        <h3 class="text-center  fw-bold"> GOVERNMENT OF WEST BENGAL </h3>
-                       <h3 class="text-center fw-bold"> OFFICE OF THE DISTRICT MAGISTRATE & COLLECTOR</h3>
+                                   <p class="d-flex justify-content-end mt-1 mr-2"align="right" > CONFIDENTIAL</p>
+                        <h3 class="text-center  fw-bold"align="right"> GOVERNMENT OF WEST BENGAL </h3>
+                       <h3 class="text-center fw-bold"align="right"> OFFICE OF THE DISTRICT MAGISTRATE & COLLECTOR</h3>
 
-                       <h3 class="mb-4"> <u> HOWRAH <br>
+                       <h3 class="mb-4"text-center" align="center"> <u> HOWRAH <br>
                         V R Section</u></h3> 
                         <div class="mt-4 d-flex  justify-content-between">
-                                <div > Memo No.       /VR  </div>
-                                <div id="letter-date">	Dated:</div>  
+                                <div align="left" > Memo No.     /VR  </div>
+                                <div  id="letter-date">	Dated:</div>  
                                 
                         </div>
 
                         <div class="mt-4 d-flex justify-content-start">To </div>
-                        <div class="mt-4 d-flex justify-content-start"><b>Sub: Verification on C/As</b></div>
+                        <br>
+                        <br>
+                        <div class=" text-left" align="left"><b>Sub: Verification on C/As</b></div>
 
                        <b>  </b>
 
@@ -83,16 +84,16 @@ with a copy of the above mentioned memo for favour of your information and neces
                         </p>
                         
                        Enclosed : As stated.  <br>
-                       <div class="d-flex justify-content-end fw-bold">Yours faithfully,</div>
+                       <div class="d-flex justify-content-end fw-bold" align="right">Yours faithfully,</div>
                        <br>
                        <br>
-                        <div class="d-flex justify-content-end fw-bold">For District Magistrate </div>
-                        <div class="d-flex justify-content-end fw-bold">Howrah </div>
+                        <div class="d-flex justify-content-end fw-bold" align="right">For District Magistrate </div>
+                        <div class="d-flex justify-content-end fw-bold" align="right">Howrah </div>
             </div>      
         </div>
 
-        <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br>
+        <!-- <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br> -->
     </body>
-    <?php $this->load->view('layouts/footer_view'); ?>
+<!--  <?php// $this->load->view('layouts/footer_view'); ?> -->
     </html>
 
