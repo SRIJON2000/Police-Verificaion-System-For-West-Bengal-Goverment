@@ -223,7 +223,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th>Candidate Name</th>
                                             <th>Office Name</th>
                                             <th>Application date</th>
-                                            <th>Status</th>
+                                            <th>OCVR Status</th>
+                                            <th>Final Verification Status (Verified/Unverified)</th>
                                             <th>Action</th>
                                             
                                         </tr>
@@ -234,7 +235,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <th>Candidate Name</th>
                                         <th>Office Name</th>
                                         <th>Application date</th>
-                                        <th>Status</th>
+                                        <th>OCVR Status</th>
+                                        <th>Final Verification Status (Verified/Unverified)</th>
                                         <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -254,8 +256,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php }else{?>
                                                 <td><div style="color:green"><b>Approved By OCVR</b></div></td>
                                                 <?php }?>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
+                                            <td><div style="color:blue"><b><?php echo $application['final_status_name']?></b></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a></td>&nbsp;&nbsp;
+                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
                                         </tr>
                                     <?php
                                             
