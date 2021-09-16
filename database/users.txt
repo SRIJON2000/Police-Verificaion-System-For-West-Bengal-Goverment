@@ -1,0 +1,11 @@
+OCVR
+Username : abc-ocvr@gmail.com
+
+VR SECTION (DATA ENTRY OPERATOR)
+Username: abc-vr@gmail.com
+
+ADM 
+Username: abc-adm@gmail.com
+
+Password : Nic@1234 
+Password is same for all.
