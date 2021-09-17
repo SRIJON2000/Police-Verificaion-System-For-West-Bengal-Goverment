@@ -93,6 +93,7 @@ tr td,tr th{border: 1px solid;}*/
         </ol>
     </section> 
     <section class="content print_view">
+        <h2>Application Details</h2>
     	<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 ><a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
