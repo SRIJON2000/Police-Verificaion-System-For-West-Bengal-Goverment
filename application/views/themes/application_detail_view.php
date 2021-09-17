@@ -231,10 +231,40 @@ tr td,tr th{border: 1px solid;}*/
                                     else
                                     {
                                 ?>
-                                <p id="b" style="font-size:20px;color:green;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
+                                <p id="b" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
                                 
                                 <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Home/<?php if($detail['sent_to']=='CP HOWRAH'){echo 'cp_letter';}else{echo 'SP_DIB';}?>/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Generate Letter</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="<?php echo base_url()?>Home/print_application/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Print Application</b></a></div>
+                                <?php 
+                                    } 
+                                    
+                                }
+                                ?>
+
+                                <?php 
+                                if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
+                                {
+                                        if($detail['pvr_final_status_id_pk']==2)
+                                        {
+                                 ?>
+                                 <br/><br/><p id="b" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application is Verified Successfully from IB';?></b></p><br/>
+                                <?php 
+                                    } 
+                                    else if($detail['pvr_final_status_id_pk']==3)
+                                    {
+                                ?>
+                                <p id="c" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is Unverified from IB';?></b></p><br/>
+                                <?php 
+                                    } 
+                                    else
+                                    {
+                                     if($detail['ocvr_approval']==0)
+                                     {
+                                ?>
+                                      <p id="d" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is not yet verified by OCVR';?></b></p><br/>  
+                                <?php }?>
+                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Verify</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center" ><b>Unverify</b></a></div>
                                 <?php 
                                     } 
                                     

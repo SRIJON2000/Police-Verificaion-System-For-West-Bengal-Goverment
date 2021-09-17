@@ -3,7 +3,7 @@ class Application_model extends CI_Model
 {
     function fetch_all_applications($district_id)
     {
-        $this->db->select('pvr_id_pk,candidate_f_name,candidate_m_name,candidate_l_name,employer_name,application_date,ocvr_approval,adm_approval,ref_no_pk,final_status_name');
+        $this->db->select('pvr_id_pk,candidate_f_name,candidate_m_name,candidate_l_name,employer_name,application_date,ocvr_approval,adm_approval,ref_no_pk,pvr_final_status_id_fk,final_status_name');
         $this->db->from('pvr_vr_detail');
         $this->db->join('pvr_candidate_details', 'pvr_candidate_details.candidate_id_pk = pvr_vr_detail.candidate_id_fk');
         $this->db->join('pvr_employer','pvr_employer.employer_id_pk=pvr_candidate_details.employer_id_fk');
@@ -31,6 +31,7 @@ class Application_model extends CI_Model
         $this->db->join('pvr_master_policestation as ps1','ps1.ps_id_pk=pvr_candidate_details.candidate_police_station_id1_fk');
         $this->db->join('pvr_reference_no','pvr_reference_no.ref_no_pk=pvr_candidate_details.reference_no_fk');
         $this->db->join('pvr_with','pvr_with.pvr_with_id_pk=pvr_vr_detail.pvr_with_id_fk');
+        $this->db->join('pvr_final_status','pvr_final_status.pvr_final_status_id_pk=pvr_vr_detail.pvr_final_status_id_fk');
         $this->db->join('pvr_memo','pvr_memo.memo_id_pk=pvr_vr_detail.memo_id_fk');
         $this->db->where('pvr_vr_detail.pvr_id_pk',$pvr_id);
         $query1 =$this->db->get();
@@ -324,28 +325,28 @@ class Application_model extends CI_Model
 
         /******************************Populating PVR Final Status Table*************************/
 
-        $this->db->select_max('pvr_final_status_id_pk');
-        $this->db->from('pvr_final_status');
-        $query=$this->db->get();
-        $maxpvrfinalstatuswith_id=$query->row();
+        // $this->db->select_max('pvr_final_status_id_pk');
+        // $this->db->from('pvr_final_status');
+        // $query=$this->db->get();
+        // $maxpvrfinalstatuswith_id=$query->row();
         
-        if(empty($maxpvrfinalstatuswith_id))
-        {
-            $maxpvrfinalstatuswith_id->pvr_final_status_id_pk=1;
-        }
-        else
-        {
-            $maxpvrfinalstatuswith_id->pvr_final_status_id_pk=$maxpvrfinalstatuswith_id->pvr_final_status_id_pk+1;
-        }
+        // if(empty($maxpvrfinalstatuswith_id))
+        // {
+        //     $maxpvrfinalstatuswith_id->pvr_final_status_id_pk=1;
+        // }
+        // else
+        // {
+        //     $maxpvrfinalstatuswith_id->pvr_final_status_id_pk=$maxpvrfinalstatuswith_id->pvr_final_status_id_pk+1;
+        // }
 
-        $pvr_finalstatus_data=array(
+        // $pvr_finalstatus_data=array(
 
-            'pvr_final_status_id_pk'=>$maxpvrfinalstatuswith_id->pvr_final_status_id_pk,
-            //'pvr_id_fk'=>$maxpvr_id,
-            'final_status_name'=>'Under Process'
-        );
+        //     'pvr_final_status_id_pk'=>$maxpvrfinalstatuswith_id->pvr_final_status_id_pk,
+        //     //'pvr_id_fk'=>$maxpvr_id,
+        //     'final_status_name'=>'Under Process'
+        // );
 
-        $this->db->insert('pvr_final_status',$pvr_finalstatus_data);
+        // $this->db->insert('pvr_final_status',$pvr_finalstatus_data);
 
         /******************************Populating PVR Details Table*************************/
         
@@ -358,7 +359,7 @@ class Application_model extends CI_Model
             'pvr_type_fk'=>$data['defence'],
             'memo_id_fk'=>$maxmemo_id->memo_id_pk,
             'pvr_with_id_fk'=>$maxpvrwith_id->pvr_with_id_pk,
-            'pvr_final_status_id_fk'=>$maxpvrfinalstatuswith_id->pvr_final_status_id_pk,
+            'pvr_final_status_id_fk'=>1,
             'remarks'=>'test',
             'pvr_report_id_fk'=>NULL,
             'district_id_fk'=>$this->session->userdata('office_district'),
@@ -458,7 +459,23 @@ class Application_model extends CI_Model
         $this->db->update('pvr_with');
 
     }
-    
+    function verify($pvr_id)
+    {
+        
+       
+        $this->db->set('pvr_final_status_id_fk',2);
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $this->db->update('pvr_vr_detail');
+        
+        
+    }
+    function unverify($pvr_id)
+    {
+        $this->db->set('pvr_final_status_id_fk',3);
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $this->db->update('pvr_vr_detail');
+    }
+
 
 }
 ?>
