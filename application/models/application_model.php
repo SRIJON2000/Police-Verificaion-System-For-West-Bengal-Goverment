@@ -3,12 +3,13 @@ class Application_model extends CI_Model
 {
     function fetch_all_applications($district_id)
     {
-        $this->db->select('pvr_id_pk,candidate_f_name,candidate_m_name,candidate_l_name,employer_name,application_date,ocvr_approval,adm_approval,ref_no_pk,pvr_final_status_id_fk,final_status_name');
+        $this->db->select('pvr_id_pk,candidate_f_name,candidate_m_name,candidate_l_name,employer_name,application_date,ocvr_approval,adm_approval,ref_no_pk,pvr_final_status_id_fk,final_status_name,pvr_type_fk');
         $this->db->from('pvr_vr_detail');
         $this->db->join('pvr_candidate_details', 'pvr_candidate_details.candidate_id_pk = pvr_vr_detail.candidate_id_fk');
         $this->db->join('pvr_employer','pvr_employer.employer_id_pk=pvr_candidate_details.employer_id_fk');
         $this->db->join('pvr_reference_no','pvr_reference_no.receipt_id_fk=pvr_vr_detail.receipt_id_fk');
         $this->db->join('pvr_final_status','pvr_final_status.pvr_final_status_id_pk=pvr_vr_detail.pvr_final_status_id_fk');
+        $this->db->join('pvr_master_defence','pvr_master_defence.df_type_id_pk=pvr_vr_detail.pvr_type_fk');
         $this->db->where('pvr_vr_detail.district_id_fk',$district_id);
         $this->db->order_by('pvr_id_pk','desc');
         $query =$this->db->get();
@@ -462,6 +463,7 @@ class Application_model extends CI_Model
     function verify($pvr_id)
     {
         
+
        
         $this->db->set('pvr_final_status_id_fk',2);
         $this->db->where('pvr_id_pk',$pvr_id);

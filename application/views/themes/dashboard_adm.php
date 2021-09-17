@@ -346,12 +346,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </table>
                             </div>
                         </div>  
-                        
-
-
-
-
                         <?php }?>
+
+
+
+                        <?php 
+                            if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
+                            {
+                        ?>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                <b>Recent Applications</b>
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Reference No.</th>
+                                            <th>Candidate Name</th>
+                                            <th>Office Name</th>
+                                            <th>Application date</th>
+                                           
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Reference No.</th>
+                                        <th>Candidate Name</th>
+                                        <th>Office Name</th>
+                                        <th>Application date</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        foreach($applications as $application)
+                                        {
+                                           if($application['pvr_type_fk']!=4 && $application['pvr_final_status_id_fk']==2)
+                                           {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $application['ref_no_pk']?></td>
+                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
+                                            <td><?php echo $application['employer_name'] ?></td>
+                                            <td><?php echo $application['application_date'] ?></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a></td>
+                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
+                                        </tr>
+                                    <?php
+                                           }  
+                                        }
+                                    ?>    
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </main>
                 
