@@ -41,7 +41,12 @@ $d=date('d-m-y');
   }
   
   .row_new_app{
-  padding-left: 10% !important;
+  padding-right: 5% !important;
+}
+@media only screen and (max-width: 400px) {
+  [class*="row_new_app"]{
+    padding-right: 0px !important;
+  }
 }
 
   hr{
@@ -50,22 +55,26 @@ $d=date('d-m-y');
   label{
     font-size:20px;
   }
+  .px-2{
+    height: 35px; font-size: 20px;
+  }
 </style>
   <h3 class="text-center">Application Form</h3>
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
 
   <div class="row row_new_app">
-    <div class="col-lg-6 col-md-12 p-3 d-flex justify-content-around ">    
-        <label for="rcptno"><b>Receipt No</b></label>
-        <input class="text-center" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
-    </div>
-    <div class="col-lg-6 col-md-12 p-3 d-flex justify-content-around">
-        <label for="rcptdate"><b>Receipt Date</b></label>
-        <input class="text-center" type="date" id="rcptdate"  value="<?php echo date('Y-m-d');?>" style="height: 40px; font-size: 20px" name="receiptdate" readonly>
-    </div>
-    <div class="col-lg-6 col-md-12 p-3 d-flex justify-content-around">
-      <label for="employer"><b>Office/Employer Name</b></label>
-      <select class="text-center" name="employer" id="employer">
+    <div class="col-lg-6 col-md-12 p-3">
+    <div class=" d-flex justify-content-center row">    
+        <label class="col-lg-3 text-center col-xs-8" for="rcptno"><b>Receipt No</b></label>
+        <input class="col-lg-3 text-center col-sm-4 m-1 w-25 w-50" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
+    </div></div>
+    <div class="col-lg-6 col-md-12 p-3"><div class="d-flex justify-content-center row">
+        <label for="rcptdate" class="col-lg-3 text-center col-xs-8"><b>Receipt Date</b></label>
+        <input class="col-lg-3 text-center col-sm-4 m-1 w-50" type="date" id="rcptdate"  value="<?php echo date('Y-m-d');?>" style="height: 40px; font-size: 20px" name="receiptdate" readonly>
+    </div></div>
+    <div class="col-lg-6 col-md-12 p-3"><div class="row d-flex justify-content-around">
+      <label for="employer" class="col-lg-3 text-center col-xs-8"><b>Office/Employer Name</b></label>
+      <select class="col-lg-3 text-center col-sm-4 m-1 w-50" name="employer" id="employer">
           <option>--Select Office--</option>
           <?php
             foreach($employers as $employer)
@@ -77,6 +86,7 @@ $d=date('d-m-y');
             }
           ?>
       </select>
+    </div>
     </div>
   </div>
     </div><br/><br/>
@@ -156,11 +166,11 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="dob"><b>Date Of Birth</b></label>
-        <input class="px-2" type="date" id="dob" name="dob" style="height: 40px; font-size: 20px" required>
+        <input class="px-2" type="date" id="dob" name="dob" required>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="gender"><b>Gender</b></label>
-        <select class="col-5 text-center" name="gender" id="gender">
+        <select class="col-5 text-center px-2" name="gender" id="gender">
           <option>----Select----</option>
           <?php
             foreach($genders as $gender)
@@ -193,11 +203,11 @@ $d=date('d-m-y');
 
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="aadhar"><b>Aadhaar No</b></label>
-        <input type="number" id="aadhar" name="aadhaarno" maxlength="12" required>
+        <input type="number" id="aadhar" name="aadhaarno" maxlength="12" placeholder="Aadhar number.." required>
       </div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="caste"><b>Caste</b></label>
-      <select class="col-5 text-center" name="caste" id="caste">
+      <select class="col-5 text-center px-2" name="caste" id="caste">
           <option>--Select--</option>
           <?php
             foreach($castes as $caste)
@@ -258,7 +268,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
         <label for="ps1"><b>Police Station</b></label>
-        <select name="ps1" id="ps1">
+        <select name="ps1" id="ps1" class="px-2 text-center" style="width: 250px;">
           <option>--Select--</option>
           <?php
             foreach($policestations as $ps)
@@ -275,11 +285,11 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="pin1"><b>Pincode</b></label>
-      <input type="number" style="height: 40px; font-size: 20px"id="pin1" name="pin1"  placeholder="Your Pincode.." required>
+      <input type="number" class="px-2" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="state1"><b>State</b></label>
-      <select id="state1" name="state1" onchange="get_district()">
+      <select id="state1" class="px-2" name="state1" onchange="get_district()">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -294,7 +304,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="district1"><b>District</b></label>
-    <select  id="district1" name="district1">
+    <select  id="district1" class="px-2" name="district1">
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
@@ -340,7 +350,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
         <label for="ps2"><b>Police Station</b></label>
-        <select name="ps2" id="ps2">
+        <select name="ps2" id="ps2" class="px-2">
           <option>--Select--</option>
           <?php
             foreach($policestations as $ps)
@@ -361,7 +371,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="state2"><b>State</b></label>
-      <select id="state2" name="state2" onchange="get_district()">
+      <select id="state2" name="state2" onchange="get_district()" class="px-2 text-center">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -376,7 +386,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="district2"><b>District</b></label>
-    <select  id="district2" name="district2">
+    <select  id="district2" name="district2" class="px-2 text-center">
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
@@ -392,7 +402,7 @@ $d=date('d-m-y');
     </select>
       </div>
   </div></div>
-    <br/><br/><br/><br/>
+    <br/><br/>
   
   <hr>
 	<!-- <p style="font-size:30px; text-align:center; color:red">Candidate's Educational Details</p><br/>
@@ -490,17 +500,17 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="refno"><b>Reference No</b></label>
-        <input type="text" id="refno" name="refno" placeholder="Ref No" required>
+        <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="px-2 text-center" required>
       </div>
       <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="refdate"><b>Reference Date</b></label>
-        <input type="date" id="refdate" name="refdate" style="height: 40px; font-size: 20px" required>
+        <input type="date" id="refdate" name="refdate" class="px-2 text-center" required>
       </div>
     </div><br/>
     <div class="row row_new_app">
       <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="defence"><b>Defence Personnel</b></label>
-      <select name="defence" id="defence" required>
+      <select name="defence" id="defence" class="px-2 text-center" required>
           <option>--Select--</option>
           <?php
                 foreach($defences as $defence)
@@ -515,7 +525,8 @@ $d=date('d-m-y');
       </div>
     <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="category"><b>Category</b></label>
-      <select name="category" id="category" required>
+      <select name="category" id="category" class="px-2 text-center
+      " required>
           <option>--Select--</option>
           <?php
                 foreach($categories as $category)
