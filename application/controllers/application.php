@@ -193,5 +193,10 @@ class Application extends CI_Controller
         $this->Application_model->unverify($pvr_id);
         redirect('Home/application_details/'.$pvr_id);
     }
+    function adm_approve($pvr_id)
+    {
+        $this->Application_model->adm_approve($pvr_id);
+        redirect('Home/application_details/'.$pvr_id);
+    }
 }
 ?>

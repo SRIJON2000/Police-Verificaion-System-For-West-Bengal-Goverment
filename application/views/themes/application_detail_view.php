@@ -229,7 +229,7 @@ tr td,tr th{border: 1px solid;}*/
                                  <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a></div>
                                 <?php 
                                     } 
-                                    else
+                                    elseif($detail['ocvr_approval']==0 && $detail['pvr_final_status_id_fk']!=2)
                                     {
                                 ?>
                                 <p id="b" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application Has Been Approved Successfully';?></b></p><br/>
@@ -238,8 +238,18 @@ tr td,tr th{border: 1px solid;}*/
                                 <a href="<?php echo base_url()?>Home/print_application/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Print Application</b></a></div>
                                 <?php 
                                     } 
-                                    
+                                    elseif($detail['pvr_final_status_id_fk']==2)
+                                    {
+                                        ?>
+                                        <p id="b" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application Has Been Verified Successfully From IB';?></b></p><br/>
+                                <?php
                                 }
+                                else{
+                                ?>
+                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been Unverified From IB';?></b></p><br/>
+                                <?php
+                                }
+                            }
                                 ?>
 
                                 <?php 
@@ -271,6 +281,22 @@ tr td,tr th{border: 1px solid;}*/
                                     } 
                                     
                                 }
+                                ?>
+
+
+                                <?php 
+                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
+                                {      
+                                     if($detail['adm_approval']==1)
+                                     {
+                                ?>
+                                <p id="d" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application is confirmed by ADM';?></b></p><br/>  
+                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Home/defence_letter/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Generate Verified Defence Letter</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <?php }else{?>
+                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Application/adm_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Confirm</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <?php 
+                                }
+                                    } 
                                 ?>
                                 </ul>
                                 

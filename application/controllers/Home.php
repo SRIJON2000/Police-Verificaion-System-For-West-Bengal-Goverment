@@ -46,9 +46,10 @@
             $this->load->view('themes/non_defence_letter');
         }
 
-        function defence_letter()
+        function defence_letter($pvr_id)
         {
-            $this->load->view('themes/defence_letter');
+            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/defence_letter',$data);
         }
         function generate_pdf_view()
         {
@@ -181,6 +182,11 @@
             $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
             $this->load->view('themes/application_detail_view',$data);
        } 
+       function verified_letter_list()
+       {
+            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $this->load->view('themes/verified_letter_to_emp',$data);
+       }
 
     }
 ?>

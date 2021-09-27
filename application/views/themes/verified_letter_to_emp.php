@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 ?>
                             </div>
                             <?php 
-                                if($this->session->userdata('user_type')=='OFFICER IN CHARGE' )
+                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE' || $this->session->userdata('user_type')=='OFFICER IN CHARGE' )
                                     {
                             ?>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
@@ -133,7 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#">Letter To SPDIB</a>
-                                    <a class="nav-link" href="<?php echo base_url()?>Home/verified_letter_list">Verified Letter To Employer</a>
+                                    <a class="nav-link" href="#">Verified Letter To Employer</a>
                                     <a class="nav-link" href="#">Unverified Letter To Employer</a>
                                 </nav>
                                 
@@ -162,7 +162,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Dashboard</h1><br/>
+                        <h1 class="mt-4 text-center">Verified Non-defence Application</h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
@@ -205,15 +205,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                       
-                        <?php 
-                            if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
-                            {
-                        ?>
+                       
 
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                <b>Recent Applications</b>
+                                <b>Verified Non-Defence Applications</b>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -223,7 +220,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th>Candidate Name</th>
                                             <th>Office Name</th>
                                             <th>Application date</th>
-                                            <th>OCVR Status</th>
                                             <th>Final Status (Verified/Unverified)</th>
                                             <th>Action</th>
                                             
@@ -235,7 +231,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <th>Candidate Name</th>
                                         <th>Office Name</th>
                                         <th>Application date</th>
-                                        <th>OCVR Status</th>
                                         <th>Final Status (Verified/Unverified)</th>
                                         <th>Action</th>
                                         </tr>
@@ -244,23 +239,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php
                                         foreach($applications as $application)
                                         {
-                                            
+                                            if($application['pvr_final_status_id_fk']==2 && $application['pvr_type_fk']==4){
                                     ?>
                                         <tr>
                                             <td><?php echo $application['ref_no_pk']?></td>
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <?php if($application['ocvr_approval']==0){?>
-                                                <td><div style="color:red"><b>Pending For Approval</b></div></td>
-                                            <?php }else{?>
-                                                <td><div style="color:green"><b>Approved By OCVR</b></div></td>
-                                                <?php }?>
-                                            <td><div style="color:<?php if($application['pvr_final_status_id_fk']==1){echo 'blue';}else if($application['pvr_final_status_id_fk']==2){echo 'green';}else{echo 'red';}?>"><b><?php echo $application['final_status_name']?></b></div></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a></td>
+                                            <td><div style="color:green"><b>Verified</b></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>Confirm and Generate Verified Letter</b></a></td>
                                             <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
                                         </tr>
                                     <?php
+                                            }
                                             
                                         }
                                     ?>    
@@ -270,146 +261,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </table>
                             </div>
                         </div>
-                        <?php
-                            }
-                        ?>
-                    <?php 
-                        if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
-                        {
-                    ?>
-
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                <b>Applications Pending For Approval</b>
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Reference No.</th>
-                                            <th>Candidate Name</th>
-                                            <th>Office Name</th>
-                                            <th>Application date</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Reference No.</th>
-                                        <th>Candidate Name</th>
-                                        <th>Office Name</th>
-                                        <th>Application date</th>
-                                        <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <?php
-                                        foreach($applications as $application)
-                                        {
-                                            if($application['ocvr_approval']==0)
-                                        {  
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $application['ref_no_pk']?></td>
-                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
-                                            <td><?php echo $application['employer_name'] ?></td>
-                                            <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details and Approve</b></a><br><br><div style="color:red"><b>Pending For Approval</b></div>&nbsp;&nbsp;</td>
-                                            
-                                        </tr>
-                                
-                                    <?php
-                                          } 
-                                      }
-                                    ?>   
-                                    <?php
-                                        foreach($applications as $application)
-                                        {
-                                            if($application['ocvr_approval']==1)
-                                        {  
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $application['ref_no_pk']?></td>
-                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
-                                            <td><?php echo $application['employer_name'] ?></td>
-                                            <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a><br><br><div style="color:green"><b>Approved &#9989;</b></div></td>
-                                            
-                                        </tr>
-                                
-                                    <?php
-                                          } 
-                                      }
-                                    ?>     
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>  
-                        <?php }?>
-
-
-
-                        <?php 
-                            if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
-                            {
-                        ?>
-
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                <b>Recent Applications</b>
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Reference No.</th>
-                                            <th>Candidate Name</th>
-                                            <th>Office Name</th>
-                                            <th>Application date</th>
-                                           
-                                            <th>Action</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Reference No.</th>
-                                        <th>Candidate Name</th>
-                                        <th>Office Name</th>
-                                        <th>Application date</th>
-                                        <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <?php
-                                        foreach($applications as $application)
-                                        {
-                                           if($application['pvr_type_fk']!=4 && $application['pvr_final_status_id_fk']==2)
-                                           {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $application['ref_no_pk']?></td>
-                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
-                                            <td><?php echo $application['employer_name'] ?></td>
-                                            <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==2 && $application['adm_approval']==0){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a></td>
-                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
-                                        </tr>
-                                    <?php
-                                           }  
-                                        }
-                                    ?>    
-                                        
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <?php
-                            }
-                        ?>
                     </div>
                 </main>
                 

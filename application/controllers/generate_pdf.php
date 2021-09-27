@@ -60,6 +60,29 @@ class Generate_pdf extends CI_Controller
         // $mpdf->Output(); // opens in browser
         // //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
     }
+    public function verified_defence($pvr_id)
+    {
+       // use Dompdf\Dompdf;
+
+        //initialize dompdf class
+
+        $dompdf = new Dompdf\Dompdf();
+        $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+        $html = $this->load->view('themes/defence_letter',$data,true);
+        $dompdf->loadHtml($html);
+        
+        $dompdf->render();
+        
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("download", array("Attachment" => 0));
+
+        // $mpdf = new \Mpdf\Mpdf();
+        // $html = $this->load->view('themes/non_defence_letter',[],true);
+        // $mpdf->WriteHTML($html);
+        // $mpdf->Output(); // opens in browser
+        // //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
+    }
     public function application($pvr_id)
     {
        // use Dompdf\Dompdf;

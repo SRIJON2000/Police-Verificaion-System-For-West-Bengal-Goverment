@@ -460,6 +460,30 @@ class Application_model extends CI_Model
         $this->db->update('pvr_with');
 
     }
+    function adm_approve($pvr_id)
+    {
+        $this->db->set('adm_approval',1);
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $this->db->update('pvr_vr_detail');
+
+        $this->db->select('dept_name');
+        $this->db->from('pvr_master_department');
+        $this->db->where('dept_id_pk',$this->session->userdata('department_id'));
+        $query = $this->db->get();
+        $dept = $query->row();
+
+        $this->db->select('pvr_with_id_fk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $query = $this->db->get();
+        $pvrwithid = $query->row();
+
+
+        $this->db->set('pvr_with_status',$dept->dept_name);
+        $this->db->where('pvr_with_id_pk',$pvrwithid->pvr_with_id_fk);
+        $this->db->update('pvr_with');
+
+    }
     function verify($pvr_id)
     {
         
