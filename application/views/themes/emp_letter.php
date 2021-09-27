@@ -41,6 +41,9 @@
     </head>
 
     <body class="row">
+    <?php foreach($details as $detail)
+         {
+            ?>
         <div id="letter" class="mt-5 col-lg-6 col-md-12">
             <h4 class="text-center mt-2" align="center" >Send unverified Police Verification letter to Employer</h4>
             <div  id="letter_body" class="mt-5" >
@@ -52,12 +55,13 @@
                        <h3 class="mb-4"text-center" align="center"> <u> HOWRAH <br>
                         V R Section</u></h3> 
                         <div class="mt-4 d-flex  justify-content-between">
-                                <div align="left" > Memo No.     /VR  </div>
-                                <div  id="letter-date">	Dated:</div>  
+                                <div align="left" > Memo No. <b><?php echo $detail['memo_no'];?></b></div>
+                                <div  id="letter-date">	Dated: <?php echo $detail['application_date'];?></div>  
                                 
                         </div>
 
                         <div class="mt-4 d-flex justify-content-start">To </div>
+                        <div class="d-flex justify-content-start"><?php echo $detail['employer_name'];?></div>
                         <br>
                         <br>
                         <div class=" text-left" align="left"><b>Sub: Verification on C/As</b></div>
@@ -71,14 +75,14 @@
                         </div>
                         <p class="mt-4"> <div class="d-flex justify-content-start">Sir,</div>  <br>
                                <div > <div id="letter-content">In</div>
- pursuance of Memo No _________________ Dated_______________ of Dy. Inspector,
+ pursuance of Memo No <b><?php echo $detail['memo_no'];?></b> Dated <b><?php echo $detail['application_date'];?></b> of Dy. Inspector,
 General of Police, I.B.,West Bengal the undersigned is to intimate you that verification in respect
-of ________________________ could not be made from the police ends the V.R. subject unwilling
+of  <b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']?> </b>could not be made from the police ends the V.R. subject unwilling
 to accept the job/non production of relevant documents /V.R. subject is non traceable/the
 address of the V.R subject is out of administrative jurisdiction/other.
 <br>
 <br>
-As such the unverified V.R. in original of ____________________ is being sent herewith along
+As such the unverified V.R. in original of <b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']?></b> is being sent herewith along
 with a copy of the above mentioned memo for favour of your information and necessary action.   </div>
             <br>                   
                         </p>
@@ -92,10 +96,13 @@ with a copy of the above mentioned memo for favour of your information and neces
             </div>      
         </div>
         <div class="text-centre d-flex justify-content-center">
-                  <a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" 
+                  <a href="<?php echo base_url()?>Generate_pdf/unverified/<?php echo $detail['pvr_id_pk']?>" 
                       class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
         <!-- <div class="text-centre d-flex justify-content-center"><button class="btn bg-secondary text-light m-auto">Print</button></div><br><br> -->
-    </body>
+        <?php 
+         }
+            ?>
+      </body>
 
     </html>
 

@@ -3,7 +3,7 @@ class Application_model extends CI_Model
 {
     function fetch_all_applications($district_id)
     {
-        $this->db->select('pvr_id_pk,candidate_f_name,candidate_m_name,candidate_l_name,employer_name,application_date,ocvr_approval,adm_approval,ref_no_pk,pvr_final_status_id_fk,final_status_name,pvr_type_fk');
+        $this->db->select('pvr_id_pk,candidate_f_name,candidate_m_name,candidate_l_name,employer_name,application_date,ocvr_approval,adm_approval,ref_no_pk,pvr_final_status_id_fk,final_status_name,pvr_type_fk,ocvr_verified_nondefence_approval,ocvr_unverified_approval');
         $this->db->from('pvr_vr_detail');
         $this->db->join('pvr_candidate_details', 'pvr_candidate_details.candidate_id_pk = pvr_vr_detail.candidate_id_fk');
         $this->db->join('pvr_employer','pvr_employer.employer_id_pk=pvr_candidate_details.employer_id_fk');
@@ -366,7 +366,9 @@ class Application_model extends CI_Model
             'district_id_fk'=>$this->session->userdata('office_district'),
             'sent_to_id_fk'=>$data['category'],
             'ocvr_approval'=>0,
-            'adm_approval'=>0
+            'adm_approval'=>0,
+            'ocvr_unverified_approval'=>0,
+            'ocvr_verified_nondefence_approval'=>0,
         );
 
         $this->db->insert('pvr_vr_detail',$pvr_data);
@@ -484,16 +486,25 @@ class Application_model extends CI_Model
         $this->db->update('pvr_with');
 
     }
+    function ocvr_verified_nondefence_approve($pvr_id)
+    {
+        $this->db->set('ocvr_verified_nondefence_approval',1);
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $this->db->update('pvr_vr_detail');
+
+    }
+    function ocvr_unverified_approve($pvr_id)
+    {
+        $this->db->set('ocvr_unverified_approval',1);
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $this->db->update('pvr_vr_detail');
+
+    }
     function verify($pvr_id)
     {
-        
-
-       
         $this->db->set('pvr_final_status_id_fk',2);
         $this->db->where('pvr_id_pk',$pvr_id);
         $this->db->update('pvr_vr_detail');
-        
-        
     }
     function unverify($pvr_id)
     {
@@ -501,7 +512,7 @@ class Application_model extends CI_Model
         $this->db->where('pvr_id_pk',$pvr_id);
         $this->db->update('pvr_vr_detail');
     }
-
+    
 
 }
 ?>

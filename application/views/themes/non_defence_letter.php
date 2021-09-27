@@ -62,9 +62,9 @@
                         </div>
 
                         <div class="mt-4 d-lg-flex justify-content-start">To </div>
-                        <div class="d-flex justify-content-start"><?php echo $detail['sent_to'];?></div>
+                        <div class="d-flex justify-content-start"><?php echo $detail['employer_name'];?></div>
 <br>
-                       <div class=" text-center" align="center"><b> Sub: Police Verification Report in respect of _________ </b></div>
+                       <div class=" text-center" align="center"><b> Sub: Police Verification Report in respect of <?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name']?> </b></div>
 <br>
                        <div class=" d-flex line justify-content-between">
                                 <div align="left"> Ref. No. :<?php echo $detail['ref_no_pk'];?></div>
@@ -89,9 +89,9 @@
                         <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate<b></div>
                         <div class="d-flex justify-content-end fw-bold" align="right"><b>Howrah<b></div>
             </div>      
-        </div>
+        </div><br>
         <div class="text-centre d-flex justify-content-center">
-                  <a href="<?php echo base_url()?>Generate_pdf/generate_pdf/<?php echo $detail['pvr_id_pk']?>" 
+                  <a href="<?php echo base_url()?>Generate_pdf/verified_nondefence/<?php echo $detail['pvr_id_pk']?>" 
                       class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
         <?php 
          }

@@ -75,55 +75,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <?php 
-                                    if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
-                                    {
-                                ?>
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?php base_url()?>application">New Application</a>
-                                    <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
-                                    <a class="nav-link" href="#">Update Application</a>
-                                    <a class="nav-link" href="#">Send Reminder</a>
-                                </nav>
-                                <?php 
-                                    }
-                                ?>
+                        
+                                
+                                
 
-                                <?php 
-                                    if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
-                                    {
-                                ?>
+                               
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
+                                    
+                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Pending Approval</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
-                                    <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <a class="nav-link" href="#">Send Reminder</a>
+                                   
                                 </nav>
-                                <?php 
-                                    }
-                                ?>
+                                
 
-                                <?php 
-                                    if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
-                                    {
-                                ?>
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
-                                    <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
-                                    <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
-                                </nav>
-                                <?php 
-                                    }
-                                ?>
+                                
                             </div>
-                            <?php 
-                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE' || $this->session->userdata('user_type')=='OFFICER IN CHARGE' )
-                                    {
-                            ?>
+                           
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Letter
@@ -133,15 +101,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#">Letter To SPDIB</a>
-                                    <a class="nav-link" href="#">Verified Letter To Employer</a>
-                                    <a class="nav-link" href="#">Unverified Letter To Employer</a>
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/verified_letter_list">Verified Letter To Employer</a>
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/unverified_letter_list">Unverified Letter To Employer</a>
                                 </nav>
                                 
                             </div>
-                            <?php 
-                                    }
-                                ?>
-
+                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Report
@@ -162,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Verified Non-defence Application</h1><br/>
+                        <h1 class="mt-4 text-center">Dashboard</h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
@@ -247,8 +212,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
                                             <td><div style="color:green"><b>Verified</b></div></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>Confirm and Generate Verified Letter</b></a></td>
-                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>" target="_blank"><b>View Details</b></a><br><br>
+                                            <?php if($application['ocvr_verified_nondefence_approval']==0){
+                                                ?>
+                                            <a class="action" href="<?php base_url()?>ocvr_verified_nondefence_approve/<?php echo $application['pvr_id_pk'] ?>"><b>Confirm</b></a></td>
+                                            <?php }else{ ?>
+                                                <a class="action" href="<?php base_url()?>non_defence_letter/<?php echo $application['pvr_id_pk'] ?>" target="_blank"><b>Generate verified non-defence letter</b></a></td>
+                                                <?php }?>
                                         </tr>
                                     <?php
                                             }

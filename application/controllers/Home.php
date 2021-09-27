@@ -29,6 +29,16 @@
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $this->load->view('themes/dashboard_adm',$data);
         }
+        function ocvr_verified_nondefence_approve($pvr_id)
+        {
+            $this->Application_model->ocvr_verified_nondefence_approve($pvr_id);
+            redirect('Home/verified_letter_list/'.$pvr_id);
+        }
+        function ocvr_unverified_approve($pvr_id)
+        {
+            $this->Application_model->ocvr_unverified_approve($pvr_id);
+            redirect('Home/unverified_letter_list/'.$pvr_id);
+        }
         // function preview_pdf($pvr_id) 
         // {
         //     $data['details']=$this->Application_model->fetch_application_details($pvr_id);
@@ -43,7 +53,7 @@
         function non_defence_letter($pvr_id)
         {
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
-            $this->load->view('themes/non_defence_letter');
+            $this->load->view('themes/non_defence_letter',$data);
         }
 
         function defence_letter($pvr_id)
@@ -66,9 +76,10 @@
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/cp_letter',$data);
         }
-        function emp_letter()
+        function unverified_letter($pvr_id)
         {
-            $this->load->view('themes/emp_letter');
+            $data['details']=$this->Application_model->fetch_application_details($pvr_id);
+            $this->load->view('themes/emp_letter',$data);
         }
         function quarterly_report()
         {
@@ -187,6 +198,10 @@
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $this->load->view('themes/verified_letter_to_emp',$data);
        }
-
+       function unverified_letter_list()
+       {
+            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $this->load->view('themes/unverified_letter_to_emp',$data);
+       }
     }
 ?>
