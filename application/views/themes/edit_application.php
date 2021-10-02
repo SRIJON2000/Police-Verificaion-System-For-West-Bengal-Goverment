@@ -64,7 +64,7 @@ $d=date('d-m-y');
             {
           ?>
   <h3 class="text-center">Application Form</h3>
-  <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
+  <form id="application" action="<?php echo base_url();?>Application/editapp" method="post">
 
   <div class="row row_new_app">
     <div class="col-lg-6 col-md-12 p-3">
