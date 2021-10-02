@@ -226,7 +226,8 @@ tr td,tr th{border: 1px solid;}*/
                                         if($detail['ocvr_approval']==0)
                                         {
                                  ?>
-                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a></div>
+                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a><br><br><br>
+                                 <a href="<?php echo base_url()?>Application/edit/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;background-color:blue" ><b>Edit Application</b></a></div>
                                 <?php 
                                     } 
                                     elseif($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=2)

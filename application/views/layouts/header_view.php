@@ -22,7 +22,7 @@
     <div class="col-lg-1 col-sm-4"><a class="p-3 pr-5 pl-5 active text-center" href="http://localhost/pvr/" <?php if ($_SERVER['PHP_SELF']=='/pvr/index.php/test/dashboard_admin'){echo 'target="_blank"';};?>><b>Home</b></a></div>
     <div class="col-lg-1 col-sm-4"><a class="btn text-center" href="#contact"><b>Contact US</b></a></div>
     <div class="col-lg-1 col-sm-4"><a class="btn text-center" href="#about"><b>About</b></a></div>
-    <?php if ($_SERVER['PHP_SELF']=='/pvr/index.php'){echo '<a href="#about"><b>Register Your Office</b></a>';};?>
+    <!-- <?php //if ($_SERVER['PHP_SELF']=='/pvr/index.php'){echo '<a href="#about"><b>Register Your Office</b></a>';};?> -->
     
     
   </div>

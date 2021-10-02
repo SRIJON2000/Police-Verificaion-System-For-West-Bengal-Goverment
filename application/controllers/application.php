@@ -203,5 +203,19 @@ class Application extends CI_Controller
         $this->Application_model->ocvr_verified_nondefence_approve($pvr_id);
         redirect('Home/application_details/'.$pvr_id);
     }
+    function edit($pvr_id)
+    {
+            $data['genders']=$this->Application_model->fetch_gender();
+            $data['castes'] =$this->Application_model->fetch_caste();
+            $data['states']=$this->Application_model->fetch_state();
+            $data['defences']=$this->Application_model->fetch_defence();
+            $data['employers']=$this->Application_model->fetch_employer($this->session->userdata('office_district'));
+            $data['districts']=$this->Application_model->fetch_district();
+            $data['policestations']=$this->Application_model->fetch_policestation();
+            $data['categories']=$this->Application_model->fetch_category();
+            $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
+            $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
+            $this->load->view('themes/edit_application',$data);
+    }
 }
 ?>
