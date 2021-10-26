@@ -25,7 +25,7 @@ $d=date('d-m-y');
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
+    z-index: 1;
     font-size: 18px;
     border: none;
     outline: none;
@@ -62,19 +62,19 @@ $d=date('d-m-y');
   <h3 class="text-center">Application Form</h3>
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
 
-  <div class="row row_new_app">
+  <div class="row row_new_app pl-0">
     <div class="col-lg-6 col-md-12 p-3">
-    <div class=" d-flex justify-content-center row">    
-        <label class="col-lg-3 text-center col-xs-8" for="rcptno"><b>Receipt No</b></label>
-        <input class="col-lg-3 text-center col-sm-4 m-1 w-25 w-50" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
+    <div class=" d-flex justify-content-start row">    
+        <label class="col-lg-3 col-xs-8" for="rcptno"><b>Receipt No</b></label>
+        <input class="col-lg-3 text-center col-sm-4 m-1" style="width:250px;" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
     </div></div>
-    <div class="col-lg-6 col-md-12 p-3"><div class="d-flex justify-content-center row">
+    <div class="col-lg-6 col-md-12 p-3"><div class="d-flex justify-content-start row">
         <label for="rcptdate" class="col-lg-3 text-center col-xs-8"><b>Receipt Date</b></label>
-        <input class="col-lg-3 text-center col-sm-4 m-1 w-50" type="date" id="rcptdate"  value="<?php echo date('Y-m-d');?>" style="height: 40px; font-size: 20px" name="receiptdate" readonly>
+        <input class="col-lg-3 text-center col-sm-4 m-1" style="width:250px;" type="date" id="rcptdate"  value="<?php echo date('Y-m-d');?>" name="receiptdate" readonly>
     </div></div>
-    <div class="col-lg-6 col-md-12 p-3"><div class="row d-flex justify-content-around">
+    <div class="col-lg-6 col-md-12 p-3"><div class="row d-flex justify-content-start">
       <label for="employer" class="col-lg-3 text-center col-xs-8"><b>Office/Employer Name</b></label>
-      <select class="col-lg-3 text-center col-sm-4 m-1 w-50" name="employer" id="employer">
+      <select class="col-lg-3 text-center col-sm-4 m-1" style="width:250px;" name="employer" id="employer">
           <option>--Select Office--</option>
           <?php
             foreach($employers as $employer)
@@ -170,7 +170,7 @@ $d=date('d-m-y');
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="gender"><b>Gender</b></label>
-        <select class="col-5 text-center px-2" name="gender" id="gender">
+        <select class="col-5 text-center px-2" name="gender" style="width: 225px;" id="gender">
           <option>----Select----</option>
           <?php
             foreach($genders as $gender)
@@ -207,7 +207,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="caste"><b>Caste</b></label>
-      <select class="col-5 text-center px-2" name="caste" id="caste">
+      <select class="col-5 text-center px-2" name="caste" id="caste" style="width: 225px;">
           <option>--Select--</option>
           <?php
             foreach($castes as $caste)
@@ -244,9 +244,9 @@ $d=date('d-m-y');
   <br>
 	<h3 class="text-danger text-center">Candidate's Permanent Address</h3>
   <div class="row row_new_app">
-      <div class="col-lg-4 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 col-sm-8 p-3 pt-5">
         <label for="houseno1"><b>House No</b></label>
-        <input type="number" style="height: 40px; font-size: 20px" id="houseno1" name="houseno1" required>
+        <input type="number" id="houseno1" name="houseno1" required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
         <label for="street1"><b>Street/Lane</b></label>
@@ -266,9 +266,9 @@ $d=date('d-m-y');
         <label for="po1"><b>Post Office</b></label>
         <input type="text"  id="po1" name="po1" required>
       </div>
-      <div class="col-lg-4 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 col-sm-6 p-3 pt-5">
         <label for="ps1"><b>Police Station</b></label>
-        <select name="ps1" id="ps1" class="px-2 text-center" style="width: 250px;">
+        <select name="ps1" id="ps1" class="px-2 text-center" style="width: 225px;">
           <option>--Select--</option>
           <?php
             foreach($policestations as $ps)
@@ -285,11 +285,11 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="pin1"><b>Pincode</b></label>
-      <input type="number" class="px-2" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
+      <input type="number" class="text-center" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="state1"><b>State</b></label>
-      <select id="state1" class="px-2" name="state1" onchange="get_district()">
+      <select id="state1" class="px-2" name="state1" onchange="get_district()" style="width: 225px;">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -304,7 +304,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="district1"><b>District</b></label>
-    <select  id="district1" class="px-2" name="district1">
+    <select  id="district1" class="px-2" name="district1" style="width: 225px;">
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
@@ -328,7 +328,7 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
         <label for="houseno2"><b>House No</b></label>
-        <input type="number" style="height: 40px; font-size: 20px" id="houseno2" name="houseno2" required>
+        <input type="number" id="houseno2" name="houseno2" required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
         <label for="street2"><b>Street/Lane</b></label>
@@ -350,7 +350,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
         <label for="ps2"><b>Police Station</b></label>
-        <select name="ps2" id="ps2" class="px-2">
+        <select name="ps2" id="ps2" class="px-2 text-center" style="width: 225px;">
           <option>--Select--</option>
           <?php
             foreach($policestations as $ps)
@@ -367,11 +367,11 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="pin2"><b>Pincode</b></label>
-      <input type="number" style="height: 40px; font-size: 20px"id="pin2" name="pin2"  placeholder="Your Pincode.." required>
+      <input type="number" id="pin2" name="pin2" class="text-center"  placeholder="Your Pincode.." required>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="state2"><b>State</b></label>
-      <select id="state2" name="state2" onchange="get_district()" class="px-2 text-center">
+      <select id="state2" name="state2" onchange="get_district()" class="px-2 text-center" style="width: 225px;">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -386,7 +386,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <label for="district2"><b>District</b></label>
-    <select  id="district2" name="district2" class="px-2 text-center">
+    <select  id="district2" name="district2" class="px-2 text-center" style="width: 225px;">
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
@@ -500,17 +500,17 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="refno"><b>Reference No</b></label>
-        <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="px-2 text-center" required>
+        <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="px-2 text-center" style="width: 225px;" required>
       </div>
       <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="refdate"><b>Reference Date</b></label>
-        <input type="date" id="refdate" name="refdate" class="px-2 text-center" required>
+        <input type="date" id="refdate" name="refdate" class="px-2 text-center" style="width: 225px;" required>
       </div>
     </div><br/>
     <div class="row row_new_app">
       <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="defence"><b>Defence Personnel</b></label>
-      <select name="defence" id="defence" class="px-2 text-center" required>
+      <select name="defence" id="defence" class="px-2 text-center" style="width: 225px;" required>
           <option>--Select--</option>
           <?php
                 foreach($defences as $defence)
@@ -525,8 +525,7 @@ $d=date('d-m-y');
       </div>
     <div class="col-lg-6 col-md-12 p-3 pt-5">
         <label for="category"><b>Category</b></label>
-      <select name="category" id="category" class="px-2 text-center
-      " required>
+      <select name="category" id="category" class="px-2 text-center" required style="width: 225px;">
           <option>--Select--</option>
           <?php
                 foreach($categories as $category)
@@ -550,16 +549,16 @@ $d=date('d-m-y');
       </div>
     </div>-->
     <div class="row">
-      <div class="d-flex justify-content-center col-lg-12 col-md-12 p-3 pt-5">
-        <button class="btn bg-danger text-light m-5 p-2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
-        <div class="btn bg-secondary m-5 p-2">
+      <div class="d-lg-flex d-md-flex flex-md-row flex-sm-column justify-content-center col-lg-12 col-md-12 p-3 pt-5">
+      <button class=" btn bg-danger text-light m-3 pr-3 pl-3" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
+        <div class=" btn bg-secondary m-3 pr-4 pl-4">
           <a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
         </div>
-          <input class="btn bg-success text-light m-5" type="submit" value="Submit" name="apply">
+          <input class=" btn bg-success text-light m-3" type="submit" value="Submit" name="apply">
       </div>
     </div>
   </form><br/><br/>
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
+  <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
   <?php $this->load->view('layouts/footer_view'); ?>
 </body>
 <script>
