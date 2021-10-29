@@ -513,6 +513,10 @@ class Application_model extends CI_Model
         $this->db->update('pvr_vr_detail');
     }
     
+    function edit($data,$pvr_id)
+    {
+        
+    }
 
 }
 ?>

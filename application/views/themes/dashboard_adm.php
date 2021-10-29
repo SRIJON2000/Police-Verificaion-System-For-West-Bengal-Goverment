@@ -254,11 +254,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php if($application['ocvr_approval']==0){?>
                                                 <td><div style="color:red"><b>Pending For Approval</b></div></td>
                                             <?php }else{?>
-                                                <td><div style="color:green"><b>Sent To </b></div></td>
+                                                <td><div style="color:green"><b>Sent To IB</b></div></td>
                                                 <?php }?>
                                             <td><div style="color:<?php if($application['pvr_final_status_id_fk']==1){echo 'blue';}else if($application['pvr_final_status_id_fk']==2){echo 'green';}else{echo 'red';}?>"><b><?php echo $application['final_status_name']?></b></div></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a></td>
-                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a>
+                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
                                         </tr>
                                     <?php
                                             
