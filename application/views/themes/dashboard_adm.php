@@ -334,7 +334,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a><br><br><div style="color:green"><b>Approved &#9989;</b></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b>&nbsp;</a></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9989;</div><br></td>
                                             
                                         </tr>
                                 
