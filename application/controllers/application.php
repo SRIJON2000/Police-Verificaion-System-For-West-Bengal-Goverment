@@ -153,6 +153,22 @@ class Application extends CI_Controller
             redirect('Home/dashboard_adm');
         }
     }
+    function statussearch()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('rcpt', 'Receipt No', 'required');
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', 'Invalid');
+            redirect('Home/statussearch');
+        }
+        else
+        {
+            
+            $id=$this->Application_model->find_pvr_id($this->input->post('rcpt'));
+            redirect('Home/status/'.$id);
+        }
+    }
     function generate_memo()
     {
         $code='';

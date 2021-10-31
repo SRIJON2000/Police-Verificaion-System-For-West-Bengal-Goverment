@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="<?php base_url()?>application">New Application</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                     <a class="nav-link" href="#">Update Application</a>
                                     <a class="nav-link" href="#">Send Reminder</a>
                                 </nav>

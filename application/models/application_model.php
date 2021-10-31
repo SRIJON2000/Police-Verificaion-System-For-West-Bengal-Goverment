@@ -517,6 +517,21 @@ class Application_model extends CI_Model
     {
         
     }
+    function find_pvr_id($rcpt_no)
+    {
+        $this->db->select('receipt_id_pk');
+        $this->db->from('pvr_receipt_no');
+        $this->db->where('receipt_no',$rcpt_no);
+        $query = $this->db->get();
+        $id = $query->row();
 
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('receipt_id_fk',$id->receipt_id_pk);
+        $query = $this->db->get();
+        $pvrid = $query->row();
+
+        return $pvrid->pvr_id_pk;
+    }
 }
 ?>

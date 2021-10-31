@@ -124,6 +124,10 @@
             $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/check_application_status',$data);
         }
+        function statussearch()
+        {
+            $this->load->view('themes/check_status');
+        }
         
         function logout()
         {
