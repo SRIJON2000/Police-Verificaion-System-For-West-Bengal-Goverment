@@ -533,5 +533,30 @@ class Application_model extends CI_Model
 
         return $pvrid->pvr_id_pk;
     }
+    function a()
+    {
+        $date=date('Y-m-d');
+        $month=date("m");
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('month(application_date)',date('m'));
+        $query=$this->db->get();
+        $number=$query->num_rows();
+        return $number;
+
+
+    }
+    function b()
+    {
+        
+    }
+    function c()
+    {
+        
+    }
+    function d()
+    {
+        
+    }
 }
 ?>

@@ -159,6 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 </nav>
             </div>
+            <?php //foreach($data1 as $d){?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -169,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <button class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
+                                    <div class="card-body"><b>No. of pending enquiries in the lastday of previous quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between ">
                                         <p class="small text-white stretched-link" ><b>Number</b></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
@@ -180,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button  class="card bg-warning text-white mb-4">
                                     <div class="card-body"><b>No. of request received during the quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                          <p class="small text-white stretched-link text-center" ><b><?php //echo $d['a'];?>Number</b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -204,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </button>
                             </div>
                         </div>
-                      
+                      <?php //}?>
                         <?php 
                             if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
                             {
