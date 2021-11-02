@@ -12,7 +12,7 @@ $d=date('d-m-y');
 <!DOCTYPE html>
 <html>
 <head>
-<title>New Application</title>
+<title>Edit Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<?php echo base_url();?>\application\views\themes\CSS\stylesheet1.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -63,8 +63,8 @@ $d=date('d-m-y');
             foreach($details1 as $detail1)
             {
           ?>
-  <h3 class="text-center">Application Form</h3>
-  <form id="application" action="<?php echo base_url();?>Application/editapp" method="post">
+  <h3 class="text-center">Edit Application</h3>
+  <form id="application" action="<?php echo base_url();?>Application/editapp/<?php echo $detail1['pvr_id_pk']?>/<?php echo $detail1['memo_id_fk']?>" method="post">
 
   <div class="row row_new_app">
     <div class="col-lg-6 col-md-12 p-3">
@@ -558,9 +558,9 @@ $d=date('d-m-y');
       <div class="d-flex justify-content-center col-lg-12 col-md-12 p-3 pt-5">
         <button class="btn bg-danger text-light m-5 p-2" type="submit" value="Reset" onclick="reset()"><b>Reset</b></button>
         <div class="btn bg-secondary m-5 p-2">
-          <a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
+          <a id="back" class="text-white" href="<?php echo base_url()?>Home/application_details/<?php echo $detail1['pvr_id_pk']?>" style="text-decoration:none;">Back</a>
         </div>
-          <input class="btn bg-success text-light m-5" type="submit" value="Submit" name="apply">
+          <input class="btn bg-success text-light m-5" type="submit" value="Update" name="apply">
       </div>
     </div>
   </form><br/><br/>

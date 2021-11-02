@@ -135,11 +135,14 @@
         <div class="card mb-3">
           <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Receipt No - </span><span class="text-medium"><b><?php echo $detail['receipt_no'];?></b></span></div>
           <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Candidate Name:&nbsp;</span><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></b></div>
-            <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Status:&nbsp;</span><?php echo $detail['pvr_with_status'];?></b></div>
+          <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>VR Type:&nbsp;</span><?php echo $detail['df_type'];?></b></div>  
+          <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Candidate Name:&nbsp;</span><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></b></div>
+            <!-- <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Status:&nbsp;</span><?php //echo $detail['pvr_with_status'];?></b></div> -->
 			<div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Application Date:&nbsp;</span><?php echo $detail['application_date'];?></b></div>
             <!-- <div class="w-100 text-center py-1 px-2"><span class="text-medium"><b>Expected Date:</span> SEP 09, 2017</b></div> -->
           </div>
+
+          <?php if($detail['pvr_type_fk']!=4){?>
           <div class="card-body">
             <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
              
@@ -163,48 +166,157 @@
                 </div>
                 <h4 class="step-title">VR Section</h4>
               </div>
-              <div class="<?php if($detail['pvr_with_status']=='OC VR'){echo 'step completed';} else{echo 'step';}?>" >
+              <div class="<?php if($detail['ocvr_approval']==1){echo 'step completed';} else{echo 'step';}?>" >
                 <div class="step-icon-wrap">
                   <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
-                <h4 class="step-title">OC VR</h4>
+                <h4 class="step-title">OC VR Approval</h4>
               </div>
-              <div class="step">
+              <div class="<?php if($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=1){echo 'step completed';} else{echo 'step';}?>">
                 <div class="step-icon-wrap">
                   <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">CP/SB/SP DIB</h4>
               </div>
-              <div class="step">
+              <div class="<?php if($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=1){echo 'step completed';} else{echo 'step';}?>">
                 <div class="step-icon-wrap">
                   <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
                 <h4 class="step-title">IB</h4>
               </div>
-			  <div class="step">
+              <?php if($detail['pvr_final_status_id_fk']==2){?>
+			  <div class="<?php if($detail['adm_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
                 <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-user"></i></div>
+                  <div class="step-icon" style="<?php if($detail['adm_approval']==1 ){echo 'background-color:green';}?>"><i class="pe-7s-user"></i></div>
                 </div>
-                <h4 class="step-title">ADM</h4>
+                <h4 class="step-title">ADM Signature</h4>
               </div>
+            
+			  <div class="<?php if($detail['adm_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon" style="<?php if($detail['adm_approval']==1 ){echo 'background-color:green';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title" style="<?php if($detail['adm_approval']==1 ){echo 'color:green';}?>">VR Certificate Generated</h4>
+              </div>
+              <?php }?>
 
-			  <div class="step">
+              <?php if($detail['pvr_final_status_id_fk']==3){?>
+			  <div class="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"style="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'background-color:red';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">OC VR Signature</h4>
+              </div>
+            
+			  <div class="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"style="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'background-color:red';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title" style="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'color:red';}?>">Unverified VR Certificate Generated</h4>
+              </div>
+              <?php }?>
+
+            </div>
+          </div>
+        </div>
+        <?php }else{?>
+
+
+          <div class="card-body">
+            <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+             
+            <div class="step completed">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-mail"></i></div>
+                </div>
+                <h4 class="step-title">Application Submitted</h4>
+              </div>
+			  <!-- <div class="step">
                 <div class="step-icon-wrap">
                   <div class="step-icon"><i class="pe-7s-user"></i></div>
                 </div>
-                <h4 class="step-title">VR Certificate Generated</h4>
+                <h4 class="step-title">CA Section</h4>
+              </div> -->
+
+              
+              <div class="step completed">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">VR Section</h4>
               </div>
+              <div class="<?php if($detail['ocvr_approval']==1){echo 'step completed';} else{echo 'step';}?>" >
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">OC VR Approval</h4>
+              </div>
+              <div class="<?php if($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=1){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">CP/SB/SP DIB</h4>
+              </div>
+              <div class="<?php if($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=1){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">IB</h4>
+              </div>
+              <?php if($detail['pvr_final_status_id_fk']==2){?>
+			  <div class="<?php if($detail['ocvr_verified_nondefence_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon" style="<?php if($detail['ocvr_verified_nondefence_approval']==1 ){echo 'background-color:green';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">OC VR Signature</h4>
+              </div>
+            
+			  <div class="<?php if($detail['ocvr_verified_nondefence_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon" style="<?php if($detail['ocvr_verified_nondefence_approval']==1 ){echo 'background-color:green';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title" style="<?php if($detail['ocvr_verified_nondefence_approval']==1 ){echo 'color:green';}?>">VR Certificate Generated</h4>
+              </div>
+              <?php }?>
+
+              <?php if($detail['pvr_final_status_id_fk']==3){?>
+			  <div class="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon" style="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'background-color:red';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title">OC VR Signature</h4>
+              </div>
+            
+			  <div class="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'step completed';} else{echo 'step';}?>">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"style="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'background-color:red';}?>"><i class="pe-7s-user"></i></div>
+                </div>
+                <h4 class="step-title" style="<?php if($detail['ocvr_unverified_approval']==1 ){echo 'color:red';}?>">Unverified VR Certificate Generated</h4>
+              </div>
+              <?php }?>
 
 
             </div>
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+          <?php }?>
         <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
           <div class="custom-control custom-checkbox mr-3">
-            <input class="custom-control-input" type="checkbox" id="notify_me" checked="">
-            <label class="custom-control-label" for="notify_me">Notify me when application is verified</label>
+            <!-- <input class="custom-control-input" type="checkbox" id="notify_me" checked=""> -->
+            <!-- <label class="custom-control-label" for="notify_me">Notify me when application is verified</label> -->
           </div>
-          <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/application_details/<?php echo $detail['pvr_id_pk']?>" data-toggle="modal" data-target="#orderDetails">View Application Details</a>&nbsp;&nbsp;&nbsp;
+          <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/application_details/<?php echo $detail['pvr_id_pk']?>" data-toggle="modal" data-target="#orderDetails"><b>View Application Details<b></a>&nbsp;&nbsp;&nbsp;
           <a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/dashboard_adm"><b>Back</b></a></div>
         </div>
       </div>

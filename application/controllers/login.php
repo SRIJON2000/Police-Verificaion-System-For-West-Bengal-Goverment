@@ -59,6 +59,7 @@ class Login extends CI_Controller
         else
         {
             $this->load->model('Login_model');
+            $this->load->model('application_model');
             $email = strtolower($this->security->xss_clean($this->input->post('login_id')));
             
             $password = $this->input->post('password');
@@ -81,6 +82,8 @@ class Login extends CI_Controller
                 $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
                 
+                
+
                 unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
                 redirect('Home/dashboard_adm');
             }

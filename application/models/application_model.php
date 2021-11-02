@@ -513,6 +513,50 @@ class Application_model extends CI_Model
         $this->db->update('pvr_vr_detail');
     }
     
+    function edit($data,$pvr_id)
+    {
+        
+    }
+    function find_pvr_id($rcpt_no)
+    {
+        $this->db->select('receipt_id_pk');
+        $this->db->from('pvr_receipt_no');
+        $this->db->where('receipt_no',$rcpt_no);
+        $query = $this->db->get();
+        $id = $query->row();
 
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('receipt_id_fk',$id->receipt_id_pk);
+        $query = $this->db->get();
+        $pvrid = $query->row();
+
+        return $pvrid->pvr_id_pk;
+    }
+    function a()
+    {
+        $date=date('Y-m-d');
+        $month=date("m");
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('month(application_date)',date('m'));
+        $query=$this->db->get();
+        $number=$query->num_rows();
+        return $number;
+
+
+    }
+    function b()
+    {
+        
+    }
+    function c()
+    {
+        
+    }
+    function d()
+    {
+        
+    }
 }
 ?>

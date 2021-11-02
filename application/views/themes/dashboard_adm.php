@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="<?php base_url()?>application">New Application</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                     <a class="nav-link" href="#">Update Application</a>
                                     <a class="nav-link" href="#">Send Reminder</a>
                                 </nav>
@@ -159,6 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 </nav>
             </div>
+            <?php //foreach($data1 as $d){?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -169,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <button class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
+                                    <div class="card-body"><b>No. of pending enquiries in the lastday of previous quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between ">
                                         <p class="small text-white stretched-link" ><b>Number</b></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
@@ -180,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button  class="card bg-warning text-white mb-4">
                                     <div class="card-body"><b>No. of request received during the quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                          <p class="small text-white stretched-link text-center" ><b><?php //echo $d['a'];?>Number</b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -204,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </button>
                             </div>
                         </div>
-                      
+                      <?php //}?>
                         <?php 
                             if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
                             {
@@ -254,11 +255,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php if($application['ocvr_approval']==0){?>
                                                 <td><div style="color:red"><b>Pending For Approval</b></div></td>
                                             <?php }else{?>
-                                                <td><div style="color:green"><b>Sent To </b></div></td>
+                                                <td><div style="color:green"><b>Sent To IB</b></div></td>
                                                 <?php }?>
                                             <td><div style="color:<?php if($application['pvr_final_status_id_fk']==1){echo 'blue';}else if($application['pvr_final_status_id_fk']==2){echo 'green';}else{echo 'red';}?>"><b><?php echo $application['final_status_name']?></b></div></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a></td>
-                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a>
+                                            <br><br><a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
                                         </tr>
                                     <?php
                                             
@@ -315,7 +316,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details and Approve</b></a><br><br><div style="color:red"><b>Pending For Approval</b></div>&nbsp;&nbsp;</td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details and Approve</b></a><br><br><div style="color:red"><b>Pending For Approval</b></div>&nbsp;&nbsp;<br><a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a><br></td>
                                             
                                         </tr>
                                 
@@ -334,7 +335,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a><br><br><div style="color:green"><b>Approved &#9989;</b></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b>&nbsp;</a></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9989;</div><br></td>
                                             
                                         </tr>
                                 
