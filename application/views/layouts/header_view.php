@@ -15,7 +15,7 @@
   <div class="row block">
     <div class="col-lg-2 col-sm-12 d-inline p-5 pt-0 pb-0 "><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_lt.png" alt="Biswa Bangla picture" height="110" width="80"></div>
     <div class="text-center col-lg-9 col-sm-12 d-inline" style="font-size:40px"><b>Police Verification Reporting System</b></div>
-    <div class="col-1 col-sm-0 d-inline d-flex justify-content-end d-xs-none"><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_rt.png" alt="Biswa Bangla logo" height="110" width="155"></div>
+    <div class="col-1 col-sm-0 d-inline d-flex justify-content-end "><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_rt.png" alt="Biswa Bangla logo" height="110" width="155"></div>
   </div>
 
   <div class="header mt-5 p-3 m-3 m-sm-0 row">
