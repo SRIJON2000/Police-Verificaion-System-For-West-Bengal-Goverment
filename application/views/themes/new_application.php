@@ -69,7 +69,7 @@ $d=date('d-m-y');
     <div class="col-lg-4 col-md-12 p-3"><div class="row">
     <div><label for="employer" class="col-lg-6 col-xs-8"><b>Office/Employer Name</b></label></div><div>
       <select class="col-lg-7 col-sm-4 p-1" maxlength="30" name="employer" id="employer">
-          <option>-Select Office-</option>
+          <option>-----Select Office-----</option>
           <?php
             foreach($employers as $employer)
             {
@@ -112,7 +112,7 @@ $d=date('d-m-y');
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="gender"><b>Gender</b></label>
         <select class="col-lg-10 p-1" maxlength="30" name="gender" id="gender">
-          <option>----Select----</option>
+          <option>-----Select-----</option>
           <?php
             foreach($genders as $gender)
             {
@@ -131,7 +131,7 @@ $d=date('d-m-y');
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="caste"><b>Caste</b></label>
       <select class="col-lg-10 p-1" maxlength="30" name="caste" id="caste">
-          <option>--Select--</option>
+          <option>-----Select-----</option>
           <?php
             foreach($castes as $caste)
             {
@@ -175,8 +175,8 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 col-sm-6 p-3 pt-5">
       <div><label for="ps1"><b>Police Station</b></label></div><div>
-        <select name="ps1" id="ps1" class="px-2 text-center" style="width: 225px;">
-          <option>--Select--</option>
+        <select name="ps1" id="ps1" class="col-lg-7 col-sm-4 p-1" maxlength="30">
+          <option>-----Select-----</option>
           <?php
             foreach($policestations as $ps)
             {
@@ -196,7 +196,7 @@ $d=date('d-m-y');
       </div></div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="state1"><b>State</b></label></div><div>
-      <select id="state1" class="px-2" name="state1" onchange="get_district()" style="width: 225px;">
+      <select id="state1" class="col-lg-7 col-sm-4 p-1" maxlength="30" name="state1" onchange="get_district()">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -211,7 +211,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="district1"><b>District</b></label></div><div>
-    <select  id="district1" class="px-2" name="district1" style="width: 225px;">
+    <select  id="district1" class="col-lg-7 col-sm-4 p-1" maxlength="30" name="district1" >
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
@@ -258,8 +258,8 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="ps2"><b>Police Station</b></label></div><div>
-        <select name="ps2" id="ps2" class="px-2 text-center" style="width: 225px;">
-          <option>--Select--</option>
+        <select name="ps2" id="ps2" class="col-lg-7 col-sm-4 p-1" maxlength="30">
+          <option>-----Select-----</option>
           <?php
             foreach($policestations as $ps)
             {
@@ -279,7 +279,7 @@ $d=date('d-m-y');
       </div></div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="state2"><b>State</b></label></div><div>
-      <select id="state2" name="state2" onchange="get_district()" class="px-2 text-center" style="width: 225px;">
+      <select id="state2" name="state2" onchange="get_district()" class="col-lg-7 col-sm-4 p-1" maxlength="30">
                         <option value="">-----Select State-----</option>
                         <?php
                                   foreach($states as $state)
@@ -294,7 +294,7 @@ $d=date('d-m-y');
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="district2"><b>District</b></label></div><div>
-    <select  id="district2" name="district2" class="px-2 text-center" style="width: 225px;">
+    <select  id="district2" name="district2" class="col-lg-7 col-sm-4 p-1" maxlength="30">
         <option value="">-----Select District-----</option>
         <?php
                   foreach($districts as $district)
@@ -310,24 +310,21 @@ $d=date('d-m-y');
     </select></div>
       </div>
   </div>
-    <br/><br/>
-  
+  <br/>
   <hr>
   <div class="row row_new_app">
-      <div class="col-lg-6 col-md-12 p-3 pt-5">
+      <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="refno"><b>Reference No</b></label></div><div>
-        <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="px-2" style="width: 225px;" required>
+        <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
       </div></div>
-      <div class="col-lg-6 col-md-12 p-3 pt-5">
+      <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="refdate"><b>Reference Date</b></label></div><div>
-        <input type="date" id="refdate" name="refdate" class="px-2" style="width: 225px;" required>
+        <input type="date" id="refdate" name="refdate" class="px-1" style="width: 225px;" required>
       </div></div>
-    </div><br/>
-    <div class="row row_new_app">
-      <div class="col-lg-6 col-md-12 p-3 pt-5">
+      <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="defence"><b>Defence Personnel</b></label>
-      </div><div><select name="defence" id="defence" class="px-2" style="width: 225px;" required>
-          <option>--Select--</option>
+      </div><div><select name="defence" id="defence" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
+          <option>-----Select-----</option>
           <?php
                 foreach($defences as $defence)
                 {
@@ -339,10 +336,10 @@ $d=date('d-m-y');
           ?>
       </select></div>
       </div>
-    <div class="col-lg-6 col-md-12 p-3 pt-5">
+    <div class="col-lg-3 col-md-12 p-3 pt-5">
     <div><label for="category"><b>Category</b></label>
-    </div><div><select name="category" id="category" class="px-2 text-center" required style="width: 225px;">
-          <option>--Select--</option>
+    </div><div><select name="category" id="category" class="col-lg-10 col-sm-4 p-1" maxlength="30">
+          <option>-----Select-----</option>
           <?php
                 foreach($categories as $category)
                 {
