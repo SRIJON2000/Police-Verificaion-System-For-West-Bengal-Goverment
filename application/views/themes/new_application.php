@@ -49,7 +49,7 @@ $d=date('d-m-y');
 <body>
 <div class="container">
   <div class="mt-2">
-    <h2>Application Form</h2>
+    <h2><b>Application Form</b></h2>
     <hr></div>
   <section class="">
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
@@ -85,7 +85,7 @@ $d=date('d-m-y');
   </div>
     <hr>  
   <div class="border_lt">  
-	<h3 class="px-3">Candidate Personal Details</h3>
+	<h3 class="px-3"><b>Candidate Personal Details</b></h3>
   </div>
   <div class="row row_new_app">
     <div class="col-lg-3 col-md-12 p-3 pt-5">
@@ -148,7 +148,7 @@ $d=date('d-m-y');
   <hr>
   <br>
   <div class="border_lt">
-	<h3 class="px-3">Candidate's Permanent Address</h3>
+	<h3 class="px-3"><b>Candidate's Permanent Address</b></h3>
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 col-sm-8 p-3 pt-5">
@@ -230,8 +230,8 @@ $d=date('d-m-y');
   <hr>
   <br>
   <div class="border_lt">
-  <h3 class="px-3" > Candidate's Current Address</h3>
-  <div class="px-3" ><input type="checkbox" id="check" onclick="show()">Same as Permanent Address</div>
+  <h3 class="px-3" ><b>Candidate's Current Address</b></h3>
+  <div class="px-3" ><input type="checkbox" id="check" onclick="show()">&nbsp;&nbsp;Same as Permanent Address</div>
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
