@@ -251,7 +251,7 @@ tr td,tr th{border: 1px solid;}*/
                                 }
                                 else{
                                 ?>
-                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been Unverified From IB';?></b></p><br/>
+                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been rejected From IB';?></b></p><br/>
                                 <?php
                                 }
                             }
@@ -269,7 +269,7 @@ tr td,tr th{border: 1px solid;}*/
                                     else if($detail['pvr_final_status_id_pk']==3)
                                     {
                                 ?>
-                                <p id="c" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is Unverified from IB';?></b></p><br/>
+                                <p id="c" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is rejected from IB';?></b></p><br/>
                                 <?php 
                                     } 
                                     else
@@ -280,7 +280,7 @@ tr td,tr th{border: 1px solid;}*/
                                       <p id="d" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is not yet verified by OCVR';?></b></p><br/>  
                                 <?php }else{?>
                                 <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Verify</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center" ><b>Unverify</b></a></div>
+                                <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center" ><b>Reject</b></a></div>
                                 <?php 
                                 }
                                     } 
