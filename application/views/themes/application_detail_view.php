@@ -234,7 +234,7 @@ tr td,tr th{border: 1px solid;}*/
                                     {
                                         if($detail['pvr_final_status_id_fk']==3){
                                 ?>
-                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been Unverified From IB';?></b></p><br/>
+                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been rejected From IB';?></b></p><br/>
                                 <?php } else{?>
                                 <p id="b" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application Has Been Approved Successfully By OCVR';?></b></p><br/>
                                 
