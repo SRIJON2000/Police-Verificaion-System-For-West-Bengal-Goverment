@@ -156,7 +156,10 @@ class Application extends CI_Controller
     function statussearch()
     {
         $this->load->library('form_validation');
+        $this->form_validation->set_rules('type', 'Type', 'required');
         $this->form_validation->set_rules('rcpt', 'Receipt No', 'required');
+        $this->form_validation->set_rules('ref', 'Reference No', 'required');
+        $this->form_validation->set_rules('memo', 'Memo No', 'required');
         if($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('error', 'Invalid');
@@ -164,8 +167,19 @@ class Application extends CI_Controller
         }
         else
         {
-            
-            $id=$this->Application_model->find_pvr_id($this->input->post('rcpt'));
+            $t=$this->input->post('type');
+            if($t==2)
+            {
+                $id=$this->Application_model->find_pvr_id($this->input->post('memo'),$this->input->post('type'));
+            }
+            if($t==3)
+            {
+                $id=$this->Application_model->find_pvr_id($this->input->post('rcpt'),$this->input->post('type'));
+            }
+            if($t==4)
+            {
+                $id=$this->Application_model->find_pvr_id($this->input->post('ref'),$this->input->post('type'));
+            }
             redirect('Home/status/'.$id);
         }
     }

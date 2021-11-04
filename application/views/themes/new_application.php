@@ -44,12 +44,88 @@ $d=date('d-m-y');
 .border_lt{
   border-left: solid 10px green;
 }
+.required:after {
+    content:"*";
+    color: red;
+  }
+
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  /* padding: 2px 6px; */
+  background-color: white;
+  color: red;
+  font-size: 15px;
+  text-align:center;
+}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="mt-2">
-    <h2><b>Application Form</b></h2>
+    <h2><b>Application Form</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<div class=" btn bg-secondary m-3 pr-4 pl-4"><a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a></div></h2>
+    <div style="color:red">Fields marked as (*) are mandatory</div>    
     <hr></div>
   <section class="">
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
@@ -57,19 +133,19 @@ $d=date('d-m-y');
   <div class="row row_new_app pl-0">
     <div class="col-lg-4 col-md-12 p-3">
       <div class="row">    
-        <div><label class="col-lg-3 col-xs-8" for="rcptno"><b>Receipt No</b></label></div><div>
+        <div class="required"><label class="col-lg-3 col-xs-8" for="rcptno"><b>Receipt No</b></label></div><div>
         <input class="col-lg-7 col-sm-4" maxlength="30" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
         </div></div>
     </div>
     <div class="col-lg-4 col-md-12 p-3"><div class="row">
-      <div><label for="rcptdate" class="col-lg-6  col-xs-8"><b>Receipt Date</b></label></div><div>
+      <div><label class="required" for="rcptdate" class="col-lg-6  col-xs-8"><b>Receipt Date</b></label></div><div>
         <input class="col-lg-7 col-sm-4" maxlength="30" type="date" id="rcptdate"  value="<?php echo date('Y-m-d');?>" name="receiptdate" readonly>
       </div></div>
     </div>
     <div class="col-lg-4 col-md-12 p-3"><div class="row">
-    <div><label for="employer" class="col-lg-6 col-xs-8"><b>Office/Employer Name</b></label></div><div>
+    <div><label class="required" for="employer" class="col-lg-6 col-xs-8"><b>Office/Employer Name</b></label></div><div>
       <select class="col-lg-7 col-sm-4 p-1" maxlength="30" name="employer" id="employer">
-          <option>-----Select Office-----</option>
+          <option value="">-----Select Office-----</option>
           <?php
             foreach($employers as $employer)
             {
@@ -89,10 +165,10 @@ $d=date('d-m-y');
   </div>
   <div class="row row_new_app">
     <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label><b>Candidate Name</b></label>
+        <label class="required"><b>Candidate Name</b></label>
     </div>
     <div class="col-lg-3 col-md-12 p-3">
-        <label for="fname" style="color:blue;"><b>First Name</b></label><br>
+        <label for="fname" style="color:blue;" class="required"><b>First Name</b></label><br>
         <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
       </div>
       <div class="col-lg-3 col-md-12 p-3">
@@ -100,19 +176,19 @@ $d=date('d-m-y');
         <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
       </div>
       <div class="col-lg-3 col-md-12 p-3">
-        <label for="lname" style="color:blue;"><b>Last Name</b></label><br>
+        <label for="lname" style="color:blue;" class="required"><b>Last Name</b></label><br>
         <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
       </div>
           </div>
   <div class="row row_new_app">
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="dob"><b>Date Of Birth</b></label>
+        <label for="dob" class="required"><b>Date Of Birth</b></label>
         <input class="px-2" type="date" id="dob" name="dob" required>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="gender"><b>Gender</b></label>
+        <label for="gender" class="required"><b>Gender</b></label>
         <select class="col-lg-10 p-1" maxlength="30" name="gender" id="gender">
-          <option>-----Select-----</option>
+          <option value="">-----Select-----</option>
           <?php
             foreach($genders as $gender)
             {
@@ -125,13 +201,13 @@ $d=date('d-m-y');
         </select>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="aadhar"><b>Aadhaar No</b></label>
+        <label for="aadhar" class="required"><b>Aadhaar No</b></label>
         <input type="number" id="aadhar" name="aadhaarno" maxlength="12" placeholder="Aadhar number.." required>
       </div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="caste"><b>Caste</b></label>
+        <label for="caste" class="required"><b>Caste</b></label>
       <select class="col-lg-10 p-1" maxlength="30" name="caste" id="caste">
-          <option>-----Select-----</option>
+          <option value="">-----Select-----</option>
           <?php
             foreach($castes as $caste)
             {
@@ -152,31 +228,31 @@ $d=date('d-m-y');
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 col-sm-8 p-3 pt-5">
-        <div><label for="houseno1"><b>House No</b></label></div><div>
+        <div><label for="houseno1" class="required"><b>House No</b></label></div><div>
         <input type="number" id="houseno1" name="houseno1" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="street1"><b>Street/Lane</b></label></div><div>
+      <div><label for="street1" class="required"><b>Street/Lane</b></label></div><div>
         <input type="text"  id="street1" name="street1" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="landmark1"><b>Landmark</b></label></div><div>
+      <div><label for="landmark1" class="required"><b>Landmark</b></label></div><div>
         <input type="text"  id="landmark1" name="landmark1" required></div>
       </div>
   </div><br/>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="city1"><b>City</b></label></div><div>
+      <div><label for="city1" class="required"><b>City</b></label></div><div>
       <input type="text"  id="city1" name="city1" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="po1"><b>Post Office</b></label></div><div>
+      <div><label for="po1" class="required"><b>Post Office</b></label></div><div>
         <input type="text"  id="po1" name="po1" required></div>
       </div>
       <div class="col-lg-4 col-md-12 col-sm-6 p-3 pt-5">
-      <div><label for="ps1"><b>Police Station</b></label></div><div>
+      <div><label for="ps1" class="required"><b>Police Station</b></label></div><div>
         <select name="ps1" id="ps1" class="col-lg-7 col-sm-4 p-1" maxlength="30">
-          <option>-----Select-----</option>
+          <option value="">-----Select-----</option>
           <?php
             foreach($policestations as $ps)
             {
@@ -191,11 +267,11 @@ $d=date('d-m-y');
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="pin1"><b>Pincode</b></label></div><div>
+      <div><label for="pin1" class="required"><b>Pincode</b></label></div><div>
       <input type="number" class="text-center" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
       </div></div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="state1"><b>State</b></label></div><div>
+      <div><label for="state1" class="required"><b>State</b></label></div><div>
       <select id="state1" class="col-lg-7 col-sm-4 p-1" maxlength="30" name="state1" onchange="get_district()">
                         <option value="">-----Select State-----</option>
                         <?php
@@ -210,7 +286,7 @@ $d=date('d-m-y');
                       </select></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="district1"><b>District</b></label></div><div>
+      <div><label for="district1" class="required"><b>District</b></label></div><div>
     <select  id="district1" class="col-lg-7 col-sm-4 p-1" maxlength="30" name="district1" >
         <option value="">-----Select District-----</option>
         <?php
@@ -235,31 +311,31 @@ $d=date('d-m-y');
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="houseno2"><b>House No</b></label></div><div>
+      <div><label for="houseno2" class="required"><b>House No</b></label></div><div>
         <input type="number" id="houseno2" name="houseno2" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="street2"><b>Street/Lane</b></label></div><div>
+      <div><label for="street2" class="required"><b>Street/Lane</b></label></div><div>
         <input type="text"  id="street2" name="street2" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="landmark2"><b>Landmark</b></label></div><div>
+      <div><label for="landmark2" class="required"><b>Landmark</b></label></div><div>
         <input type="text"  id="landmark2" name="landmark2" required></div>
       </div>
   </div><br/>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="city2"><b>City</b></label></div><div>
+      <div><label for="city2" class="required"><b>City</b></label></div><div>
       <input type="text"  id="city2" name="city2" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="po2"><b>Post Office</b></label></div><div>
+      <div><label for="po2" class="required"><b>Post Office</b></label></div><div>
         <input type="text"  id="po2" name="po2" required></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="ps2"><b>Police Station</b></label></div><div>
+      <div><label for="ps2" class="required"><b>Police Station</b></label></div><div>
         <select name="ps2" id="ps2" class="col-lg-7 col-sm-4 p-1" maxlength="30">
-          <option>-----Select-----</option>
+          <option value="">-----Select-----</option>
           <?php
             foreach($policestations as $ps)
             {
@@ -274,11 +350,11 @@ $d=date('d-m-y');
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="pin2"><b>Pincode</b></label></div><div>
+      <div><label for="pin2" class="required"><b>Pincode</b></label></div><div>
       <input type="number" id="pin2" name="pin2" class="text-center"  placeholder="Your Pincode.." required>
       </div></div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="state2"><b>State</b></label></div><div>
+      <div><label for="state2" class="required"><b>State</b></label></div><div>
       <select id="state2" name="state2" onchange="get_district()" class="col-lg-7 col-sm-4 p-1" maxlength="30">
                         <option value="">-----Select State-----</option>
                         <?php
@@ -293,7 +369,7 @@ $d=date('d-m-y');
                       </select></div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
-      <div><label for="district2"><b>District</b></label></div><div>
+      <div><label for="district2" class="required"><b>District</b></label></div><div>
     <select  id="district2" name="district2" class="col-lg-7 col-sm-4 p-1" maxlength="30">
         <option value="">-----Select District-----</option>
         <?php
@@ -314,17 +390,17 @@ $d=date('d-m-y');
   <hr>
   <div class="row row_new_app">
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-      <div><label for="refno"><b>Reference No</b></label></div><div>
+      <div><label for="refno" class="required"><b>Reference No</b></label></div><div>
         <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
       </div></div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-      <div><label for="refdate"><b>Reference Date</b></label></div><div>
+      <div><label for="refdate" class="required"><b>Reference Date</b></label></div><div>
         <input type="date" id="refdate" name="refdate" class="px-1" style="width: 225px;" required>
       </div></div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-      <div><label for="defence"><b>Defence Personnel</b></label>
+      <div><label for="defence" class="required"><b>Defence Personnel</b></label>
       </div><div><select name="defence" id="defence" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
-          <option>-----Select-----</option>
+          <option value="">-----Select-----</option>
           <?php
                 foreach($defences as $defence)
                 {
@@ -337,9 +413,9 @@ $d=date('d-m-y');
       </select></div>
       </div>
     <div class="col-lg-3 col-md-12 p-3 pt-5">
-    <div><label for="category"><b>Category</b></label>
+    <div><label for="category" class="required"><b>Send To</b></label>
     </div><div><select name="category" id="category" class="col-lg-10 col-sm-4 p-1" maxlength="30">
-          <option>-----Select-----</option>
+          <option value="">-----Select-----</option>
           <?php
                 foreach($categories as $category)
                 {
@@ -358,17 +434,60 @@ $d=date('d-m-y');
         <div class=" btn bg-secondary m-3 pr-4 pl-4">
           <a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
         </div>
-          <input class=" btn bg-success text-light m-3" type="submit" value="Submit" name="apply">
+          <button id="myBtn_submit"class="btn bg-success text-light m-3">Submit</button>
       </div>
     </div>
   </form><br/><br/>
   <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2></h2>
+  </div>
+  <div class="modal-body">
+    <div style="text-align:center"><b>Are you sure to proceed?</b><br>
+    <button style="text-align:center"class="btn bg-success text-light m-3" onclick="yes()">Yes</button>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no()">No</button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <p style="text-align:center;"><b> Note:- Once you submit the application you can't edit it further</b></p>
+  </div>
+</div>
+
+</div>
+
   </section>
   </div>
   <?php $this->load->view('layouts/footer_view'); ?>
 </body>
 <script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myBtn_submit");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+function yes()
+{
+  document.getElementById("application").submit();
+}
+function no()
+{
+  modal.style.display = "none";
+}
 function show()
 {
   var street1 = document.getElementById("street1");
@@ -429,7 +548,6 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -445,5 +563,6 @@ function get_district()
   var state_id=document.getElementById('state1');
   <?php $state_id = "<script language=javascript>document.write(state_id);</script>" ?>
 }
+
 </script>
 </html>

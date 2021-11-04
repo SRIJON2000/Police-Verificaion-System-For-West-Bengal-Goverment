@@ -517,21 +517,55 @@ class Application_model extends CI_Model
     {
         
     }
-    function find_pvr_id($rcpt_no)
+    function find_pvr_id($no,$t)
     {
-        $this->db->select('receipt_id_pk');
-        $this->db->from('pvr_receipt_no');
-        $this->db->where('receipt_no',$rcpt_no);
-        $query = $this->db->get();
-        $id = $query->row();
+        if($t==2)
+        {
+            $this->db->select('memo_id_pk');
+            $this->db->from('pvr_memo');
+            $this->db->where('memo_no',$no);
+            $query = $this->db->get();
+            $id = $query->row();
 
-        $this->db->select('pvr_id_pk');
-        $this->db->from('pvr_vr_detail');
-        $this->db->where('receipt_id_fk',$id->receipt_id_pk);
-        $query = $this->db->get();
-        $pvrid = $query->row();
+            $this->db->select('pvr_id_pk');
+            $this->db->from('pvr_vr_detail');
+            $this->db->where('memo_id_fk',$id->memo_id_pk);
+            $query = $this->db->get();
+            $pvrid = $query->row();
+            return $pvrid->pvr_id_pk;
+        }
+        if($t==3)
+        {
+            $this->db->select('receipt_id_pk');
+            $this->db->from('pvr_receipt_no');
+            $this->db->where('receipt_no',$no);
+            $query = $this->db->get();
+            $id = $query->row();
 
-        return $pvrid->pvr_id_pk;
+            $this->db->select('pvr_id_pk');
+            $this->db->from('pvr_vr_detail');
+            $this->db->where('receipt_id_fk',$id->receipt_id_pk);
+            $query = $this->db->get();
+            $pvrid = $query->row();
+
+            return $pvrid->pvr_id_pk;
+        }
+        if($t==4)
+        {
+            $this->db->select('receipt_id_fk');
+            $this->db->from('pvr_reference_no');
+            $this->db->where('ref_no_pk',$no);
+            $query = $this->db->get();
+            $id = $query->row();
+
+            $this->db->select('pvr_id_pk');
+            $this->db->from('pvr_vr_detail');
+            $this->db->where('receipt_id_fk',$id->receipt_id_fk);
+            $query = $this->db->get();
+            $pvrid = $query->row();
+
+            return $pvrid->pvr_id_pk;
+        }
     }
     function a()
     {
