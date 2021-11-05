@@ -434,7 +434,8 @@ $d=date('d-m-y');
         <div class=" btn bg-secondary m-3 pr-4 pl-4">
           <a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
         </div>
-          <button id="myBtn_submit"class="btn bg-success text-light m-3">Submit</button>
+          <button id="myBtn_submit" class="btn bg-success text-light m-3" >Submit</button><br>
+          
       </div>
     </div>
   </form><br/><br/>
@@ -471,6 +472,7 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
 }
+
 span.onclick = function() {
   modal.style.display = "none";
 }
