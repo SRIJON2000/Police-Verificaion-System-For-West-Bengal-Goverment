@@ -434,7 +434,7 @@ $d=date('d-m-y');
         <div class=" btn bg-secondary m-3 pr-4 pl-4">
           <a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
         </div>
-          <button id="myBtn_submit" class="btn bg-success text-light m-3" >Submit</button><br>
+          <a id="myBtn_submit" class="btn bg-success text-light m-3" >Submit</a><br>
           
       </div>
     </div>
@@ -449,9 +449,9 @@ $d=date('d-m-y');
     <span class="close">&times;</span>
     <h2></h2>
   </div>
-  <div class="modal-body">
-    <div style="text-align:center"><b>Are you sure to proceed?</b><br>
-    <button style="text-align:center"class="btn bg-success text-light m-3" onclick="yes()">Yes</button>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no()">No</button>
+  <div class="modal-body">   
+    <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
+    <button class="btn bg-success text-light m-3" onclick="yes()">Yes</button>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no()">No</button>
     </div>
   </div>
   <div class="modal-footer">
@@ -467,9 +467,9 @@ $d=date('d-m-y');
 </body>
 <script>
   var modal = document.getElementById("myModal");
-  var btn = document.getElementById("myBtn_submit");
+  var bt = document.getElementById("myBtn_submit");
 var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
+bt.onclick = function() {
   modal.style.display = "block";
 }
 
