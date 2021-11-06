@@ -113,6 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
                                     <!-- <a class="nav-link" href="#">Update Application</a> -->
                                     <!-- <a class="nav-link" href="#">Send Reminder</a> -->
                                 </nav>
@@ -359,7 +360,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                <b>Recent Applications</b>
+                                <b>Applications to confirm</b>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -387,7 +388,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php
                                         foreach($applications as $application)
                                         {
-                                           if($application['pvr_type_fk']!=4 && $application['pvr_final_status_id_fk']==2)
+                                           if($application['pvr_type_fk']!=4 && $application['pvr_final_status_id_fk']==2 && $application['adm_approval']==0)
                                            {
                                     ?>
                                         <tr>
@@ -395,8 +396,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==2 && $application['adm_approval']==0){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a></td>
-                                            <!-- <a class="action" href="<?php //base_url()?>status/<?php //echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td> -->
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==2 && $application['adm_approval']==0){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a>
+                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
                                         </tr>
                                     <?php
                                            }  

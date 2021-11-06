@@ -306,7 +306,7 @@ tr td,tr th{border: 1px solid;}*/
                                     </div>
                                     <div class="modal-body">   
                                         <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
-                                        <a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no()">No</button>
+                                        <a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no1()">No</button>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -368,8 +368,8 @@ tr td,tr th{border: 1px solid;}*/
                                 ?>
                                       <p id="d" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is not yet verified by OCVR';?></b></p><br/>  
                                 <?php }else{?>
-                                <div class="d-flex justify-content-center"><a id="verify" class="btn btn-success text-center"><b>Verify</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a id="reject" class="btn btn-success text-center" ><b>Reject</b></a></div>
+                                <div class="d-flex justify-content-center"><a id="verify" onclick="verify()"class="btn btn-success text-center"><b>Verify</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="reject" onclick="reject()"class="btn btn-success text-center" ><b>Reject</b></a></div>
                                 
 
                                 <div id="myModal2" class="modal">
@@ -380,7 +380,7 @@ tr td,tr th{border: 1px solid;}*/
                                     </div>
                                     <div class="modal-body">   
                                         <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
-                                        <a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no()">No</button>
+                                        <a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no2()">No</button>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -389,7 +389,7 @@ tr td,tr th{border: 1px solid;}*/
                                     </div>
                                 </div>
 
-                                    <div id="myModal3" class="modal">
+                                <div id="myModal3" class="modal">
                                     <div class="modal-content">
                                     <div class="modal-header">
                                         <!-- <span class="close">&times;</span> -->
@@ -397,15 +397,14 @@ tr td,tr th{border: 1px solid;}*/
                                     </div>
                                     <div class="modal-body">   
                                         <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
-                                        <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no()">No</button>
+                                        <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no3()">No</button>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <p style="text-align:center;"><b> Note:- Once you reject the application you can't restore it further</b></p>
                                     </div>
                                     </div>
-
-                                    </div>
+                                </div>
                                 
                                 <?php 
                                 }
@@ -424,7 +423,25 @@ tr td,tr th{border: 1px solid;}*/
                                 <p id="d" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application is confirmed by ADM';?></b></p><br/>  
                                 <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Home/defence_letter/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Generate Verified Defence Letter</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                 <?php }else{?>
-                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Application/adm_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Confirm</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <div class="d-flex justify-content-center"><a id="adm_approve" onclick="adm_approve()"class="btn btn-success text-center"><b>Confirm</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                
+                                <div id="myModal4" class="modal">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <span class="close">&times;</span> -->
+                                        <h2></h2>
+                                    </div>
+                                    <div class="modal-body">   
+                                        <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
+                                        <a href="<?php echo base_url()?>Application/adm_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no4()">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p style="text-align:center;"><b> Note:- Once you confirm the application you can't restore it further</b></p>
+                                    </div>
+                                    </div>
+                                </div>
+                                
                                 <?php 
                                 }
                                     } 
@@ -610,45 +627,73 @@ tr td,tr th{border: 1px solid;}*/
     var modal1 = document.getElementById("myModal1");
     var modal2 = document.getElementById("myModal2");
     var modal3 = document.getElementById("myModal3");
+    var modal4 = document.getElementById("myModal4");
   var bt1 = document.getElementById("ocvr_approval");
-  var bt2 = document.getElementById("verify");
-  var bt3 = document.getElementById("reject");
+  //var bt2 = document.getElementById("verify");
+  //var bt3 = document.getElementById("reject");
 var span = document.getElementsByClassName("close")[0];
 bt1.onclick = function() {
   modal1.style.display = "block";
 }
-bt2.onclick = function() {
-  modal2.style.display = "block";
+function verify()
+{
+    modal2.style.display = "block";
 }
-bt3.onclick = function() {
-  modal3.style.display = "block";
+function reject()
+{
+    modal3.style.display = "block";
+}
+function adm_approve()
+{
+    modal4.style.display = "block";
 }
 span.onclick = function() {
-  modal.style.display = "none";
+  modal1.style.display = "none";
+//   modal2.style.display = "none";
+//   modal3.style.display = "none";
 }
 
-// window.onclick = function(event) {
-//   if (event.target == modal1) {
-//     modal1.style.display = "none";
-//   }
-//   if (event.target == modal2) {
-//     modal2.style.display = "none";
-//   }
-//   if (event.target == modal3) {
-//     modal3.style.display = "none";
-//   }
-// }
-function yes()
-{
-  document.getElementById("application").submit();
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+  
 }
-function no()
+window.onclick = function(event) {
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+  
+}
+window.onclick = function(event) {
+  if (event.target == modal3) {
+    modal3.style.display = "none";
+  }
+  
+}
+window.onclick = function(event) {
+  if (event.target == modal4) {
+    modal4.style.display = "none";
+  }
+  
+}
+function no1()
 {
   modal1.style.display = "none";
+}
+function no2()
+{
   modal2.style.display = "none";
+}
+function no3()
+{
   modal3.style.display = "none";
 }
-    </script>
+function no4()
+{
+  modal4.style.display = "none";
+}
+</script>
 
 
 </body>

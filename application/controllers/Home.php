@@ -139,7 +139,11 @@
         {
             $this->load->view('themes/check_status');
         }
-        
+        function all_verified_list()
+        {
+            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $this->load->view('themes/all_verified_list',$data);
+        }
         function logout()
         {
             $this->load->library('session');
