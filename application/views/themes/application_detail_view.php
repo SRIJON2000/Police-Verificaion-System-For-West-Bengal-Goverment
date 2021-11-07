@@ -63,6 +63,77 @@ $this->load->library('session');
     margin-right: 1rem;
   }
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: static;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  /* padding: 2px 6px; */
+  background-color: white;
+  color: red;
+  font-size: 15px;
+  text-align:center;
+}
 </style>  
   
 </head>
@@ -226,15 +297,33 @@ tr td,tr th{border: 1px solid;}*/
                                         if($detail['ocvr_approval']==0)
                                         {
                                  ?>
-                                 <br/><br/><div id="a"><a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a><br><br><br>
-                                 <a href="<?php echo base_url()?>Application/edit/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;background-color:blue" ><b>Edit Application</b></a></div>
+                                 <br/><br/><a id="ocvr_approval" class="btn btn-success" style="width: 20%;" ><b>Approve</b></a>
+                                 <div id="myModal1" class="modal">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <span class="close">&times;</span> -->
+                                        <h2></h2>
+                                    </div>
+                                    <div class="modal-body">   
+                                        <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
+                                        <a href="<?php echo base_url()?>Application/ocvr_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no1()">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p style="text-align:center;"><b> Note:- Once you approve the application you can't restore it further</b></p>
+                                    </div>
+                                    </div>
+
+                                    </div>
+                                 <br><br><br>
+                                 <!-- <a href="<?php //echo base_url()?>Application/edit/<?php //echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;background-color:blue" ><b>Edit Application</b></a></div> -->
                                 <?php 
                                     } 
                                     elseif($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=2)
                                     {
                                         if($detail['pvr_final_status_id_fk']==3){
                                 ?>
-                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been Unverified From IB';?></b></p><br/>
+                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been rejected From IB';?></b></p><br/>
                                 <?php } else{?>
                                 <p id="b" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application Has Been Approved Successfully By OCVR';?></b></p><br/>
                                 
@@ -251,7 +340,7 @@ tr td,tr th{border: 1px solid;}*/
                                 }
                                 else{
                                 ?>
-                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been Unverified From IB';?></b></p><br/>
+                                <p id="b" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application Has Been rejected From IB';?></b></p><br/>
                                 <?php
                                 }
                             }
@@ -269,7 +358,7 @@ tr td,tr th{border: 1px solid;}*/
                                     else if($detail['pvr_final_status_id_pk']==3)
                                     {
                                 ?>
-                                <p id="c" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is Unverified from IB';?></b></p><br/>
+                                <p id="c" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is rejected from IB';?></b></p><br/>
                                 <?php 
                                     } 
                                     else
@@ -279,8 +368,44 @@ tr td,tr th{border: 1px solid;}*/
                                 ?>
                                       <p id="d" style="font-size:20px;color:red;text-align:center;"><b><?php echo 'This Application is not yet verified by OCVR';?></b></p><br/>  
                                 <?php }else{?>
-                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Verify</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center" ><b>Unverify</b></a></div>
+                                <div class="d-flex justify-content-center"><a id="verify" onclick="verify()"class="btn btn-success text-center"><b>Verify</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a id="reject" onclick="reject()"class="btn btn-success text-center" ><b>Reject</b></a></div>
+                                
+
+                                <div id="myModal2" class="modal">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <span class="close">&times;</span> -->
+                                        <h2></h2>
+                                    </div>
+                                    <div class="modal-body">   
+                                        <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
+                                        <a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no2()">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p style="text-align:center;"><b> Note:- Once you verify the application you can't restore it further</b></p>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div id="myModal3" class="modal">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <span class="close">&times;</span> -->
+                                        <h2></h2>
+                                    </div>
+                                    <div class="modal-body">   
+                                        <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
+                                        <a href="<?php echo base_url()?>Application/unverify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no3()">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p style="text-align:center;"><b> Note:- Once you reject the application you can't restore it further</b></p>
+                                    </div>
+                                    </div>
+                                </div>
+                                
                                 <?php 
                                 }
                                     } 
@@ -298,7 +423,25 @@ tr td,tr th{border: 1px solid;}*/
                                 <p id="d" style="font-size:20px;color:green;text-align:center;"><b><?php echo 'This Application is confirmed by ADM';?></b></p><br/>  
                                 <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Home/defence_letter/<?php echo $detail['pvr_id_pk']?>" target="blank" class="btn btn-success text-center"><b>Generate Verified Defence Letter</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                 <?php }else{?>
-                                <div class="d-flex justify-content-center"><a href="<?php echo base_url()?>Application/adm_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Confirm</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <div class="d-flex justify-content-center"><a id="adm_approve" onclick="adm_approve()"class="btn btn-success text-center"><b>Confirm</b></a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                
+                                <div id="myModal4" class="modal">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <span class="close">&times;</span> -->
+                                        <h2></h2>
+                                    </div>
+                                    <div class="modal-body">   
+                                        <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
+                                        <a href="<?php echo base_url()?>Application/adm_approve/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no4()">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p style="text-align:center;"><b> Note:- Once you confirm the application you can't restore it further</b></p>
+                                    </div>
+                                    </div>
+                                </div>
+                                
                                 <?php 
                                 }
                                     } 
@@ -481,7 +624,76 @@ tr td,tr th{border: 1px solid;}*/
         //document.getElementById("a").outerHTML="<button class="btn btn-primary" style="width: 20%;" ><b>Approve</b></button>";
         document.getElementById("b").innerHTML="<b>The Application is successfully approved</b>";
     }
-    </script>
+    var modal1 = document.getElementById("myModal1");
+    var modal2 = document.getElementById("myModal2");
+    var modal3 = document.getElementById("myModal3");
+    var modal4 = document.getElementById("myModal4");
+  var bt1 = document.getElementById("ocvr_approval");
+  //var bt2 = document.getElementById("verify");
+  //var bt3 = document.getElementById("reject");
+var span = document.getElementsByClassName("close")[0];
+bt1.onclick = function() {
+  modal1.style.display = "block";
+}
+function verify()
+{
+    modal2.style.display = "block";
+}
+function reject()
+{
+    modal3.style.display = "block";
+}
+function adm_approve()
+{
+    modal4.style.display = "block";
+}
+span.onclick = function() {
+  modal1.style.display = "none";
+//   modal2.style.display = "none";
+//   modal3.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+  
+}
+window.onclick = function(event) {
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+  
+}
+window.onclick = function(event) {
+  if (event.target == modal3) {
+    modal3.style.display = "none";
+  }
+  
+}
+window.onclick = function(event) {
+  if (event.target == modal4) {
+    modal4.style.display = "none";
+  }
+  
+}
+function no1()
+{
+  modal1.style.display = "none";
+}
+function no2()
+{
+  modal2.style.display = "none";
+}
+function no3()
+{
+  modal3.style.display = "none";
+}
+function no4()
+{
+  modal4.style.display = "none";
+}
+</script>
 
 
 </body>
