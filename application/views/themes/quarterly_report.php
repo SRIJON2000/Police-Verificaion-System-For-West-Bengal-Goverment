@@ -1,3 +1,6 @@
+<!--written by SOUMYADEB DHAR-->
+
+
 <html>
 <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
@@ -20,7 +23,7 @@
 #letter{
                 background-color: #fffdfd;
                 margin: auto;
-                border: 2px solid #000;
+                border: 2px solid #000; 
                 height: 600px;
                 padding: 2%;
             }  
@@ -31,7 +34,7 @@ table, th, td {
 </head>
 
 <body>
-<div id="letter" class="col-lg-6 col-md-12">
+<div id="letter" class="mt-5 col-lg-6 col-md-12">
 <h5 class="text-center  fw-bold" align="center"> QUARTERLY REPORT(_____QUARTERLY) OF POLICE VERIFICATION<br>FOR EMPLOYMENT PURPOSE<br>FOR THE PERIOD FROM __________________ TO __________________ </h5>
    <br> <table class="content">
         

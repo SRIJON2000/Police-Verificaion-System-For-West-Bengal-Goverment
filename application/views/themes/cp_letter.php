@@ -23,7 +23,7 @@
             #letter_body  {
               margin: 2%;
               padding: 2%;
-              border: 2px solid #000;
+              border: 2px solid #fff;
             } 
             #letter-date{
               padding-right: 12% !important;
