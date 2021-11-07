@@ -93,3 +93,9 @@
 }
 
 /* END */
+
+/* Border in forms */
+.border_lt{
+  border-left: solid 10px green;
+}
+/* END */

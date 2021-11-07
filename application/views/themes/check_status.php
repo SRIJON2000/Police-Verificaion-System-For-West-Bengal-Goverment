@@ -14,7 +14,7 @@ $current_year=date('y');
 </head>
  <body>
 <style>
-#myBtn {
+#myBtn { 
     display: none;
     position: fixed;
     bottom: 20px;
@@ -33,10 +33,6 @@ $current_year=date('y');
   #myBtn:hover {
     background-color: #555;
   }
-  
-  .row_new_app{
-  padding-left: 10% !important;
-}
 
   hr{
     width:90%; border-top:10px solid red ;margin:auto;
@@ -44,53 +40,50 @@ $current_year=date('y');
   label{
     font-size:20px;
   }
+  .border_lt{
+  border-left: solid 10px green;
+}
 </style>
-  <h3 class="text-center"><b>Search Application  Status</b></h3><br>
+<div class="container">
+  <div class="border_lt"><h3 class="px-3"><b>Search Application  Status</b></h3></div><br>
   <form id="application" action="<?php echo base_url();?>Application/statussearch" method="post">
   <div class="row row_new_app">
-    
-    <div class="text-align:center">
-      <label for="employer"><b>Search By</b></label>
-      <select type="text" name="type" id="search"style="width:350px; height:30px" onchange="show(this.value)">
-      <option value="">--Select--</option>
+    <div class="text-align:center col-lg-12 col-md-12 p-3">
+    <div class="row"><div class="col-lg-4"><label for="employer"><b>Search By</b></label>
+    </div><div class="col-lg-8"><select type="text" name="type" id="search" maxlength="30" class="p-1 col-lg-4" onchange="show(this.value)">
+      <option value="">-----Select-----</option>
       <option value="2">By Memo No.</option>
       <option value="3">By Receipt No</option>
       <option value="4">By Reference No</option>
 </select>
     </div>
-    
-    
-  </div><br><br><br>
-  <div class="row row_new_app">
-    
-    <div class="text-align:center" id="1" style="display:none">
-      <label for="employer"><b>Receipt No.</b></label>
-      <input type="text" name="rcpt" style="width:350px" value="0" placeholder="Enter Receipt No.">
-    </div>
+    <br/>
+    <div class="text-align:center col-lg-12 col-md-12 p-3" id="1" style="display:none">
+    <div class="row"><div class="col-lg-4"><label for="employer"><b>Receipt No.</b></label>
+    </div><div class="col-lg-8"><input type="text" maxlength="30" name="rcpt" value="0" class="p-1 col-lg-4" placeholder="Enter Receipt No.">
+    </div></div></div>
+    <br/>
+    <div class="text-align:center col-lg-12 col-md-12 p-3" id="2" style="display:none">
+      <div class="row"><div class="col-lg-4"><label for="employer"><b>Memo No.</b></label>
+      </div><div class="col-lg-8"><input type="text" maxlength="30" name="memo" class="p-1 col-lg-4"  value="/VR/<?php echo $current_year;?>" placeholder="Enter Memo No.">
+      </div></div></div>
+    <br/>
+    <div class="text-align:center col-lg-12 col-md-12 p-3" id="3" style="display:none">
+      <div class="row"><div class="col-lg-4"><label for="employer"><b>Reference No.</b></label>
+      </div><div class="col-lg-8"><input type="text" maxlength="30" name="ref" class="p-1 col-lg-4" value="0" placeholder="Enter Reference No.">
+      </div></div></div>
 
-    <div class="text-align:center" id="2" style="display:none">
-      <label for="employer"><b>Memo No.</b></label>
-      <input type="text" name="memo" style="width:350px" value="/VR/<?php echo $current_year;?>" placeholder="Enter Memo No.">
-    </div>
-
-    <div class="text-align:center" id="3" style="display:none">
-      <label for="employer"><b>Reference No.</b></label>
-      <input type="text" name="ref" style="width:350px" value="0" placeholder="Enter Reference No.">
-    </div>
-
-    
-    
-    
   </div>
   <div class="row">
       <div class="d-flex justify-content-center col-lg-12 col-md-12 p-3 pt-5">
         <div class="btn bg-secondary m-5 p-2">
-          <a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
+          <a id="back" class="text-white p-3" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a>
         </div>
           <input class="btn bg-success text-light m-5" type="submit" value="Search" name="apply">
       </div>
     </div>
 </form><br/><br/>
+</div>
         </body>
         <script>
 function reset()
