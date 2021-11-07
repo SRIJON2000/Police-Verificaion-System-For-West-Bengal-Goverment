@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a class="nav-link" href="<?php base_url()?>application">New Application</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
-                                    <a class="nav-link" href="#">Update Application</a>
+                                    <a class="nav-link" href="<?php base_url()?>verify_reject">Update Application</a>
                                     <a class="nav-link" href="#">Send Reminder</a>
                                 </nav>
                                 <?php 
