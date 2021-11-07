@@ -14,7 +14,7 @@
 <div class="header d-block row">
   <div class="row block">
     <div class="col-lg-2 col-sm-12 d-inline p-5 pt-0 pb-0 "><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_lt.png" alt="Biswa Bangla picture" height="110" width="80"></div>
-    <div class="text-center col-lg-9 col-sm-12 d-inline" style="font-size:40px"><b>Police Verification Reporting System</b></div>
+    <div class="text-center col-lg-9 col-sm-12 d-inline pt-2"><h1><strong>Police Verification Reporting System</strong></h1></div>
     <div class="col-1 col-sm-0 d-inline d-flex justify-content-end "><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_rt.png" alt="Biswa Bangla logo" height="110" width="155"></div>
   </div>
 
@@ -23,8 +23,6 @@
     <div class="col-lg-1 col-sm-4"><a class="btn text-center" href="#contact"><b>Contact US</b></a></div>
     <div class="col-lg-1 col-sm-4"><a class="btn text-center" href="#about"><b>About</b></a></div>
     <!-- <?php //if ($_SERVER['PHP_SELF']=='/pvr/index.php'){echo '<a href="#about"><b>Register Your Office</b></a>';};?> -->
-    
-    
   </div>
 </div>
 
