@@ -144,7 +144,7 @@ $d=date('d-m-y');
     </div>
     <div class="col-lg-4 col-md-12 p-3"><div class="row">
     <div><label class="required" for="employer" class="col-lg-6 col-xs-8"><b>Office/Employer Name</b></label></div><div>
-      <select class="col-lg-7 col-sm-4 p-1" maxlength="30" name="employer" id="employer">
+      <select class="col-lg-7 col-sm-1 p-1" maxlength="30" name="employer" id="employer">
           <option value="">-----Select Office-----</option>
           <?php
             foreach($employers as $employer)
@@ -182,12 +182,12 @@ $d=date('d-m-y');
           </div>
   <div class="row row_new_app">
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="dob" class="required"><b>Date Of Birth</b></label>
-        <input class="px-2" type="date" id="dob" name="dob" required>
+        <div><label for="dob" class="required"><b>Date Of Birth</b></label>
+        </div><div><input class="px-2" type="date" id="dob" name="dob" required></div>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="gender" class="required"><b>Gender</b></label>
-        <select class="col-lg-10 p-1" maxlength="30" name="gender" id="gender">
+      <div><label for="gender" class="required"><b>Gender</b></label>
+      </div><div><select class="col-lg-9 p-1" maxlength="30" name="gender" id="gender">
           <option value="">-----Select-----</option>
           <?php
             foreach($genders as $gender)
@@ -198,15 +198,15 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-        </select>
+        </select></div>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="aadhar" class="required"><b>Aadhaar No</b></label>
         <input type="number" id="aadhar" name="aadhaarno" maxlength="12" placeholder="Aadhar number.." required>
       </div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="caste" class="required"><b>Caste</b></label>
-      <select class="col-lg-10 p-1" maxlength="30" name="caste" id="caste">
+      <div><label for="caste" class="required"><b>Caste</b></label>
+      </div><div><select class="col-lg-9 p-1" maxlength="30" name="caste" id="caste">
           <option value="">-----Select-----</option>
           <?php
             foreach($castes as $caste)
@@ -217,7 +217,7 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-      </select>
+      </select></div>
       </div>
   </div>
   <br/>
@@ -399,7 +399,7 @@ $d=date('d-m-y');
       </div></div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="defence" class="required"><b>Defence Personnel</b></label>
-      </div><div><select name="defence" id="defence" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
+      </div><div><select name="defence" id="defence" class="col-lg-9 col-sm-4 p-1" maxlength="30" required>
           <option value="">-----Select-----</option>
           <?php
                 foreach($defences as $defence)
@@ -414,7 +414,7 @@ $d=date('d-m-y');
       </div>
     <div class="col-lg-3 col-md-12 p-3 pt-5">
     <div><label for="category" class="required"><b>Send To</b></label>
-    </div><div><select name="category" id="category" class="col-lg-10 col-sm-4 p-1" maxlength="30">
+    </div><div><select name="category" id="category" class="col-lg-9 col-sm-4 p-1" maxlength="30">
           <option value="">-----Select-----</option>
           <?php
                 foreach($categories as $category)
