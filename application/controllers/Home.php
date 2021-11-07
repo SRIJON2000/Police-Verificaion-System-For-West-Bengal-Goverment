@@ -96,6 +96,10 @@
         {
             $this->load->view('themes/quarterly_report');
         }
+        function application_under_process_report()
+        {
+            $this->load->view('themes/application_under_process_report');
+        }
         
         // function dashboard_ocvr()
         // {
