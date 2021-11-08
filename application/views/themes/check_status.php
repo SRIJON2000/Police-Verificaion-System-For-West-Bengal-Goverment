@@ -44,6 +44,9 @@ $current_year=date('y');
   border-left: solid 10px green;
 }
 </style>
+<?php 
+			$error = $this->session->flashdata('error');
+		?>
 <div class="container">
   <div class="border_lt"><h3 class="px-3"><b>Search Application  Status</b></h3></div><br>
   <form id="application" action="<?php echo base_url();?>Application/statussearch" method="post">
@@ -56,6 +59,7 @@ $current_year=date('y');
       <option value="3">By Receipt No</option>
       <option value="4">By Reference No</option>
 </select>
+<br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
     </div>
     <br/>
     <div class="text-align:center col-lg-12 col-md-12 p-3" id="1" style="display:none">

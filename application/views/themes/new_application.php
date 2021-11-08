@@ -122,6 +122,9 @@ $d=date('d-m-y');
 </style>
 </head>
 <body>
+<?php 
+			$error = $this->session->flashdata('error');
+		?>
 <div class="container">
   <div class="mt-2">
     <h2><b>Application Form</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<div class=" btn bg-secondary m-3 pr-4 pl-4"><a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a></div></h2>
@@ -155,7 +158,7 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-      </select>
+      </select><br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
     </div>
   </div>
@@ -170,20 +173,23 @@ $d=date('d-m-y');
     <div class="col-lg-3 col-md-12 p-3">
         <label for="fname" style="color:blue;" class="required"><b>First Name</b></label><br>
         <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       <div class="col-lg-3 col-md-12 p-3">
         <label for="mname" style="color:blue;"><b>Middle Name</b></label><br>
         <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       <div class="col-lg-3 col-md-12 p-3">
         <label for="lname" style="color:blue;" class="required"><b>Last Name</b></label><br>
         <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
           </div>
   <div class="row row_new_app">
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <div><label for="dob" class="required"><b>Date Of Birth</b></label>
-        </div><div><input class="px-2" type="date" id="dob" name="dob" required></div>
+        </div><div><input class="px-2" type="date" id="dob" name="dob" required><br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div></div>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="gender" class="required"><b>Gender</b></label>
@@ -198,11 +204,14 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-        </select></div>
+        </select>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>  
       <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label for="aadhar" class="required"><b>Aadhaar No</b></label>
         <input type="number" id="aadhar" name="aadhaarno" maxlength="12" placeholder="Aadhar number.." required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="caste" class="required"><b>Caste</b></label>
@@ -217,7 +226,9 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-      </select></div>
+      </select>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div>
   </div>
   <br/>
@@ -229,25 +240,35 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 col-sm-8 p-3 pt-5">
         <div><label for="houseno1" class="required"><b>House No</b></label></div><div>
-        <input type="number" id="houseno1" name="houseno1" required></div>
+        <input type="number" id="houseno1" name="houseno1" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="street1" class="required"><b>Street/Lane</b></label></div><div>
-        <input type="text"  id="street1" name="street1" required></div>
+        <input type="text"  id="street1" name="street1" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="landmark1" class="required"><b>Landmark</b></label></div><div>
-        <input type="text"  id="landmark1" name="landmark1" required></div>
+        <input type="text"  id="landmark1" name="landmark1" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
   </div><br/>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="city1" class="required"><b>City</b></label></div><div>
-      <input type="text"  id="city1" name="city1" required></div>
+      <input type="text"  id="city1" name="city1" required>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="po1" class="required"><b>Post Office</b></label></div><div>
-        <input type="text"  id="po1" name="po1" required></div>
+        <input type="text"  id="po1" name="po1" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
       <div class="col-lg-4 col-md-12 col-sm-6 p-3 pt-5">
       <div><label for="ps1" class="required"><b>Police Station</b></label></div><div>
@@ -262,13 +283,16 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-      </select></div>
+      </select>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div>
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="pin1" class="required"><b>Pincode</b></label></div><div>
       <input type="number" class="text-center" id="pin1" name="pin1"  placeholder="Your Pincode.." required>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="state1" class="required"><b>State</b></label></div><div>
@@ -283,7 +307,9 @@ $d=date('d-m-y');
                                   <?php 
                                   }
                          ?>
-                      </select></div>
+                      </select>
+                      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+                    </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="district1" class="required"><b>District</b></label></div><div>
@@ -300,7 +326,9 @@ $d=date('d-m-y');
                    
           }
         ?>
-    </select></div>
+    </select>
+    <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+  </div>
       </div>
   </div><br/>
   <hr>
@@ -312,25 +340,35 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="houseno2" class="required"><b>House No</b></label></div><div>
-        <input type="number" id="houseno2" name="houseno2" required></div>
+        <input type="number" id="houseno2" name="houseno2" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="street2" class="required"><b>Street/Lane</b></label></div><div>
-        <input type="text"  id="street2" name="street2" required></div>
+        <input type="text"  id="street2" name="street2" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="landmark2" class="required"><b>Landmark</b></label></div><div>
-        <input type="text"  id="landmark2" name="landmark2" required></div>
+        <input type="text"  id="landmark2" name="landmark2" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
   </div><br/>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="city2" class="required"><b>City</b></label></div><div>
-      <input type="text"  id="city2" name="city2" required></div>
+      <input type="text"  id="city2" name="city2" required>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="po2" class="required"><b>Post Office</b></label></div><div>
-        <input type="text"  id="po2" name="po2" required></div>
+        <input type="text"  id="po2" name="po2" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="ps2" class="required"><b>Police Station</b></label></div><div>
@@ -345,14 +383,17 @@ $d=date('d-m-y');
             <?php 
             }
           ?>
-      </select></div>
+      </select>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div>
   </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="pin2" class="required"><b>Pincode</b></label></div><div>
       <input type="number" id="pin2" name="pin2" class="text-center"  placeholder="Your Pincode.." required>
-      </div></div>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div></div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="state2" class="required"><b>State</b></label></div><div>
       <select id="state2" name="state2" onchange="get_district()" class="col-lg-7 col-sm-4 p-1" maxlength="30">
@@ -366,7 +407,9 @@ $d=date('d-m-y');
                                   <?php 
                                   }
                          ?>
-                      </select></div>
+                      </select>
+                      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+                    </div>
       </div>
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="district2" class="required"><b>District</b></label></div><div>
@@ -383,7 +426,9 @@ $d=date('d-m-y');
                    
           }
         ?>
-    </select></div>
+    </select>
+    <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+  </div>
       </div>
   </div>
   <br/>
@@ -392,10 +437,12 @@ $d=date('d-m-y');
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="refno" class="required"><b>Reference No</b></label></div><div>
         <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="refdate" class="required"><b>Reference Date</b></label></div><div>
         <input type="date" id="refdate" name="refdate" class="px-1" style="width: 225px;" required>
+        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="defence" class="required"><b>Defence Personnel</b></label>
@@ -410,7 +457,9 @@ $d=date('d-m-y');
           <?php 
           }
           ?>
-      </select></div>
+      </select>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div>
     <div class="col-lg-3 col-md-12 p-3 pt-5">
     <div><label for="category" class="required"><b>Send To</b></label>
@@ -425,7 +474,9 @@ $d=date('d-m-y');
           <?php 
           }
           ?>
-      </select></div>
+      </select>
+      <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+    </div>
       </div> 
         </div>
     <div class="row">

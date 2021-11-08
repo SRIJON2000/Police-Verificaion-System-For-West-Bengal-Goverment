@@ -512,11 +512,6 @@ class Application_model extends CI_Model
         $this->db->where('pvr_id_pk',$pvr_id);
         $this->db->update('pvr_vr_detail');
     }
-    
-    function edit($data,$pvr_id)
-    {
-        
-    }
     function find_pvr_id($no,$t)
     {
         if($t==2)
@@ -527,12 +522,16 @@ class Application_model extends CI_Model
             $query = $this->db->get();
             $id = $query->row();
 
-            $this->db->select('pvr_id_pk');
-            $this->db->from('pvr_vr_detail');
-            $this->db->where('memo_id_fk',$id->memo_id_pk);
-            $query = $this->db->get();
-            $pvrid = $query->row();
-            return $pvrid->pvr_id_pk;
+            if(!empty($id))
+            {
+                $this->db->select('pvr_id_pk');
+                $this->db->from('pvr_vr_detail');
+                $this->db->where('memo_id_fk',$id->memo_id_pk);
+                $query = $this->db->get();
+                $pvrid = $query->row();
+                return $pvrid->pvr_id_pk;
+            }
+            return 0;
         }
         if($t==3)
         {
@@ -542,13 +541,17 @@ class Application_model extends CI_Model
             $query = $this->db->get();
             $id = $query->row();
 
-            $this->db->select('pvr_id_pk');
-            $this->db->from('pvr_vr_detail');
-            $this->db->where('receipt_id_fk',$id->receipt_id_pk);
-            $query = $this->db->get();
-            $pvrid = $query->row();
+            if(!empty($id))
+            {
+                $this->db->select('pvr_id_pk');
+                $this->db->from('pvr_vr_detail');
+                $this->db->where('receipt_id_fk',$id->receipt_id_pk);
+                $query = $this->db->get();
+                $pvrid = $query->row();
 
-            return $pvrid->pvr_id_pk;
+                return $pvrid->pvr_id_pk;
+            }
+            return 0;
         }
         if($t==4)
         {
@@ -558,13 +561,17 @@ class Application_model extends CI_Model
             $query = $this->db->get();
             $id = $query->row();
 
-            $this->db->select('pvr_id_pk');
-            $this->db->from('pvr_vr_detail');
-            $this->db->where('receipt_id_fk',$id->receipt_id_fk);
-            $query = $this->db->get();
-            $pvrid = $query->row();
+            if(!empty($id))
+            {
+                $this->db->select('pvr_id_pk');
+                $this->db->from('pvr_vr_detail');
+                $this->db->where('receipt_id_fk',$id->receipt_id_fk);
+                $query = $this->db->get();
+                $pvrid = $query->row();
 
-            return $pvrid->pvr_id_pk;
+                return $pvrid->pvr_id_pk;
+            }
+            return 0;
         }
     }
     function a()
@@ -576,7 +583,7 @@ class Application_model extends CI_Model
         $this->db->where('month(application_date)',date('m'));
         $query=$this->db->get();
         $number=$query->num_rows();
-        return $number;u
+        return $number;
     }
     function b()
     {

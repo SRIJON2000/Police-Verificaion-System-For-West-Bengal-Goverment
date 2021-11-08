@@ -69,7 +69,7 @@ class Application extends CI_Controller
 
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Invalid');
+            $this->session->set_flashdata('error', 'Incorrect Input');
             $this->index();
         }
         else
@@ -139,7 +139,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('addr2','Office Address1','required');
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Invalid');
+            $this->session->set_flashdata('error', 'Invalid Input');
             redirect('Home/addoffice');
         }
         else
@@ -180,7 +180,25 @@ class Application extends CI_Controller
             {
                 $id=$this->Application_model->find_pvr_id($this->input->post('ref'),$this->input->post('type'));
             }
-            redirect('Home/status/'.$id);
+            if($id!=0)
+            {
+                redirect('Home/status/'.$id);
+            }
+            else
+            {
+                if($t==2){
+                $this->session->set_flashdata('error', 'Invalid Memo No.');
+                redirect('Home/statussearch');
+                }
+                if($t==3){
+                    $this->session->set_flashdata('error', 'Invalid Receipt No.');
+                    redirect('Home/statussearch');
+                }
+                if($t==4){
+                     $this->session->set_flashdata('error', 'Invalid Reference No.');
+                    redirect('Home/statussearch');
+                }
+            }
         }
     }
     function generate_memo()
