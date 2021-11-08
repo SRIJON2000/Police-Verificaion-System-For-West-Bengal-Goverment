@@ -577,8 +577,6 @@ class Application_model extends CI_Model
         $query=$this->db->get();
         $number=$query->num_rows();
         return $number;
-
-
     }
     function b()
     {

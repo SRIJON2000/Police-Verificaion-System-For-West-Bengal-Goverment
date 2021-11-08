@@ -150,8 +150,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Monitoring Report</a>
-                                    <a class="nav-link" href="#">Daily Application Report</a>
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/quarterly_report">Monitoring Report</a>
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/application_under_process_report">Daily Application Report</a>
                                 </nav>
                             </div>
 
