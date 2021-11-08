@@ -576,7 +576,7 @@ class Application_model extends CI_Model
         $this->db->where('month(application_date)',date('m'));
         $query=$this->db->get();
         $number=$query->num_rows();
-        return $number;
+        return $number;u
     }
     function b()
     {
