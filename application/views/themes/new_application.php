@@ -256,7 +256,7 @@ $d=date('d-m-y');
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       </div>
-  </div><br/>
+  </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="city1" class="required"><b>City</b></label></div><div>
@@ -356,7 +356,7 @@ $d=date('d-m-y');
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       </div>
-  </div><br/>
+  </div>
   <div class="row row_new_app">
       <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="city2" class="required"><b>City</b></label></div><div>
