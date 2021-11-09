@@ -160,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 </nav>
             </div>
-            <?php //foreach($data1 as $d){?>
+            <?php foreach($numbers as $d){?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -173,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-primary text-white mb-4">
                                     <div class="card-body"><b>No. of pending enquiries in the lastday of previous quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" ><b>Number</b></p>
+                                        <p class="small text-white stretched-link" style="font-size:30px"><b><?php echo $d['a'];?></b></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
                                     </div>
                                 </button>
@@ -182,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button  class="card bg-warning text-white mb-4">
                                     <div class="card-body"><b>No. of request received during the quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" ><b><?php //echo $d['a'];?>Number</b></p>
+                                          <p class="small text-white stretched-link text-center" style="font-size:30px" ><b><?php echo $d['b'];?></b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -191,7 +191,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-success text-white mb-4">
                                     <div class="card-body"><b>No. of cases pending as on the lastday of quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                    <p class="small text-white stretched-link text-center" style="font-size:30px"><b><?php echo $d['c'];?></b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -200,13 +200,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-danger text-white mb-4">
                                     <div class="card-body"><b>No. of report pending more than 120 days</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                    <p class="small text-white stretched-link text-center" style="font-size:30px"><b><?php echo $d['d'];?></b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
                             </div>
                         </div>
-                      <?php // }?>
+                      <?php  }?>
                         <?php 
                             if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
                             {

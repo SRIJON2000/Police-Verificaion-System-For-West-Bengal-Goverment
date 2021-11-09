@@ -576,27 +576,53 @@ class Application_model extends CI_Model
     }
     function a()
     {
-        $date=date('Y-m-d');
-        $month=date("m");
+        $month_number=date('n');
+        $prev_quarter=ceil($month_number/3)-1;
+        if($prev_quarter==1)
+        {
+            $prev_quarter=4;
+        }
         $this->db->select('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
-        //$this->db->where("to_char(application_date, 'MM')",$month);
-        $this->db->where("DATE_FORMAT(application_date, '%M')",$month);
+        $this->db->where('EXTRACT(quarter FROM application_date)=',$prev_quarter);
+        $this->db->where('ocvr_approval',0);
         $query=$this->db->get();
         $number=$query->num_rows();
         return $number;
     }
     function b()
     {
-        
+        $month_number=date('n');
+        $quarter=ceil($month_number/3);
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('EXTRACT(quarter FROM application_date)=',$quarter);
+        $query=$this->db->get();
+        $number=$query->num_rows();
+        return $number;
     }
     function c()
     {
-        
+        $month_number=date('n');
+        $quarter=ceil($month_number/3);
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('EXTRACT(quarter FROM application_date)=',$quarter);
+        $this->db->where('ocvr_approval',0);
+        $query=$this->db->get();
+        $number=$query->num_rows();
+        return $number;
     }
     function d()
     {
-        
+        $date=date('d-m-Y', strtotime('-120 day'));
+        $this->db->select('pvr_id_pk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('application_date<=',$date);
+        $this->db->where('ocvr_approval',0);
+        $query=$this->db->get();
+        $number=$query->num_rows();
+        return $number;
     }
 }
 ?>

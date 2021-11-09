@@ -28,17 +28,17 @@
         {
             $this->load->model('application_model');
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
-            // $a= $this->application_model->a();
-            // $b = $this->application_model->b();
-            // $c = $this->application_model->c();
-            // $d = $this->application_model->d();
-            // $data1=array(
-            //     'a'=>$a,
-            //     'b'=>$b,
-            //     'c'=>$c,
-            //     'd'=>$d);
-            // $this->load->view('themes/dashboard_adm',$data,$data1);
+            $a= $this->application_model->a();
+            $b =$this->application_model->b();
+            $c =$this->application_model->c();
+            $d =$this->application_model->d();
+            $data['numbers']=array(array(
+                'a'=>$a,
+                'b'=>$b,
+                'c'=>$c,
+                'd'=>$d));
             $this->load->view('themes/dashboard_adm',$data);
+            //$this->load->view('themes/dashboard_adm',$data);
         }
         function ocvr_verified_nondefence_approve($pvr_id)
         {
