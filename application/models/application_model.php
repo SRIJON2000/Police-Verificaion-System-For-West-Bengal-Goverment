@@ -580,7 +580,8 @@ class Application_model extends CI_Model
         $month=date("m");
         $this->db->select('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
-        $this->db->where('month(application_date)',date('m'));
+        //$this->db->where("to_char(application_date, 'MM')",$month);
+        $this->db->where("DATE_FORMAT(application_date, '%M')",$month);
         $query=$this->db->get();
         $number=$query->num_rows();
         return $number;

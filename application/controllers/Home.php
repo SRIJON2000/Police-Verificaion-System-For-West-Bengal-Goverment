@@ -37,7 +37,7 @@
             //     'b'=>$b,
             //     'c'=>$c,
             //     'd'=>$d);
-            //$this->load->view('themes/dashboard_adm',$data,$data1);
+            // $this->load->view('themes/dashboard_adm',$data,$data1);
             $this->load->view('themes/dashboard_adm',$data);
         }
         function ocvr_verified_nondefence_approve($pvr_id)

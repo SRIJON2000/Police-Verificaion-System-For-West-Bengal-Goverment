@@ -206,7 +206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </button>
                             </div>
                         </div>
-                      <?php //}?>
+                      <?php// }?>
                         <?php 
                             if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
                             {
