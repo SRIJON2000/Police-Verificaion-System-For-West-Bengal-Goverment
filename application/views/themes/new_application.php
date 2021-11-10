@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
 $this->load->helper('date');
+$this->load->library(array('session', 'form_validation', 'email'));
 // $format = "%Y-%M-%d";
 // $a=mdate($format);
 // $date=date_create($a,timezone_open("Indian/Reunion"));
@@ -128,11 +129,11 @@ $d=date('d-m-y');
 <div class="container">
   <div class="mt-2">
     <h2><b>Application Form</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<div class=" btn bg-secondary m-3 pr-4 pl-4"><a id="back" class="text-white" href="<?php base_url()?>dashboard_adm" style="text-decoration:none;">Back</a></div></h2>
-    <div style="color:red">Fields marked as (*) are mandatory</div>    
+    <div style="color:red"><b>Fields marked as (*) are mandatory</b></div>    
     <hr></div>
   <section class="">
   <form id="application" action="<?php echo base_url();?>Application/newapp" method="post">
-
+  <?php echo form_open('application'); ?>
   <div class="row row_new_app pl-0">
     <div class="col-lg-4 col-md-12 p-3">
       <div class="row">    

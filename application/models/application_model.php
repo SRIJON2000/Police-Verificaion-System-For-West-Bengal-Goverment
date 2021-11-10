@@ -585,7 +585,7 @@ class Application_model extends CI_Model
         $this->db->select('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
         $this->db->where('EXTRACT(quarter FROM application_date)=',$prev_quarter);
-        $this->db->where('ocvr_approval',0);
+        $this->db->where('pvr_final_status_id_fk',1);
         $query=$this->db->get();
         $number=$query->num_rows();
         return $number;
@@ -608,7 +608,7 @@ class Application_model extends CI_Model
         $this->db->select('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
         $this->db->where('EXTRACT(quarter FROM application_date)=',$quarter);
-        $this->db->where('ocvr_approval',0);
+        $this->db->where('pvr_final_status_id_fk',1);
         $query=$this->db->get();
         $number=$query->num_rows();
         return $number;
@@ -619,7 +619,7 @@ class Application_model extends CI_Model
         $this->db->select('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
         $this->db->where('application_date<=',$date);
-        $this->db->where('ocvr_approval',0);
+        $this->db->where('pvr_final_status_id_fk',1);
         $query=$this->db->get();
         $number=$query->num_rows();
         return $number;

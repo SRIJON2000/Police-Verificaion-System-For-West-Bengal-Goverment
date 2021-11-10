@@ -66,9 +66,11 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('category', 'Category', 'required');
         //$this->form_validation->set_rules('ps3', 'Police Station', 'required|max_length[32]|trim');
         
+        
 
         if($this->form_validation->run() == FALSE)
         {
+            //$this->form_validation->set_message('required', 'Your custom message here');
             $this->session->set_flashdata('error', 'Incorrect Input');
             $this->index();
         }
