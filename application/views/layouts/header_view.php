@@ -14,7 +14,7 @@
 <div class="header row" id="header_body">
   <div class="row" id="header_body">
     <div class="col-md-2 col-sm-3 col-xs-3 d-inline p-5 pt-0 pb-0 p-xs-0 text-center"><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_lt.png" alt="Biswa Bangla picture" height="110" width="80"></div>
-    <div class="col-md-8 col-sm-6 col-xs-6 d-inline pt-2 p-xs-0 text-center"><h1><strong>Police Verification Reporting System</strong></h1></div>
+    <div class="col-md-8 col-sm-6 col-xs-6 d-inline pt-2 p-xs-0 text-center"><h1><strong>Police Verification Reporting System</h1><h5>VR Section<br>Office of District Magistrate, Howrah<br>Government Of West Bengal</strong></h5></div>
     <div class="col-md-2 col-sm-3 col-xs-3 d-inline p-5 pt-0 pb-0 p-xs-0 mx-auto"><img src="<?php echo base_url(); ?>/application/views/pics/biswa_bangla_rt.png" alt="Biswa Bangla logo" height="110" width="155"></div>
   </div>
   <div class="mt-3 p-3 m-xs-0 row" id="header_body">

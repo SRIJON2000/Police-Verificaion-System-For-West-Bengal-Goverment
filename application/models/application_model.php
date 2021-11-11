@@ -15,6 +15,10 @@ class Application_model extends CI_Model
         $query =$this->db->get();
         return $query->result_array();
     }
+    function fetch_ranged_applications($s,$e)
+    {
+        
+    }
     function fetch_application_details($pvr_id)
     {
         $this->db->select('*');

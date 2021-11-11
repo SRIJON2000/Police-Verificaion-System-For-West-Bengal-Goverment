@@ -96,10 +96,7 @@
         {
             $this->load->view('themes/quarterly_report');
         }
-        function application_under_process_report()
-        {
-            $this->load->view('themes/application_under_process_report');
-        }
+        
         
         // function dashboard_ocvr()
         // {
@@ -142,6 +139,10 @@
         function statussearch()
         {
             $this->load->view('themes/check_status');
+        }
+        function date_range()
+        {
+            $this->load->view('themes/date_range');
         }
         function all_verified_list()
         {
@@ -224,11 +225,29 @@
        function verified_letter_list()
        {
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $a= $this->Application_model->a();
+            $b =$this->Application_model->b();
+            $c =$this->Application_model->c();
+            $d =$this->Application_model->d();
+            $data['numbers']=array(array(
+                'a'=>$a,
+                'b'=>$b,
+                'c'=>$c,
+                'd'=>$d));
             $this->load->view('themes/verified_letter_to_emp',$data);
        }
        function unverified_letter_list()
        {
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $a= $this->Application_model->a();
+            $b =$this->Application_model->b();
+            $c =$this->Application_model->c();
+            $d =$this->Application_model->d();
+            $data['numbers']=array(array(
+                'a'=>$a,
+                'b'=>$b,
+                'c'=>$c,
+                'd'=>$d));
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
     }

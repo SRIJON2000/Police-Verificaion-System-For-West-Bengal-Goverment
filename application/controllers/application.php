@@ -164,7 +164,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('memo', 'Memo No', 'required');
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Invalid');
+            $this->session->set_flashdata('error', 'Fields are requiredup');
             redirect('Home/statussearch');
         }
         else
@@ -202,6 +202,23 @@ class Application extends CI_Controller
                 }
             }
         }
+    }
+    function application_under_process_report()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('start', 'Start Date', 'required');
+        $this->form_validation->set_rules('end', 'End Date', 'required');
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', 'Fields Required');
+            redirect('Home/date_range');
+        }
+        else
+        {
+            $data['applications']=$this->Application_model->fetch_ranged_applications($this->input->post('start'),$this->input->post('end'));
+            $this->load->view('themes/application_under_process_report',$data);
+        }
+        
     }
     function generate_memo()
     {
@@ -252,6 +269,11 @@ class Application extends CI_Controller
     {
         $this->Application_model->ocvr_verified_nondefence_approve($pvr_id);
         redirect('Home/application_details/'.$pvr_id);
+    }
+    function ocvr_unverified_approve($pvr_id)
+    {
+        $this->Application_model->ocvr_unverified_approve($pvr_id);
+        redirect('Home/unverified_letter_list/'.$pvr_id);
     }
     function edit($pvr_id)
     {

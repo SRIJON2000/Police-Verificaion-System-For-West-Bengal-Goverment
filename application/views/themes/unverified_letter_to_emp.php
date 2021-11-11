@@ -34,7 +34,76 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             border-radius: 4px;
             cursor: pointer;
         }
-    
+        .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: static;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  /* padding: 2px 6px; */
+  background-color: white;
+  color: red;
+  font-size: 15px;
+  text-align:center;
+}
         </style>
     </head>
     <body>
@@ -84,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     
                                     <a class="nav-link" href="<?php base_url()?>dashboard_adm">Pending Approval</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                    
                                 </nav>
                                 
@@ -131,12 +200,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
+                        <?php foreach($numbers as $d){?>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <button class="card bg-primary text-white mb-4">
                                     <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" ><b>Number</b></p>
+                                        <p class="small text-white stretched-link"style="font-size:30px"><b><?php echo $d['a'];?></b></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
                                     </div>
                                 </button>
@@ -145,7 +215,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button  class="card bg-warning text-white mb-4">
                                     <div class="card-body"><b>No. of request received during the quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                          <p class="small text-white stretched-link text-center"style="font-size:30px"><b><?php echo $d['b'];?></b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -154,7 +224,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-success text-white mb-4">
                                     <div class="card-body"><b>No. of cases pending as on the lastday of quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                    <p class="small text-white stretched-link text-center"style="font-size:30px"><b><?php echo $d['c'];?></b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -163,13 +233,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-danger text-white mb-4">
                                     <div class="card-body"><b>No. of report pending more than 120 days</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                    <p class="small text-white stretched-link text-center"style="font-size:30px"><b><?php echo $d['d'];?></b></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
                             </div>
                         </div>
-                      
+                      <?php }?>
                        
 
                         <div class="card mb-4">
@@ -215,10 +285,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>" target="_blank"><b>View Details</b></a><br><br>
                                             <?php if($application['ocvr_unverified_approval']==0){
                                                 ?>
-                                            <a class="action" href="<?php base_url()?>ocvr_unverified_approve/<?php echo $application['pvr_id_pk'] ?>"><b>Confirm</b></a></td>
+                                            <a class="action" href="<?php echo base_url()?>Application/ocvr_unverified_approve/<?php echo $application['pvr_id_pk'] ?>"><b>Confirm</b></a></td>
                                             <?php }else{ ?>
                                                 <a class="action" href="<?php base_url()?>unverified_letter/<?php echo $application['pvr_id_pk'] ?>" target="_blank"><b>Generate Unverified  letter</b></a></td>
                                                 <?php }?>
+
+                                    
                                         </tr>
                                     <?php
                                             }
@@ -243,7 +315,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url();?>/theme_css2/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>/theme_css2/js/datatables-simple-demo.js"></script>
-        
+     
     
     </div>
     </body>
