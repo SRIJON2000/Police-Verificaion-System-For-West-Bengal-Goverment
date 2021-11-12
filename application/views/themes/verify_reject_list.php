@@ -119,12 +119,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
+                        <?php foreach($numbers as $d){?>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <button class="card bg-primary text-white mb-4">
                                     <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" ><b>Number</b></p>
+                                        <p class="small text-white stretched-link" style="font-size:30px"><strong><?php echo $d['a'];?></strong></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
                                     </div>
                                 </button>
@@ -133,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button  class="card bg-warning text-white mb-4">
                                     <div class="card-body"><b>No. of request received during the quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                          <p class="small text-white stretched-link text-center"style="font-size:30px"><strong><?php echo $d['b'];?></strong></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -142,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-success text-white mb-4">
                                     <div class="card-body"><b>No. of cases pending as on the lastday of quarter</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                    <p class="small text-white stretched-link text-center"style="font-size:30px"><strong><?php echo $d['c'];?></strong></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -151,13 +152,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="card bg-danger text-white mb-4">
                                     <div class="card-body"><b>No. of report pending more than 120 days</b></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
+                                    <p class="small text-white stretched-link text-center"style="font-size:30px"><strong><?php echo $d['d'];?></strong></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
                             </div>
                         </div>
-                      
+                      <?php }?>
                        
 
                         <div class="card mb-4">

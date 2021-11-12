@@ -151,7 +151,17 @@
         }
         function verify_reject()
         {
+            
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $a= $this->Application_model->a();
+            $b =$this->Application_model->b();
+            $c =$this->Application_model->c();
+            $d =$this->Application_model->d();
+            $data['numbers']=array(array(
+                'a'=>$a,
+                'b'=>$b,
+                'c'=>$c,
+                'd'=>$d));
             $this->load->view('themes/verify_reject_list',$data);
         }
         function logout()
