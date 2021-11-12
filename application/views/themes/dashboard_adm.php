@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-3 me-lg-4 d-flex justify-content-end" >
             <li id="sm_hide"><div class="text-white">Logged in as:&nbsp
-               <b><?php echo $this->session->userdata('user_type')?></b><b>&nbsp(&nbsp<?php echo $this->session->userdata('district_name')?>&nbsp)</b></div></li>
+               <strong><?php echo $this->session->userdata('user_type')?></strong><strong>&nbsp(&nbsp<?php echo $this->session->userdata('district_name')?>&nbsp)</strong></div></li>
                     <li class="nav-item dropdown d-sm-block">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw text-white"></i></a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -186,38 +186,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><b>No. of pending enquiries in the lastday of previous quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" style="font-size:30px"><b><?php echo $d['a'];?></b></p>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <button class="card bg-primary text-white mb-4 container-fluid h-100">
+                                    <div class="card-body"><strong>No. of pending enquiries in the lastday of previous quarter</strong></div>
+                                    <div class="card-footer ">
+                                        <p class="small text-white stretched-link" style="font-size:30px"><strong><?php echo $d['a'];?></strong></p>
                                         <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
                                     </div>
                                 </button>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button  class="card bg-warning text-white mb-4">
-                                    <div class="card-body"><b>No. of request received during the quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" style="font-size:30px" ><b><?php echo $d['b'];?></b></p>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <button  class="card bg-warning text-white mb-4 container-fluid h-100">
+                                    <div class="card-body"><strong>No. of request received during the quarter</strong></div>
+                                    <div class="card-footer ">
+                                          <p class="small text-white stretched-link text-center" style="font-size:30px" ><strong><?php echo $d['b'];?></strong></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-success text-white mb-4">
-                                    <div class="card-body"><b>No. of cases pending as on the lastday of quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" style="font-size:30px"><b><?php echo $d['c'];?></b></p>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <button class="card bg-success text-white mb-4 container-fluid h-100">
+                                    <div class="card-body"><strong>No. of cases pending as on the lastday of quarter</strong></div>
+                                    <div class="card-footer ">
+                                    <p class="small text-white stretched-link text-center" style="font-size:30px"><strong><?php echo $d['c'];?></strong></p>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><b>No. of report pending more than 120 days</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" style="font-size:30px"><b><?php echo $d['d'];?></b></p>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <button class="card bg-danger text-white mb-4 container-fluid h-100">
+                                    <div class="card-body"><strong>No. of report pending more than 120 days</strong></div>
+                                    <div class="card-footer small text-white stretched-link text-center" style="font-size:30px"><strong><?php echo $d['d'];?></strong>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
@@ -232,25 +231,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                <b>Recent Applications</b>
+                                <strong>Recent Applications</strong>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Reference No.</th>
-                                            <th>Candidate Name</th>
-                                            <th>Office Name</th>
-                                            <th>Application date</th>
-                                            <th>Status</th>
-                                            <th>(Verified/Unverified)</th>
-                                            <th>Action</th>
-                                            
+                                            <th scope="col">Reference No.</th>
+                                            <th scope="col">Candidate Name</th>
+                                            <th scope="col">Office Name</th>
+                                            <th scope="col">Application date</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">(Verified/Unverified)</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <!-- <tfoot>
                                         <tr>
-                                        <th>Reference No.</th>
+                                        <th >Reference No.</th>
                                         <th>Candidate Name</th>
                                         <th>Office Name</th>
                                         <th>Application date</th>
@@ -258,7 +256,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <th>(Verified/Unverified)</th>
                                         <th>Action</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> -->
                                     <tbody>
                                     <?php
                                         foreach($applications as $application)
@@ -271,13 +269,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
                                             <?php if($application['ocvr_approval']==0){?>
-                                                <td><div style="color:red"><b>Pending For Approval</b></div></td>
+                                                <td><div style="color:red"><strong>Pending For Approval</strong></div></td>
                                             <?php }else{?>
-                                                <td><div style="color:green"><b>Sent To IB</b></div></td>
+                                                <td><div style="color:green"><strong>Sent To IB</strong></div></td>
                                                 <?php }?>
-                                            <td><div style="color:<?php if($application['pvr_final_status_id_fk']==1){echo 'blue';}else if($application['pvr_final_status_id_fk']==2){echo 'green';}else{echo 'red';}?>"><b><?php echo $application['final_status_name']?></b></div></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a>
-                                            <br><br><a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
+                                            <td><div style="color:<?php if($application['pvr_final_status_id_fk']==1){echo 'blue';}else if($application['pvr_final_status_id_fk']==2){echo 'green';}else{echo 'red';}?>"><strong><?php echo $application['final_status_name']?></strong></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><strong><?php if($application['pvr_final_status_id_fk']==1 && $application['ocvr_approval']==1){echo 'View Details / Verify';}else{echo 'View Details';}?></strong></a>
+                                            <br><br><a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><strong>Check Status</strong></a></td>
                                         </tr>
                                     <?php
                                             
@@ -300,7 +298,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                <b>Applications Pending For Approval</b>
+                                <strong>Applications Pending For Approval</strong>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -334,7 +332,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details and Approve</b></a><br><br><div style="color:red"><b>Pending For Approval</b></div>&nbsp;&nbsp;<br><a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a><br></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><strong>View Details and Approve</strong></a><br><br><div style="color:red"><strong>Pending For Approval</strong></div>&nbsp;&nbsp;<br><a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><strong>Check Status</strong></a><br></td>
                                             
                                         </tr>
                                 
@@ -353,7 +351,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b>&nbsp;</a></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9989;</div><br></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><strong>View Details</strong>&nbsp;</a></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><strong>Check Status</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9989;</div><br></td>
                                             
                                         </tr>
                                 
@@ -377,7 +375,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                <b>Applications to confirm</b>
+                                <strong>Applications to confirm</strong>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -413,8 +411,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
                                             <td><?php echo $application['employer_name'] ?></td>
                                             <td><?php echo $application['application_date'] ?></td>
-                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b><?php if($application['pvr_final_status_id_fk']==2 && $application['adm_approval']==0){echo 'View Details / Verify';}else{echo 'View Details';}?></b></a>
-                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><strong><?php if($application['pvr_final_status_id_fk']==2 && $application['adm_approval']==0){echo 'View Details / Verify';}else{echo 'View Details';}?></strong></a>
+                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><strong>Check Status</strong></a></td>
                                         </tr>
                                     <?php
                                            }  
