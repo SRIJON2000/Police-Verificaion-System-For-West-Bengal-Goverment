@@ -216,7 +216,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="col-xl-3 col-md-6 mb-4">
                                 <button class="card bg-danger text-white mb-4 container-fluid h-100">
                                     <div class="card-body"><strong>No. of report pending more than 120 days</strong></div>
-                                    <div class="card-footer small text-white stretched-link text-center" style="font-size:30px"><strong><?php echo $d['d'];?></strong>
+                                    <div class="card-footer">
+                                        <p class="small text-white stretched-link text-center" style="font-size:30px"><strong><?php echo $d['d'];?></strong>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </button>
