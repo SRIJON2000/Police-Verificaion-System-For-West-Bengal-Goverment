@@ -153,6 +153,23 @@ class Generate_pdf extends CI_Controller
         // $mpdf->Output(); // opens in browser
         // //$mpdf->Output('welcome.pdf','D'); // it downloads the file into the user system.
     }
+    function daily_report($s,$e)
+    {
+        $dompdf = new Dompdf\Dompdf();
+        $data['applications']=$this->Application_model->fetch_ranged_applications($s,$e);
+            $data['dates']=array(array(
+                's'=>$s,
+                'e'=>$e
+            ));
+        $html = $this->load->view('themes/application_under_process_report',$data,true);
+        $dompdf->loadHtml($html);
+        
+        $dompdf->render();
+        
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("download", array("Attachment" => 0));
+    }
 }
 ?>
 

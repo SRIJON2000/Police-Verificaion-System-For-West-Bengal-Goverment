@@ -216,6 +216,10 @@ class Application extends CI_Controller
         else
         {
             $data['applications']=$this->Application_model->fetch_ranged_applications($this->input->post('start'),$this->input->post('end'));
+            $data['dates']=array(array(
+                's'=>$this->input->post('start'),
+                'e'=>$this->input->post('end')
+            ));
             $this->load->view('themes/application_under_process_report',$data);
         }
         
