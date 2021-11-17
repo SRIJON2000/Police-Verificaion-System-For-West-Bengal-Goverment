@@ -28,7 +28,7 @@
                 padding: 2%;
             }   */
             #letter{
-                background-color: #fffdfd;
+              background-color: #fffdfd;
                 margin: auto;
                 border: 2px solid #000;
             }  
