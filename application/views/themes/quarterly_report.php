@@ -35,9 +35,10 @@ table, th, td {
 
 <body>
 <div id="letter" class="mt-5 col-lg-6 col-md-12">
-<h5 class="text-center  fw-bold" align="center"> QUARTERLY REPORT(_____QUARTERLY) OF POLICE VERIFICATION<br>FOR EMPLOYMENT PURPOSE<br>FOR THE PERIOD FROM __________________ TO __________________ </h5>
+    <?php foreach($dates as $date){?>
+<h5 class="text-center  fw-bold" align="center"> QUARTERLY REPORT(_____QUARTERLY) OF POLICE VERIFICATION<br>FOR EMPLOYMENT PURPOSE<br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?> </h5>
    <br> <table class="content">
-        
+       <?php foreach($numbers as $number){?> 
         <tr>
             <th>
                 Sl No.
@@ -60,7 +61,7 @@ table, th, td {
                 No of cases pending enquiries in the last<br>day of previous quarter.
             </td>
             <td>
-
+                &nbsp;<b><?php echo $number['a'];?></b>
             </td>
             <td>
 
@@ -74,7 +75,7 @@ table, th, td {
                 No of request received during the<br>quarter.
             </td>
             <td>
-
+            &nbsp;<b><?php echo $number['b'];?></b>
             </td>
             <td>
 
@@ -116,7 +117,7 @@ table, th, td {
                 No of cases pending as on the last day<br>of quarter.
             </td>
             <td>
-
+            &nbsp;<b><?php echo $number['c'];?></b>
             </td>
             <td>
 
@@ -130,15 +131,19 @@ table, th, td {
                 No of report pending more than 120 days.
             </td>
             <td>
-
+            &nbsp;<b><?php echo $number['d'];?></b>
             </td>
             <td>
 
             </td>
         </tr>
     </table><br>
+    <?php }?>
     <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate Howrah</b> </div>
         </div>
+        <div class="text-centre d-flex justify-content-center">
+    <a href="<?php echo base_url()?>Generate_pdf/quarterly_report/<?php echo $date['s']?>/<?php echo $date['s']?>" class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
+    <?php }?>
 </body>
 </html>
 

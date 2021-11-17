@@ -170,6 +170,31 @@ class Generate_pdf extends CI_Controller
         // Output the generated PDF to Browser
         $dompdf->stream("download", array("Attachment" => 0));
     }
+    function quarterly_report($s,$e)
+    {
+        $dompdf = new Dompdf\Dompdf();
+        $data['dates']=array(array(
+            's'=>$this->input->post('start'),
+            'e'=>$this->input->post('end')
+        ));
+        $a= $this->Application_model->a();
+        $b =$this->Application_model->b();
+        $c =$this->Application_model->c();
+        $d =$this->Application_model->d();
+        $data['numbers']=array(array(
+            'a'=>$a,
+            'b'=>$b,
+            'c'=>$c,
+            'd'=>$d));
+        $html = $this->load->view('themes/quarterly_report',$data,true);
+        $dompdf->loadHtml($html);
+        
+        $dompdf->render();
+        
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("download", array("Attachment" => 0));
+    }
 }
 ?>
 

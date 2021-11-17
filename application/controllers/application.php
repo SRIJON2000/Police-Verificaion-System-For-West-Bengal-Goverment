@@ -224,6 +224,35 @@ class Application extends CI_Controller
         }
         
     }
+    function quarterly_report()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('start', 'Start Date', 'required');
+        $this->form_validation->set_rules('end', 'End Date', 'required');
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', 'Fields Required');
+            redirect('Home/date_range_for_quarterly_report');
+        }
+        else
+        {
+            $data['dates']=array(array(
+                's'=>$this->input->post('start'),
+                'e'=>$this->input->post('end')
+            ));
+            $a= $this->Application_model->a();
+            $b =$this->Application_model->b();
+            $c =$this->Application_model->c();
+            $d =$this->Application_model->d();
+            $data['numbers']=array(array(
+                'a'=>$a,
+                'b'=>$b,
+                'c'=>$c,
+                'd'=>$d));
+            $this->load->view('themes/quarterly_report',$data);
+        }
+        
+    }
     function generate_memo()
     {
         $code='';

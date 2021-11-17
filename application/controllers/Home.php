@@ -93,9 +93,10 @@
             $this->load->view('themes/emp_letter',$data);
         }
         function quarterly_report()
-        {
-            $this->load->view('themes/quarterly_report');
-        }
+    {
+        
+        $this->load->view('themes/quarterly_report');
+    }
         
         
         // function dashboard_ocvr()
@@ -143,6 +144,10 @@
         function date_range()
         {
             $this->load->view('themes/date_range');
+        }
+        function date_range_for_quarterly_report()
+        {
+            $this->load->view('themes/date_range_for_quarterly_report');
         }
         function all_verified_list()
         {
