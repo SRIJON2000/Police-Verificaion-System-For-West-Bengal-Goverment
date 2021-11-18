@@ -66,8 +66,8 @@ table, th, td {
             <th>Name of Candidates with Address</th>
             <th>Name of the Employer with Address</th>
             <th>Employer's Memo No. & Date</th>
-            <th>This office memo No.& Date</th>
-            <th>Receiving Date</th>
+            <th>DM Office memo No.& Date</th>
+            <th>Receive Date</th>
             <!-- <th>I.B.'s No. & Date</th>
             <th>Final V.R. Ready  Date</th>
             <th>Final V.R. No. & Date</th>
