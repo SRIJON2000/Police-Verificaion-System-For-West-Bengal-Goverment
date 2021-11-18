@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title icon="">Admin Dashboard</title>
+        <title icon="">Activity Log</title>
         <link rel = "icon" href ="<?php echo base_url();?>/application/views/pics/office.png" type = "image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3">Operations</a>
-            <!-- Sidebar Toggle--> 
+            <!-- Sidebar Toggle-->
             <div class="d-inline"><button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button></div>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-3 me-lg-4 d-flex justify-content-end" >
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <strong><?php echo $this->session->userdata('user_type')." "?>(<?php echo $this->session->userdata('district_name')?>)</strong></div></li>
                             <hr id="sm_show">
                             <li><a class="dropdown-item" href="#!">Settings</a></li>
-                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dasboard_adm">Dashboard</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
                         </ul>
@@ -186,7 +186,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Dashboard</h1><br/>
+                        <h1 class="mt-4 text-center">Activity Log</h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->

@@ -23,6 +23,24 @@
         {
             $this->load->view('themes/dashboard_employer');
         }
+        function activity_log()
+        {
+            // $data=$this->load_captcha();
+            // $this->load->view('themes/admin_login',$data);
+            $this->load->model('application_model');
+            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
+            $a= $this->application_model->a();
+            $b =$this->application_model->b();
+            $c =$this->application_model->c();
+            $d =$this->application_model->d();
+            $data['numbers']=array(array(
+                'a'=>$a,
+                'b'=>$b,
+                'c'=>$c,
+                'd'=>$d));
+            $this->load->view('themes/activity_log',$data);
+            //$this->load->view('themes/dashboard_adm',$data);
+        }
         
         function dashboard_adm()
         {
