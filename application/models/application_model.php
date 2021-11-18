@@ -648,5 +648,25 @@ class Application_model extends CI_Model
         $number=$query->num_rows();
         return $number;
     }
+    function activity_log(){
+        $this->db->select_max('audit_id_pk');
+        $this->db->from('pvr_audit_log');
+        $query=$this->db->get();
+        $maxpvr_id=$query->row();
+        
+        if(empty($maxpvr_id))
+        {
+            $maxpvr_id->audit_id_pk=1;
+        }
+        else
+        {
+            $maxpvr_id->audit_id_pk=$maxpvr_id->audit_id_pk+1;
+        }
+        $section = $this->session->userdata('office_name');
+        $action = $this->session->userdata('action');
+        $ip_address = $this->session->userdata('ip_address');
+        $login_id = $this->session->userdata('username');
+        $timestamp = date('Y-m-d H:i:s');
+    }
 }
 ?>
