@@ -20,6 +20,10 @@
   max-width: 500px;
   margin: auto;
 }
+th,td{
+              padding: 5px;
+
+            }
 #letter{
                 background-color: #fffdfd;
                 margin: auto;
@@ -140,7 +144,7 @@ table, th, td {
     </table><br>
     <?php }?>
     <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate Howrah</b> </div>
-        </div>
+        </div><br>
         <div class="text-centre d-flex justify-content-center">
     <a href="<?php echo base_url()?>Generate_pdf/quarterly_report/<?php echo $date['s']?>/<?php echo $date['s']?>" class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
     <?php }?>

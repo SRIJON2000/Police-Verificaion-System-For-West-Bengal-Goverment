@@ -26,11 +26,18 @@
                 border: 2px solid #000;
                 height: 800px;
                 padding: 2%;
-            }   */
+            } */
+            th,td{
+              padding: 5px;
+
+            }
+
+
             #letter{
               background-color: #fffdfd;
                 margin: auto;
-                border: 2px solid #000;
+                /* border: 2px solid #000; */
+
             }  
             #letter_body  {
               margin: 2%;
@@ -59,7 +66,7 @@ table, th, td {
   <?php foreach($dates as $date){?>
 <h5 class="text-center  fw-bold" align="center"> Application details<br><br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?></h5>
    
-<br> <table class="content">
+<br> <table class="content " style="margin: 0px 5px;" >
         <thead>
         <tr style="text-align:center">
             <th>Sl No.</th>
