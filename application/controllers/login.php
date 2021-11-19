@@ -79,7 +79,7 @@ class Login extends CI_Controller
                                     'district_name'=>$result['district_name'],
                                     'current_url'=> current_url(),
                                     'action'=> "Login Successful",
-                                    'ip_address'=>$this->request->getIPAddress(),
+                                    // 'ip_address'=>$this->request->getIPAddress(),
                                     'isloggedin'=>True);
                 
                 $this->load->library('session');
