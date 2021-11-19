@@ -67,7 +67,7 @@ table, th, td {
 <h5 class="text-center  fw-bold" align="center"> Application details<br><br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?></h5>
    
 <br> <table class="content " style="margin: 0px 5px; color:black;" >
-        <thead>
+        <!-- <thead> -->
         <tr style="text-align:center">
             <th>Sl No.</th>
             <th>Name of Candidates with Address</th>
@@ -80,15 +80,15 @@ table, th, td {
             <th>Final V.R. No. & Date</th>
             <th>Remarks</th> -->
         </tr>
-        </thead>
-        <tbody>
+        <!-- </thead> -->
+        <!-- <tbody> -->
         <?php
         $count=1;
               foreach($applications as $application)
            {                                 
           ?>
           <tr>
-            <td><?php echo $count;?></td>
+            <td><b>1.</b><?php //echo $count;?></td>
             <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name'].'/'.$application['candidate_house_no1'].' '.$application['candidate_street1'].' '.$application['candidate_city1'].' '.$application['pincode_no']?></td>
             <td><?php echo $application['employer_name'].'/'.$application['employer_add1'] ?></td>
             <td><?php echo $application['ref_no_pk'].'/'.$application['ref_date']?></td>
@@ -100,7 +100,7 @@ table, th, td {
             <th>Remarks</th> -->
         </tr>
         <?php $count=$count+1;}?>
-        </tbody>
+        <!-- </thead> -->
         
     </table><br>
     
