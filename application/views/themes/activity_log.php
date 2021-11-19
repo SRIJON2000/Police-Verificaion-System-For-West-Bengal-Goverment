@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$this->load->library('session');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -200,13 +200,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Time Stamp</th>
                             </tr></thead>
                             <tbody><tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php?></td>
+                                <td><?php?></td>
+                                <td><?php?></td>
+                                <td><?php?></td>
+                                <td><?php?></td>
+                                <td><?php?></td>
+                                <td><?php?></td>
                             </tr></tbody>
                         </table>
                     </div>

@@ -32,7 +32,7 @@
             $a= $this->application_model->a();
             $b =$this->application_model->b();
             $c =$this->application_model->c();
-            $d =$this->application_model->d();
+            $d =$this->application_model->d();  
             $data['numbers']=array(array(
                 'a'=>$a,
                 'b'=>$b,

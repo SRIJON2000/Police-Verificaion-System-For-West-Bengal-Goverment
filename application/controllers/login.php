@@ -73,15 +73,14 @@ class Login extends CI_Controller
                                     'office_name'=>$result['office_name'],
                                     'user_type'=>$result['user_type'],
                                     'office_district'=>$result['office_district'],
-                                    'office_state'=>$result['office_state'],
+                                    'office_state'=>$result['office_state'], 
                                     'department'=>$result['department'],
                                     'department_id'=>$result['department_id'],
                                     'district_name'=>$result['district_name'],
-                                    'current_url'=> current_url(),
-                                    'action'=> "Login Successful",
+                                    'current_url'=>current_url(),
                                     'ip_address'=>$this->input->ip_address(),
                                     'isloggedin'=>True);
-                
+                //$this->application_model->activity_log($result['office_name'],'Login Successful',current_url(),$this->input->ip_address(),$email);
                 $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
                 

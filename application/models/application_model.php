@@ -648,7 +648,7 @@ class Application_model extends CI_Model
         $number=$query->num_rows();
         return $number;
     }
-    function activity_log(){
+    function activity_log($section,$action,$current_url,$ip_address,$u_nm){
         $this->db->select_max('audit_id_pk');
         $this->db->from('pvr_audit_log');
         $query=$this->db->get();
@@ -662,11 +662,25 @@ class Application_model extends CI_Model
         {
             $maxpvr_id->audit_id_pk=$maxpvr_id->audit_id_pk+1;
         }
-        $section = $this->session->userdata('office_name');
-        $action = $this->session->userdata('action');
-        $ip_address = $this->session->userdata('ip_address');
-        $login_id = $this->session->userdata('username');
-        $timestamp = date('Y-m-d H:i:s');
+
+        $this->db->select('login_id_pk');
+        $this->db->from('pvr_login');
+        $this->db->where('username<=',$u_nm);
+        $query=$this->db->get();
+        $u_id=$query->result();
+
+        $log_data=array(
+            'audit_id_pk' => $maxpvr_id->audit_id_pk,
+            'section' => $section,//$this->session->userdata('office_name'),
+            'action' => $action,
+            'request' => $current_url,//this->session->userdata('current_url'),
+            'comment' => "N/A",
+            'ip_addr' => $ip_address,
+            'login_id_fk' => $u_id->login_id_pk,
+            'timestamp' => date('Y-m-d H:i:s')
+        );
+        //$this->db->insert('pvr_audit_log',$log_data);
+
     }
 }
 ?>
