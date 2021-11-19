@@ -66,7 +66,7 @@ table, th, td {
   <?php foreach($dates as $date){?>
 <h5 class="text-center  fw-bold" align="center"> Application details<br><br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?></h5>
    
-<br> <table class="content " style="margin: 0px 5px;" >
+<br> <table class="content " style="margin: 0px 5px; color:black;" >
         <thead>
         <tr style="text-align:center">
             <th>Sl No.</th>
@@ -88,12 +88,12 @@ table, th, td {
            {                                 
           ?>
           <tr>
-            <th><?php echo $count;?></th>
-            <th><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name'].'/'.$application['candidate_house_no1'].' '.$application['candidate_street1'].' '.$application['candidate_city1'].' '.$application['pincode_no']?></th>
-            <th><?php echo $application['employer_name'].'/'.$application['employer_add1'] ?></th>
-            <th><?php echo $application['ref_no_pk'].'/'.$application['ref_date']?></th>
-            <th><?php echo $application['memo_no'].'/'.$application['issue_date']?></th>
-            <th><?php echo $application['application_date']?></th>
+            <td><?php echo $count;?></td>
+            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name'].'/'.$application['candidate_house_no1'].' '.$application['candidate_street1'].' '.$application['candidate_city1'].' '.$application['pincode_no']?></td>
+            <td><?php echo $application['employer_name'].'/'.$application['employer_add1'] ?></td>
+            <td><?php echo $application['ref_no_pk'].'/'.$application['ref_date']?></td>
+            <td><?php echo $application['memo_no'].'/'.$application['issue_date']?></td>
+            <td><?php echo $application['application_date']?></td>
             <!-- <th>I.B.'s No. & Date</th>
             <th>Final V.R. Ready  Date</th>
             <th>Final V.R. No. & Date</th>
