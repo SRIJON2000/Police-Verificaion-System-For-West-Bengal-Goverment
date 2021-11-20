@@ -189,7 +189,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
-                        <?php $fetched_data= $this->application_model->activity_log_update(); ?>
+                        <?php $fetched_data= $this->application_model->activity_log_update(); 
+                        $lim = $this->application_model->bind();?>
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">
                             <thead><tr>
                                 <th>Sl.No.</th>
@@ -200,15 +201,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Login Credentials</th>
                                 <th>Time Stamp</th>
                             </tr></thead>
-                            <tbody><tr>
-                                <td><?php echo $fetched_data->audit_id_pk;?></td>
-                                <td><?php echo $fetched_data->section;?></td>
-                                <td><?php echo $fetched_data->action;?></td>
-                                <td><?php echo $fetched_data->comments;?></td>
-                                <td><?php echo $fetched_data->ip_addr;?></td>
-                                <td><?php echo $fetched_data->login_id_pk; ?></td>
-                                <td><?php echo $fetched_data->timestamp;?></td>
-                            </tr></tbody>
+                            <tbody>
+                            <?php for ($i = 1; $i <=$lim->audit_id_pk; $i++){?>
+                                <tr>
+                                    <td><?php echo $fetched_data->audit_id_pk;?></td>
+                                    <td><?php echo $fetched_data->section;?></td>
+                                    <td><?php echo $fetched_data->action;?></td>
+                                    <td><?php echo $fetched_data->request;?></td>
+                                    <td><?php echo $fetched_data->ip_addr;?></td>
+                                    <td><?php echo $fetched_data->login_id_fk; ?></td>
+                                    <td><?php echo $fetched_data->timestamp;?></td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
                         </table>
                     </div>
                 </main>

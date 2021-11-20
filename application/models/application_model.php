@@ -693,5 +693,13 @@ class Application_model extends CI_Model
         $log_data = $query->row();
         return $log_data;
     }
+
+    function bind(){
+        $this->db->select_max('audit_id_pk');
+        $this->db->from('pvr_audit_log');
+        $query = $this->db->get();
+        $ul = $query->row();
+        return $ul;
+    }
 }
 ?>
