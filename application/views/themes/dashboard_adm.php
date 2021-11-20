@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <style>
         input[type=submit]{
-            background-color: #04AA6D;
+            background-color: #04AA6D; 
             color: white;
             padding: 12px 20px;
             border: none;

@@ -79,13 +79,12 @@ class Login extends CI_Controller
                                     'district_name'=>$result['district_name'],
                                     'current_url'=>current_url(),
                                     'ip_address'=>$this->input->ip_address(),
-                                    'isloggedin'=>True);
-                //$this->application_model->activity_log($result['office_name'],'Login Successful',current_url(),$this->input->ip_address(),$email);
+                                    'isloggedin'=>True); 
+
+                $this->application_model->activity_log($result['office_name'],'Login Successful',current_url(),$this->input->ip_address(),$email);
                 $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
                 
-                
-
                 unset($sessionArray['username'], $sessionArray['office_name'],$sessionArray['user_type']);
                 redirect('Home/dashboard_adm');
             }

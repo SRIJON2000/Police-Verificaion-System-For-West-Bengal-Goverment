@@ -24,7 +24,7 @@
             $this->load->view('themes/dashboard_employer');
         }
         function activity_log()
-        {
+        { 
             // $data=$this->load_captcha();
             // $this->load->view('themes/admin_login',$data);
             $this->load->model('application_model');
