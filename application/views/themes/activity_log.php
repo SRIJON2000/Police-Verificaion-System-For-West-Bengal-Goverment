@@ -189,6 +189,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
+                        <?php $fetched_data= $this->application_model->activity_log_update(); ?>
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">
                             <thead><tr>
                                 <th>Sl.No.</th>
@@ -205,8 +206,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?php?></td>
                                 <td><?php?></td>
                                 <td><?php?></td>
-                                <td><?php?></td>
-                                <td><?php?></td>
+                                <td><?php echo $fetched_data->login_id_pk; ?></td>
+                                <td><?php ?></td>
                             </tr></tbody>
                         </table>
                     </div>

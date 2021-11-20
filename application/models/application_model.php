@@ -677,11 +677,19 @@ class Application_model extends CI_Model
             'request' => $current_url,//this->session->userdata('current_url'),
             'comment' => "N/A",
             'ip_addr' => $ip_address,
-            'login_id_fk' => $u_id,
+            'login_id_pk' => $u_id,
             'timestamp' => date('Y-m-d H:i:s')
         );
         $this->db->insert('pvr_audit_log',$log_data);
 
+    }
+
+    function activity_log_update(){
+        $this->db->select('*');
+        $this->db->from('pvr_login');
+        $query = $this->db->get();
+        $log_data = $query->row();
+        return $log_data;
     }
 }
 ?>

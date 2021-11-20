@@ -29,7 +29,7 @@
             // $this->load->view('themes/admin_login',$data);
             $this->load->model('application_model');
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
-            $a= $this->application_model->a();
+            $a= $this->application_model->a(); 
             $b =$this->application_model->b();
             $c =$this->application_model->c();
             $d =$this->application_model->d();  
