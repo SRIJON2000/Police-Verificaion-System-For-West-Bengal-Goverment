@@ -201,13 +201,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Time Stamp</th>
                             </tr></thead>
                             <tbody><tr>
-                                <td><?php?></td>
-                                <td><?php?></td>
-                                <td><?php?></td>
-                                <td><?php?></td>
-                                <td><?php?></td>
+                                <td><?php echo $fetched_data->audit_id_pk;?></td>
+                                <td><?php echo $fetched_data->section;?></td>
+                                <td><?php echo $fetched_data->action;?></td>
+                                <td><?php echo $fetched_data->comments;?></td>
+                                <td><?php echo $fetched_data->ip_addr;?></td>
                                 <td><?php echo $fetched_data->login_id_pk; ?></td>
-                                <td><?php ?></td>
+                                <td><?php echo $fetched_data->timestamp;?></td>
                             </tr></tbody>
                         </table>
                     </div>
