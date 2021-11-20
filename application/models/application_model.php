@@ -667,8 +667,10 @@ class Application_model extends CI_Model
         $this->db->from('pvr_login');
         $this->db->where('username<=',$u_nm);
         $query = $this->db->get();
-        $u_id_log = $query->row();
-        $u_id = $u_id_log->login_id_pk;
+        $u_id_log = $query->result_array();
+        foreach($u_id_log as $row){
+            $u_id[] = $row['login_id_pk'];
+        }
 
         $log_data=array(
             'audit_id_pk' => $maxpvr_id->audit_id_pk,
@@ -677,7 +679,7 @@ class Application_model extends CI_Model
             'request' => $current_url,//this->session->userdata('current_url'),
             'comment' => "N/A",
             'ip_addr' => $ip_address,
-            'login_id_pk' => $u_id,
+            'login_id_fk' => (int)$u_id[0],
             'timestamp' => date('Y-m-d H:i:s')
         );
         $this->db->insert('pvr_audit_log',$log_data);
@@ -686,7 +688,7 @@ class Application_model extends CI_Model
 
     function activity_log_update(){
         $this->db->select('*');
-        $this->db->from('pvr_login');
+        $this->db->from('pvr_audit_log');
         $query = $this->db->get();
         $log_data = $query->row();
         return $log_data;
