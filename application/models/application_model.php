@@ -691,7 +691,24 @@ class Application_model extends CI_Model
         $this->db->from('pvr_audit_log');
         $query = $this->db->get();
         $log_data = $query->row();
-        return $log_data;
+
+        $this->db->select('username');
+        $this->db->from('pvr_login');
+        $this->db->where('login_id_pk',$log_data->login_id_fk);
+        $query = $this->db->get();
+        $username = $query->row();
+        
+        $result=array(
+            'Sl_no'=>$log_data->audit_id_pk,
+            'section'=>$log_data->section,
+            'action'=>$log_data->action,
+            'request'=>$log_data->request,
+            'ip_add'=>$log_data->ip_addr,
+            'timestamp'=>$log_data->timestamp,
+            'username'=>$username->username
+        );
+
+        return $result;
     }
 
     function bind(){

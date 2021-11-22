@@ -257,7 +257,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php
                                         foreach($applications as $application)
                                         {
-                                            
                                     ?>
                                         <tr>
                                             <td><?php echo $application['ref_no_pk']?></td>

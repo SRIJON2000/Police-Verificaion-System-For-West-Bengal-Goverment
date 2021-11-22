@@ -193,24 +193,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $lim = $this->application_model->bind();?>
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">
                             <thead><tr>
-                                <th>Sl.No.</th>
-                                <th>Section</th>
-                                <th>Action</th>
-                                <th>Request</th>
-                                <th>IP Address</th>
-                                <th>Login Credentials</th>
-                                <th>Time Stamp</th>
+                                <th span="col">Sl.No.</th>
+                                <th span="col">Section</th>
+                                <th span="col">Action</th>
+                                <th span="col">Request</th>
+                                <th span="col">IP Address</th>
+                                <th span="col">Login Credentials</th>
+                                <th span="col">Time Stamp</th>
                             </tr></thead>
                             <tbody>
                             <?php for ($i = 1; $i <=$lim->audit_id_pk; $i++){?>
                                 <tr>
-                                    <td><?php echo $fetched_data->audit_id_pk;?></td>
-                                    <td><?php echo $fetched_data->section;?></td>
-                                    <td><?php echo $fetched_data->action;?></td>
-                                    <td><?php echo $fetched_data->request;?></td>
-                                    <td><?php echo $fetched_data->ip_addr;?></td>
-                                    <td><?php echo $fetched_data->login_id_fk; ?></td>
-                                    <td><?php echo $fetched_data->timestamp;?></td>
+                                    <td><?php echo $fetched_data['Sl_no'];?></td>
+                                    <td><?php echo $fetched_data['section'];?></td>
+                                    <td><?php echo $fetched_data['action'];?></td>
+                                    <td><?php echo $fetched_data['request'];?></td>
+                                    <td><?php echo $fetched_data['ip_add'];?></td>
+                                    <td><?php echo $fetched_data['username']; ?></td>
+                                    <td><?php echo $fetched_data['timestamp'];?></td>
                                 </tr>
                             <?php } ?>
                             </tbody>
