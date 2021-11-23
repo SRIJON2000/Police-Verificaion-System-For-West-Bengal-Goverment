@@ -81,7 +81,8 @@ class Login extends CI_Controller
                                     'ip_address'=>$this->input->ip_address(),
                                     'isloggedin'=>True); 
 
-                $this->application_model->activity_log($result['office_name'],'Login Successful',current_url(),$this->input->ip_address(),$email); 
+                //$this->application_model->activity_log($result['office_name'],'Login Successful',current_url(),$this->input->ip_address(),$email); 
+                $this->application_model->activity_log($result['department'],'Login Successful',current_url(),$this->input->ip_address(),$email);
                 $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
                 

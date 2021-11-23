@@ -686,30 +686,47 @@ class Application_model extends CI_Model
 
     }
 
-    function activity_log_update(){
+    // function activity_log_update(){
+    //     $this->db->select('*');
+    //     $this->db->from('pvr_audit_log');
+    //     $query = $this->db->get();
+    //     $log_data = $query->row();
+
+    //     $this->db->select('username');
+    //     $this->db->from('pvr_login');
+    //     $this->db->where('login_id_pk',$log_data->login_id_fk);
+    //     $query = $this->db->get();
+    //     $username = $query->row();
+        
+    //     $result=array(
+    //         'Sl_no'=>$log_data->audit_id_pk,
+    //         'section'=>$log_data->section,
+    //         'action'=>$log_data->action,
+    //         'request'=>$log_data->request,
+    //         'ip_add'=>$log_data->ip_addr,
+    //         'timestamp'=>$log_data->timestamp,
+    //         'username'=>$username->username
+    //     );
+
+    //     return $result;
+    // }
+
+    function activity_log_update($username){
+        
+        $this->db->select('login_id_pk');
+        $this->db->from('pvr_login');
+        $this->db->where('username',$username);
+        $query = $this->db->get();
+        $login_id = $query->row();
+
         $this->db->select('*');
         $this->db->from('pvr_audit_log');
-        $query = $this->db->get();
-        $log_data = $query->row();
-
-        $this->db->select('username');
-        $this->db->from('pvr_login');
-        $this->db->where('login_id_pk',$log_data->login_id_fk);
-        $query = $this->db->get();
-        $username = $query->row();
-        
-        $result=array(
-            'Sl_no'=>$log_data->audit_id_pk,
-            'section'=>$log_data->section,
-            'action'=>$log_data->action,
-            'request'=>$log_data->request,
-            'ip_add'=>$log_data->ip_addr,
-            'timestamp'=>$log_data->timestamp,
-            'username'=>$username->username
-        );
-
-        return $result;
+        $this->db->where('login_id_fk',$login_id->login_id_pk);
+        $log_data=$this->db->get();
+        return $log_data->result_array();
     }
+
+
 
     function bind(){
         $this->db->select_max('audit_id_pk');

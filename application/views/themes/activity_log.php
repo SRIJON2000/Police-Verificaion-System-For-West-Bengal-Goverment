@@ -189,8 +189,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
-                        <?php $fetched_data= $this->application_model->activity_log_update(); 
-                        $lim = $this->application_model->bind();?>
+                        <?php //$fetched_data= $this->application_model->activity_log_update();
+                        //$lim = $this->application_model->bind();
+                        
+                        ?>
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">
                             <thead><tr>
                                 <th span="col">Sl.No.</th>
@@ -202,17 +204,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th span="col">Time Stamp</th>
                             </tr></thead>
                             <tbody>
-                            <?php for ($i = 1; $i <=$lim->audit_id_pk; $i++){?>
+
+                            <?php //for ($i = 1; $i <=$lim->audit_id_pk; $i++)
+                            $c=1;
+                            foreach($logs as $log)
+                            {
+                            ?>
                                 <tr>
-                                    <td><?php echo $fetched_data['Sl_no'];?></td>
-                                    <td><?php echo $fetched_data['section'];?></td>
-                                    <td><?php echo $fetched_data['action'];?></td>
-                                    <td><?php echo $fetched_data['request'];?></td>
-                                    <td><?php echo $fetched_data['ip_add'];?></td>
-                                    <td><?php echo $fetched_data['username']; ?></td>
-                                    <td><?php echo $fetched_data['timestamp'];?></td>
+                                    <td><?php echo $c;?></td>
+                                    <td><?php echo $log['section'];?></td>
+                                    <td><?php echo $log['action'];?></td>
+                                    <td><?php echo $log['request'];?></td>
+                                    <td><?php echo $log['ip_addr'];?></td>
+                                    <td><?php echo $this->session->userdata('username'); ?></td>
+                                    <td><?php echo $log['timestamp'];?></td>
                                 </tr>
-                            <?php } ?>
+                            <?php $c=$c+1;} ?>
                             </tbody>
                         </table>
                     </div>
