@@ -272,7 +272,7 @@
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
        function notification(){
-           
+        $this->load->view('themes/notification');
        }
     }
 ?>

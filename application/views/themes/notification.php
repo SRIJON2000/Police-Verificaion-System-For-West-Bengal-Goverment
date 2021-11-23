@@ -184,10 +184,185 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 </nav>
             </div>
-            <?php foreach($numbers as $d){?>
+            
             <div id="layoutSidenav_content">
                 <main>
-                    
+                <div class="row">
+                    <div class="col-md-8">
+                    <section class='content'>
+                        <div class='container-fluid'>
+                            <div class='row'>
+
+                            <div class="col-md-12">
+                                <div class="card">
+                                <div class="card-header bg-info">
+                                    <h3 class="card-title">Received Notifications</strong></h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body" id="refresh">
+                                    <table id="example1" class="table table-bordered table-striped table-hover equal-width">
+                                    <thead class="bg-warning">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Notification Body</th>
+                                    </tr>
+                                    </thead>
+                                    <!-- <tbody>
+                                    <?php 
+                                        
+                                        // $i=1;
+                                        // foreach($noti1 as $row){
+                                        //     echo "<tr>";
+                                        //     echo "<td>".$row['audience_id']."-".$row['notification_id_pk']."</td>";
+                                        //     echo "<td>".$row['notification_head']."</td>";
+                                        //     echo "<td>".$row['notification_text']."</td>";
+                                        //     echo "</tr>";
+                                        //     $i++;
+                                        // }
+                                    ?>
+                                    </tbody> -->
+                                    <tfoot>
+                                    <tr>
+                                        <!-- nothing for footer now -->
+                                    </tr>
+                                    </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                                </div>
+                            </div>
+                            
+                            <!-- right column -->
+                            <div class='col-md-1'>
+                            
+
+                            </div>
+                            <!--/.col (right) -->
+                            </div>
+                            <!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </section>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="card card-primary card-outline mx-auto" >
+                        <div class="card-body login-card-body">
+                        <p class="login-box-msg">
+                        <strong>
+                        <heading_noti>
+                            CUSTOM NOTIFICATIONS
+                        </heading_noti>
+                        </strong>
+                        </p>
+                        <?php //echo form_open('Super_Admin/notify','id="form"');?>
+                        <!--<form method="POST" action="" id="form"> -->
+                            <div class="input-group mb-3">
+                            <input name="noti_head" id="noti_head" type="text" class="form-control" placeholder="Notification Title" >
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                <span class="fas fa-quote-right"></span>
+                                </div>
+                            </div>
+                            </div>
+                            <hr/>
+                                <div>
+                                <Hide_desig_loc class="bg-purple" style="text-align:center; padding:10px; border-radius:5px; cursor:pointer; display:block;">Click here to Broadcast to All</Hide_desig_loc>
+                                </div>
+                            <hr/>
+                            <radiobuttonsel>
+                            <p>Send Notifications depending on:</p>
+                            
+                            <input type="radio" id="usertypelocr" name="radiosel" value="usertypelocr" style="cursor:pointer">
+                            <label for="usertypelocr">User Type and Location</label>
+                            <br>
+                            <input type="radio" id="designat" name="radiosel" value="designat" style="cursor:pointer">
+                            <label for="designat">Designation</label>
+                            <br>
+                            </radiobuttonsel>
+
+                                    <choose_desigloc id="rdd1">
+                                    <choose_desig>                          <!--  usertype + location  -->
+                                        <div class="col-md-8">
+                                        <div class="form-group">
+                                        <label>Target UserType</label>      
+                                            <select name="audience_ut" id="audience_ut" class="form-control">      
+                                            <option value="" selected>Select User Type:</option>
+                                            
+                                            
+                                                <option value="-1">Everyone</option>
+                                            </select>
+
+                                        </div>
+                                        </div>
+                                    </choose_desig>
+                                    <choose_loc>
+                                        <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <label>Target Location</label>
+
+                                            <select name="audience_loc" id="audience_loc" class="form-control"> 
+                                            <option value="" selected>Select Location</option>
+                                            
+                                                
+                                                <option value="-1">Everywhere</option>
+                                            </select>
+
+                                        </div>
+                                        </div>
+                                    </choose_loc>
+                                    </choose_desigloc>
+
+
+
+
+
+                                    <choose_desig_only id="rdd2">
+
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                        <label>Target Designation</label>      
+                                            <select name="audience_desig_only" id="audience_desig_only" class="form-control">      
+                                            <option value="" selected>Select Designation:</option>
+                                            
+                                                <option value="-1">Everyone</option>
+                                            </select>
+                                                
+                                        </div>
+                                        </div>
+
+
+                                    </choose_desig_only>
+
+
+
+                                            <div class="input-group mb-3">
+                                                    <textarea name="noti_text" id="noti_text" class="form-control" rows="3" placeholder="Enter Notification body..."></textarea>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                <span class="fas fa-bell"></span>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            
+                                            <div id="errors" style="color:red;"></div>
+                                            <div class="row">
+                                            <div class="col-12">
+                                            <Refresh_page_after_submit>
+                                                <button type="submit" id='err' id="submit" name="submit" value="Submit" class="btn btn-primary float-right" style="border-radius: 50%;" ><span class="fas fa-paper-plane"></span></button>
+                                            </Refresh_page_after_submit>
+                                            </div>
+                                            <!-- /.col -->
+                                            </div>
+                                        <!--</form>-->
+                                        </div>
+                                        <!-- /.login-card-body -->
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </section>
+                                </div>
                 </main>
                 
             </div>
