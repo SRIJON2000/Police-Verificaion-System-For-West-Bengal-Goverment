@@ -271,5 +271,8 @@
                 'd'=>$d));
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
+       function notification(){
+           
+       }
     }
 ?>

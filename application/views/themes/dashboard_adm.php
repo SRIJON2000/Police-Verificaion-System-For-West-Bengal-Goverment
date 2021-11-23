@@ -77,7 +77,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <hr id="sm_show">
                             <li><a class="dropdown-item" href="#!">Settings</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification</a></li>
                             <li><hr class="dropdown-divider" /></li>
+                            
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
                         </ul>
                     </li>
