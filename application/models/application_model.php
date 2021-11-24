@@ -665,13 +665,14 @@ class Application_model extends CI_Model
 
         $this->db->select('login_id_pk');
         $this->db->from('pvr_login');
-        $this->db->where('username<=',$u_nm);
+        $this->db->where('username',$u_nm);
         $query = $this->db->get();
         $u_id_log = $query->row();
         // foreach($u_id_log as $row){
         //     $u_id[] = $row['login_id_pk'];
         // }
-
+        date_default_timezone_set("Asia/Kolkata");
+        $time =  Date('Y-m-d h:i:s');
         $log_data=array(
             'audit_id_pk' => $maxpvr_id->audit_id_pk,
             'section' => $section,//$this->session->userdata('office_name'),
@@ -680,7 +681,7 @@ class Application_model extends CI_Model
             'comment' => "N/A",
             'ip_addr' => $ip_address,
             'login_id_fk' => $u_id_log->login_id_pk,
-            'timestamp' => date('Y-m-d H:i:s')
+            'timestamp' => $time
         );
         $this->db->insert('pvr_audit_log',$log_data);
 
