@@ -205,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </tr></thead>
                             <tbody>
 
-                            <?php //for ($i = 1; $i <=$lim->audit_id_pk; $i++)
+                            <?php
                             $c=1;
                             foreach($logs as $log)
                             {
