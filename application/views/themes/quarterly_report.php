@@ -146,7 +146,7 @@ table, th, td {
     <div class="d-flex justify-content-end fw-bold" align="right"><b>For District Magistrate Howrah</b> </div>
         </div><br>
         <div class="text-centre d-flex justify-content-center">
-    <a href="<?php echo base_url()?>Generate_pdf/quarterly_report/<?php echo $date['s']?>/<?php echo $date['s']?>" class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
+    <a href="<?php echo base_url()?>Generate_pdf/quarterly_report/<?php echo $date['s']?>/<?php echo $date['e']?>" target="_blank" class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
     <?php }?>
 </body>
 </html>

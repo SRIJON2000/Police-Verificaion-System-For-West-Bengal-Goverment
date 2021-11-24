@@ -64,7 +64,7 @@ table, th, td {
     <div class="container">
 <div id="letter" class="mt-5 col-lg-6 col-md-12">
   <?php foreach($dates as $date){?>
-<h5 class="text-center  fw-bold" align="center"> Application details<br><br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?></h5>
+<h5 class="text-center  fw-bold" align="center" style="font-size:20px"> Application details<br><br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?></h5>
    
 <br> <table class="content " style="margin: 0px 5px; color:black;" >
         <!-- <thead> -->
@@ -88,11 +88,11 @@ table, th, td {
            {                                 
           ?>
           <tr>
-            <td><b>1.</b><?php //echo $count;?></td>
-            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name'].'/'.$application['candidate_house_no1'].' '.$application['candidate_street1'].' '.$application['candidate_city1'].' '.$application['pincode_no']?></td>
-            <td><?php echo $application['employer_name'].'/'.$application['employer_add1'] ?></td>
-            <td><?php echo $application['ref_no_pk'].'/'.$application['ref_date']?></td>
-            <td><?php echo $application['memo_no'].'/'.$application['issue_date']?></td>
+            <td><b></b><?php echo $count;?></td>
+            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name'].'<br>'.$application['candidate_house_no1'].' '.$application['candidate_street1'].' '.$application['candidate_city1'].' '.$application['pincode_no']?></td>
+            <td><?php echo $application['employer_name'].'<br>'.$application['employer_add1'] ?></td>
+            <td><?php echo $application['ref_no_pk'].'<br>'.$application['ref_date']?></td>
+            <td><?php echo $application['memo_no'].'<br>'.$application['issue_date']?></td>
             <td><?php echo $application['application_date']?></td>
             <!-- <th>I.B.'s No. & Date</th>
             <th>Final V.R. Ready  Date</th>
@@ -107,6 +107,6 @@ table, th, td {
         </div>
     </div><br><br>
     <div class="text-centre d-flex justify-content-center">
-    <a href="<?php echo base_url()?>Generate_pdf/daily_report/<?php echo $date['s']?>/<?php echo $date['s']?>" class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
+    <a href="<?php echo base_url()?>Generate_pdf/daily_report/<?php echo $date['s']?>/<?php echo $date['e']?>" target="_blank" class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
     <?php }?>
   </body>

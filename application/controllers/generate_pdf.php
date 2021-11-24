@@ -174,8 +174,8 @@ class Generate_pdf extends CI_Controller
     {
         $dompdf = new Dompdf\Dompdf();
         $data['dates']=array(array(
-            's'=>$this->input->post('start'),
-            'e'=>$this->input->post('end')
+            's'=>$s,
+            'e'=>$e
         ));
         $a= $this->Application_model->a();
         $b =$this->Application_model->b();
