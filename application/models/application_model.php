@@ -485,6 +485,18 @@ class Application_model extends CI_Model
         $this->db->where('pvr_with_id_pk',$pvrwithid->pvr_with_id_fk);
         $this->db->update('pvr_with');
 
+        $this->db->select('memo_id_fk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $query = $this->db->get();
+        $memoid = $query->row();
+
+        $date=date('y-m-d');
+
+        $this->db->set('issue_date',$date);
+        $this->db->where('memo_id_pk',$memoid ->memo_id_fk);
+        $this->db->update('pvr_memo');
+
     }
     function adm_approve($pvr_id)
     {
