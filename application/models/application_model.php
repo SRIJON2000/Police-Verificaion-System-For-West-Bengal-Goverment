@@ -748,5 +748,22 @@ class Application_model extends CI_Model
         $ul = $query->row();
         return $ul;
     }
+    function notification_update()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_trans_notification');
+        $query = $this->db->get();
+        return $query->result_array();
+       
+    }
+    // function notification_up()
+    // {
+
+    //     $this->db->select('notification_text');
+    //     $this->db->from('pvr_master_notification');
+    //     $this->db->where('notification_id_pk',$username);
+    //     $query = $this->db->get();
+    //     $login_id = $query->row();
+    // }
 }
 ?>
