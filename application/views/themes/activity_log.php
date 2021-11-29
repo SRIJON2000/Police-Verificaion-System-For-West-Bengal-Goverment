@@ -183,7 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+                <main> 
                     <div class="container-fluid px-4">
                         <h1 class="mt-4 text-center">Activity Log</h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->

@@ -731,7 +731,7 @@ class Application_model extends CI_Model
         $this->db->where('username',$username);
         $query = $this->db->get();
         $login_id = $query->row();
-
+ 
         $this->db->select('*');
         $this->db->from('pvr_audit_log');
         $this->db->where('login_id_fk',$login_id->login_id_pk);
@@ -756,14 +756,12 @@ class Application_model extends CI_Model
         return $query->result_array();
        
     }
-    // function notification_up()
-    // {
-
-    //     $this->db->select('notification_text');
-    //     $this->db->from('pvr_master_notification');
-    //     $this->db->where('notification_id_pk',$username);
-    //     $query = $this->db->get();
-    //     $login_id = $query->row();
-    // }
+    function noti_message($noti_id){
+        $this->db->select('notification_text');
+        $this->db->from('pvr_master_notification');
+        $this->db->where('notification_id_pk',$noti_id);
+        $query = $this->db->get();
+        return $query->row();
+    }
 }
 ?>

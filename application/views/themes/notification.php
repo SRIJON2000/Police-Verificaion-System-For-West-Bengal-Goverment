@@ -187,8 +187,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             <div id="layoutSidenav_content">
                 <main>
-                <div class="row">
-                    <div class="col-md-8">
+                <div class="row mt-2">
+                    <div class="col-md-12">
                     <section class='content'>
                         <div class='container-fluid'>
                             <div class='row'>
@@ -203,25 +203,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <table id="example1" class="table table-bordered table-striped table-hover equal-width">
                                     <thead class="bg-warning">
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Sl. No.</th>
                                         <th>Title</th>
                                         <th>Notification Body</th>
                                     </tr>
                                     </thead>
-                                    <!-- <tbody>
+                                     <tbody>
                                     <?php 
                                         
-                                        // $i=1;
-                                        // foreach($noti1 as $row){
-                                        //     echo "<tr>";
-                                        //     echo "<td>".$row['audience_id']."-".$row['notification_id_pk']."</td>";
-                                        //     echo "<td>".$row['notification_head']."</td>";
-                                        //     echo "<td>".$row['notification_text']."</td>";
-                                        //     echo "</tr>";
-                                        //     $i++;
-                                        // }
+                                        $i=1;
+                                        foreach($notifications as $notification){?>
+                                            <tr>
+                                            <td><?php echo $i; ?></td>
+                                            <td><?php echo $notification['notification_message']; ?></td>
+                                            <td><?php $fetched_data= $this->application_model->noti_message($notification['notification_id_fk']); 
+                                                    echo $fetched_data->notification_text; ?></td>
+                                            </tr>
+                                           <?php $i++;
+                                        }
                                     ?>
-                                    </tbody> -->
+                                    </tbody>
                                     <tfoot>
                                     <tr>
                                         <!-- nothing for footer now -->

@@ -268,7 +268,7 @@
                 'a'=>$a,
                 'b'=>$b,
                 'c'=>$c,
-                'd'=>$d));
+                'd'=>$d)); 
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
        function notification(){
