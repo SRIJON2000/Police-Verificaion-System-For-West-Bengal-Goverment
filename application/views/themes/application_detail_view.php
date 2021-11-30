@@ -379,11 +379,6 @@ tr td,tr th{border: 1px solid;}*/
                                         <h2></h2>
                                     </div>
                                     <div class="modal-body"> 
-                                        <div style="text-align:center"><b>Add Remarks</b><br></div> 
-                                        <form action="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>">
-                                        <input type="text" name="remarks" style="width:430px;height:220px">
-                                    
-                                    </form>
                                         <div style="text-align:center"><b>Are you sure you want to proceed?</b><br>
                                         <a href="<?php echo base_url()?>Application/verify/<?php echo $detail['pvr_id_pk']?>" class="btn btn-success text-center"><b>Yes</b></a>&nbsp;&nbsp;&nbsp;<button style="text-align:center"class="btn bg-success  text-light m-3" onclick="no2()">No</button>
                                         </div>
