@@ -396,7 +396,28 @@ class Application_model extends CI_Model
         );
 
         $this->db->insert('pvr_vr_detail',$pvr_data);
+
+        $this->db->select_max('notification_seq_id_pk');
+        $this->db->from('pvr_trans_notification');
+        $query=$this->db->get();
+        $max_notification_id=$query->row();
         
+        if(empty($max_notification_id))
+        {
+            $max_notification_id->notification_seq_id_pk=1;
+        }
+        else
+        {
+            $max_notification_id->notification_seq_id_pk=$max_notification_id->notification_seq_id_pk+1;
+        }
+
+        $notification_data=array(
+            'notification_seq_id_pk'=> 
+            'login_id_fk'=>
+            'notification_id_fk'=>
+            'notification_message'=>
+            
+        )
 
 
     }
@@ -741,13 +762,6 @@ class Application_model extends CI_Model
 
 
 
-    function bind(){
-        $this->db->select_max('audit_id_pk');
-        $this->db->from('pvr_audit_log');
-        $query = $this->db->get();
-        $ul = $query->row();
-        return $ul;
-    }
     function notification_update()
     {
         $this->db->select('*');
