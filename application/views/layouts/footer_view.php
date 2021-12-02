@@ -11,7 +11,7 @@
 <body>
 <footer id="footer2" class="footer-home text-center bg-secondary" >
       <div class="copyRightsText">
-               <p class="text-center">© Developed and designed by <a href="http://www.nic.in/" target="_blank" id="footer_link">National Informatics Centre</a>
+               <p class="text-center">&copy; Developed and designed by <a href="http://www.nic.in/" target="_blank" id="footer_link">National Informatics Centre</a>
         </div>      
 </footer>
 </body>
