@@ -411,14 +411,21 @@ class Application_model extends CI_Model
             $max_notification_id->notification_seq_id_pk=$max_notification_id->notification_seq_id_pk+1;
         }
 
-        $notification_data=array(
-            'notification_seq_id_pk'=> 
-            'login_id_fk'=>
-            'notification_id_fk'=>
-            'notification_message'=>
-            
-        )
+        $this->db->select('login_id_pk');
+        $this->db->from('pvr_login');
+        $this->db->where('office_id_fk',$this->session->userdata('office_id'));
+        $this->db->where('desig_id_fk',1);
+        $query = $this->db->get();
+        $login_id = $query->row();
 
+        $notification_data=array(
+            'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
+            'login_id_fk'=>$login_id->login_id_pk,
+            'notification_id_fk'=>1,
+            'notification_message'=>'New Application Received'.' '.$data['receiptno'],
+            'seen_status'=>0,
+        );
+        $this->db->insert('pvr_trans_notification',$notification_data);
 
     }
 
@@ -762,20 +769,23 @@ class Application_model extends CI_Model
 
 
 
-    function notification_update()
+    function notification_update($login_id)
     {
         $this->db->select('*');
         $this->db->from('pvr_trans_notification');
+        $this->db->join('pvr_master_notification','pvr_master_notification.notification_id_pk=pvr_trans_notification.notification_id_fk');
+        $this->db->where('login_id_fk',$login_id);
         $query = $this->db->get();
         return $query->result_array();
        
     }
-    function noti_message($noti_id){
-        $this->db->select('notification_text');
-        $this->db->from('pvr_master_notification');
-        $this->db->where('notification_id_pk',$noti_id);
-        $query = $this->db->get();
-        return $query->row();
-    }
+    // function noti_message($noti_id){
+    //     $this->db->select('notification_text');
+    //     $this->db->from('pvr_master_notification');
+    //     $this->db->where('notification_id_pk',$noti_id);
+    //     $query = $this->db->get();
+    //     return $query->row();
+    // }
+
 }
 ?>

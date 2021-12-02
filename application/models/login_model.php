@@ -4,7 +4,7 @@ class Login_model extends CI_Model
     
     function loginMe($email, $password, $salt)
     {
-        $this->db->select('password,office_id_fk,desig_id_fk,dept_id_fk');
+        $this->db->select('password,office_id_fk,desig_id_fk,dept_id_fk,login_id_pk');
         $this->db->from('pvr_login');
         $this->db->where('username',$email);
         $query = $this->db->get();
@@ -52,6 +52,8 @@ class Login_model extends CI_Model
                     $district= $query5->row();
 
                     $result=array('office_name'=>$office->office_name,
+                                    'office_id'=>$user->office_id_fk,
+                                    'login_id'=>$user->login_id_pk,
                                     'user_type'=>$desig->desig_name,
                                     'office_district'=>$office->district_id_fk,
                                     'office_state'=>$state->state_id_fk,

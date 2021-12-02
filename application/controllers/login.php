@@ -71,6 +71,8 @@ class Login extends CI_Controller
 
                 $sessionArray = array('username'=>$email,                    
                                     'office_name'=>$result['office_name'],
+                                    'office_id'=>$result['office_id'],
+                                    'login_id'=>$result['login_id'],
                                     'user_type'=>$result['user_type'],
                                     'office_district'=>$result['office_district'],
                                     'office_state'=>$result['office_state'], 

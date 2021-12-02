@@ -272,7 +272,8 @@
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
        function notification(){
-        $data['notifications']=$this->Application_model->notification_update();
+        
+        $data['notifications']=$this->Application_model->notification_update($this->session->userdata('login_id'));
         $this->load->view('themes/notification',$data);
        
     }

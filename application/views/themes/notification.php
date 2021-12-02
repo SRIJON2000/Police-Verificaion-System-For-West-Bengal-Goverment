@@ -215,9 +215,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         foreach($notifications as $notification){?>
                                             <tr>
                                             <td><?php echo $i; ?></td>
-                                            <td><?php echo $notification['notification_message']; ?></td>
-                                            <td><?php $fetched_data= $this->application_model->noti_message($notification['notification_id_fk']); 
-                                                    echo $fetched_data->notification_text; ?></td>
+                                            <td><?php echo $notification['notification_text']; ?></td>
+                                            <td><?php echo $notification['notification_message']; ?><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"></td>
                                             </tr>
                                            <?php $i++;
                                         }
