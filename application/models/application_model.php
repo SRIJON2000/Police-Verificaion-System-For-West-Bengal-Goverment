@@ -792,6 +792,7 @@ class Application_model extends CI_Model
         $this->db->from('pvr_trans_notification');
         $this->db->join('pvr_master_notification','pvr_master_notification.notification_id_pk=pvr_trans_notification.notification_id_fk');
         $this->db->where('login_id_fk',$login_id);
+        $this->db->order_by('notification_seq_id_pk','desc');
         $query = $this->db->get();
         return $query->result_array();
        

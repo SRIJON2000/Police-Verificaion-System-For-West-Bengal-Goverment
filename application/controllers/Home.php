@@ -272,9 +272,11 @@
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
        function notification(){
+        $num=$this->Application_model->count_seen_status($this->session->userdata('login_id'));
+        $this->session->set_userdata('new_num',$num);
         $this->Application_model->update_seen_status($this->session->userdata('login_id'));
         $data['notifications']=$this->Application_model->notification_update($this->session->userdata('login_id'));
-        $this->load->view('themes/notification',$data);
+        $this->load->view('themes/notification',$data,$num);
        
     }
     }
