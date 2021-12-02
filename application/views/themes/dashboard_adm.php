@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <style>
         input[type=submit]{
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="d-inline"><button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button></div>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-3 me-lg-4 d-flex justify-content-end" >
-            <li id="sm_hide"><div class="text-white">Logged in as:&nbsp
+            <li id="sm_hide"><div class="text-white"><?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:20px;color:white"></i>&nbsp;<b>(<?php echo $num;?>+)</b><?php }?>&nbsp;Logged in as:&nbsp
                <strong><?php echo $this->session->userdata('user_type')?></strong><strong>&nbsp(&nbsp<?php echo $this->session->userdata('district_name')?>&nbsp)</strong></div></li>
                     <li class="nav-item dropdown d-sm-block">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw text-white"></i></a>
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <hr id="sm_show">
                             <li><a class="dropdown-item" href="#!">Settings</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
-                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
                             <li><hr class="dropdown-divider" /></li>
                             
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>

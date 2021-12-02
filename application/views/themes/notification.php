@@ -216,7 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <tr>
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $notification['notification_text']; ?></td>
-                                            <td><?php echo $notification['notification_message']; ?><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"></td>
+                                            <td><?php echo $notification['notification_message']; ?></td>
                                             </tr>
                                            <?php $i++;
                                         }

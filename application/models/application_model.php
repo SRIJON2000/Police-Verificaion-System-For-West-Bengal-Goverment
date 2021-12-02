@@ -428,7 +428,24 @@ class Application_model extends CI_Model
         $this->db->insert('pvr_trans_notification',$notification_data);
 
     }
+    function update_seen_status($login_id)
+    {
+        $this->db->set('seen_status',1);
+        $this->db->where('login_id_fk',$login_id);
+        $this->db->update('pvr_trans_notification');
+    }
+    function count_seen_status($login_id)
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_trans_notification');
+        $this->db->where('login_id_fk',$login_id);
+        $this->db->where('seen_status',0);
+        $query = $this->db->get();
+        $num = $query->num_rows();
 
+        return $num;
+
+    }
     function addoffice($data)
     {
             $this->db->select_max('employer_id_pk');
