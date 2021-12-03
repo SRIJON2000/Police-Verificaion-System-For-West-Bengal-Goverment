@@ -283,5 +283,9 @@
         $this->Application_model->delete_notification($notification_id);
         redirect('Home/notification');
     }
+    function contact()
+    {
+        $this->load->view('themes/contact'); 
+    }
     }
 ?>
