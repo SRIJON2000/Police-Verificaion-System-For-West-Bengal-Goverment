@@ -206,7 +206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <th>Sl. No.</th>
                                         <th>Title</th>
                                         <th>Notification Body</th>
-                                        
+                                        <th>Action</th> 
                                     </tr>
                                     </thead>
                                      <tbody>
@@ -218,7 +218,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $notification['notification_text']; ?></td>
                                             <td><?php echo $notification['notification_message']; ?>&nbsp;<?php if($num>0){?><span style="font-size:15px;color:red;"><b>New</b></span><?php }?></td>
-                                                
+                                            <td><a class="action" href="<?php echo base_url()?>Home/delete_notification/<?php echo $notification['notification_seq_id_pk']?>"><b>Delete</b></a></td>
+    
                                         </tr>
                                            <?php $i++;
                                            $num--;

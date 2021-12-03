@@ -278,5 +278,14 @@
         $data['notifications']=$this->Application_model->notification_update($this->session->userdata('login_id'));
         $this->load->view('themes/notification',$data,$num); 
     }
+    function delete_notification($notification_id)
+    {
+        $this->Application_model->delete_notification($notification_id);
+        $num=$this->Application_model->count_seen_status($this->session->userdata('login_id'));
+        $this->session->set_userdata('new_num',$num);
+        $this->Application_model->update_seen_status($this->session->userdata('login_id'));
+        $data['notifications']=$this->Application_model->notification_update($this->session->userdata('login_id'));
+        $this->load->view('themes/notification',$data,$num); 
+    }
     }
 ?>

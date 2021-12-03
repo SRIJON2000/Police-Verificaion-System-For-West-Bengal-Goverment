@@ -804,7 +804,11 @@ class Application_model extends CI_Model
     //     $query = $this->db->get();
     //     return $query->row();
     // }
-
+    function delete_notification($notification_id)
+    {
+        $this->db->where('notification_seq_id_pk', $notification_id);
+        $this->db->delete('pvr_trans_notification'); 
+    }
     
 
 }
