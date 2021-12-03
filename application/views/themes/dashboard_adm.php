@@ -50,7 +50,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
 
-
+        a.notif {
+  position: absolute;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: url('http://i.imgur.com/evpC48G.png');
+  background-size: contain;
+  text-decoration: none;
+}
+.num {
+  position: absolute;
+  right: 11px;
+  top: 6px;
+  color: #fff;
+}
 
         </style>
     </head>
@@ -67,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="d-inline"><button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button></div>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-3 me-lg-4 d-flex justify-content-end" >
-            <li id="sm_hide"><div class="text-white"><?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:20px;color:white"></i>&nbsp;<b>(<?php echo $num;?>+)</b><?php }?>&nbsp;Logged in as:&nbsp
+            <li id="sm_hide"><div class="text-white"><?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><a href="<?php echo base_url()?>Home/notification" class="notif"><span class="num"><?php echo $num;?></span></a><?php }?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logged in as:&nbsp
                <strong><?php echo $this->session->userdata('user_type')?></strong><strong>&nbsp(&nbsp<?php echo $this->session->userdata('district_name')?>&nbsp)</strong></div></li>
                     <li class="nav-item dropdown d-sm-block">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw text-white"></i></a>

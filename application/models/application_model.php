@@ -422,7 +422,7 @@ class Application_model extends CI_Model
             'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
             'login_id_fk'=>$login_id->login_id_pk,
             'notification_id_fk'=>1,
-            'notification_message'=>'New Application Received'.' '.$data['receiptno'],
+            'notification_message'=>'Pending For Approval'.' '.$data['receiptno'],
             'seen_status'=>0,
         );
         $this->db->insert('pvr_trans_notification',$notification_data);
@@ -586,12 +586,116 @@ class Application_model extends CI_Model
         $this->db->set('pvr_final_status_id_fk',2);
         $this->db->where('pvr_id_pk',$pvr_id);
         $this->db->update('pvr_vr_detail');
+
+        $this->db->select('pvr_type_fk');
+        $this->db->from('pvr_vr_detail');
+        $this->db->where('pvr_id_pk',$pvr_id);
+        $query = $this->db->get();
+        $type = $query->row();
+
+        if($type->pvr_type_fk==4)
+        {
+
+            $this->db->select_max('notification_seq_id_pk');
+            $this->db->from('pvr_trans_notification');
+            $query=$this->db->get();
+            $max_notification_id=$query->row();
+            
+            if(empty($max_notification_id))
+            {
+                $max_notification_id->notification_seq_id_pk=1;
+            }
+            else
+            {
+                $max_notification_id->notification_seq_id_pk=$max_notification_id->notification_seq_id_pk+1;
+            }
+
+            $this->db->select('login_id_pk');
+            $this->db->from('pvr_login');
+            $this->db->where('office_id_fk',$this->session->userdata('office_id'));
+            $this->db->where('desig_id_fk',1);
+            $query = $this->db->get();
+            $login_id = $query->row();
+
+            $notification_data=array(
+                'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
+                'login_id_fk'=>$login_id->login_id_pk,
+                'notification_id_fk'=>3,
+                'notification_message'=>'Pending For Signature',
+                'seen_status'=>0,
+            );
+            $this->db->insert('pvr_trans_notification',$notification_data);
+        }
+        else
+        {
+            $this->db->select_max('notification_seq_id_pk');
+            $this->db->from('pvr_trans_notification');
+            $query=$this->db->get();
+            $max_notification_id=$query->row();
+            
+            if(empty($max_notification_id))
+            {
+                $max_notification_id->notification_seq_id_pk=1;
+            }
+            else
+            {
+                $max_notification_id->notification_seq_id_pk=$max_notification_id->notification_seq_id_pk+1;
+            }
+
+            $this->db->select('login_id_pk');
+            $this->db->from('pvr_login');
+            $this->db->where('office_id_fk',$this->session->userdata('office_id'));
+            $this->db->where('desig_id_fk',2);
+            $query = $this->db->get();
+            $login_id = $query->row();
+
+            $notification_data=array(
+                'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
+                'login_id_fk'=>$login_id->login_id_pk,
+                'notification_id_fk'=>4,
+                'notification_message'=>'Pending For Signature',
+                'seen_status'=>0,
+            );
+            $this->db->insert('pvr_trans_notification',$notification_data);
+        }
+
     }
     function unverify($pvr_id)
     {
         $this->db->set('pvr_final_status_id_fk',3);
         $this->db->where('pvr_id_pk',$pvr_id);
         $this->db->update('pvr_vr_detail');
+
+
+        $this->db->select_max('notification_seq_id_pk');
+        $this->db->from('pvr_trans_notification');
+        $query=$this->db->get();
+        $max_notification_id=$query->row();
+        
+        if(empty($max_notification_id))
+        {
+            $max_notification_id->notification_seq_id_pk=1;
+        }
+        else
+        {
+            $max_notification_id->notification_seq_id_pk=$max_notification_id->notification_seq_id_pk+1;
+        }
+
+        $this->db->select('login_id_pk');
+        $this->db->from('pvr_login');
+        $this->db->where('office_id_fk',$this->session->userdata('office_id'));
+        $this->db->where('desig_id_fk',1);
+        $query = $this->db->get();
+        $login_id = $query->row();
+
+        $notification_data=array(
+            'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
+            'login_id_fk'=>$login_id->login_id_pk,
+            'notification_id_fk'=>2,
+            'notification_message'=>'Pending For Signature',
+            'seen_status'=>0,
+        );
+        $this->db->insert('pvr_trans_notification',$notification_data);
     }
     function find_pvr_id($no,$t)
     {
