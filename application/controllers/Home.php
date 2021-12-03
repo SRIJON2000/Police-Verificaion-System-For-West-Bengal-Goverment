@@ -276,8 +276,7 @@
         $this->session->set_userdata('new_num',$num);
         $this->Application_model->update_seen_status($this->session->userdata('login_id'));
         $data['notifications']=$this->Application_model->notification_update($this->session->userdata('login_id'));
-        $this->load->view('themes/notification',$data,$num);
-       
+        $this->load->view('themes/notification',$data,$num); 
     }
     }
 ?>
