@@ -437,7 +437,7 @@ $d=date('d-m-y');
   <div class="row row_new_app">
       <div class="col-lg-3 col-md-12 p-3 pt-5">
       <div><label for="refno" class="required"><b>Reference No</b></label></div><div>
-        <input type="text" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
+        <input type="number" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
       <div class="col-lg-3 col-md-12 p-3 pt-5">
