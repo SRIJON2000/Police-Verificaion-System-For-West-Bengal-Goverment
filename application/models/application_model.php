@@ -418,12 +418,17 @@ class Application_model extends CI_Model
         $query = $this->db->get();
         $login_id = $query->row();
 
+        $date=date('y-m-d');
+        date_default_timezone_set("Asia/Kolkata");
+        $time =  Date('Y-m-d h:i:s');
         $notification_data=array(
             'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
             'login_id_fk'=>$login_id->login_id_pk,
             'notification_id_fk'=>1,
             'notification_message'=>'Pending For Approval'.' '.$data['receiptno'],
             'seen_status'=>0,
+            'date'=>$date,
+            'time'=>$time
         );
         $this->db->insert('pvr_trans_notification',$notification_data);
 
@@ -617,12 +622,18 @@ class Application_model extends CI_Model
             $query = $this->db->get();
             $login_id = $query->row();
 
+            $date=date('y-m-d');
+            date_default_timezone_set("Asia/Kolkata");
+            $time =  Date('Y-m-d h:i:s');
+
             $notification_data=array(
                 'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
                 'login_id_fk'=>$login_id->login_id_pk,
                 'notification_id_fk'=>3,
                 'notification_message'=>'Pending For Signature',
                 'seen_status'=>0,
+                'date'=>$date,
+                'time'=>$time
             );
             $this->db->insert('pvr_trans_notification',$notification_data);
         }
@@ -649,12 +660,18 @@ class Application_model extends CI_Model
             $query = $this->db->get();
             $login_id = $query->row();
 
+            $date=date('y-m-d');
+            date_default_timezone_set("Asia/Kolkata");
+            $time =  Date('Y-m-d h:i:s');
+
             $notification_data=array(
                 'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
                 'login_id_fk'=>$login_id->login_id_pk,
                 'notification_id_fk'=>4,
                 'notification_message'=>'Pending For Signature',
                 'seen_status'=>0,
+                'date'=>$date,
+                'time'=>$time
             );
             $this->db->insert('pvr_trans_notification',$notification_data);
         }
@@ -688,12 +705,17 @@ class Application_model extends CI_Model
         $query = $this->db->get();
         $login_id = $query->row();
 
+        $date=date('y-m-d');
+        date_default_timezone_set("Asia/Kolkata");
+        $time =  Date('Y-m-d h:i:s');
         $notification_data=array(
             'notification_seq_id_pk'=>$max_notification_id->notification_seq_id_pk,
             'login_id_fk'=>$login_id->login_id_pk,
             'notification_id_fk'=>2,
             'notification_message'=>'Pending For Signature',
             'seen_status'=>0,
+            'date'=>$date,
+            'time'=>$time
         );
         $this->db->insert('pvr_trans_notification',$notification_data);
     }
