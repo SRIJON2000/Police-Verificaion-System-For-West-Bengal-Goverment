@@ -822,7 +822,7 @@ class Application_model extends CI_Model
     }
     function d()
     {
-        $date=date('d-m-Y', strtotime('-120 day'));
+        $date=date('y-m-d', strtotime('-120 day'));
         $this->db->select('pvr_id_pk');
         $this->db->from('pvr_vr_detail');
         $this->db->where('application_date<=',$date);
