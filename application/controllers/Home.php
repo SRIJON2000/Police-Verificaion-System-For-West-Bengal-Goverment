@@ -287,5 +287,35 @@
     {
         $this->load->view('themes/contact'); 
     }
+    function send_issue()
+    {
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('text', 'Decription', 'required');
+        if($this->form_validation->run() == FALSE)
+        {
+            //$this->form_validation->set_message('required', 'Your custom message here');
+            $this->session->set_flashdata('error', 'Incorrect Input');
+            $this->contact();
+        }
+        else
+        {
+            $name=$this->input->post('name');
+            $email=$this->input->post('email');
+            $description=$this->input->post('text');
+            $r=$this->Application_model->send_issue($name,$email,$description);
+            if($r==1)
+            {
+                $this->session->set_userdata('success','Your issues has been submitted successfully');
+                redirect('Home/contact');
+            }
+            else
+            {
+                $this->session->set_userdata('fail','Email id does not exist');
+                redirect('Home/contact');
+            }
+        }
+        
+    }
     }
 ?>

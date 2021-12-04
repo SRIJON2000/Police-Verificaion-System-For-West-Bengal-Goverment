@@ -935,7 +935,46 @@ class Application_model extends CI_Model
         $this->db->where('notification_seq_id_pk', $notification_id);
         $this->db->delete('pvr_trans_notification'); 
     }
-    
+    function send_issue($name,$email,$description)
+    {
+        $this->db->select('login_id_pk');
+        $this->db->from('pvr_login');
+        $this->db->where('username',$email);
+        $query=$this->db->get();
+        $login_id=$query->row();
+
+        if(empty($login_id))
+        {
+            return 0;
+        }
+
+        $this->db->select_max('issue_id_pk');
+        $this->db->from('pvr_issues');
+        $query=$this->db->get();
+        $maxissue_id=$query->row();
+        
+        if(empty($maxissue_id))
+        {
+            $maxissue_id->issue_id_pk=1;
+        }
+        else
+        {
+            $maxissue_id->issue_id_pk=$maxissue_id->issue_id_pk+1;
+        }
+        date_default_timezone_set("Asia/Kolkata");
+        $time =  Date('Y-m-d h:i:s');
+        $issue_data=array(
+            'issue_id_pk'=>$maxissue_id->issue_id_pk,
+            'name'=>$name,
+            'email'=>$email,
+            'rating'=>0,
+            'description'=>$description,
+            'timstamp'=>$time,
+            'login_id_fk'=>$login_id->login_id_pk
+        );
+        $this->db->insert('pvr_issues',$issue_data);
+        return 1;
+    }
 
 }
 ?>

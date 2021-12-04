@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div><br>
                                                     <div class="row">
                                                         <div class="col-md-4 d-flex">
                                                             <div class="card">
@@ -175,26 +175,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="card card-primary card-outline mx-auto">
                                         <div class="card-body login-card-body" Style="background:#CDE2FF;">
                                         <h2><strong>Facing Issues?  <br>Write us here:</br></strong></h2>
-                                        <?php echo form_open('contact/send','id="form"');?>
+                                        <?php echo form_open('Home/send_issue','id="form"');?>
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name = "name" id="name" placeholder="Enter your name" style="border-radius:20px;">
-                                            </div>
+                                            </div><br>
                                             <div class="form-group">
                                                 <input type="email" class="form-control" name = "email" id="email" placeholder="Enter your email" style="border-radius:20px;">
-                                            </div>
+                                            </div><br>
                                             <!--  -->
                                             <div class="form-group">
                                                 <textarea class="form-control" name = "text" id="text" placeholder="Describe your issues" style="border-radius:20px;"></textarea>
-                                            </div>
+                                            </div><br>
                                             <div id="errors" style="color:red;"></div>
                                                 <div id='err'>
                                                 <button type='submit' class='btn btn-primary' name='form_sub' id='form_sub' form="form" style="border-radius:20px; display: block; margin-left: auto;  margin-right: auto; padding-right:40px; padding-left:40px;" value="Submit">Send</button>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div style="font-size:20px;color:green"><b><?php echo $this->session->userdata('success');$this->session->unset_userdata('success');?></b></div>
+                                        <div style="font-size:20px;color:red"><b><?php echo $this->session->userdata('fail');$this->session->unset_userdata('fail');?></b></div>
                                         <!-- /.login-card-body -->
-                                    </div>
+                                    </div><br>
+                                    
                                     </div>
                                 </div>
                                 </div>
