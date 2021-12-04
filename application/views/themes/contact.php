@@ -175,8 +175,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-md-4">
                                     <div class="card card-primary card-outline mx-auto">
                                         <div class="card-body login-card-body p-3" Style="background:#CDE2FF;">
-                                        <h2 class="p-3 text-center"><strong>Facing Issues?  <br>Write us here:</br></strong></h2>
-                                        <?php echo form_open('contact/send','id="form"');?>
+                                        <h2 class="p-3 text-center"><strong>Facing Issues?<br>Write us here:</br></strong></h2>
+                                        <?php echo form_open('Home/send_issue','id="form"');?>
 
                                             <div class="form-group m-2">
                                                 <input type="text" class="form-control" name = "name" id="name" placeholder="Enter your name" style="border-radius:20px;">
@@ -194,6 +194,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                         <!-- /.login-card-body -->
+                                        <?php echo $this->session->userdata('fail'); $this->session->unset_userdata('fail');?>
+                                        <?php echo $this->session->userdata('success'); $this->session->unset_userdata('success');?>
                                     </div>
                                     </div>
                                 </div>
