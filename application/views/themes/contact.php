@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 //$this->load->library('session');
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <script src="https://kit.fontawesome.com/132bfff08e.js" crossorigin="anonymous"></script>
         <title icon="">Admin Dashboard</title>
         <link rel = "icon" href ="<?php echo base_url();?>/application/views/pics/office.png" type = "image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -77,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
             <div id="layoutSidenav_content">
                 <main>
-                <div class="content-wrapper">
+                <div class="content-wrapper m-3">
   <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <div class="container-fluid">
@@ -98,12 +99,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-md-12" id='refresh'>
                                                 <div class="card">
                                                 <!-- /.card-header -->
-                                                <div class="card-body" >
+                                                    <div class="card-body" >
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 d-flex m-1">
                                                             <div class="card">
                                                                 <div class="card-body" style="text-align:center; background:#CDE2FF;"  >
-                                                                    <span class="fas fa-info fa-4x circle-icon" ></span>
+                                                                    <i class="fas fa-info-circle fa-5x" style="color:#1764c2;"></i>
                                                                     <br></br>
                                                                     <h2><b>About PVR</b></h2>
                                                                     <h5><i>PVR is a Police Verification Report web app designed by a team under NIC(National Informatics Centre) which 
@@ -112,12 +113,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div><br>
+                                                    </div>
                                                     <div class="row">
-                                                        <div class="col-md-4 d-flex">
+                                                        <div class="col-md-4 d-flex mt-1">
                                                             <div class="card">
                                                                 <div class="card-body" style="text-align:center; background:#CDE2FF;"  >
-                                                                    <span class="fas fa-envelope fa-4x circle-icon" ></span>
+                                                                    <i class="fas fa-envelope fa-5x" style="color:#1764c2;"></i>
                                                                     <br></br>
                                                                     <h2><b>Email us</b></h2>
                                                                     <h5><a href="mailto:abc@gmail.com"><i>abc[at]gmail[dot]com</i></a></h5>
@@ -127,10 +128,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4 d-flex">
+                                                        <div class="col-md-4 d-flex mt-1">
                                                         <div class="card">
                                                                 <div class="card-body" style="text-align:center; background:#CDE2FF;" >
-                                                                    <span class="fas fa-phone fa-4x circle-icon" ></span>
+                                                                    <i class="fas fa-phone-square fa-5x" style="color:#1764c2;"></i>
                                                                     <br></br>
                                                                     <h2><b>Call us</b></h2>
                                                                     <h5><a href="tel:+919876543210"><i>+91-9876543210</i></a></h5>
@@ -140,10 +141,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4 d-flex">
+                                                        <div class="col-md-4 d-flex mt-1">
                                                         <div class="card">
                                                                 <div class="card-body"  style="text-align:center; background:#CDE2FF;">
-                                                                    <span class="fas fa-map-marker fa-4x circle-icon" ></span>
+                                                                    <i class="fas fa-map-marked-alt fa-5x" style="color:#1764c2;"></i>
                                                                     <br></br>
                                                                     <h2><b>Location</b></h2>
                                                                     <h5><a href="http://maps.google.com/?q=123, Rishi Bankim, Chandra Rd, Shree Market, Howrah Maidan, Howrah, West Bengal 711101" target="_blank"><i>123, Rishi Bankim, Chandra Rd, Shree Market, Howrah Maidan, Howrah, West Bengal 711101</i></a></h5>
@@ -173,31 +174,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="col-md-4">
                                     <div class="card card-primary card-outline mx-auto">
-                                        <div class="card-body login-card-body" Style="background:#CDE2FF;">
-                                        <h2><strong>Facing Issues?  <br>Write us here:</br></strong></h2>
-                                        <?php echo form_open('Home/send_issue','id="form"');?>
+                                        <div class="card-body login-card-body p-3" Style="background:#CDE2FF;">
+                                        <h2 class="p-3 text-center"><strong>Facing Issues?  <br>Write us here:</br></strong></h2>
+                                        <?php echo form_open('contact/send','id="form"');?>
 
-                                            <div class="form-group">
+                                            <div class="form-group m-2">
                                                 <input type="text" class="form-control" name = "name" id="name" placeholder="Enter your name" style="border-radius:20px;">
-                                            </div><br>
+                                            </div>
                                             <div class="form-group">
                                                 <input type="email" class="form-control" name = "email" id="email" placeholder="Enter your email" style="border-radius:20px;">
-                                            </div><br>
+                                            </div>
                                             <!--  -->
-                                            <div class="form-group">
-                                                <textarea class="form-control" name = "text" id="text" placeholder="Describe your issues" style="border-radius:20px;"></textarea>
-                                            </div><br>
-                                            <div id="errors" style="color:red;"></div>
-                                                <div id='err'>
+                                            <div class="form-group  m-2">
+                                                <textarea class="form-control" name = "text" id="text" rows="6" placeholder="Describe your issues" style="border-radius:20px;"></textarea>
+                                            </div>
+                                            <div id='err' class="m-2">
                                                 <button type='submit' class='btn btn-primary' name='form_sub' id='form_sub' form="form" style="border-radius:20px; display: block; margin-left: auto;  margin-right: auto; padding-right:40px; padding-left:40px;" value="Submit">Send</button>
-                                                </div>
+                                            </div>
                                             </div>
                                         </div>
-                                        <div style="font-size:20px;color:green"><b><?php echo $this->session->userdata('success');$this->session->unset_userdata('success');?></b></div>
-                                        <div style="font-size:20px;color:red"><b><?php echo $this->session->userdata('fail');$this->session->unset_userdata('fail');?></b></div>
                                         <!-- /.login-card-body -->
-                                    </div><br>
-                                    
+                                    </div>
                                     </div>
                                 </div>
                                 </div>
