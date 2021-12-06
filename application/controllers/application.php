@@ -160,7 +160,26 @@ class Application extends CI_Controller
 				'label' => '<b>State</b>',
 				'rules' => 'required'
             ),
-            
+            array(
+                'field' => 'refno',
+				'label' => '<b>Reference No</b>',
+				'rules' => 'trim|required|numeric'
+            ),
+            array(
+                'field' => 'refdate',
+				'label' => '<b>Reference Date</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'defence',
+				'label' => '<b>Defence Personnel</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'category',
+				'label' => '<b>Send To</b>',
+				'rules' => 'required'
+            ),
 
         );
 
@@ -219,7 +238,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('refno', 'Reference No', 'required');
         $this->form_validation->set_rules('refdate', 'Reference Date', 'required');
         $this->form_validation->set_rules('defence', 'Defence Personnel', 'required');
-        $this->form_validation->set_rules('category', 'Category', 'required');
+        $this->form_validation->set_rules('category', 'Send To', 'required');
         //$this->form_validation->set_rules('ps3', 'Police Station', 'required|max_length[32]|trim');
         
         
