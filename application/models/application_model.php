@@ -975,6 +975,12 @@ class Application_model extends CI_Model
         $this->db->insert('pvr_issues',$issue_data);
         return 1;
     }
-
+    function issues(){
+        $this->db->select('name','email','description','timestamp');
+        $this->db->from('pvr_issues');
+        $query = $this->db->get();
+        return $query->result_array();
+       
+    }
 }
 ?>

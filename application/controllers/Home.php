@@ -30,6 +30,13 @@
             $this->load->view('themes/activity_log',$data);
         }
         
+        function issues()
+        { 
+            $this->load->model('application_model');
+            $data['issues']=$this->Application_model->issues();
+            $this->load->view('themes/issues',$data);
+        }
+
         function dashboard_adm()
         {
             $this->load->model('application_model');
