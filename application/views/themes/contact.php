@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="form-group m-2">
                                                 <input type="text" class="form-control" name = "name" id="name" placeholder="Enter your name" style="border-radius:20px;">
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group m-2">
                                                 <input type="email" class="form-control" name = "email" id="email" placeholder="Enter your email" style="border-radius:20px;">
                                             </div>
                                             <!--  -->
