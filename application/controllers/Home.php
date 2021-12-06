@@ -290,6 +290,11 @@
         $this->Application_model->delete_notification($notification_id);
         redirect('Home/notification');
     }
+    function delete_issue($issue_id)
+    {
+        $this->Application_model->delete_issue($issue_id);
+        redirect('Home/issues');
+    }
     function contact()
     {
         $this->load->view('themes/contact'); 

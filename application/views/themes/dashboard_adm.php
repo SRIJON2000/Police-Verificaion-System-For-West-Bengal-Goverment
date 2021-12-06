@@ -193,6 +193,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </nav>
                             </div>
 
+                            <?php 
+                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
+                                {
+                            ?>
+                                   
+                                    
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <i class="bi bi-chat-left-dots"></i>
+                                            <a class="nav-link" href="<?php echo base_url()?>Home/issues">Issues Lodged</a>
+                                            
+                                        </nav>
+                                    
+                            <?php 
+                                }
+                            ?>
+
                         </div>
                     </div>
                     

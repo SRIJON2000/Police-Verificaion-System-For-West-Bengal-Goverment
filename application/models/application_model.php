@@ -935,6 +935,11 @@ class Application_model extends CI_Model
         $this->db->where('notification_seq_id_pk', $notification_id);
         $this->db->delete('pvr_trans_notification'); 
     }
+    function delete_issue($issue_id)
+    {
+        $this->db->where('issue_id_pk', $issue_id);
+        $this->db->delete('pvr_issues'); 
+    }
     function send_issue($name,$email,$description)
     {
         $this->db->select('login_id_pk');
@@ -976,8 +981,10 @@ class Application_model extends CI_Model
         return 1;
     }
     function issues(){
-        $this->db->select('name','email','description','timestamp');
+        $this->db->select('issue_id_pk,name,email,description,timstamp');
         $this->db->from('pvr_issues');
+        $this->db->join('pvr_login','pvr_login.login_id_pk=pvr_issues.login_id_fk');
+        $this->db->where('office_id_fk',$this->session->userdata('office_id'));
         $query = $this->db->get();
         return $query->result_array();
        
