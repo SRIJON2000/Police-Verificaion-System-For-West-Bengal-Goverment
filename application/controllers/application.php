@@ -80,6 +80,88 @@ class Application extends CI_Controller
 				'label' => '<b>Street/Lane</b>',
 				'rules' => 'trim|required|max_length[30]'
             ),
+            array(
+                'field' => 'landmark1',
+				'label' => '<b>Landmark</b>',
+				'rules' => 'trim|required|max_length[128]'
+            ),
+            array(
+                'field' => 'city1',
+				'label' => '<b>City</b>',
+				'rules' => 'trim|required|max_length[32]'
+            ),
+            array(
+                'field' => 'po1',
+				'label' => '<b>Post Office</b>',
+				'rules' => 'trim|required|max_length[32]'
+            ),
+            array(
+                'field' => 'ps1',
+				'label' => '<b>Police Station</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'pin1',
+				'label' => '<b>Pincode</b>',
+				'rules' => 'trim|required|max_length[6]|numeric'
+            ),
+            array(
+                'field' => 'district1',
+				'label' => '<b>District</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'state1',
+				'label' => '<b>State</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'houseno2',
+				'label' => '<b>House No</b>',
+				'rules' => 'required|max_length[6]'
+            ),
+            array(
+                'field' => 'street2',
+				'label' => '<b>Street/Lane</b>',
+				'rules' => 'trim|required|max_length[30]'
+            ),
+            array(
+                'field' => 'landmark2',
+				'label' => '<b>Landmark</b>',
+				'rules' => 'trim|required|max_length[128]'
+            ),
+            array(
+                'field' => 'city2',
+				'label' => '<b>City</b>',
+				'rules' => 'trim|required|max_length[32]'
+            ),
+            array(
+                'field' => 'po2',
+				'label' => '<b>Post Office</b>',
+				'rules' => 'trim|required|max_length[32]'
+            ),
+            array(
+                'field' => 'ps2',
+				'label' => '<b>Police Station</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'pin2',
+				'label' => '<b>Pincode</b>',
+				'rules' => 'trim|required|max_length[6]|numeric'
+            ),
+            array(
+                'field' => 'district2',
+				'label' => '<b>District</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'state2',
+				'label' => '<b>State</b>',
+				'rules' => 'required'
+            ),
+            
+
         );
 
 
