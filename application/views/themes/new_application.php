@@ -137,7 +137,7 @@ $d=date('d-m-y');
   <div class="row row_new_app pl-0">
     <div class="col-lg-4 col-md-12 p-3">
       <div class="row">    
-        <div class="required"><label class="col-lg-3 col-xs-8" for="rcptno"><b>Receipt No</b></label></div><div>
+        <div class="required" style="<?php echo (form_error('receiptno') != '') ? 'has-error' : false;?>"><label class="col-lg-3 col-xs-8" for="rcptno"><b>Receipt No</b></label></div><div>
         <input class="col-lg-7 col-sm-4" maxlength="30" type="text" id="rcptno" name="receiptno" value="<?php echo $receiptno ;?>" placeholder="Receipt No" readonly>
         </div></div>
     </div>
@@ -174,7 +174,7 @@ $d=date('d-m-y');
     <div class="col-lg-3 col-md-12 p-3">
         <label for="fname" style="color:blue;" class="required"><b>First Name</b></label><br>
         <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+        <br><div style="color:red"><?php echo form_error('firstname'); ?></div><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       <div class="col-lg-3 col-md-12 p-3">
         <label for="mname" style="color:blue;"><b>Middle Name</b></label><br>
