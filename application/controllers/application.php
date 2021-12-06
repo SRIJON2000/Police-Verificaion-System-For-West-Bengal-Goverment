@@ -15,6 +15,80 @@ class Application extends CI_Controller
     public function newapp()
     {
         $this->load->library('form_validation');
+
+        $this->load->helper('form');
+		$this->load->library('form_validation');
+
+        $config=array(
+            array(
+                'field' => 'receiptno',
+				'label' => '<b>Receipt No</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'receiptdate',
+				'label' => '<b>Receipt Date</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'employer',
+				'label' => '<b>Office/Employer Name</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'firstname',
+				'label' => '<b>First Name</b>',
+				'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
+            ),
+            array(
+                'field' => 'middlename',
+				'label' => '<b>Middle Name</b>',
+				'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
+            ),
+            array(
+                'field' => 'lastname',
+				'label' => '<b>Last Name</b>',
+				'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
+            ),
+            array(
+                'field' => 'dob',
+				'label' => '<b>Date Of Birth</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'gender',
+				'label' => '<b>Gender</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'aadhaarno',
+				'label' => '<b>Aadhaar No</b>',
+				'rules' => 'trim|required|min_length[12]|max_length[12]|numeric'
+            ),
+            array(
+                'field' => 'caste',
+				'label' => '<b>Caste</b>',
+				'rules' => 'required'
+            ),
+            array(
+                'field' => 'houseno1',
+				'label' => '<b>House No</b>',
+				'rules' => 'required|max_length[6]'
+            ),
+            array(
+                'field' => 'street1',
+				'label' => '<b>Street/Lane</b>',
+				'rules' => 'trim|required|max_length[30]'
+            ),
+        );
+
+
+
+
+
+
+
+
         
         $this->form_validation->set_rules('receiptno', 'Receipt No', 'required');
         $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
