@@ -221,7 +221,8 @@ body {
     <div>
     <div style="text-align:center">
             <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">&nbsp;&nbsp;&nbsp;<br><br><br>
-            <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>Administration Login</b></button>
+            <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>Administration Login</b></button>&nbsp;&nbsp;&nbsp;
+            <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/superadmin_login'; } ?>'"><b>Superadmin Login</b></button>
     </div>
   </div>
   </div>
