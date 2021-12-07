@@ -9,6 +9,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <style>
+  .navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
   /* Style the navigation bar links */
 .navbar a {
   float: right;
@@ -46,7 +53,7 @@
   </div>
   <div class="mt-3 p-3 m-xs-0 row navbar" id="header_body">
     <div class="col-lg-1 col-sm-4"><a class="btn active text-center" href="http://localhost/pvr/" <?php if ($_SERVER['PHP_SELF']=='/pvr/index.php/test/dashboard_admin'){echo 'target="_blank"';};?>><b>Home</b></a></div>
-    <div class="col-lg-1 col-sm-3" ><a class="btn text-center" style="background-color:white" href="#about"><b>Contact</b></a></div>
+    <div class="col-lg-1 col-sm-3" ><a class="btn text-center" style="background-color:white" href="<?php echo base_url(); ?>/Home/contact"><b>Contact</b></a></div>
     <!-- <?php //if ($_SERVER['PHP_SELF']=='/pvr/index.php'){echo '<a href="#about"><b>Register Your Office</b></a>';};?> -->
   </div>
 </div>

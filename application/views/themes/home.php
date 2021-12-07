@@ -6,7 +6,8 @@ $this->load->library('session');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title</title>
+<title>PVR Home</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -19,6 +20,32 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
+#body_home{
+            height:600px;
+        }
+        #buttons{
+            margin: auto;
+            width: fit-content;
+            border: black solid;
+            border-radius: 5px;
+            margin-bottom: 2%;
+            margin-top:2%;
+            padding: 3%;
+            background: linear-gradient(to right, rgb(253, 253, 253), rgb(196, 188, 188));
+        }
+        h3{
+            color: #a5550b;
+        }
+        .button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
 
 /* Header/logo Title */
 .header {
@@ -123,6 +150,37 @@ body {
     width: 100%;
   }
 }
+
+
+.holder { 
+  background-color:lightblue;
+  width:430px;
+  height:350px;
+  overflow:hidden;
+  padding:10px;
+  font-family:Helvetica;
+}
+.holder .mask {
+  position: relative;
+  left: 0px;
+  top: 10px;
+  width:400px;
+  height:340px;
+  overflow: hidden;
+}
+.holder ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  position: relative;
+}
+.holder ul li {
+  padding:20px 0px;
+}
+.holder ul li a {
+  color:darkred;
+  text-decoration:none;
+}
 </style>
 </head>
 <body>
@@ -138,35 +196,79 @@ body {
 
 <div class="row">
   <div class="side">
-    <h2>About Me</h2>
-    <h5>Photo of me:</h5>
-    <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
-    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <!-- <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div> -->
+    
+  <h2><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News Feed</b></h2>
+  <div class="holder">
+        <ul id="ticker01">
+							<li><span>10/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
+							<li><span>10/10/2007</span><a href="#">End up doing is adding some code</a></li>
+							<li><span>10/10/2007</span><a href="#">The code that you want to run</a></li>
+							<li><span>08/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
+							<li><span>08/10/2007</span><a href="#">Right when the page is loaded</a></li>
+							<li><span>05/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
+							<li><span>04/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
+							<li><span>04/10/2007</span><a href="#">End up doing is adding some code</a></li>
+							<li><span>04/10/2007</span><a href="#">The code that you want to run</a></li>
+							<li><span>03/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
+							<li><span>03/10/2007</span><a href="#">Right when the page is loaded</a></li>
+							<li><span>01/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
+				</ul>
+  </div>
+
   </div>
   <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
-    <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <h2><b>Welcome To Police Verification Reporting System</b></h2><br>
+    <div>
+    <div>
+            <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">&nbsp;&nbsp;&nbsp;
+            <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>Administration Login</b></button>
+    </div>
+  </div>
   </div>
 </div>
 
 <!-- <div class="footer">
   <h2>Footer</h2>
 </div> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  jQuery.fn.liScroll = function(settings) {
+	settings = jQuery.extend({
+		travelocity: 0.03
+		}, settings);		
+		return this.each(function(){
+				var $strip = jQuery(this);
+				$strip.addClass("newsticker")
+				var stripHeight = 1;
+				$strip.find("li").each(function(i){
+					stripHeight += jQuery(this, i).outerHeight(true); // thanks to Michael Haszprunar and Fabien Volpi
+				});
+				var $mask = $strip.wrap("<div class='mask'></div>");
+				var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");								
+				var containerHeight = $strip.parent().parent().height();	//a.k.a. 'mask' width 	
+				$strip.height(stripHeight);			
+				var totalTravel = stripHeight;
+				var defTiming = totalTravel/settings.travelocity;	// thanks to Scott Waye		
+				function scrollnews(spazio, tempo){
+				$strip.animate({top: '-='+ spazio}, tempo, "linear", function(){$strip.css("top", containerHeight); scrollnews(totalTravel, defTiming);});
+				}
+				scrollnews(totalTravel, defTiming);				
+				$strip.hover(function(){
+				  jQuery(this).stop();
+				},
+				function(){
+				  var offset = jQuery(this).offset();
+				  var residualSpace = offset.top + stripHeight;
+				  var residualTime = residualSpace/settings.travelocity;
+				  scrollnews(residualSpace, residualTime);
+				});			
+		});	
+};
 
+$(function(){
+    $("ul#ticker01").liScroll();
+});
+  </script>
 </body>
 <?php $this->load->view('layouts/footer_view'); ?>
 </html>
