@@ -63,7 +63,7 @@ body {
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color:black;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
@@ -217,10 +217,10 @@ body {
 
   </div>
   <div class="main">
-    <h2><b>Welcome To Police Verification Reporting System</b></h2><br>
+    <h2 style="text-align:center;color:brown"><b>Welcome To Police Verification Reporting System</b></h2><br><br><br>
     <div>
-    <div>
-            <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">&nbsp;&nbsp;&nbsp;
+    <div style="text-align:center">
+            <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">&nbsp;&nbsp;&nbsp;<br><br><br>
             <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>Administration Login</b></button>
     </div>
   </div>
