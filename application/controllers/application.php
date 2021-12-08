@@ -19,222 +19,222 @@ class Application extends CI_Controller
         $this->load->helper('form');
 		$this->load->library('form_validation');
 
-        $config=array(
-            array(
-                'field' => 'receiptno',
-				'label' => '<b>Receipt No</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'receiptdate',
-				'label' => '<b>Receipt Date</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'employer',
-				'label' => '<b>Office/Employer Name</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'firstname',
-				'label' => '<b>First Name</b>',
-				'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
-            ),
-            array(
-                'field' => 'middlename',
-				'label' => '<b>Middle Name</b>',
-				'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
-            ),
-            array(
-                'field' => 'lastname',
-				'label' => '<b>Last Name</b>',
-				'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
-            ),
-            array(
-                'field' => 'dob',
-				'label' => '<b>Date Of Birth</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'gender',
-				'label' => '<b>Gender</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'aadhaarno',
-				'label' => '<b>Aadhaar No</b>',
-				'rules' => 'trim|required|min_length[12]|max_length[12]|numeric'
-            ),
-            array(
-                'field' => 'caste',
-				'label' => '<b>Caste</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'houseno1',
-				'label' => '<b>House No</b>',
-				'rules' => 'required|max_length[6]'
-            ),
-            array(
-                'field' => 'street1',
-				'label' => '<b>Street/Lane</b>',
-				'rules' => 'trim|required|max_length[30]'
-            ),
-            array(
-                'field' => 'landmark1',
-				'label' => '<b>Landmark</b>',
-				'rules' => 'trim|required|max_length[128]'
-            ),
-            array(
-                'field' => 'city1',
-				'label' => '<b>City</b>',
-				'rules' => 'trim|required|max_length[32]'
-            ),
-            array(
-                'field' => 'po1',
-				'label' => '<b>Post Office</b>',
-				'rules' => 'trim|required|max_length[32]'
-            ),
-            array(
-                'field' => 'ps1',
-				'label' => '<b>Police Station</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'pin1',
-				'label' => '<b>Pincode</b>',
-				'rules' => 'trim|required|max_length[6]|numeric'
-            ),
-            array(
-                'field' => 'district1',
-				'label' => '<b>District</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'state1',
-				'label' => '<b>State</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'houseno2',
-				'label' => '<b>House No</b>',
-				'rules' => 'required|max_length[6]'
-            ),
-            array(
-                'field' => 'street2',
-				'label' => '<b>Street/Lane</b>',
-				'rules' => 'trim|required|max_length[30]'
-            ),
-            array(
-                'field' => 'landmark2',
-				'label' => '<b>Landmark</b>',
-				'rules' => 'trim|required|max_length[128]'
-            ),
-            array(
-                'field' => 'city2',
-				'label' => '<b>City</b>',
-				'rules' => 'trim|required|max_length[32]'
-            ),
-            array(
-                'field' => 'po2',
-				'label' => '<b>Post Office</b>',
-				'rules' => 'trim|required|max_length[32]'
-            ),
-            array(
-                'field' => 'ps2',
-				'label' => '<b>Police Station</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'pin2',
-				'label' => '<b>Pincode</b>',
-				'rules' => 'trim|required|max_length[6]|numeric'
-            ),
-            array(
-                'field' => 'district2',
-				'label' => '<b>District</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'state2',
-				'label' => '<b>State</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'refno',
-				'label' => '<b>Reference No</b>',
-				'rules' => 'trim|required|numeric'
-            ),
-            array(
-                'field' => 'refdate',
-				'label' => '<b>Reference Date</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'defence',
-				'label' => '<b>Defence Personnel</b>',
-				'rules' => 'required'
-            ),
-            array(
-                'field' => 'category',
-				'label' => '<b>Send To</b>',
-				'rules' => 'required'
-            ),
+        // $config=array(
+        //     array(
+        //         'field' => 'receiptno',
+		// 		'label' => '<b>Receipt No</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'receiptdate',
+		// 		'label' => '<b>Receipt Date</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'employer',
+		// 		'label' => '<b>Office/Employer Name</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'firstname',
+		// 		'label' => '<b>First Name</b>',
+		// 		'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
+        //     ),
+        //     array(
+        //         'field' => 'middlename',
+		// 		'label' => '<b>Middle Name</b>',
+		// 		'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
+        //     ),
+        //     array(
+        //         'field' => 'lastname',
+		// 		'label' => '<b>Last Name</b>',
+		// 		'rules' => 'trim|alpha|required|min_length[2]|max_length[50]'
+        //     ),
+        //     array(
+        //         'field' => 'dob',
+		// 		'label' => '<b>Date Of Birth</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'gender',
+		// 		'label' => '<b>Gender</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'aadhaarno',
+		// 		'label' => '<b>Aadhaar No</b>',
+		// 		'rules' => 'trim|required|min_length[12]|max_length[12]|numeric'
+        //     ),
+        //     array(
+        //         'field' => 'caste',
+		// 		'label' => '<b>Caste</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'houseno1',
+		// 		'label' => '<b>House No</b>',
+		// 		'rules' => 'required|max_length[6]'
+        //     ),
+        //     array(
+        //         'field' => 'street1',
+		// 		'label' => '<b>Street/Lane</b>',
+		// 		'rules' => 'trim|required|max_length[30]'
+        //     ),
+        //     array(
+        //         'field' => 'landmark1',
+		// 		'label' => '<b>Landmark</b>',
+		// 		'rules' => 'trim|required|max_length[128]'
+        //     ),
+        //     array(
+        //         'field' => 'city1',
+		// 		'label' => '<b>City</b>',
+		// 		'rules' => 'trim|required|max_length[32]'
+        //     ),
+        //     array(
+        //         'field' => 'po1',
+		// 		'label' => '<b>Post Office</b>',
+		// 		'rules' => 'trim|required|max_length[32]'
+        //     ),
+        //     array(
+        //         'field' => 'ps1',
+		// 		'label' => '<b>Police Station</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'pin1',
+		// 		'label' => '<b>Pincode</b>',
+		// 		'rules' => 'trim|required|max_length[6]|numeric'
+        //     ),
+        //     array(
+        //         'field' => 'district1',
+		// 		'label' => '<b>District</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'state1',
+		// 		'label' => '<b>State</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'houseno2',
+		// 		'label' => '<b>House No</b>',
+		// 		'rules' => 'required|max_length[6]'
+        //     ),
+        //     array(
+        //         'field' => 'street2',
+		// 		'label' => '<b>Street/Lane</b>',
+		// 		'rules' => 'trim|required|max_length[30]'
+        //     ),
+        //     array(
+        //         'field' => 'landmark2',
+		// 		'label' => '<b>Landmark</b>',
+		// 		'rules' => 'trim|required|max_length[128]'
+        //     ),
+        //     array(
+        //         'field' => 'city2',
+		// 		'label' => '<b>City</b>',
+		// 		'rules' => 'trim|required|max_length[32]'
+        //     ),
+        //     array(
+        //         'field' => 'po2',
+		// 		'label' => '<b>Post Office</b>',
+		// 		'rules' => 'trim|required|max_length[32]'
+        //     ),
+        //     array(
+        //         'field' => 'ps2',
+		// 		'label' => '<b>Police Station</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'pin2',
+		// 		'label' => '<b>Pincode</b>',
+		// 		'rules' => 'trim|required|max_length[6]|numeric'
+        //     ),
+        //     array(
+        //         'field' => 'district2',
+		// 		'label' => '<b>District</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'state2',
+		// 		'label' => '<b>State</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'refno',
+		// 		'label' => '<b>Reference No</b>',
+		// 		'rules' => 'trim|required|numeric'
+        //     ),
+        //     array(
+        //         'field' => 'refdate',
+		// 		'label' => '<b>Reference Date</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'defence',
+		// 		'label' => '<b>Defence Personnel</b>',
+		// 		'rules' => 'required'
+        //     ),
+        //     array(
+        //         'field' => 'category',
+		// 		'label' => '<b>Send To</b>',
+		// 		'rules' => 'required'
+        //     ),
 
-        );
-        array_push($config);
-        $this->form_validation->set_rules($config);
-        $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>'); 
+        // );
+        // array_push($config);
+        // $this->form_validation->set_rules($config);
+        // $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>'); 
 
-        // $this->form_validation->set_rules('receiptno', 'Receipt No', 'required');
-        // $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
-        // $this->form_validation->set_rules('employer','Employer Name','required');
-        // $this->form_validation->set_rules('firstname', 'First Name', 'required|max_length[32]|trim');
-        // $this->form_validation->set_rules('middlename', 'Middle Name', 'max_length[32]|trim');
-        // $this->form_validation->set_rules('lastname', 'Lats Name', 'required|max_length[32]|trim');
-        // //$this->form_validation->set_rules('fathername', 'Father Name', 'required|max_length[32]|trim');
-        // //$this->form_validation->set_rules('nation', 'Nation', 'required');
-        // $this->form_validation->set_rules('dob', 'Date Of Birth', 'required');
-        // //$this->form_validation->set_rules('mothername', 'Mother Name', 'required|max_length[32]|trim');
-        // //$this->form_validation->set_rules('pob', 'Place Of Birth', 'required');
-        // $this->form_validation->set_rules('gender', 'Gender', 'required');
-        // $this->form_validation->set_rules('aadhaarno', 'Aadhaar No', 'required|max_length[12]|trim');
-        // $this->form_validation->set_rules('caste', 'Caste', 'required');
-        // //$this->form_validation->set_rules('blood', 'Blood Group', 'required');
-        // $this->form_validation->set_rules('houseno1', 'House No1', 'required');
-        // $this->form_validation->set_rules('street1', 'Street1', 'required');
-        // $this->form_validation->set_rules('landmark1', 'Landmark1', 'required|max_length[128]|trim');
-        // $this->form_validation->set_rules('city1', 'City1', 'required|max_length[32]|trim');
-        // $this->form_validation->set_rules('po1', 'Post Office1', 'required|max_length[32]|trim');
-        // $this->form_validation->set_rules('ps1', 'Police Station1', 'required');
-        // $this->form_validation->set_rules('pin1', 'Pin1', 'required|max_length[32]');
-        // $this->form_validation->set_rules('district1', 'District1', 'required');
-        // $this->form_validation->set_rules('state1', 'State1', 'required');
+        $this->form_validation->set_rules('receiptno', 'Receipt No', 'required');
+        $this->form_validation->set_rules('receiptdate', 'Receipt Date', 'required');
+        $this->form_validation->set_rules('employer','Employer Name','required');
+        $this->form_validation->set_rules('firstname', 'First Name', 'required|max_length[32]|trim');
+        $this->form_validation->set_rules('middlename', 'Middle Name', 'max_length[32]|trim');
+        $this->form_validation->set_rules('lastname', 'Lats Name', 'required|max_length[32]|trim');
+        //$this->form_validation->set_rules('fathername', 'Father Name', 'required|max_length[32]|trim');
+        //$this->form_validation->set_rules('nation', 'Nation', 'required');
+        $this->form_validation->set_rules('dob', 'Date Of Birth', 'required');
+        //$this->form_validation->set_rules('mothername', 'Mother Name', 'required|max_length[32]|trim');
+        //$this->form_validation->set_rules('pob', 'Place Of Birth', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('aadhaarno', 'Aadhaar No', 'required|max_length[12]|trim');
+        $this->form_validation->set_rules('caste', 'Caste', 'required');
+        //$this->form_validation->set_rules('blood', 'Blood Group', 'required');
+        $this->form_validation->set_rules('houseno1', 'House No1', 'required');
+        $this->form_validation->set_rules('street1', 'Street1', 'required');
+        $this->form_validation->set_rules('landmark1', 'Landmark1', 'required|max_length[128]|trim');
+        $this->form_validation->set_rules('city1', 'City1', 'required|max_length[32]|trim');
+        $this->form_validation->set_rules('po1', 'Post Office1', 'required|max_length[32]|trim');
+        $this->form_validation->set_rules('ps1', 'Police Station1', 'required');
+        $this->form_validation->set_rules('pin1', 'Pin1', 'required|max_length[32]');
+        $this->form_validation->set_rules('district1', 'District1', 'required');
+        $this->form_validation->set_rules('state1', 'State1', 'required');
 
-        // $this->form_validation->set_rules('houseno2', 'House No2', 'required|max_length[32]');
-        // $this->form_validation->set_rules('street2', 'Street2', 'required');
-        // $this->form_validation->set_rules('landmark2', 'Landmark2', 'required|max_length[128]|trim');
-        // $this->form_validation->set_rules('city2', 'City2', 'required|max_length[32]');
-        // $this->form_validation->set_rules('po2', 'Post Office2', 'required');
-        // $this->form_validation->set_rules('ps2', 'Police Station2', 'required');
-        // $this->form_validation->set_rules('pin2', 'Pin2', 'required|max_length[32]');
-        // $this->form_validation->set_rules('district2', 'District2', 'required');
-        // $this->form_validation->set_rules('state2', 'State2', 'required');
-        // //$this->form_validation->set_rules('sname', 'School Name', 'required|max_length[32]');
-        // //$this->form_validation->set_rules('saddress', 'School Address', 'required');
-        // //$this->form_validation->set_rules('spin', 'School Pin', 'required|valid_email|max_length[128]|trim');
-        // //$this->form_validation->set_rules('sdistrict', 'School District', 'required|max_length[32]');
-        // //$this->form_validation->set_rules('sstate', 'School State', 'required');
-        // //$this->form_validation->set_rules('cname', 'College Name', 'required|valid_email|max_length[128]|trim');
-        // //$this->form_validation->set_rules('caddress', 'College Address', 'required|max_length[32]');
-        // //$this->form_validation->set_rules('cpin', 'College Pin', 'required');
-        // //$this->form_validation->set_rules('cdistrict', 'College District', 'required|valid_email|max_length[128]|trim');
-        // //$this->form_validation->set_rules('cstate', 'College State', 'required');
-        // $this->form_validation->set_rules('refno', 'Reference No', 'required');
-        // $this->form_validation->set_rules('refdate', 'Reference Date', 'required');
-        // $this->form_validation->set_rules('defence', 'Defence Personnel', 'required');
-        // $this->form_validation->set_rules('category', 'Send To', 'required');
-        // //$this->form_validation->set_rules('ps3', 'Police Station', 'required|max_length[32]|trim');
+        $this->form_validation->set_rules('houseno2', 'House No2', 'required|max_length[32]');
+        $this->form_validation->set_rules('street2', 'Street2', 'required');
+        $this->form_validation->set_rules('landmark2', 'Landmark2', 'required|max_length[128]|trim');
+        $this->form_validation->set_rules('city2', 'City2', 'required|max_length[32]');
+        $this->form_validation->set_rules('po2', 'Post Office2', 'required');
+        $this->form_validation->set_rules('ps2', 'Police Station2', 'required');
+        $this->form_validation->set_rules('pin2', 'Pin2', 'required|max_length[32]');
+        $this->form_validation->set_rules('district2', 'District2', 'required');
+        $this->form_validation->set_rules('state2', 'State2', 'required');
+        //$this->form_validation->set_rules('sname', 'School Name', 'required|max_length[32]');
+        //$this->form_validation->set_rules('saddress', 'School Address', 'required');
+        //$this->form_validation->set_rules('spin', 'School Pin', 'required|valid_email|max_length[128]|trim');
+        //$this->form_validation->set_rules('sdistrict', 'School District', 'required|max_length[32]');
+        //$this->form_validation->set_rules('sstate', 'School State', 'required');
+        //$this->form_validation->set_rules('cname', 'College Name', 'required|valid_email|max_length[128]|trim');
+        //$this->form_validation->set_rules('caddress', 'College Address', 'required|max_length[32]');
+        //$this->form_validation->set_rules('cpin', 'College Pin', 'required');
+        //$this->form_validation->set_rules('cdistrict', 'College District', 'required|valid_email|max_length[128]|trim');
+        //$this->form_validation->set_rules('cstate', 'College State', 'required');
+        $this->form_validation->set_rules('refno', 'Reference No', 'required');
+        $this->form_validation->set_rules('refdate', 'Reference Date', 'required');
+        $this->form_validation->set_rules('defence', 'Defence Personnel', 'required');
+        $this->form_validation->set_rules('category', 'Send To', 'required');
+        //$this->form_validation->set_rules('ps3', 'Police Station', 'required|max_length[32]|trim');
         
         
 
