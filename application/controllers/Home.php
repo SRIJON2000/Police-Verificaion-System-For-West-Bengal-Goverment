@@ -25,21 +25,10 @@
         }
         function activity_log()
         {
-            // $data=$this->load_captcha();
-            // $this->load->view('themes/admin_login',$data);
-            $this->load->model('application_model');
-            $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
-            $a= $this->application_model->a();
-            $b =$this->application_model->b();
-            $c =$this->application_model->c();
-            $d =$this->application_model->d();
-            $data['numbers']=array(array(
-                'a'=>$a,
-                'b'=>$b,
-                'c'=>$c,
-                'd'=>$d));
+            
+            $data['logs']=$this->Application_model->activity_log_update($this->session->userdata('username'));
             $this->load->view('themes/activity_log',$data);
-            //$this->load->view('themes/dashboard_adm',$data);
+            
         }
         
         function dashboard_adm()
@@ -111,11 +100,16 @@
             $this->load->view('themes/emp_letter',$data);
         }
         function quarterly_report()
-    {
+        {
         
-        $this->load->view('themes/quarterly_report');
-    }
-        
+            $this->load->view('themes/quarterly_report');
+        }
+        function issues()
+        { 
+            $this->load->model('application_model');
+            $data['issues']=$this->Application_model->issues();
+            $this->load->view('themes/issues',$data);
+        }
         
         // function dashboard_ocvr()
         // {
@@ -258,6 +252,7 @@
        } 
        function profile()
        {
+
         $this->load->view('themes/profile');
        }
        function verified_letter_list()
@@ -288,5 +283,57 @@
                 'd'=>$d));
             $this->load->view('themes/unverified_letter_to_emp',$data);
        }
+
+       function notification(){
+        $num=$this->Application_model->count_seen_status($this->session->userdata('login_id'));
+        $this->session->set_userdata('new_num',$num);
+        $this->Application_model->update_seen_status($this->session->userdata('login_id'));
+        $data['notifications']=$this->Application_model->notification_update($this->session->userdata('login_id'));
+        $this->load->view('themes/notification',$data,$num); 
+    }
+    function delete_notification($notification_id)
+    {
+        $this->Application_model->delete_notification($notification_id);
+        redirect('Home/notification');
+    }
+    function delete_issue($issue_id)
+    {
+        $this->Application_model->delete_issue($issue_id);
+        redirect('Home/issues');
+    }
+    function contact()
+    {
+        $this->load->view('themes/contact'); 
+    }
+    function send_issue()
+    {
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('text', 'Decription', 'required');
+        if($this->form_validation->run() == FALSE)
+        {
+            //$this->form_validation->set_message('required', 'Your custom message here');
+            $this->session->set_flashdata('error', 'Incorrect Input');
+            $this->contact();
+        }
+        else
+        {
+            $name=$this->input->post('name');
+            $email=$this->input->post('email');
+            $description=$this->input->post('text');
+            $r=$this->Application_model->send_issue($name,$email,$description);
+            if($r==1)
+            {
+                $this->session->set_userdata('success','Your issues has been submitted successfully');
+                redirect('Home/contact');
+            }
+            else
+            {
+                $this->session->set_userdata('fail','Email id does not exist');
+                redirect('Home/contact');
+            }
+        }
+        
+    }
     }  
 ?>
