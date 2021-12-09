@@ -108,10 +108,12 @@ body {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-  -ms-flex: 30%; /* IE10 */
-  flex: 30%;
   background-color: #f1f1f1;
-  padding: 20px;
+  height: 550px;
+  width:500px;
+  position:absolute;
+  z-index: 1;
+  right: 70px;
 }
 
 /* Main column */
@@ -194,38 +196,38 @@ body {
   <a href="#" class="right">Link</a>
 </div> -->
 
-<div class="row">
-  <div class="side">
-    
-  <h2><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News Feed</b></h2>
-  <div class="holder">
-        <ul id="ticker01">
-							<li><span>10/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
-							<li><span>10/10/2007</span><a href="#">End up doing is adding some code</a></li>
-							<li><span>10/10/2007</span><a href="#">The code that you want to run</a></li>
-							<li><span>08/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
-							<li><span>08/10/2007</span><a href="#">Right when the page is loaded</a></li>
-							<li><span>05/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
-							<li><span>04/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
-							<li><span>04/10/2007</span><a href="#">End up doing is adding some code</a></li>
-							<li><span>04/10/2007</span><a href="#">The code that you want to run</a></li>
-							<li><span>03/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
-							<li><span>03/10/2007</span><a href="#">Right when the page is loaded</a></li>
-							<li><span>01/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
-				</ul>
-  </div>
-
-  </div>
-  <div class="main">
-    <h2 style="text-align:center;color:brown"><b>Welcome To Police Verification Reporting System</b></h2><br><br><br>
-    <div>
-    <div style="text-align:center">
-            <img src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">&nbsp;&nbsp;&nbsp;<br><br><br>
+<div style="height:650px;" class="">
+  <h2 style="text-align:center; color:brown" class="mb-4 mt-4"><b>Welcome To Police Verification Reporting System</b></h2>
+  <div class="main row">
+      <div class="">
+        <div style="text-align:center" class="mb-3">
+          <div class="mt-5">
+            <img class="mb-1" src="<?php echo base_url();?>/application/views/pics/admin.png" alt="Administrative image here" height="100" width="130">&nbsp;&nbsp;&nbsp;<br><br><br>
             <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/admin_login'; } ?>'"><b>Administration Login</b></button>&nbsp;&nbsp;&nbsp;
             <button class="button login_button"style="width:auto;" onclick="window.location.href = '<?php if($this->session->userdata('isloggedin')==True){echo base_url().'/Home/dashboard_adm';}else {echo base_url().'Home/superadmin_login'; } ?>'"><b>Superadmin Login</b></button>
+          </div>
+        </div>
+      </div>
+      <div class="side rounded-3">
+        <h2 class="text-center mt-4 mb-4"><b>News Feed</b></h2>
+        <div class="holder mx-auto h-75 rounded-3">
+              <ul id="ticker01">
+                    <li><span>10/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
+                    <li><span>10/10/2007</span><a href="#">End up doing is adding some code</a></li>
+                    <li><span>10/10/2007</span><a href="#">The code that you want to run</a></li>
+                    <li><span>08/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
+                    <li><span>08/10/2007</span><a href="#">Right when the page is loaded</a></li>
+                    <li><span>05/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
+                    <li><span>04/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
+                    <li><span>04/10/2007</span><a href="#">End up doing is adding some code</a></li>
+                    <li><span>04/10/2007</span><a href="#">The code that you want to run</a></li>
+                    <li><span>03/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
+                    <li><span>03/10/2007</span><a href="#">Right when the page is loaded</a></li>
+                    <li><span>01/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
+              </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
 </div>
 
 <!-- <div class="footer">
