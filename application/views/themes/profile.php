@@ -99,7 +99,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
             </ul></div>
         </nav>
+        <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline mx-auto" style="max-width: 700px">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <?php if($image==""||$image==NULL){
+                  echo "<img id='zoom' name='zoom' class='profile-user-img img-fluid img-circle' src='".base_url()."css/dist/img/avatar00.png' alt='User profile picture' style='width:150px; height:150px;'>";
+                }else{
+                  echo "<img id='zoom' name='zoom' class='profile-user-img img-fluid img-circle' src='data:image/jpeg;base64,$image' alt='User profile picture' style='width:150px; height:150px;'>";
+                }?>   
+              </div>
+
+              <h3 class="profile-username text-center"><b><?php echo $f_name." ".$m_name." ".$l_name;?></b></h3>
+
+              <p class="text-muted text-center"><?php echo $designation;?></p>
+
+              <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                  <b>Name </b> <a class="float-right"><?php echo $f_name." ".$m_name." ".$l_name;?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Username</b> <a class="float-right"><?php echo str_replace('@','[at]',str_replace('.','[dot]',$email)); ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Office</b> <a class="float-right"><?php echo $office; ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Department</b> <a class="float-right"><?php echo $department; ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Designation</b> <a class="float-right"><?php echo $designation; ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Email</b> <a class="float-right"><?php echo str_replace('@','[at]',str_replace('.','[dot]',$email)); ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Phone</b> <a class="float-right"><?php echo $mobile; ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>District</b> <a class="float-right"><?php echo $district ?></a>
+                </li>
+                
+              </ul>
+              
+              <div class="row">
+                <div class="col-md-6">
+                <a href="<?php echo base_url();?>Summary/edit_profile" class="btn btn-block btn-outline-primary mx-auto" style="max-width: 400px"><b>Edit Profile</b></a>
+                </div>
+                <div class="col-md-6">
+                <a href="<?php echo base_url();?>Summary/password_change_within" class="btn btn-block btn-outline-primary mx-auto" style="max-width: 400px"><b>Change Password</b></a>
+                </div>
+              </div>
+              
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         
+    </div>
+  </section>
+</div>
+
+	
+<script>
+$(document).on('mouseenter','#zoom', function (event) {
+  $(this).animate({width:'400px',height:'400px'});
+	$(this).css("opacity","1");
+  }).on('mouseleave','#zoom',  function(){
+    $(this).animate({width:'150px',height:'150px'});
+		$(this).css("opacity","1");
+  });
+</script>
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>/theme_css2/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
