@@ -250,6 +250,10 @@
             $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
             $this->load->view('themes/application_detail_view',$data);
        } 
+
+       function profile(){
+        $this->load->view('themes/profile');
+       }
        function verified_letter_list()
        {
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
