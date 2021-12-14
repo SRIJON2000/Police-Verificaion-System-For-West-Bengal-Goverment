@@ -252,7 +252,7 @@
        } 
        function profile()
        {
-            $data['profiles']=$this->Application_model->fetch_profile_detail($this->session->userdata('login_id'));
+            //$data['profiles']=$this->Application_model->fetch_profile_detail($this->session->userdata('login_id'));
             $this->load->view('themes/profile');
        }
        function verified_letter_list()
