@@ -116,28 +116,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                  <b>Name </b> <a class="float-right"></a>
+                  <b>Name </b><a class="float-right"><?php echo $this->session->userdata('user_type')?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Username</b> <a class="float-right"></a>
+                  <b>Username</b> <a class="float-right"><?php echo $this->session->userdata('username')?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Office</b> <a class="float-right"></a>
+                  <b>Office</b> <a class="float-right"><?php echo $this->session->userdata('office_name')?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Department</b> <a class="float-right"></a>
+                  <b>Department</b> <a class="float-right"><?php echo $this->session->userdata('department')?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Designation</b> <a class="float-right"></a>
+                  <b>Designation</b> <a class="float-right"><?php echo $this->session->userdata('user_type')?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Email</b> <a class="float-right"></a>
+                  <b>Email</b> <a class="float-right"><?php echo $this->session->userdata('username')?></a>
                 </li>
                 <li class="list-group-item">
                   <b>Phone</b> <a class="float-right"></a>
                 </li>
                 <li class="list-group-item">
-                  <b>District</b> <a class="float-right"></a>
+                  <b>District</b> <a class="float-right"><?php echo $this->session->userdata('district_name')?></a>
                 </li>
                 
               </ul>
