@@ -13,6 +13,7 @@
             $this->load->view('themes/home');
             
         }
+       
 
         function admin_login()
         {

@@ -189,19 +189,19 @@ class Login extends CI_Controller
     /**
      * This function used to load forgot password view
      */
-    /*public function forgotPassword()
+    public function forgotPassword()
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
-            $this->load->view('back_end/forgotPassword');
+            $this->load->view('themes/forgot_password');
         }
         else
         {
             redirect('/dashboard');
         }
-    }*/
+    }
     
     /**
      * This function used to generate reset password request link

@@ -96,7 +96,8 @@ $this->load->library('session');
 
 <!--New code added-->
     <div class="container-login100-form-btn">
-		  <button class="btn bg-success text-white login100-form-btn">Login</button>
+		  <button class="btn bg-success text-white login100-form-btn">Login</button><br>
+		  <a href="<?php echo base_url();?>forgot_password">  forgot password ?</a>
 		</div>
      
     <div class="wrap-input100">
