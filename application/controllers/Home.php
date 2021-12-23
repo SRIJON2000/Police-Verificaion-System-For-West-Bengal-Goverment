@@ -336,5 +336,9 @@
         }
         
     }
+    function forgot_password()
+    {
+        $this->load->view('themes/forgot_password');
+    }
     }  
 ?>
