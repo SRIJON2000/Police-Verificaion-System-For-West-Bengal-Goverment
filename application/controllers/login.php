@@ -342,7 +342,28 @@ class Login extends CI_Controller
             redirect("/login");
         }
     }*/
-
+    // public function forget()
+	// {
+    //     $this->load->model('Admin_model');
+    //     $this->form_validation->set_rules('email', 'Username', 'required|valid_email|callback_username_check');
+    //     if ($this->form_validation->run() == FALSE)
+    //     {
+    //         echo validation_errors();
+    //         $this->load->view('login-forget');
+    //     }
+    //     else
+    //     {
+    //         $email= $this->input->post('email');
+    //         $subject = "New password request";
+	// 	    $body = "Greetings,\nClick on the link below to change your password\n".base_url().index_page()."/Login/password_change/".hash('sha256',now())."/".hash('sha256',$email)."\nHave a nice day!";
+    //         $headers = "From: MPR Portal";
+    //         $xy=mail($email, $subject, $body, $headers);
+    //         if($xy)
+    //             echo "http://localhost/nic/index.php/Login";
+    //         else
+    //             echo "*http://localhost/nic/index.php/Login";
+    //     }
+    // }
     
 }
 
