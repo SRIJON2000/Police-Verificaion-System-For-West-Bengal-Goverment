@@ -462,7 +462,7 @@ $d=date('d-m-y');
       <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
     </div>
       </div>
-    <div class="col-lg-3 col-md-12 p-3 pt-5">
+    <div class="col-lg-4 col-md-12 p-3 pt-5"><br>
     <div><label for="category" class="required"><b>Send To</b></label>
     </div><div><select name="category" id="category" class="col-lg-9 col-sm-4 p-1" maxlength="30">
           <option value="">-----Select-----</option>
