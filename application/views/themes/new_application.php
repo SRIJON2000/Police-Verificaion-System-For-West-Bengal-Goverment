@@ -168,33 +168,33 @@ $d=date('d-m-y');
 	<h3 class="px-3"><b>Candidate Personal Details</b></h3>
   </div>
   <div class="row row_new_app">
-    <div class="col-lg-3 col-md-12 p-3 pt-5">
+    <!-- <div class="col-lg-3 col-md-12 p-3 pt-5">
         <label class="required"><b>Candidate Name</b></label>
-    </div>
-    <div class="col-lg-3 col-md-12 p-3">
+    </div> -->
+    <div class="col-lg-4 col-md-12 p-3">
         <label for="fname" style="color:blue;" class="required"><b>First Name</b></label><br>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." class="col-lg-7 col-sm-4 p-1" maxlength="30" required>
         <br><div style="color:red"><?php echo form_error('firstname'); ?></div><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
-      <div class="col-lg-3 col-md-12 p-3">
+      <div class="col-lg-4 col-md-12 p-3">
         <label for="mname" style="color:blue;"><b>Middle Name</b></label><br>
-        <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
+        <input type="text" id="mname" name="middlename" placeholder="Your middle name.." class="col-lg-7 col-sm-4 p-1" maxlength="30">
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
-      <div class="col-lg-3 col-md-12 p-3">
+      <div class="col-lg-4 col-md-12 p-3">
         <label for="lname" style="color:blue;" class="required"><b>Last Name</b></label><br>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." class="col-lg-7 col-sm-4 p-1" maxlength="30" required>
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
           </div>
   <div class="row row_new_app">
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
         <div><label for="dob" class="required"><b>Date Of Birth</b></label>
-        </div><div><input class="px-2" type="date" id="dob" name="dob" required><br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div></div>
+        </div><div><input type="date" id="dob" name="dob" class="px-2 col-lg-7 col-sm-4 p-1" maxlength="30" required><br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div></div>
       </div>  
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="gender" class="required"><b>Gender</b></label>
-      </div><div><select class="col-lg-9 p-1" maxlength="30" name="gender" id="gender">
+      </div><div><select class="col-lg-7 p-1 col-sm-12" maxlength="30" name="gender" id="gender">
           <option value="">-----Select-----</option>
           <?php
             foreach($genders as $gender)
@@ -209,14 +209,14 @@ $d=date('d-m-y');
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
       </div>  
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
-        <label for="aadhar" class="required"><b>Aadhaar No</b></label>
-        <input type="number" id="aadhar" name="aadhaarno" maxlength="12" placeholder="Aadhar number.." required>
-        <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
+       <div> <label for="aadhar" class="required"><b>Aadhaar No</b></label>
+          </div><div> <input type="number" id="aadhar" name="aadhaarno" maxlength="12" placeholder="Aadhar number.." class="col-lg-7 col-sm-4 p-1" required>
+          </div>  <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div>
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="caste" class="required"><b>Caste</b></label>
-      </div><div><select class="col-lg-9 p-1" maxlength="30" name="caste" id="caste">
+      </div><div><select class="col-lg-7 p-1 col-sm-12" maxlength="30" name="caste" id="caste">
           <option value="">-----Select-----</option>
           <?php
             foreach($castes as $caste)
@@ -435,19 +435,19 @@ $d=date('d-m-y');
   <br/>
   <hr>
   <div class="row row_new_app">
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="refno" class="required"><b>Reference No</b></label></div><div>
-        <input type="number" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-10 col-sm-4 p-1" maxlength="30" required>
+        <input type="number" id="refno" name="refno" placeholder="--Ref No--" class="col-lg-7 col-sm-4 p-1" maxlength="30" required>
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="refdate" class="required"><b>Reference Date</b></label></div><div>
-        <input type="date" id="refdate" name="refdate" class="px-1" style="width: 225px;" required>
+        <input type="date" id="refdate" name="refdate" class="py-1 px-2" style="width: 225px;" required>
         <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
       </div></div>
-      <div class="col-lg-3 col-md-12 p-3 pt-5">
+      <div class="col-lg-4 col-md-12 p-3 pt-5">
       <div><label for="defence" class="required"><b>Defence Personnel</b></label>
-      </div><div><select name="defence" id="defence" class="col-lg-9 col-sm-4 p-1" maxlength="30" required>
+      </div><div><select name="defence" id="defence" class="col-lg-7 col-sm-4 p-1 maxlength="30" required>
           <option value="">-----Select-----</option>
           <?php
                 foreach($defences as $defence)
@@ -462,9 +462,9 @@ $d=date('d-m-y');
       <br><div style="color:red"><b><?php if(!empty($error)){echo $error;unset($_SESSION['error']);}?></b></div>
     </div>
       </div>
-    <div class="col-lg-4 col-md-12 p-3 pt-5"><br>
+    <div class="col-lg-4 col-md-12 p-3 pt-5">
     <div><label for="category" class="required"><b>Send To</b></label>
-    </div><div><select name="category" id="category" class="col-lg-9 col-sm-4 p-1" maxlength="30">
+    </div><div><select name="category" id="category" class="col-lg-7 col-sm-4 p-1" maxlength="30">
           <option value="">-----Select-----</option>
           <?php
                 foreach($categories as $category)
