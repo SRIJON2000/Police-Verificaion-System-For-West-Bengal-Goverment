@@ -9,17 +9,17 @@ class Login_model extends CI_Model
         $this->db->where('username',$email);
         $query = $this->db->get();
         $user = $query->row();
-       //$password=hash("sha256", $user->password.$salt); //added because password is not encrypted at login page. Will be removed.
+        $password=hash("sha256", $user->password.$salt); //added because password is not encrypted at login page. Will be removed.
 
             if(!empty($user))
             {
                 //database password is salted and hashed
-            //$salted_hashed_password=hash("sha256", $user->password.$salt);
-            $salted_hashed_password=hash("sha256", $user->password);
+            $salted_hashed_password=hash("sha256", $user->password.$salt);
+            //$salted_hashed_password=hash("sha256", $user->password);
             
                 //compare the salted hased passwords
-                //if($password==$salted_hashed_password)
-                //{
+                if($password==$salted_hashed_password)
+                {
                     $this->db->select('office_name,district_id_fk');
                     $this->db->from('pvr_master_office');
                     $this->db->where('office_id_pk',$user->office_id_fk);
@@ -63,11 +63,11 @@ class Login_model extends CI_Model
                     
                     unset($_SESSION['salt']); //line added
                     return $result;
-                //} 
-               // else 
-                //{
-                    //return array();
-                //}
+                } 
+               else 
+                {
+                    return array();
+                }
         } 
         else 
         {

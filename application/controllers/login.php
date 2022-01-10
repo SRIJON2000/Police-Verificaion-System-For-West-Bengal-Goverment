@@ -39,8 +39,8 @@ class Login extends CI_Controller
             array(
                 'field' => 'captcha',
                 'label' => 'Captcha',
-                //'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
-                'rules' => ''
+                'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
+                //'rules' => ''
             )
         );
 
@@ -53,8 +53,9 @@ class Login extends CI_Controller
             $this->session->set_flashdata('error', 'Invalid Input !!!!');
             $_SESSION['salt'] = hash('sha256',microtime()); // added 06/09
             //$this->index();
-            $data=$this->load_captcha();
-            $this->load->view('themes/admin_login',$data);
+            // $data=$this->load_captcha();
+            // $this->load->view('themes/admin_login',$data);
+            redirect('Home/admin_login');
         }
         else
         {
