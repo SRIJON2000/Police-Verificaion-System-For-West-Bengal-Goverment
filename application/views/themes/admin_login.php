@@ -33,73 +33,80 @@ $this->load->library('session');
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 clearfix text-center">
-
-      <h2 class="login100-form-title">Login for District Administration</h2>
-	  <h3 class="text-center danger">
-		<?php 
-			$error = $this->session->flashdata('error');
-			if (!empty($error))
-  				echo $error;
-  			unset($_SESSION['error']);
-		?></h3>
-      <p class="text-center">Provide username and password for login</p>
-
-<?php echo (isset($error_message)) ? $error_message : "";?>
-    <?php echo form_open('Login', array('class' => 'login_form','name' => 'login_form','id' => 'login_form','autocomplete'=>'off','onsubmit'=>'return encryption()')); ?>
-	<input type="hidden" name="security_code" class="security_code" value="<?php echo hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key')) ?>">
-    <div class=" wrap-input100 validate-input " >
-							<input class="text-center input100" type="text" name="login_id" value="<?php echo set_value('login_id'); ?>" placeholder="Enter Username" placeholder="Username">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-							<span class="lnr lnr-user"></span>
-							</span>
-	</div>
+				
+				<h2 class="mt-3 mb-3 login100-form-title "><b>Login for District Administration</b></h2>
+				<!-- <div class="border-dark border border-5 container">  -->
+		<section class=" shadow-lg container p-3" style="width: 400px; border-radius:15px;"> 
+				 <h3 class="text-center danger ">
+			  <?php 
+				  $error = $this->session->flashdata('error');
+				  if (!empty($error))
+						echo $error;
+					unset($_SESSION['error']);
+			  ?></h3>
+			  <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+		<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+		<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+	  </svg>
+			<p class="text-center">Provide username and password for login</p>
+	  
+	  <?php echo (isset($error_message)) ? $error_message : "";?>
+		  <?php echo form_open('Login', array('class' => 'login_form','name' => 'login_form','id' => 'login_form','autocomplete'=>'off','onsubmit'=>'return encryption()')); ?>
+		  <input type="hidden" name="security_code" class="security_code" value="<?php echo hash('sha256',strtoupper($cap['word']).$this->config->item('encryption_key')) ?>">
+		  <div class=" wrap-input100 validate-input " >
+								  <input class="text-center input100" type="text" name="login_id" value="<?php echo set_value('login_id'); ?>" placeholder="Enter Username" placeholder="Username">
+								  <span class="focus-input100"></span>
+								  <span class="symbol-input100">
+								  <span class="lnr lnr-user"></span>
+								  </span>
+		  </div>				
+		  <div> 
+			 <?php echo form_error('login_id'); ?> 
+		  </div>
+	  
+			  <div class="form-group mt-3 wrap-input100 validate-input">
+				<input class="rounded text-center input100" type="password" name="password" placeholder="Enter Password">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+				<span class="lnr lnr-lock"></span>
+				</span>
+			  </div>
+			  <?php echo form_error('password'); ?> 
+	  
+			  
+		  <div class="form-group mt-3 wrap-input100 validate-input">
+			  <div class="row">
+				  <div class="col-xs-5 captcha_img" style="border: 0px solid;padding: 0;">
+					   <?php echo $cap['image']; ?>
+					   <span class="symbol-input100">
+				  </div>
+				  <div>
+					  <br>
+				  </div>
+	  
+	  
+				  <div class="lnr lnr-sync captcha-refresh"  id="loadCaptcha" ></div>
 						
-    <div> 
-       <?php echo form_error('login_id'); ?> 
-    </div>
-
-		<div class="form-group mt-3 wrap-input100 validate-input">
-		  <input class="text-center input100" type="password" name="password" placeholder="Enter Password">
-		  <span class="focus-input100"></span>
-		  <span class="symbol-input100">
-		  <span class="lnr lnr-lock"></span>
-		  </span>
-		</div>
-        <?php echo form_error('password'); ?> 
-
-		
-	<div class="form-group mt-3 wrap-input100 validate-input">
-        <div class="row">
-        	<div class="col-xs-5 captcha_img" style="border: 0px solid;padding: 0;">
-        		 <?php echo $cap['image']; ?>
-				 <span class="symbol-input100">
-        	</div>
-			<div>
-				<br>
-			</div>
-
-
-        	<div class="lnr lnr-sync captcha-refresh"  id="loadCaptcha" ></div>
-      			
-				<div class="" style="padding: 0">
-      				<input type="text" class="captcha-field" name="captcha" >
-      				<?php echo form_error('captcha'); ?>
-      			</div>
-      		
-			<div class="wrap-input100">
-        		<div class="row">
-          			<p class="text-danger">* Captcha is not case sensitive</p>
-        		</div>
-      		</div>
-
-
-<!--New code added-->
-    <div class="container-login100-form-btn">
-		  <button class="btn bg-success text-white login100-form-btn">Login</button><br>
-		  <a href="<?php echo base_url();?>Home/forgot_password">  forgot password ?</a>
-		</div>
-     
+					  <div class="" style="padding: 0">
+							<input type="text" class="captcha-field" name="captcha" >
+							<?php echo form_error('captcha'); ?>
+						</div>
+					
+				  <div class="wrap-input100">
+					  <div class="row">
+							<p class="text-danger">* Captcha is not case sensitive</p>
+					  </div>
+					</div>
+	  
+	  
+	  <!--New code added-->
+		  <div class="container-login100-form-btn">
+				<button class="btn bg-success text-white login100-form-btn">Login</button><br>
+				<a href="<?php echo base_url();?>Home/forgot_password">  forgot password ?</a>
+			  </div>
+		  </div>
+		   
+		</section>
     <div class="wrap-input100">
 		  	<div class="row">
 	         <div class="col-md-1 text-left">
