@@ -50,7 +50,7 @@ class Login extends CI_Controller
 
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Invalid Input !!!!');
+            $this->session->set_flashdata('error', 'Captcha Required');
             $_SESSION['salt'] = hash('sha256',microtime()); // added 06/09
             //$this->index();
             // $data=$this->load_captcha();
@@ -97,8 +97,7 @@ class Login extends CI_Controller
                 $this->session->set_flashdata('error', 'Incorrect Username or password !!!');
                 $_SESSION['salt'] = hash('sha256',microtime()); // added 06/09
             //$this->index();
-                $data=$this->load_captcha();
-                $this->load->view('themes/admin_login',$data);
+            redirect('Home/admin_login');
                 
             }
         }

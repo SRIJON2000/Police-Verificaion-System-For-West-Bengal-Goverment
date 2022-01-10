@@ -9,7 +9,7 @@ class Login_model extends CI_Model
         $this->db->where('username',$email);
         $query = $this->db->get();
         $user = $query->row();
-        $password=hash("sha256", $user->password.$salt); //added because password is not encrypted at login page. Will be removed.
+        //$password=hash("sha256", $user->password.$salt); //added because password is not encrypted at login page. Will be removed.
 
             if(!empty($user))
             {
