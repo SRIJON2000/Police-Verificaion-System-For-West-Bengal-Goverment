@@ -82,9 +82,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                
                                 <nav class="sb-sidenav-menu-nested nav">
                                     
-                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Recent Applications</a>
+                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>application">New Application</a>
+                                    
                                    
                                 </nav>
                                 
@@ -115,50 +117,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Dashboard</h1><br/>
+                        <h1 class="mt-4 text-center">verify/Reject</h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
-                        <?php foreach($numbers as $d){?>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" style="font-size:30px"><strong><?php echo $d['a'];?></strong></p>
-                                        <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
-                                    </div>
-                                </button>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button  class="card bg-warning text-white mb-4">
-                                    <div class="card-body"><b>No. of request received during the quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center"style="font-size:30px"><strong><?php echo $d['b'];?></strong></p>
-                                        <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                    </div>
-                                </button>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-success text-white mb-4">
-                                    <div class="card-body"><b>No. of cases pending as on the lastday of quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center"style="font-size:30px"><strong><?php echo $d['c'];?></strong></p>
-                                        <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                    </div>
-                                </button>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><b>No. of report pending more than 120 days</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center"style="font-size:30px"><strong><?php echo $d['d'];?></strong></p>
-                                        <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                      <?php }?>
+                        
                        
 
                         <div class="card mb-4">

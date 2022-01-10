@@ -46,7 +46,7 @@ $current_year=date('y');
 </style>
 <?php 
 			$error = $this->session->flashdata('error');
-		?>
+		?><br>
 <div class="container">
   <div class="border_lt"><h3 class="px-3"><b>Search Application  Status</b></h3></div><br>
   <form id="application" action="<?php echo base_url();?>Application/statussearch" method="post">
