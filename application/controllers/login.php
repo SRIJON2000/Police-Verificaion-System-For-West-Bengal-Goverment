@@ -50,12 +50,27 @@ class Login extends CI_Controller
 
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Captcha Required');
+            if(empty($this->input->post('login_id')))
+            {
+                $this->session->set_flashdata('error', 'Username Required');
+                redirect('Home/admin_login');
+            }
+            if(empty($this->input->post('password')))
+            {
+                $this->session->set_flashdata('error', 'Password Required');
+                redirect('Home/admin_login');
+            }
+            if(empty($this->input->post('captcha')))
+            {
+                $this->session->set_flashdata('error', 'Captcha Required');
+                redirect('Home/admin_login');
+            }
+            //$this->session->set_flashdata('error', 'Captcha Required');
             $_SESSION['salt'] = hash('sha256',microtime()); // added 06/09
             //$this->index();
             // $data=$this->load_captcha();
             // $this->load->view('themes/admin_login',$data);
-            redirect('Home/admin_login');
+            //redirect('Home/admin_login');
         }
         else
         {
