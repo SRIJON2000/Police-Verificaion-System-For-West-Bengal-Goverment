@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">verify/Reject</h1><br/>
+                        <h1 class="mt-4 text-center"><b>List of Applications(IB Verification Completed) to verify/Reject</b></h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
