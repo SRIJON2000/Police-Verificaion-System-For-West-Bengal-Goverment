@@ -142,14 +142,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
               </ul>
               
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-md-6">
-                <a href="<?php echo base_url();?>Summary/edit_profile" class="btn btn-block btn-outline-primary mx-auto" style="max-width: 400px"><b>Edit Profile</b></a>
+                <a href="<?php //echo base_url();?>Summary/edit_profile" class="btn btn-block btn-outline-primary mx-auto" style="max-width: 400px"><b>Edit Profile</b></a>
                 </div>
                 <div class="col-md-6">
-                <a href="<?php echo base_url();?>Summary/password_change_within" class="btn btn-block btn-outline-primary mx-auto" style="max-width: 400px"><b>Change Password</b></a>
+                <a href="<?php //echo base_url();?>Summary/password_change_within" class="btn btn-block btn-outline-primary mx-auto" style="max-width: 400px"><b>Change Password</b></a>
                 </div>
-              </div>
+              </div> -->
               
             </div>
             <!-- /.card-body -->
