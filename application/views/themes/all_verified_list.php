@@ -54,7 +54,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+                        <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
+                            
+                            
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
@@ -82,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                
                                 <nav class="sb-sidenav-menu-nested nav">
                                     
-                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Pending Approval</a>
+                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
                                    
@@ -114,48 +119,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Dashboard</h1><br/>
+                        <h1 class="mt-4 text-center"><b>List Of Verified Defence Applications</b></h1><br/>
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-primary text-white mb-4">
-                                    <div class="card-body"><b>No. of pending enquiries in the lastday of prevous quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between ">
-                                        <p class="small text-white stretched-link" ><b>Number</b></p>
-                                        <!-- <div class="small text-white d-flex justify-content-between"><i class="fas fa-angle-right"></i></div>   -->
-                                    </div>
-                                </button>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button  class="card bg-warning text-white mb-4">
-                                    <div class="card-body"><b>No. of request received during the quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                          <p class="small text-white stretched-link text-center" ><b>Number</b></p>
-                                        <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                    </div>
-                                </button>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-success text-white mb-4">
-                                    <div class="card-body"><b>No. of cases pending as on the lastday of quarter</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
-                                        <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                    </div>
-                                </button>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <button class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><b>No. of report pending more than 120 days</b></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <p class="small text-white stretched-link text-center" ><b>Number</b></p>
-                                        <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
+                        
                       
                        
 

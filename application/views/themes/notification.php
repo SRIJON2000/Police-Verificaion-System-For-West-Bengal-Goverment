@@ -75,9 +75,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li id="sm_show"><div class="text-dark">Logged in as:
                                 <strong><?php echo $this->session->userdata('user_type')." "?>(<?php echo $this->session->userdata('district_name')?>)</strong></div></li>
                             <hr id="sm_show">
-                            <li><a class="dropdown-item" href="#!">Settings</a></li>
-                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
+                            <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
+                            
                             <li><hr class="dropdown-divider" /></li>
                             
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>

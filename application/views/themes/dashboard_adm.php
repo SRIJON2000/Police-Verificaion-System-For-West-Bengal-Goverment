@@ -137,7 +137,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                     <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <a class="nav-link" href="#">Send Reminder</a>
+                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
                                 </nav>
                                 <?php 
                                     }
@@ -171,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Letter To SPDIB</a>
+                                    <!-- <a class="nav-link" href="#">Letter To SPDIB</a> -->
                                     <a class="nav-link" href="<?php echo base_url()?>Home/verified_letter_list">Verified Letter To Employer</a>
                                     <a class="nav-link" href="<?php echo base_url()?>Home/unverified_letter_list">Unverified Letter To Employer</a>
                                 </nav>
@@ -402,7 +402,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                <strong>Applications to confirm</strong>
+                                <strong>Verified Applications to confirm</strong>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
