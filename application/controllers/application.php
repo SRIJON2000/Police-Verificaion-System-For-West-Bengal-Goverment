@@ -241,7 +241,7 @@ class Application extends CI_Controller
         if($this->form_validation->run() == FALSE)
         {
             //$this->form_validation->set_message('required', 'Your custom message here');
-            //$this->session->set_flashdata('error', 'Incorrect Input');
+            $this->session->set_flashdata('error', 'Incorrect Input');
             $this->index();
         }
         else

@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3">Operations</a>
+            <a class="navbar-brand ps-3">Menu</a>
             <!-- Sidebar Toggle-->
             <div class="d-inline"><button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button></div>
             <!-- Navbar-->
@@ -144,8 +144,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li id="sm_show"><div class="text-dark">Logged in as:
                                 <strong><?php echo $this->session->userdata('user_type')." "?>(<?php echo $this->session->userdata('district_name')?>)</strong></div></li>
                             <hr id="sm_show">
-                            <li><a class="dropdown-item" href="#!">Settings</a></li>
+                            <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
                         </ul>
