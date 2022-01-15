@@ -64,11 +64,12 @@ $this->load->library('session');
   }
 }
 
-legend{
+.label{
     background-color: #669cf2;
     color: #fff;
     padding: 1%;
     border-radius: 10px;
+    width: 500px;
 }
 
 tr{
@@ -120,9 +121,9 @@ tr td,tr th{border: 1px solid;}*/
                   
                   <div class="panel-body">
                                 <table >
-                                    </br><legend>
+                                    <br><div class="label">
                                         Basic Details
-                                    </legend>
+                                    </div class="label">
                                      <tr>
                                      <th>
                                         <b>Receipt No: </b>
@@ -170,9 +171,9 @@ tr td,tr th{border: 1px solid;}*/
                                 
 
                                 <table>
-                                    </br><legend>
+                                    <br><div class="label">
                                         Candidate Present Address
-                                    </legend>
+                                    </div class="label">
                                     <tr><th>
                                         <b>House No:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['candidate_house_no1'] ?></td>
                                     </tr><tr><th>
@@ -199,26 +200,26 @@ tr td,tr th{border: 1px solid;}*/
                                
                                  
                                 <table>
-                                </br>
-                                    <legend>
+                                    <br>
+                                    <div class="label">
                                         Office Details
-                                    </legend>
+                                    </div class="label">
                                     <tr>
-                                    <th>
+                                        <th>
                                         <b>Office Name: </b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['employer_name'] ?></td>
-                                        <tr></tr><th>
+                                        </tr><tr><th>
                                         <b>Primary Address:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['employer_add1'] ?></td>
-                                        <tr></tr><th>
+                                        </tr><tr><th>
                                         <b>Secondary Address: </b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['employer_add2'] ?></td>
-                                        </tr>
+                                    </tr>
                                 
                                      
                                     
                                 </table>
                                 <table>
-                                    </br><legend>
+                                    <br><div class="label">
                                         Candidate Permanent Address
-                                    </legend>
+                                    </div class="label">
                                     <?php }foreach($details2 as $detail2)
                                     {
                                         ?>
@@ -244,7 +245,7 @@ tr td,tr th{border: 1px solid;}*/
                                  <?php 
                                 }
                                  ?>
-                                 <br/><br/>
+                                 <br><br>
                                 </table>
             </div>
 <div class="text-centre d-flex justify-content-center">
