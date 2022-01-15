@@ -126,7 +126,7 @@ $this->load->library('session');
 	$('#loadCaptcha').click(function(){
 		$.ajax({
 			url: "Login/load_captcha",
-			type: "GET",
+			type: "POST",
 			dataType: "json",
 			success:function(resp)
 					{ 
