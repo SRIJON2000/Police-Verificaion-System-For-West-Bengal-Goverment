@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <!-- Main content -->
         <br><h1 style="text-align:center;"><b>Profile Information</b></h1>
-  <section class="content">
+  <section class="content pb-5">
     <div class="container-fluid">
           <!-- Profile Image -->
           <div class="card card-primary card-outline mx-auto" style="max-width: 700px">
@@ -116,28 +116,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                  <b>Name </b><a class="float-right"><?php echo $this->session->userdata('user_type')?></a>
+                  <div class="d-flex justify-content-between"> 
+                    <div><b>Name </b></div>
+                    <div ><a class="float-right text-dark text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('user_type')?></a>
+                  </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>Username</b> <a class="float-right"><?php echo $this->session->userdata('username')?></a>
+                <div class="d-flex justify-content-between">
+                  <div><b>Username</b></div>
+                  <div> <a class="float-right text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('username')?></a>
+                  </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>Office</b> <a class="float-right"><?php echo $this->session->userdata('office_name')?></a>
+                <div class="d-flex justify-content-between">
+                <div><b>Office</b></div>
+                <div> <a class="float-right text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('office_name')?></a>
+                </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>Department</b> <a class="float-right"><?php echo $this->session->userdata('department')?></a>
+                <div class="d-flex justify-content-between">
+                <div><b>Department</b></div>
+                <div> <a class="float-right text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('department')?></a>
+                </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>Designation</b> <a class="float-right"><?php echo $this->session->userdata('user_type')?></a>
+                <div class="d-flex justify-content-between">
+                <div><b>Designation</b></div>
+                <div> <a class="float-right text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('user_type')?></a>
+                </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>Email</b> <a class="float-right"><?php echo $this->session->userdata('username')?></a>
+                <div class="d-flex justify-content-between">
+                <div><b>Email</b></div><div> <a class="float-right text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('username')?></a>
+                </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>Phone</b> <a class="float-right"></a>
+                <div class="d-flex justify-content-between">
+                <div><b>Phone</b></div><div> <a class="float-right text-dark" style="text-decoration:none;"></a>
+                </div></div>
                 </li>
                 <li class="list-group-item">
-                  <b>District</b> <a class="float-right"><?php echo $this->session->userdata('district_name')?></a>
+                <div class="d-flex justify-content-between">
+                <div><b>District</b></div><div> <a class="float-right text-dark" style="text-decoration:none;"><?php echo $this->session->userdata('district_name')?></a>
+                </div>
                 </li>
                 
               </ul>
