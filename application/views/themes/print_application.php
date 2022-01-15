@@ -63,6 +63,21 @@ $this->load->library('session');
     margin-right: 1rem;
   }
 }
+
+legend{
+    background-color: #669cf2;
+    color: #fff;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+tr{
+    width:100%;
+}
+
+th,td{
+    padding-left:170px;
+}
 </style>  
   
 </head>
@@ -87,15 +102,15 @@ tr td,tr th{border: 1px solid;}*/
     <section class="content-header">
         <h1>Applicantion Details</h1>
         <!-- <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Dashboard</li>
+            <li><i class="fa fa-dashboard"></i> Dashboard</td>
             
-            <li class="active">Applicant Details</li>
+            <li class="active">Applicant Details</td>
         </ol> -->
     </section> 
     <section class="content print_view">
     	<div class="box box-primary">
 			<!-- <div class="box-header with-border">
-				<h3 ><a href="<?php echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
+				<h3 ><a href="<?php //echo base_url()?>Home/dashboard_adm" class="btn btn-primary" style="float: right;">Back</a></h3>
 			</div>    -->
             <?php foreach($details1 as $detail)
          {
@@ -104,266 +119,134 @@ tr td,tr th{border: 1px solid;}*/
                 <div class="panel panel-default">
                   
                   <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item active">
+                                <table >
+                                    </br><legend>
                                         Basic Details
-                                    </li>
-                                     <li class="list-group-item">
-                                        <b>Receipt No: </b><?php echo $detail['receipt_no'] ?></li>
-                                     <li class="list-group-item">
+                                    </legend>
+                                     <tr>
+                                     <th>
+                                        <b>Receipt No: </b>
+                                    </th>
+                                    <td><?php echo $detail['receipt_no'] ?></td>
+                                     </tr>
+                                     <tr>
+                                     <th>
                                         <b>Receipt Date</b> :
-                                                                                     
-                                            <b>&nbsp;&nbsp;</b><?php echo $detail['receipt_date']?>                                       
-                                                                            </li>
+                                        </th>                                            
+                                            <b>&nbsp;&nbsp;</b><td><?php echo $detail['receipt_date']?>                                       
+                                                                            </td></tr><tr>
 
-                                        <li class="list-group-item">
-                                            <b>Reference No: </b><?php echo $detail['ref_no_pk'] ?></li>
-                                        <li class="list-group-item">
+                                        <th>
+                                            <b>Reference No: </b></th>
+                                            <td><?php echo $detail['ref_no_pk'] ?></td></tr>
+                                    <tr>
+                                        <th>
                                             <b>Refrence Date</b> :
-                                            <b>&nbsp;&nbsp;</b><?php echo $detail['ref_date']?>                                       
-                                                                            </li>
-                                    <li class="list-group-item">
-                                            <b>Memo No: </b><?php echo $detail['memo_no'] ?></li>
-                                    
-                                    <li class="list-group-item">
-                                        <b>Candidate Name: </b><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></li>
-                    
-                                    <li class="list-group-item">
-                                        <b>Caste: </b><?php echo $detail['caste_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Gender: </b><?php echo $detail['gender_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Aadhaar No: </b><?php echo $detail['candidate_aadhaar_no'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>VR Type: </b><?php echo $detail['df_type'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>VR Sending to : </b><?php echo $detail['sent_to'] ?></li>
-                                </ul>
-                                <ul class="list-group">
-                                    <li class="list-group-item active">
+                                            <b>&nbsp;&nbsp;</b></th>
+                                            <td><?php echo $detail['ref_date']?>                                       
+                                                                            </td></tr>
+                                                                            <tr>
+                                    <th>
+                                            <b>Memo No: </b></th>
+                                            <td><?php echo $detail['memo_no'] ?></td></tr>
+                                            <tr>
+                                    <th>
+                                        <b>Candidate Name: </b></th><td><?php echo $detail['candidate_f_name'].' '.$detail['candidate_m_name'].' '.$detail['candidate_l_name'] ?></td>
+                                        </tr><tr> 
+                                    <th>
+                                        <b>Caste: </b></th><td><?php echo $detail['caste_name'] ?></td></tr>
+                                        <tr>
+                                    <th>
+                                        <b>Gender: </b></th><td><?php echo $detail['gender_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Aadhaar No: </b></th><td><?php echo $detail['candidate_aadhaar_no'] ?></td>
+                                        </tr><tr><th>
+                                        <b>VR Type: </b></th><td><?php echo $detail['df_type'] ?></td>
+                                        </tr><tr><th>
+                                        <b>VR Sending to : </b></th><td><?php echo $detail['sent_to'] ?></td></tr>
+                                </table>
+                                
+                                
+                                
+
+                                <table>
+                                    </br><legend>
                                         Candidate Present Address
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_house_no1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_street1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_city1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_landmark1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail['candidate_post_office1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail['ps_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail['state_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail['district_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail['pincode_no'] ?></li>
-                    
+                                    </legend>
+                                    <tr><th>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['candidate_house_no1'] ?></td>
+                                    </tr><tr><th>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['candidate_street1'] ?></td>
+                                        </tr><tr><th>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['candidate_city1'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['candidate_landmark1'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['candidate_post_office1'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['ps_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['state_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['district_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['pincode_no'] ?></td>
+                                        </tr> 
                                  
-                                </ul>
+                                </table>
                                 <!-- newly added by Koustabh 12/09/2018 starts -->
                                 
                                
                                  
-                                
-                               
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item active">
+                                <table>
+                                </br>
+                                    <legend>
                                         Office Details
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Office Name: </b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Primary Address:</b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_add1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Secondary Address: </b><b>&nbsp;&nbsp;</b><?php echo $detail['employer_add2'] ?></li>
-                                     
+                                    </legend>
+                                    <tr>
+                                    <th>
+                                        <b>Office Name: </b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['employer_name'] ?></td>
+                                        <tr></tr><th>
+                                        <b>Primary Address:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['employer_add1'] ?></td>
+                                        <tr></tr><th>
+                                        <b>Secondary Address: </b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail['employer_add2'] ?></td>
+                                        </tr>
                                 
                                      
                                     
-                                </ul>
-                                <ul class="list-group">
-                                    <li class="list-group-item active">
+                                </table>
+                                <table>
+                                    </br><legend>
                                         Candidate Permanent Address
-                                    </li>
-                                    <?php foreach($details2 as $detail2)
+                                    </legend>
+                                    <?php }foreach($details2 as $detail2)
                                     {
                                         ?>
-                                    <li class="list-group-item">
-                                        <b>House No:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_house_no2'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_street2'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>City :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_city2'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_landmark2'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['candidate_post_office1'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b><?php echo $detail2['ps_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>State:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['state_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>District:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['district_name'] ?></li>
-                                    <li class="list-group-item">
-                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b><?php echo $detail2['pincode_no'] ?></li>
+                                    <tr><th>
+                                        <b>House No:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['candidate_house_no2'] ?></td>
+                                    </tr><tr><th>
+                                        <b>Street Name :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['candidate_street2'] ?></td>
+                                        </tr><tr><th>
+                                        <b>City :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['candidate_city2'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Landmark :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['candidate_landmark2'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Post Office:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['candidate_post_office1'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Police Station :</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['ps_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>State:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['state_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>District:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['district_name'] ?></td>
+                                        </tr><tr><th>
+                                        <b>Pin Code:</b><b>&nbsp;&nbsp;</b></th><td><?php echo $detail2['pincode_no'] ?></td>
+                                        </tr>
                                  <?php 
                                 }
                                  ?>
                                  <br/><br/>
-                                </ul>
-                                
-                                
-                            </div>
-                             
-                        </div>
-                        <!-- <button style="width: 20%;background-color: transparent;border: 10;">Approve</button> -->
-                         <!-- <div class="col-md-12">
-                            <ul class="list-group">
-                                <li class="list-group-item active">Experience</li>
-                                <li class="list-group-item">
-                                    <table class="table  table-bordered" >
-                                        <thead>
-                                            <tr>
-                                                <th>Name of Organization</th>
-                                                <th style="width: 250px">Designation</th>
-                                                <th>Date of Joining </th>
-                                                <th>Date of Resigning</th>
-                                                <th>Current Organization</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody  >
-                                                                                          <tr>
-                                                <td>NIC</td>
-                                                <td>Developer</td>
-                                                <td>02/06/2018</td>
-                                                <td>01/01/1970</td>
-                                                <td> YES</td>
-                                            </tr>
-                                                                                   </tbody>
-                                    </table>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-12">
-                            <ul class="list-group">
-                                <li class="list-group-item active">Educational Qualification</li>
-                                <li class="list-group-item">
-                                    <table class="table  table-bordered edu_table" >
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>Stream</th>
-                                                <th>College / University / Board</th>
-                                                <th>CGPA</th>
-                                                <th>Year of Passing</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody  >
-                                            
-                                            <tr>
-                                                <td>Post Graduation</td>
-                                                <td>Masters in Psychology</td>
-                                                <td>Meghnad Saha College</td>
-                                                <td>6.00</td>
-                                                <td>2019</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Graduation</td>
-                                                <td>B.Tech</td>
-                                                <td>Meghnad Saha College</td>
-                                                <td>6.00</td>
-                                                <td>2017</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12th / Higher Secondary</td>
-                                                <td>Science</td>
-                                                <td>WBCHSE</td>
-                                                <td>75</td>
-                                                <td>2013</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10th / Secondary</td>
-                                                <td>Science</td>
-                                                <td>WBBSE</td>
-                                                <td>80</td>
-                                                <td>2011</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </li>
-                            </ul>
-                        </div> -->
-                        <!-- <div class="col-md-12">
-                             <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item active">Photo</li>
-                                    <li class="list-group-item">
-                                        <img src="http://localhost/recruitment/files/public/spm/photo/WB20VMY5889624.jpg" class="img-responsive">
-                                    </li>
-                                </ul>
-                            </div>
-                             <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item active">Signature</li>
-                                    <li class="list-group-item">
-                                        <img src="http://localhost/recruitment/files/public/spm/signature/WB20VMY5889624.jpg" class="img-responsive">
-                                    </li>
-                                </ul>
-                            </div> -->
-                         <!-- </div>
-                         <input type="hidden" name="" id="spm_id" value="180">
-                    	<button type="button" class="btn btn-primary " id="intimation_mail"    style="float: right;">Send Intimation Mail</button> -->
-                  <!-- </div>
-                </div>
+                                </table>
             </div>
-            <div class="box-footer"></div>
-		</div> -->
-    </section>
-</div>
-
-<?php 
-    
-        }
-?>
-
-  <!-- <div class="modal fade" id="intimation_modal" role="dialog">
-    <div class="modal-dialog">
-    
-      
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"> </h4>
-        </div>
-        <div class="modal-body" id="intimation_body">
-            <div id="intimation_first_body">
-            <input type="hidden" name="" id="spm_modal_id" value="">
-          <p><b>Are you sure to send intimation mail ?</b></p>
-          <div class="loader_con" style="display: none;"><div class="loader"></div>Loading ...</div>
-        </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="intimation_modal_btn" >Yes</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> -->
-
-      
-
-  
-
-</div>
 <div class="text-centre d-flex justify-content-center">
                   <a href="<?php echo base_url()?>Generate_pdf/application/<?php echo $detail['pvr_id_pk']?>" 
                       class="btn bg-secondary text-light m-auto" style="text-decoration:none; color:white;">Print</a></div><br><br>
@@ -377,7 +260,7 @@ tr td,tr th{border: 1px solid;}*/
 <script src="themes/adminlte/spm/spm.js"></script>
  
 <!-- FastClick -->
-<script src="themes/adminlte/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="themes/adminlte/bower_components/fastclick/tdb/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
