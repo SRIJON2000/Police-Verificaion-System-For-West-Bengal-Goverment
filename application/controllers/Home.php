@@ -187,7 +187,8 @@
         {
             $this->load->library('session');
             $this->session->sess_destroy();
-            $this->admin_login();
+            //$this->admin_login();
+            redirect('Home/admin_login');
         }
         
         function load_captcha()
