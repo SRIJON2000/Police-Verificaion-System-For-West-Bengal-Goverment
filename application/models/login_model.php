@@ -74,19 +74,25 @@ class Login_model extends CI_Model
             return array();
         }
     }
-
+    function change_password($password,$email)
+    {
+        $hashed=hash("sha256", $password);
+        $this->db->set('password',$hashed);
+        $this->db->where('username',$email);
+        $this->db->update('pvr_login');
+    }
     function checkEmailExist($email)
     {
-        $this->db->select('userId');
-        $this->db->where('email', $email);
-        $this->db->where('isDeleted', 0);
-        $query = $this->db->get('tbl_users');
-
-        if ($query->num_rows() > 0){
-            return true;
-        } else {
-            return false;
+        $this->db->select('login_id_pk');
+        $this->db->where('username', $email);
+        $query = $this->db->get('pvr_login');
+        $result = $query->row();
+        if(empty($result))
+        {
+            return 0;
         }
+        else
+            return 1;
     }
 
 

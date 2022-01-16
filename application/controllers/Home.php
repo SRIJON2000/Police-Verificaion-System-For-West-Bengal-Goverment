@@ -337,9 +337,126 @@
         }
         
     }
+    function new_password()
+    {
+        $this->load->view('themes/new_password');
+    }
+    function create_password()
+    {
+        $this->load->library('form_validation');
+        $this->load->helper('download');
+        $this->load->model('Login_model');
+            if(empty($this->input->post('npassword')) || empty($this->input->post('cpassword')))
+            {
+                $this->session->set_flashdata('error', 'All Fields are Required');
+                redirect('Home/new_password');
+            }
+            else if($this->input->post('npassword') !=$this->input->post('cpassword'))
+            {
+                $this->session->set_flashdata('error', 'Enter same password in both the fields');
+                redirect('Home/new_password');
+            }
+        else
+        {
+            $password=$this->input->post('npassword');
+            $email=$_SESSION['email'];
+            unset($_SESSION['email']);
+            $this->Login_model->change_password($password,$email);
+            redirect('Home/password_set');
+        }
+    }
     function forgot_password()
     {
         $this->load->view('themes/forgot_password');
+    }
+    function validate_otp()
+    {
+        $this->load->view('themes/validate_otp');
+    }
+    function match_otp()
+    {
+        $this->load->library('form_validation');
+        $this->load->helper('download');
+        $config = array(
+            array(
+                'field' => 'otp',
+                'label' => 'OTP',
+                'rules' => 'trim|required|max_length[30]'
+            )
+        );
+        $this->form_validation->set_rules($config);
+        if($this->form_validation->run() == FALSE)
+        {
+            if(empty($this->input->post('otp')))
+            {
+                $this->session->set_flashdata('error', 'OTP Required');
+                redirect('Home/validate_otp');
+            }
+        }
+        else
+        {
+            if($this->input->post('otp')==$_SESSION['otp'])
+            {
+                unset($_SESSION['otp']);
+                redirect('Home/new_password');
+            }
+            else
+            {
+                $this->session->set_flashdata('error', 'Incorrect OTP');
+                redirect('Home/validate_otp');
+            }
+        }
+    }
+    function send_otp()
+    {
+        $this->load->library('form_validation');
+        $this->load->helper('download');
+        $config = array(
+            array(
+                'field' => 'email',
+                'label' => 'Username',
+                'rules' => 'trim|required|max_length[30]'
+            )
+        );
+        $this->form_validation->set_rules($config);
+        if($this->form_validation->run() == FALSE)
+        {
+            if(empty($this->input->post('email')))
+            {
+                $this->session->set_flashdata('error', 'Username/Email Required');
+                redirect('Home/forgot_password');
+            }
+        }
+        else
+        {
+            $this->load->model('Login_model');
+            $email = $this->input->post('email');
+            $result = $this->Login_model->checkEmailExist($email);
+            if($result==1)
+            {
+                $_SESSION['email']=$email;
+                redirect('Home/validate_otp');
+                
+            }
+            else
+            {
+                $this->session->set_flashdata('error', 'Username/Email Not Exist');
+                redirect('Home/forgot_password');
+            }
+        }
+    }
+    function download_otp()
+    {
+        $this->load->helper('download');
+        $rndno=rand(1000, 9999);
+        $_SESSION['otp']=$rndno;
+        $data = 'Your OTP is '.$rndno;
+        $name = 'otp.txt';
+        force_download($name, $data);
+    }
+    function password_set()
+    {
+        $this->load->view('themes/password_set');
     }
     }  
 ?>
