@@ -138,9 +138,12 @@ class api_test extends API_Controller
                        
                        $this->api_return( [
                         'status' => true,
-                        "result" => $this->application_model->fetch_application_details($pvr_id->pvr_id_pk)
-                     ],
-                        API_Controller::HTTP_OK);
+                        "result" => [
+                            //'user_data' => $token_data,
+                            'verify' =>  $this->application_model->fetch_application_details($pvr_id->pvr_id_pk)
+                        ],
+                    ],
+                    API_Controller::HTTP_OK);
        
                       // return $pvrid->pvr_id_pk;
                    }
