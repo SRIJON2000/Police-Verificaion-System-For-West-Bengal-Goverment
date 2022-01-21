@@ -2,7 +2,7 @@
 
 require_once APPPATH . 'libraries/API_Controller.php';
 // Written By Pritam Roy And Rupak Pal
-class api_test extends API_Controller
+class Api_test extends API_Controller
 {
     public function __construct() {
         parent::__construct();
