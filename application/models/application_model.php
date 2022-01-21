@@ -906,11 +906,27 @@ class Application_model extends CI_Model
         $this->db->select('*');
         $this->db->from('pvr_audit_log');
         $this->db->where('login_id_fk',$login_id->login_id_pk);
+        $this->db->order_by('audit_id_pk','desc');
         $log_data=$this->db->get();
         return $log_data->result_array();
     }
 
+    function fetch_dept($email)
+    {
+        $this->db->select('dept_id_fk');
+        $this->db->from('pvr_login');
+        $this->db->where('username',$email);
+        $query = $this->db->get();
+        $user = $query->row();
 
+        $this->db->select('dept_name');
+        $this->db->from('pvr_master_department');
+        $this->db->where('dept_id_pk',$user->dept_id_fk);
+        $query3 = $this->db->get();
+        $dept= $query3->row();
+
+        return $dept->dept_name;
+    }
 
     function notification_update($login_id)
     {

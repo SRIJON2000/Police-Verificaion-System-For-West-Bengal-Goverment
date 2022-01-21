@@ -493,7 +493,7 @@ class Application extends CI_Controller
             $this->load->view('themes/edit_application',$data);
     }
 
-
+    
 
     public function editapp($pvr_id,$memo_id)
     {

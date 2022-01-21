@@ -50,7 +50,7 @@ $current_year=date('y');
 <div class="container">
 <br>
   <div class="border_lt"><h3 class="px-3"><b>Provide Date Range</b></h3></div><br>
-  <form id="application" action="<?php echo base_url();?>Application/quarterly_report" method="post">
+  <form id="application" target="_blank"action="<?php echo base_url();?>Application/quarterly_report" method="post">
   <div class="row row_new_app">
     
     

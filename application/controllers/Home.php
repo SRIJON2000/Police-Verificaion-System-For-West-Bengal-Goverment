@@ -186,6 +186,8 @@
         function logout()
         {
             $this->load->library('session');
+            $this->load->model('Application_model');
+            $this->Application_model->activity_log($this->session->userdata['department'],'Logout Successful',current_url(),$this->input->ip_address(),$this->session->userdata['username']);
             $this->session->sess_destroy();
             //$this->admin_login();
             redirect('Home/admin_login');
@@ -362,6 +364,9 @@
             $email=$_SESSION['email'];
             unset($_SESSION['email']);
             $this->Login_model->change_password($password,$email);
+            $this->load->model('Application_model');
+            $dept=$this->Application_model->fetch_dept($email);
+            $this->Application_model->activity_log($dept,'Password Changed',current_url(),$this->input->ip_address(),$email);
             redirect('Home/password_set');
         }
     }

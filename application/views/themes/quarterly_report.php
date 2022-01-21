@@ -40,7 +40,7 @@ table, th, td {
 <body>
 <div id="letter" class="mt-5 col-lg-6 col-md-12">
     <?php foreach($dates as $date){?>
-<h5 class="text-center  fw-bold" align="center"> QUARTERLY REPORT(_____QUARTERLY) OF POLICE VERIFICATION<br>FOR EMPLOYMENT PURPOSE<br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?> </h5>
+<h5 class="text-center  fw-bold" align="center"> QUARTERLY REPORT OF POLICE VERIFICATION<br>FOR EMPLOYMENT PURPOSE<br>FOR THE PERIOD FROM <?php echo $date['s']?>&nbsp;TO&nbsp;<?php echo $date['e']?> </h5>
    <br> <table class="content">
        <?php foreach($numbers as $number){?> 
         <tr>

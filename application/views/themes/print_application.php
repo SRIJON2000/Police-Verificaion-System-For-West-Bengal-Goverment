@@ -101,7 +101,7 @@ tr td,tr th{border: 1px solid;}*/
 </style>
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Applicantion Details</h1>
+        <h1>Application Details</h1>
         <!-- <ol class="breadcrumb">
             <li><i class="fa fa-dashboard"></i> Dashboard</td>
             

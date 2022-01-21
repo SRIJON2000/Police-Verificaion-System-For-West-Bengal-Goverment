@@ -77,7 +77,7 @@ class Login extends CI_Controller
             $this->load->model('Login_model');
             $this->load->model('application_model');
             $email = strtolower($this->security->xss_clean($this->input->post('login_id')));
-            
+            //$_SESSION['salt'] = hash('sha256',microtime());
             $password = $this->input->post('password');
             
             $result = $this->Login_model->loginMe($email, $password, $_SESSION['salt']);
