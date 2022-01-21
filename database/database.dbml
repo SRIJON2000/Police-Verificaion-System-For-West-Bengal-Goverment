@@ -1,0 +1,324 @@
+Project PVR {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # Police Verification Report Database
+  '''
+}
+
+Table pvr_check_first_user as cfu {
+    user_id_pk int [pk]
+    check_if_first_user int
+    checke_profile_updated_once int
+    note: "table 'pvr_check_first_user' contains users first login information"
+}
+
+Table pvr_with as pw{
+    pvr_with_id_pk bigint [pk]
+    pvr_with_status varchar
+    pvr_with_date date
+
+    note: "table 'pvr_with' contains information about the status of the application"
+}
+
+Table pvr_master_caste as pmc{
+    caste_id_pk bigint [pk]
+    caste_name varchar 
+    note: "table 'pvr_master_caste' contains users caste information"
+}
+
+Table pvr_master_defence as pmd {
+    df_type_id_pk bigint [pk]
+    df_type varchar 
+    note: "table 'pvr_master_defence' contains users defence type information"
+}
+
+Table pvr_master_state as pms {
+  state_id_pk bigint [pk]
+  state_name varchar(50)
+  state_name_code varchar(20)
+  
+  
+  note: "table 'pvr_master_state' contains users state information"
+}
+
+Table pvr_master_district as pmdis{
+    district_id_pk bigint [pk]
+    district_name varchar(50)
+    state_id_fk bigint [ref: > pms.state_id_pk]
+    dist_lg_code bigint
+    district_name_code varchar(20)
+    
+    note: "table 'pvr_master_district' contains district information"
+}
+
+Table pvr_master_pincode as pmp{
+  pincode_id_pk bigint [pk]
+  pincode_no bigint
+  district_id_fk bigint [ref: > pmdis.district_id_pk]
+  
+  
+  note: "table 'pvr_master_pincode' contains users pincode information"
+}
+
+Table pvr_master_office as pmo{
+    office_id_pk bigint [pk]
+    office_name varchar(50)
+    district_id_fk bigint [ref: > pmdis.district_id_pk]
+    note: "table 'pvr_master_office' contains users office information"
+}
+
+
+Table pvr_master_employer_type as pmet{
+    type_id_pk bigint [pk]
+    type_name varchar
+    note: "table 'pvr_master_employer_type' contains users employer type information"
+}
+
+Table pvr_master_gender as pmg{
+    gender_id_pk bigint [pk]
+    gender_name varchar(50)  
+    note: "table 'pvr_master_gender' contains users gender information"
+}
+
+Table pvr_master_department as pmdep{
+    dept_id_pk bigint [pk]
+    dept_name varchar(50)
+    short_name varchar(15)
+    office_id_fk bigint [ref: > pmo.office_id_pk]
+    note: "table 'pvr_master_department' contains users department information"
+}
+
+Table pvr_employer_profile as pep{
+    profile_id_pk bigint [pk]
+    employer_district_id_fk bigint [ref: > pmdis.district_id_pk]
+    employer_pincode_fk bigint [ref: > pmp.pincode_id_pk]
+    employer_type_id_fk bigint [ref: > pmet.type_id_pk]
+    employer_sender_name varchar
+    employer_sender_designation varchar
+    employer_email varchar
+    employer_contact varchar 
+
+    note: "table 'pvr_employer_profile' contains employers profile information"
+}
+
+Table pvr_employer as pemp{
+    employer_id_pk bigint [pk]
+    profile_id_fk bigint [ref: > pep.profile_id_pk]
+    employer_name varchar
+    employer_add1 varchar
+    employer_add2 varchar
+    district_id_fk bigint
+    note: "table 'pvr_employer' contains employer information"
+}
+
+
+Table pvr_master_policestation as pmpol{
+    ps_id_pk bigint [pk]
+    ps_name varchar
+    district_id_fk bigint [ref: > pmdis.district_id_pk]
+    note: "table 'pvr_master_policestation' contains policestation information"
+}
+
+Table pvr_master_designation as pmdesig{
+    desig_id_pk bigint [pk]
+    desig_name varchar(50)
+    dept_id_fk bigint [ref: > pmdep.dept_id_pk]
+    note: "table 'pvr_master_designation' contains users designation information"
+}
+
+Table pvr_user_type as put{
+    user_type_id_pk bigint [pk]
+    designation_id_fk bigint [ref: > pmdesig.desig_id_pk]
+    active_status numeric
+    user_level integer
+    note: "table 'pvr_user_type' contains information about the type of the user"
+}
+
+Table pvr_final_status as pfs{
+    pvr_final_status_id_pk bigint [pk]
+    final_status_name varchar
+
+    note: "table 'pvr_final_status' contains information about the application status"
+}
+
+Table pvr_master_notification as pmn{
+  notification_id_pk bigint [pk]
+  notification_name varchar(100)
+  
+  note: "table 'pvr_master_notification' contains users notification information"
+}
+
+Table pvr_login as pl{
+    username varchar
+    password text
+    user_type_id_fk bigint [ref: > put.user_type_id_pk]
+    location_code varchar
+    login_id_pk bigint [pk]
+    active_status numeric
+    dept_id_fk bigint [ref: > pmdep.dept_id_pk]
+    office_id_fk bigint [ref: > pmo.office_id_pk]
+    desig_id_fk bigint [ref: > pmdesig.desig_id_pk]
+    note: "table 'pvr_login' contains users login information"
+}
+
+Table pvr_issues as pi{
+    issues_id_pk bigint [pk]
+    name character
+    email character
+    rating numeric
+    description text
+    timestamp timestamp
+    login_id_fk bigint [ref: > pl.login_id_pk]
+
+    note: "table 'pvr_issues' contains information about the issues faced by users"
+}
+
+Table pvr_audit_log as paloga{
+    audit_id_pk bigint [pk]
+    section varchar
+    action text
+    request varchar
+    comment varchar
+    ip_address varchar
+    login_id_fk bigint [ref: > pl.login_id_pk]
+    timestamp timestamp
+    note: "table 'pvr_audit_log' contains users activity information"
+}
+
+Table pvr_receipt_no as prn{
+  receipt_id_pk bigint [pk]
+  receipt_no varchar(20)
+  receipt_date date
+   
+  note: "table 'pvr_receipt_no' contains users receipt information"
+}
+
+Table pvr_reference_no as pref{
+	ref_no_pk bigint [pk]
+	receipt_id_fk bigint [ref: > prn.receipt_id_pk]
+	ref_date date
+	note: "table 'pvr_user_profile' contains users profile information"
+}
+
+Table pvr_privilege as ppri{
+    privilege_id_pk bigint [pk]
+    parent int
+    link varchar(70)
+    order int
+    page_name varchar(70)
+    active_status numeric
+    view_sidebar numeric
+    
+    
+    note: "table 'pvr_privilege' contains users privilege information"
+}
+
+
+Table pvr_master_sent_to as pmst {
+    sent_to_id_pk bigint [pk]
+    sent_to varchar(50)
+    
+    
+    note: "table 'pvr_master_sent_to' contains users sent-to information"
+}
+
+Table pvr_memo as pm{
+    memo_id_pk bigint [pk]
+    memo_no varchar(50)
+    issue_date date
+    issued_by_dept_id_fk bigint [ref: > pmdep.dept_id_pk]
+    
+    
+    note: "table 'pvr_memo' contains users memo information"
+}
+
+Table pvr_trans_notification as ptn{
+    notification_seq_id_pk bigint [pk]
+    login_id_fk bigint [ref: > pl.login_id_pk]
+    notification_id_fk bigint [ref: > pmn.notification_id_pk]
+    notification_message varchar(150)
+    seen_status bigint
+    date date
+    time timestamp
+    
+    note: "table 'pvr_trans_notification' contains users  notification information"
+}
+
+Table pvr_user_privilege as pupri{
+    user_priv_id_pk bigint [pk]
+    privilege_id_fk bigint [ref: > ppri.privilege_id_pk]
+    active_status int
+    user_type_id_fk bigint [ref: > put.user_type_id_pk]
+    
+    note: "table 'pvr_user_privilege' contains users privilege information"
+}
+
+Table pvr_user_profile as pup{
+    profile_id_pk bigint [pk]
+    username varchar(50)
+    first_name varchar(50)
+    middle_name varchar(50)
+    last_name varchar(50)
+    mobile numeric(10)
+    email varchar(50)
+    district_id_fk bigint [ref: > pmdis.district_id_pk]
+    designation_id_fk bigint [ref: > pmdesig.desig_id_pk]
+    office_id_fk bigint [ref: > pmo.office_id_pk]
+    department_id_fk bigint [ref: > pmdep.dept_id_pk]
+    signature_path varchar(100)
+    user_type_id_fk bigint [ref: > put.user_type_id_pk]
+
+    note: "table 'pvr_user_profile' contains users profile information"
+}
+
+Table pvr_candidate_details as pcand{
+    candidate_id_pk bigint [pk]
+    reference_no_fk bigint [ref: > pref.ref_no_pk]
+    employer_id_fk bigint [ref: > pemp.employer_id_pk]
+    profile_id_fk bigint [ref: > pup.profile_id_pk]
+    candidate_f_name varchar(50)
+    candidate_m_name varchar(50)
+    candidate_l_name varchar(50)
+    candidate_gender_id_fk bigint [ref: > pmg.gender_id_pk]
+    candidate_caste_id_fk bigint [ref: > pmc.caste_id_pk]
+    candidate_aadhaar_no numeric(12)
+    candidate_house_no1 varchar(50)
+    candidate_street1 varchar(100)
+    candidate_landmark1 varchar(50)
+    candidate_city1 varchar
+    candidate_post_office1 varchar
+    candidate_police_station_id1_fk bigint [ref: > pmpol.ps_id_pk]
+    candidate_pin1_fk bigint [ref: > pmp.pincode_id_pk]
+    candidate_district_id1_fk bigint [ref: > pmdis.district_id_pk]
+    candidate_photo_path varchar(80)
+    candidate_defence_type_id_fk bigint [ref: > pmd.df_type_id_pk]
+    candidate_house_no2 varchar
+    candidate_street2 varchar(100)
+    candidate_landmark2 varchar
+    candidate_city2 varchar
+    candidate_post_office2 varchar
+    candidate_police_station_id2_fk bigint [ref: > pmpol.ps_id_pk]
+    candidate_pin2_fk bigint [ref: > pmp.pincode_id_pk]
+    candidate_district_id2_fk bigint [ref: > pmdis.district_id_pk]
+    note: "table 'pvr_user_profile' contains users profile information"
+}
+
+Table pvr_candidate_profile as pcpro{
+    profile_id_pk bigint [pk]
+    candidate_father_name varchar(50)
+    candidate_mother_name varchar(50)
+    candidate_natonality varchar(50)
+    candidate_dob date
+    candidate_school_name varchar(80)
+    candidate_school_address varchar(100)
+    candidate_school_district_id_fk bigint [ref: > pmdis.district_id_pk]
+    candidate_college_name varchar(50)
+    candidate_college_address varchar(100)
+    candidate_college_district_id_fk bigint [ref: > pmdis.district_id_pk]
+    blood_group varchar
+    candidate_school_pin_id_fk bigint [ref: > pmp.pincode_id_pk]
+    candidate_college_pin_id_fk bigint [ref: > pmp.pincode_id_pk]
+    note: "table 'pvr_user_profile' contains users profile information"
+}
+
+
