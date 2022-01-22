@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+                       
                         <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
                             
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <br/>
-                            <!--<div class="sb-sidenav-menu-heading">Interface</div>-->
+                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Application
@@ -120,9 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4 text-center"><b>List Of Verified Defence Applications</b></h1><br/>
-                        <!-- <ol class="breadcrumb mb-4"> -->
-                            <!-- <li class="breadcrumb-item active">Dashboard</li> -->
-                        <!-- </ol> -->
+                        
                         
                       
                        

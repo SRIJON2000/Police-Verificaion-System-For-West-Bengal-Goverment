@@ -46,7 +46,7 @@
                 'c'=>$c,
                 'd'=>$d));
             $this->load->view('themes/dashboard_adm',$data);
-            //$this->load->view('themes/dashboard_adm',$data);
+            
         }
         function ocvr_verified_nondefence_approve($pvr_id)
         {
@@ -58,11 +58,6 @@
             $this->Application_model->ocvr_unverified_approve($pvr_id);
             redirect('Home/unverified_letter_list/'.$pvr_id);
         }
-        // function preview_pdf($pvr_id) 
-        // {
-        //     $data['details']=$this->Application_model->fetch_application_details($pvr_id);
-        //     $this->load->view('themes/preview_pdf',$data);
-        // }
         function print_application($pvr_id)
         {
             $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
@@ -111,18 +106,6 @@
             $data['issues']=$this->Application_model->issues();
             $this->load->view('themes/issues',$data);
         }
-        
-        // function dashboard_ocvr()
-        // {
-        //     $this->load->view('themes/dashboard_ocvr');
-        // }
-        
-        // function dashboard_vr()
-        // {
-        //     $this->load->view('themes/dashboard_vr');
-        // }        
-        
-        
         function employer_login()
         {
             $this->load->view('themes/employer_login');
@@ -189,7 +172,6 @@
             $this->load->model('Application_model');
             $this->Application_model->activity_log($this->session->userdata['department'],'Logout Successful',current_url(),$this->input->ip_address(),$this->session->userdata['username']);
             $this->session->sess_destroy();
-            //$this->admin_login();
             redirect('Home/admin_login');
         }
         
@@ -316,7 +298,7 @@
         $this->form_validation->set_rules('text', 'Decription', 'required');
         if($this->form_validation->run() == FALSE)
         {
-            //$this->form_validation->set_message('required', 'Your custom message here');
+            
             $this->session->set_flashdata('error', 'Incorrect Input');
             $this->contact();
         }

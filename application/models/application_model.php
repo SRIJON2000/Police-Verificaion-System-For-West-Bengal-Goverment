@@ -341,7 +341,6 @@ class Application_model extends CI_Model
 
         $pvr_with_data=array(
                 'pvr_with_id_pk'=>$maxpvrwith_id->pvr_with_id_pk,
-                //'pvr_id_fk'=>$maxpvr_id->pvr_id_pk,
                 'pvr_with_status'=>$dept->dept_name,
                 'pvr_with_date'=>$date
             );
@@ -367,7 +366,7 @@ class Application_model extends CI_Model
         // $pvr_finalstatus_data=array(
 
         //     'pvr_final_status_id_pk'=>$maxpvrfinalstatuswith_id->pvr_final_status_id_pk,
-        //     //'pvr_id_fk'=>$maxpvr_id,
+        //     'pvr_id_fk'=>$maxpvr_id->pvr_id_pk,
         //     'final_status_name'=>'Under Process'
         // );
 
@@ -851,9 +850,6 @@ class Application_model extends CI_Model
         $this->db->where('username',$u_nm);
         $query = $this->db->get();
         $u_id_log = $query->row();
-        // foreach($u_id_log as $row){
-        //     $u_id[] = $row['login_id_pk'];
-        // }
         date_default_timezone_set("Asia/Kolkata");
         $time =  Date('Y-m-d h:i:s');
         $log_data=array(
@@ -869,31 +865,6 @@ class Application_model extends CI_Model
         $this->db->insert('pvr_audit_log',$log_data);
 
     }
-
-    // function activity_log_update(){
-    //     $this->db->select('*');
-    //     $this->db->from('pvr_audit_log');
-    //     $query = $this->db->get();
-    //     $log_data = $query->row();
-
-    //     $this->db->select('username');
-    //     $this->db->from('pvr_login');
-    //     $this->db->where('login_id_pk',$log_data->login_id_fk);
-    //     $query = $this->db->get();
-    //     $username = $query->row();
-        
-    //     $result=array(
-    //         'Sl_no'=>$log_data->audit_id_pk,
-    //         'section'=>$log_data->section,
-    //         'action'=>$log_data->action,
-    //         'request'=>$log_data->request,
-    //         'ip_add'=>$log_data->ip_addr,
-    //         'timestamp'=>$log_data->timestamp,
-    //         'username'=>$username->username
-    //     );
-
-    //     return $result;
-    // }
 
     function activity_log_update($username){
         
@@ -939,13 +910,6 @@ class Application_model extends CI_Model
         return $query->result_array();
        
     }
-    // function noti_message($noti_id){
-    //     $this->db->select('notification_text');
-    //     $this->db->from('pvr_master_notification');
-    //     $this->db->where('notification_id_pk',$noti_id);
-    //     $query = $this->db->get();
-    //     return $query->row();
-    // }
     function delete_notification($notification_id)
     {
         $this->db->where('notification_seq_id_pk', $notification_id);
@@ -1004,10 +968,6 @@ class Application_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
        
-    }
-    function fetch_profile_detail($login_id)
-    {
-        
     }
 }
 ?>

@@ -190,13 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <main> 
                     <div class="container-fluid px-4">
                         <h1 class="mt-4 text-center">Activity Log</h1><br/>
-                        <!-- <ol class="breadcrumb mb-4"> -->
-                            <!-- <li class="breadcrumb-item active">Dashboard</li> -->
-                        <!-- </ol> -->
-                        <?php //$fetched_data= $this->application_model->activity_log_update();
-                        //$lim = $this->application_model->bind();
-                        
-                        ?>
+
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">
                             <thead><tr>
                                 <th span="col">Sl.No.</th>
