@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title icon="">Activity Log</title>
+        <title icon="">All Users</title>
         <link rel = "icon" href ="<?php echo base_url();?>/application/views/pics/office.png" type = "image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
@@ -99,90 +99,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <?php 
-                                    if($this->session->userdata('user_type')=='DATA ENTRY OPERATOR')
-                                    {
-                                ?>
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?php base_url()?>application">New Application</a>
-                                    <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
-                                    <a class="nav-link" href="<?php base_url()?>verify_reject">Update Application</a>
-                                    
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
-                                </nav>
-                                <?php 
-                                    }
-                                ?>
-
-                                <?php 
-                                    if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
-                                    {
-                                ?>
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
-                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
-                                    <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
-                                    <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
-                                </nav>
-                                <?php 
-                                    }
-                                ?>
-
-                                <?php 
-                                    if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
-                                    {
-                                ?>
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
-                                    <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
-                                    <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
-                                    <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
-                                </nav>
-                                <?php 
-                                    }
-                                ?>
-
-                                <?php 
-                                    if($this->session->userdata('user_type')=='SUPER ADMIN')
-                                    {
-                                ?>
+                                
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                     <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
                                     
+                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
                                 </nav>
-                                <?php 
-                                    }
-                                ?>
+                                
+
+                                
+
+                                
+
+                                
 
                             </div>
-                            <?php 
-                                if($this->session->userdata('user_type')=='OFFICER IN CHARGE' )
-                                    {
-                            ?>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Letter
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="#">Letter To SPDIB</a> -->
-                                    <a class="nav-link" href="<?php echo base_url()?>Home/verified_letter_list">Verified Letter To Employer</a>
-                                    <a class="nav-link" href="<?php echo base_url()?>Home/unverified_letter_list">Unverified Letter To Employer</a>
-                                </nav>
-                                
-                            </div>
-                            <?php 
-                                    }
-                                ?>
+                            
+                           
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -195,10 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a class="nav-link" href="<?php echo base_url()?>Home/date_range">Daily Application Report</a>
                                 </nav>
                             </div>
-                            <?php 
-                                if($this->session->userdata('user_type')=='SUPER ADMIN')
-                                {
-                            ?>
+                            
 
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -215,9 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 
                             </div> 
 
-                             <?php 
-                                }
-                            ?>
+                            
 
                         </div>
                     </div>
@@ -227,33 +157,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="layoutSidenav_content">
                 <main> 
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Activity Log</h1><br/>
+                        <h1 class="mt-4 text-center">All Users</h1><br/>
 
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">
                             <thead><tr>
                                 <th span="col">Sl.No.</th>
-                                <th span="col">Section</th>
+                                <th span="col">Username</th>
+                                <th span="col">Department</th>
+                                <th span="col">Designation</th>
+                                <th span="col">Office</th>
+                                <th span="col">Active Status</th>
                                 <th span="col">Action</th>
-                                <th span="col">Request</th>
-                                <th span="col">IP Address</th>
-                                <th span="col">Login Credentials</th>
-                                <th span="col">Time Stamp</th>
                             </tr></thead>
                             <tbody>
 
                             <?php
                             $c=1;
-                            foreach($logs as $log)
+                            foreach($users as $user)
                             {
                             ?>
                                 <tr>
                                     <td><?php echo $c;?></td>
-                                    <td><?php echo $log['section'];?></td>
-                                    <td><?php echo $log['action'];?></td>
-                                    <td><?php echo $log['request'];?></td>
-                                    <td><?php echo $log['ip_addr'];?></td>
-                                    <td><?php echo $this->session->userdata('username'); ?></td>
-                                    <td><?php echo $log['timestamp'];?></td>
+                                    <td><?php echo $user['username'];?></td>
+                                    <td><?php echo $user['dept_name'];?></td>
+                                    <td><?php echo $user['desig_name'];?></td>
+                                    <td><?php echo $user['office_name'];?></td>
+                                    <td><?php echo $user['active_status']; ?></td>
+                                    <td><?php ?></td>
                                 </tr>
                             <?php $c=$c+1;} ?>
                             </tbody>

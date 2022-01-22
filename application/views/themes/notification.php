@@ -115,7 +115,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php 
                                     }
                                 ?>
-
+                                <?php 
+                                    if($this->session->userdata('user_type')=='SUPER ADMIN')
+                                    {
+                                ?>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
+                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
+                                    
+                                </nav>
+                                <?php 
+                                    }
+                                ?>
                                 <?php 
                                     if($this->session->userdata('user_type')=='OFFICER IN CHARGE')
                                     {
@@ -181,7 +193,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a class="nav-link" href="<?php echo base_url()?>Home/date_range">Daily Application Report</a>
                                 </nav>
                             </div>
+                            <?php 
+                                if($this->session->userdata('user_type')=='SUPER ADMIN')
+                                {
+                            ?>
 
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    
+                                    <a class="nav-link" href="<?php echo  base_url();?>/Home/adduser">Add User</a>
+                                    <a class="nav-link" href="#">Update User</a>
+                                </nav>
+                                
+                            </div> 
+
+                             <?php 
+                                }
+                            ?>
                         </div>
                     </div>
                     

@@ -76,6 +76,16 @@ class Application_model extends CI_Model
         $query2 =$this->db->get();
         return $query2->result_array();
     }
+    function fetch_all_user()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_login');
+        $this->db->join('pvr_master_department','pvr_master_department.dept_id_pk=pvr_login.dept_id_fk');
+        $this->db->join('pvr_master_designation','pvr_master_designation.desig_id_pk=pvr_login.desig_id_fk');
+        $this->db->join('pvr_master_office','pvr_master_office.office_id_pk=pvr_login.office_id_fk');
+        $query2 =$this->db->get();
+        return $query2->result_array();
+    }
     function fetch_gender()
     {
         
@@ -873,13 +883,23 @@ class Application_model extends CI_Model
         $this->db->where('username',$username);
         $query = $this->db->get();
         $login_id = $query->row();
- 
-        $this->db->select('*');
-        $this->db->from('pvr_audit_log');
-        $this->db->where('login_id_fk',$login_id->login_id_pk);
-        $this->db->order_by('audit_id_pk','desc');
-        $log_data=$this->db->get();
-        return $log_data->result_array();
+        if($this->session->userdata('user_type')=='SUPER ADMIN')
+        {
+            $this->db->select('*');
+            $this->db->from('pvr_audit_log');
+            $this->db->order_by('audit_id_pk','desc');
+            $log_data=$this->db->get();
+            return $log_data->result_array();
+        }
+        else
+        {
+            $this->db->select('*');
+            $this->db->from('pvr_audit_log');
+            $this->db->where('login_id_fk',$login_id->login_id_pk);
+            $this->db->order_by('audit_id_pk','desc');
+            $log_data=$this->db->get();
+            return $log_data->result_array();
+        }
     }
 
     function fetch_dept($email)
@@ -899,6 +919,91 @@ class Application_model extends CI_Model
         return $dept->dept_name;
     }
 
+    function fetch_all_dept()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_master_department');
+        $query3 = $this->db->get();
+        return $query3->result_array();
+    }
+    function fetch_all_desig()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_master_designation');
+        $query3 = $this->db->get();
+        return $query3->result_array();
+    }
+    function fetch_all_office()
+    {
+        $this->db->select('*');
+        $this->db->from('pvr_master_office');
+        $query3 = $this->db->get();
+        return $query3->result_array();
+    }
+    function adduser($data)
+    {
+            $this->db->select('login_id_pk');
+            $this->db->from('pvr_login');
+            $this->db->where('username',$data['username']);
+            $query3 = $this->db->get();
+            $login= $query3->row();
+
+
+            if(!empty($login))
+            {
+                return 0;
+            }
+
+            $this->db->select_max('user_type_id_pk');
+            $this->db->from('pvr_user_type');
+            $query=$this->db->get();
+            $maxusertype_id=$query->row();
+
+            if(empty($maxusertype_id))
+            {
+                $maxusertype_id->user_type_id_pk=1;
+            }
+            else
+            {
+                $maxusertype_id->user_type_id_pk=$maxusertype_id->user_type_id_pk+1;
+            }
+
+            $usertypedata=array(
+                'user_type_id_pk'=>$maxusertype_id->user_type_id_pk,
+                'designation_id_fk'=>$data['desig_id_fk'],
+                'active_status'=>1,
+                'user_level'=>1,
+            );
+            $this->db->insert('pvr_user_type',$usertypedata);
+
+            $this->db->select_max('login_id_pk');
+            $this->db->from('pvr_login');
+            $query=$this->db->get();
+            $maxlogin_id=$query->row();
+
+            if(empty($maxlogin_id))
+            {
+                $maxlogin_id->login_id_pk=1;
+            }
+            else
+            {
+                $maxlogin_id->login_id_pk=$maxlogin_id->login_id_pk+1;
+            }
+
+            $logindata=array(
+                'username'=>$data['username'],
+                'password'=>hash("sha256", $data['password']),
+                'user_type_id_fk'=>$maxusertype_id->user_type_id_pk,
+                'location_code'=>12,
+                'login_id_pk'=>$maxlogin_id->login_id_pk,
+                'active_status'=>1,
+                'dept_id_fk'=>$data['dept_id_fk'],
+                'office_id_fk'=>$data['office_id_fk'],
+                'desig_id_fk'=>$data['desig_id_fk'],
+            );
+            $this->db->insert('pvr_login',$logindata);
+            return 1;
+    }
     function notification_update($login_id)
     {
         $this->db->select('*');

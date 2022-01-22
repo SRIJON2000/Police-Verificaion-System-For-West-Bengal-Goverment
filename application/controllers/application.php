@@ -274,6 +274,64 @@ class Application extends CI_Controller
             
         }
     }
+    function adduser()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('uname', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('office','Office','required');
+        $this->form_validation->set_rules('dept','Department','required');
+        $this->form_validation->set_rules('desig','Designation','required');
+        if($this->form_validation->run() == FALSE)
+        {
+            if(empty($this->input->post('uname')))
+            {
+                $this->session->set_flashdata('error', 'Username Required');
+                redirect('Home/adduser');
+            }
+            if(empty($this->input->post('password')))
+            {
+                $this->session->set_flashdata('error', 'Password Required');
+                redirect('Home/adduser');
+            }
+            if(empty($this->input->post('office')))
+            {
+                $this->session->set_flashdata('error', 'Office Required');
+                redirect('Home/adduser');
+            }
+            if(empty($this->input->post('dept')))
+            {
+                $this->session->set_flashdata('error', 'Department Required');
+                redirect('Home/adduser');
+            }
+            if(empty($this->input->post('desig')))
+            {
+                $this->session->set_flashdata('error', 'Designation Required');
+                redirect('Home/adduser');
+            }
+            
+        }
+        else
+        {
+            $data=array(
+                'username'=>$this->input->post('uname'),
+                'password'=>$this->input->post('password'),
+                'office_id_fk'=>$this->input->post('office'),
+                'dept_id_fk'=>$this->input->post('dept'),
+                'desig_id_fk'=>$this->input->post('desig'),
+            );
+            $s=$this->Application_model->adduser($data);
+            if($s==0)
+            {
+                $this->session->set_flashdata('error', 'User Exists');
+                redirect('Home/adduser');
+            }
+            else
+            {
+                redirect('Home/dashboard_adm');
+            }
+        }
+    }
     function addoffice()
     {
         $this->load->library('form_validation');
