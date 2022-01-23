@@ -397,18 +397,12 @@
     }
     function contact()
     {
-        if($this->session->userdata('isloggedin')==False)
-        {
-                redirect('Home/access_denied');
-        }
+        
         $this->load->view('themes/contact'); 
     }
     function send_issue()
     {
-        if($this->session->userdata('isloggedin')==False)
-        {
-                redirect('Home/access_denied');
-        }
+        
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('text', 'Decription', 'required');

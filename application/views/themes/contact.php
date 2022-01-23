@@ -176,6 +176,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="card card-primary card-outline mx-auto">
                                         <div class="card-body login-card-body p-3" Style="background:#CDE2FF;">
                                         <h2 class="p-3 text-center"><strong>Facing Issues?<br>Write us here:</br></strong></h2>
+                                        <div style="color:red;font-size:25px;text-align:center;"><b>
+                                        <?php echo $this->session->userdata('fail'); $this->session->unset_userdata('fail');?>
+                                        
+                                        <?php echo $this->session->userdata('error'); $this->session->unset_userdata('error');?>
+                                    </b></div>
+                                    <div style="color:green;font-size:25px;text-align:center;"><b>
+                                        
+                                        <?php echo $this->session->userdata('success'); $this->session->unset_userdata('success');?>
+                                        
+                                    </b></div>
                                         <?php echo form_open('Home/send_issue','id="form"');?>
 
                                             <div class="form-group m-2">
@@ -194,8 +204,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                         <!-- /.login-card-body -->
-                                        <?php echo $this->session->userdata('fail'); $this->session->unset_userdata('fail');?>
-                                        <?php echo $this->session->userdata('success'); $this->session->unset_userdata('success');?>
+                                        
                                     </div>
                                     </div>
                                 </div>
