@@ -20,7 +20,7 @@
   </div>
   <div class="mt-3 p-3 m-xs-0" style="background-color:navy">
   <div class="d-flex flex-row" id="header_body">
-    <?php if($_SERVER['PHP_SELF']=='/pvr/index.php' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/admin_login' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/password_set' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/contact'){ ?>
+    <?php if($_SERVER['PHP_SELF']=='/pvr/index.php' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/admin_login' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/password_set' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/contact' || $_SERVER['PHP_SELF']=='/PVR/index.php/Home/access_denied'){ ?>
     <div class="m-2"><a class="btn text-center" style="color:white" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'" href="http://localhost/pvr/"><b>Home</b></a></div>
     <?php } else{ ?>
       <div class="m-2"><a class="btn text-center" style="color:white" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'" href="<?php echo base_url();?>/Home/dashboard_adm"><b>Dashboard</b></a></div>

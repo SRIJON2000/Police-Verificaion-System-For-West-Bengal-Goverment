@@ -14,7 +14,10 @@
             
         }
        
-
+        function access_denied()
+        {
+            $this->load->view('themes/access_denied');
+        }
         function admin_login()
         {
             $data=$this->load_captcha();
@@ -26,7 +29,10 @@
         }
         function activity_log()
         {
-            
+            if($this->session->userdata('isloggedin')==False || empty($this->session->userdata('user_type')))
+            {
+                redirect('Home/access_denied');
+            }
             $data['logs']=$this->Application_model->activity_log_update($this->session->userdata('username'));
             $this->load->view('themes/activity_log',$data);
             
@@ -34,6 +40,10 @@
         
         function dashboard_adm()
         {
+            if($this->session->userdata('isloggedin')==False || empty($this->session->userdata('user_type')))
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->model('application_model');
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $a= $this->application_model->a();
@@ -50,58 +60,101 @@
         }
         function ocvr_verified_nondefence_approve($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $this->Application_model->ocvr_verified_nondefence_approve($pvr_id);
             redirect('Home/verified_letter_list/'.$pvr_id);
         }
         function ocvr_unverified_approve($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $this->Application_model->ocvr_unverified_approve($pvr_id);
             redirect('Home/unverified_letter_list/'.$pvr_id);
         }
         function print_application($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
             $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
             $this->load->view('themes/print_application',$data);
         }
         function non_defence_letter($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/non_defence_letter',$data);
         }
 
         function defence_letter($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='ADDITIONAL DISTRICT MAGISTRATE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/defence_letter',$data);
         }
         function generate_pdf_view()
         {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->view('themes/generate_pdf_view');
         }
 
         function SP_DIB($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/SP_DIB',$data);
         }
         function cp_letter($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/cp_letter',$data);
         }
         function unverified_letter($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['details']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/emp_letter',$data);
         }
         function quarterly_report()
         {
-        
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->view('themes/quarterly_report');
         }
         function issues()
         { 
+            if($this->session->userdata('isloggedin')==False || ($this->session->userdata('user_type')!='ADDITIONAL DISTRICT MAGISTRATE' && $this->session->userdata('user_type')!='SUPER ADMIN'))
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->model('application_model');
             $data['issues']=$this->Application_model->issues();
             $this->load->view('themes/issues',$data);
@@ -113,6 +166,10 @@
         
         function application()
         {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='DATA ENTRY OPERATOR')
+            {
+                redirect('Home/access_denied');
+            }
             $data['genders']=$this->Application_model->fetch_gender();
             $data['castes'] =$this->Application_model->fetch_caste();
             $data['states']=$this->Application_model->fetch_state();
@@ -126,34 +183,60 @@
         }
         function addoffice()
         {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->view('themes/add_office');
         }
         function status($pvr_id)
         {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
             $this->load->view('themes/check_application_status',$data);
         }
         function statussearch()
         {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->view('themes/check_status');
         }
         function date_range()
         {
-            
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->view('themes/date_range');
         }
         function date_range_for_quarterly_report()
         {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->view('themes/date_range_for_quarterly_report');
         }
         function all_verified_list()
         {
+            if($this->session->userdata('isloggedin')==False || ($this->session->userdata('user_type')!='ADDITIONAL DISTRICT MAGISTRATE' && $this->session->userdata('user_type')!='SUPER ADMIN'))
+            {
+                redirect('Home/access_denied');
+            }
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $this->load->view('themes/all_verified_list',$data);
         }
         function verify_reject()
         {
-            
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='DATA ENTRY OPERATOR')
+            {
+                redirect('Home/access_denied');
+            }
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $a= $this->Application_model->a();
             $b =$this->Application_model->b();
@@ -168,6 +251,10 @@
         }
         function logout()
         {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $this->load->library('session');
             $this->load->model('Application_model');
             $this->Application_model->activity_log($this->session->userdata['department'],'Logout Successful',current_url(),$this->input->ip_address(),$this->session->userdata['username']);
@@ -232,17 +319,29 @@
 
        function application_details($pvr_id)
        {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             $data['details1']=$this->Application_model->fetch_application_details($pvr_id);
             $data['details2']=$this->Application_model->fetch_second_address($pvr_id);
             $this->load->view('themes/application_detail_view',$data);
        } 
        function profile()
        {
+            if($this->session->userdata('isloggedin')==False)
+            {
+                redirect('Home/access_denied');
+            }
             //$data['profiles']=$this->Application_model->fetch_profile_detail($this->session->userdata('login_id'));
             $this->load->view('themes/profile');
        }
        function verified_letter_list()
        {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $a= $this->Application_model->a();
             $b =$this->Application_model->b();
@@ -257,6 +356,10 @@
        }
        function unverified_letter_list()
        {
+            if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='OFFICER IN CHARGE')
+            {
+                redirect('Home/access_denied');
+            }
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
             $a= $this->Application_model->a();
             $b =$this->Application_model->b();
@@ -271,6 +374,10 @@
        }
 
        function notification(){
+        if($this->session->userdata('isloggedin')==False)
+        {
+            redirect('Home/access_denied');
+        }
         $num=$this->Application_model->count_seen_status($this->session->userdata('login_id'));
         $this->session->set_userdata('new_num',$num);
         $this->Application_model->update_seen_status($this->session->userdata('login_id'));
@@ -279,20 +386,36 @@
     }
     function delete_notification($notification_id)
     {
+        if($this->session->userdata('isloggedin')==False)
+        {
+                redirect('Home/access_denied');
+        }
         $this->Application_model->delete_notification($notification_id);
         redirect('Home/notification');
     }
     function delete_issue($issue_id)
     {
+        if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='ADDITIONAL DISTRICT MAGISTRATE')
+        {
+                redirect('Home/access_denied');
+        }
         $this->Application_model->delete_issue($issue_id);
         redirect('Home/issues');
     }
     function contact()
     {
+        if($this->session->userdata('isloggedin')==False)
+        {
+                redirect('Home/access_denied');
+        }
         $this->load->view('themes/contact'); 
     }
     function send_issue()
     {
+        if($this->session->userdata('isloggedin')==False)
+        {
+                redirect('Home/access_denied');
+        }
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('text', 'Decription', 'required');
@@ -323,10 +446,18 @@
     }
     function new_password()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+                redirect('Home/access_denied');
+        }
         $this->load->view('themes/new_password');
     }
     function create_password()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+                redirect('Home/access_denied');
+        }
         $this->load->library('form_validation');
         $this->load->helper('download');
         $this->load->model('Login_model');
@@ -354,14 +485,26 @@
     }
     function forgot_password()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+            redirect('Home/access_denied');
+        }
         $this->load->view('themes/forgot_password');
     }
     function validate_otp()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+            redirect('Home/access_denied');
+        }
         $this->load->view('themes/validate_otp');
     }
     function match_otp()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+            redirect('Home/access_denied');
+        }
         $this->load->library('form_validation');
         $this->load->helper('download');
         $config = array(
@@ -396,6 +539,10 @@
     }
     function send_otp()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+                redirect('Home/access_denied');
+        }
         $this->load->library('form_validation');
         $this->load->helper('download');
         $config = array(
@@ -434,6 +581,10 @@
     }
     function download_otp()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+                redirect('Home/access_denied');
+        }
         $this->load->helper('download');
         $rndno=rand(1000, 9999);
         $_SESSION['otp']=$rndno;
@@ -443,10 +594,18 @@
     }
     function password_set()
     {
+        if($this->session->userdata('isloggedin')==True)
+        {
+                redirect('Home/access_denied');
+        }
         $this->load->view('themes/password_set');
     }
     function adduser()
     {
+        if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='SUPER ADMIN')
+        {
+                redirect('Home/access_denied');
+        }
         $data['depts']=$this->Application_model->fetch_all_dept();
         $data['desigs'] =$this->Application_model->fetch_all_desig();
         $data['offices']=$this->Application_model->fetch_all_office();
@@ -454,6 +613,10 @@
     }
     function alluser()
     {
+        if($this->session->userdata('isloggedin')==False || $this->session->userdata('user_type')!='SUPER ADMIN')
+        {
+                redirect('Home/access_denied');
+        }
         $data['users']=$this->Application_model->fetch_all_user();
         $this->load->view('themes/alluser',$data);
     }

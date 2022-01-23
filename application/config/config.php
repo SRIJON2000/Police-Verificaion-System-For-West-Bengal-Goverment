@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://localhost/PVR/';
-$config['base_url'] = 'https://38e2-2405-201-800a-20cc-40d2-7dfb-5c95-6d92.ngrok.io/PVR/';
+$config['base_url'] = 'http://localhost/PVR/';
+//$config['base_url'] = 'https://38e2-2405-201-800a-20cc-40d2-7dfb-5c95-6d92.ngrok.io/PVR/';
 /*
 |--------------------------------------------------------------------------
 | Index File
