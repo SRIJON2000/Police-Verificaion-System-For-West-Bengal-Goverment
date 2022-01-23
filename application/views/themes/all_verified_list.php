@@ -123,7 +123,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         
                         
                       
-                       
+                        <?php 
+                            if($this->session->userdata('user_type')!='SUPER ADMIN')
+                            {
+                        ?>
 
                         <div class="card mb-4">
                             <div class="card-header">
@@ -178,6 +181,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                     </tbody>
                                 </table>
+                                <?php }else{?>
+
+                                <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                <b>All Verified Applications</b>
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Reference No.</th>
+                                            <th>Candidate Name</th>
+                                            <th>Office Name</th>
+                                            <th>Application date</th>
+                                            <th>Final Status (Verified/Unverified)</th>
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Reference No.</th>
+                                        <th>Candidate Name</th>
+                                        <th>Office Name</th>
+                                        <th>Application date</th>
+                                        <th>Final Status (Verified/Unverified)</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        foreach($applications as $application)
+                                        {
+                                            if($application['pvr_final_status_id_fk']==2){
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $application['ref_no_pk']?></td>
+                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
+                                            <td><?php echo $application['employer_name'] ?></td>
+                                            <td><?php echo $application['application_date'] ?></td>
+                                            <td><div style="color:green"><b>Verified</b></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a>
+                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
+                                            
+                                        </tr>
+                                    <?php
+                                            }
+                                            
+                                        }
+
+                                    ?>    
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                
+                                <?php
+                                      
+                                            
+                                        }
+                                        
+                                    ?>
                             </div>
                         </div>
                     </div>
