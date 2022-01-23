@@ -7,7 +7,7 @@ $this->load->library('session');
 <html>
 <head>
 
-	<!-- <base href="http://localhost/recruitment/admin/" /> -->
+	
     <title>Application Details</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -316,7 +316,7 @@ tr td,tr th{border: 1px solid;}*/
 
                                     </div>
                                  <br><br><br>
-                                 <!-- <a href="<?php //echo base_url()?>Application/edit/<?php //echo $detail['pvr_id_pk']?>" class="btn btn-success" style="width: 20%;background-color:blue" ><b>Edit Application</b></a></div> -->
+                                 
                                 <?php 
                                     } 
                                     elseif($detail['ocvr_approval']==1 && $detail['pvr_final_status_id_fk']!=2)
@@ -452,108 +452,7 @@ tr td,tr th{border: 1px solid;}*/
                             </div>
                              
                         </div>
-                        <!-- <button style="width: 20%;background-color: transparent;border: 10;">Approve</button> -->
-                         <!-- <div class="col-md-12">
-                            <ul class="list-group">
-                                <li class="list-group-item active">Experience</li>
-                                <li class="list-group-item">
-                                    <table class="table  table-bordered" >
-                                        <thead>
-                                            <tr>
-                                                <th>Name of Organization</th>
-                                                <th style="width: 250px">Designation</th>
-                                                <th>Date of Joining </th>
-                                                <th>Date of Resigning</th>
-                                                <th>Current Organization</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody  >
-                                                                                          <tr>
-                                                <td>NIC</td>
-                                                <td>Developer</td>
-                                                <td>02/06/2018</td>
-                                                <td>01/01/1970</td>
-                                                <td> YES</td>
-                                            </tr>
-                                                                                   </tbody>
-                                    </table>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-12">
-                            <ul class="list-group">
-                                <li class="list-group-item active">Educational Qualification</li>
-                                <li class="list-group-item">
-                                    <table class="table  table-bordered edu_table" >
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>Stream</th>
-                                                <th>College / University / Board</th>
-                                                <th>CGPA</th>
-                                                <th>Year of Passing</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody  >
-                                            
-                                            <tr>
-                                                <td>Post Graduation</td>
-                                                <td>Masters in Psychology</td>
-                                                <td>Meghnad Saha College</td>
-                                                <td>6.00</td>
-                                                <td>2019</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Graduation</td>
-                                                <td>B.Tech</td>
-                                                <td>Meghnad Saha College</td>
-                                                <td>6.00</td>
-                                                <td>2017</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12th / Higher Secondary</td>
-                                                <td>Science</td>
-                                                <td>WBCHSE</td>
-                                                <td>75</td>
-                                                <td>2013</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10th / Secondary</td>
-                                                <td>Science</td>
-                                                <td>WBBSE</td>
-                                                <td>80</td>
-                                                <td>2011</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </li>
-                            </ul>
-                        </div> -->
-                        <!-- <div class="col-md-12">
-                             <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item active">Photo</li>
-                                    <li class="list-group-item">
-                                        <img src="http://localhost/recruitment/files/public/spm/photo/WB20VMY5889624.jpg" class="img-responsive">
-                                    </li>
-                                </ul>
-                            </div>
-                             <div class="col-md-6">
-                                <ul class="list-group">
-                                    <li class="list-group-item active">Signature</li>
-                                    <li class="list-group-item">
-                                        <img src="http://localhost/recruitment/files/public/spm/signature/WB20VMY5889624.jpg" class="img-responsive">
-                                    </li>
-                                </ul>
-                            </div> -->
-                         <!-- </div>
-                         <input type="hidden" name="" id="spm_id" value="180">
-                    	<button type="button" class="btn btn-primary " id="intimation_mail"    style="float: right;">Send Intimation Mail</button> -->
-                  <!-- </div>
-                </div>
-            </div>
-            <div class="box-footer"></div>
-		</div> -->
+                        
     </section>
 </div>
 <?php 
@@ -561,30 +460,7 @@ tr td,tr th{border: 1px solid;}*/
         }
 ?>
 
-  <!-- <div class="modal fade" id="intimation_modal" role="dialog">
-    <div class="modal-dialog">
-    
-      
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"> </h4>
-        </div>
-        <div class="modal-body" id="intimation_body">
-            <div id="intimation_first_body">
-            <input type="hidden" name="" id="spm_modal_id" value="">
-          <p><b>Are you sure to send intimation mail ?</b></p>
-          <div class="loader_con" style="display: none;"><div class="loader"></div>Loading ...</div>
-        </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="intimation_modal_btn" >Yes</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> -->
+  
 
       
 
@@ -606,17 +482,6 @@ tr td,tr th{border: 1px solid;}*/
 <script src="themes/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 
-
-    <script>
-    /*$(function() {
-        $('#course1').change(function() {
-            console.log($(this).val());
-        }).multipleSelect({
-            width: '100%',
-			placeholder: 'Please select job role'
-        });
-    });*/
-	</script>
 <script>
     function approve()
     {

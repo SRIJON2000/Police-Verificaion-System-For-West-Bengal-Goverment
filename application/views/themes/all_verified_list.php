@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title icon="">Admin Dashboard</title>
+        <title icon="">Verified Applications</title>
         <link rel = "icon" href ="<?php echo base_url();?>/application/views/pics/office.png" type = "image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>/theme_css2/css/styles.css" rel="stylesheet" />
@@ -54,13 +54,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+                       
                         <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
                             
                             
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
                     </ul>
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <br/>
-                            <!--<div class="sb-sidenav-menu-heading">Interface</div>-->
+                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Application
@@ -120,12 +120,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4 text-center"><b>List Of Verified Defence Applications</b></h1><br/>
-                        <!-- <ol class="breadcrumb mb-4"> -->
-                            <!-- <li class="breadcrumb-item active">Dashboard</li> -->
-                        <!-- </ol> -->
+                        
                         
                       
-                       
+                        <?php 
+                            if($this->session->userdata('user_type')!='SUPER ADMIN')
+                            {
+                        ?>
 
                         <div class="card mb-4">
                             <div class="card-header">
@@ -180,6 +181,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                     </tbody>
                                 </table>
+                                <?php }else{?>
+
+                                <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                <b>All Verified Applications</b>
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Reference No.</th>
+                                            <th>Candidate Name</th>
+                                            <th>Office Name</th>
+                                            <th>Application date</th>
+                                            <th>Final Status (Verified/Unverified)</th>
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Reference No.</th>
+                                        <th>Candidate Name</th>
+                                        <th>Office Name</th>
+                                        <th>Application date</th>
+                                        <th>Final Status (Verified/Unverified)</th>
+                                        <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        foreach($applications as $application)
+                                        {
+                                            if($application['pvr_final_status_id_fk']==2){
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $application['ref_no_pk']?></td>
+                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
+                                            <td><?php echo $application['employer_name'] ?></td>
+                                            <td><?php echo $application['application_date'] ?></td>
+                                            <td><div style="color:green"><b>Verified</b></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><b>View Details</b></a>
+                                            <a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><b>Check Status</b></a></td>
+                                            
+                                        </tr>
+                                    <?php
+                                            }
+                                            
+                                        }
+
+                                    ?>    
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                
+                                <?php
+                                      
+                                            
+                                        }
+                                        
+                                    ?>
                             </div>
                         </div>
                     </div>

@@ -158,6 +158,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php 
                                     }
                                 ?>
+
+<?php 
+                                if($this->session->userdata('user_type')=='SUPER ADMIN')
+                                {
+                                ?>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
+                                </nav>
+                                <?php 
+                                }
+                                ?>
                             </div>
                             <?php 
                                 if($this->session->userdata('user_type')=='OFFICER IN CHARGE' )
@@ -171,7 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="#">Letter To SPDIB</a> -->
+                                    
                                     <a class="nav-link" href="<?php echo base_url()?>Home/verified_letter_list">Verified Letter To Employer</a>
                                     <a class="nav-link" href="<?php echo base_url()?>Home/unverified_letter_list">Unverified Letter To Employer</a>
                                 </nav>
@@ -194,20 +206,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 
                             <?php 
-                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE')
+                                if($this->session->userdata('user_type')=='ADDITIONAL DISTRICT MAGISTRATE' || $this->session->userdata('user_type')=='SUPER ADMIN')
                                 {
                             ?>
                                    
+                                   <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/issues">Issues Lodges</a>
+                                </nav>
                                     
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <i class="bi bi-chat-left-dots"></i>
-                                            <a class="nav-link" href="<?php echo base_url()?>Home/issues">Issues Lodged</a>
-                                            
-                                        </nav>
                                     
                             <?php 
                                 }
                             ?>
+
+                            
+
+                            <?php 
+                                if($this->session->userdata('user_type')=='SUPER ADMIN')
+                                {
+                            ?>
+
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    
+                                    <a class="nav-link" href="<?php echo  base_url();?>/Home/adduser">Add User</a>
+                                    <a class="nav-link" href="<?php echo  base_url();?>/Home/alluser">All Users</a>
+                                </nav>
+                                
+                            </div> 
+
+                             <?php 
+                                }
+                            ?>
+
 
                         </div>
                     </div>
@@ -454,6 +491,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php
                             }
                         ?>
+
+                        <?php 
+                            if($this->session->userdata('user_type')=='SUPER ADMIN')
+                            {
+                        ?>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                <strong>All Applications</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="recent_application">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Reference No.</th>
+                                            <th scope="col">Candidate Name</th>
+                                            <th scope="col">Office Name</th>
+                                            <th scope="col">Application date</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">(Verified/Unverified)</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                    <?php
+                                        foreach($applications as $application)
+                                        {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $application['ref_no_pk']?></td>
+                                            <td><?php echo $application['candidate_f_name'].' '.$application['candidate_m_name'].' '.$application['candidate_l_name']?></td>
+                                            <td><?php echo $application['employer_name'] ?></td>
+                                            <td><?php echo $application['application_date'] ?></td>
+                                            <?php if($application['ocvr_approval']==0){?>
+                                                <td><div style="color:red"><strong>Pending For Approval</strong></div></td>
+                                            <?php }else{?>
+                                                <td><div style="color:green"><strong>Sent To IB</strong></div></td>
+                                                <?php }?>
+                                            <td><div style="color:<?php if($application['pvr_final_status_id_fk']==1){echo 'blue';}else if($application['pvr_final_status_id_fk']==2){echo 'green';}else{echo 'red';}?>"><strong><?php echo $application['final_status_name']?></strong></div></td>
+                                            <td><a class="action" href="<?php echo base_url()?>Home/application_details/<?php echo $application['pvr_id_pk']?>"><strong>View Details</strong></a>
+                                            &nbsp;&nbsp;&nbsp;<a class="action" href="<?php base_url()?>status/<?php echo $application['pvr_id_pk'] ?>"><strong>Check Status</strong></a></td>
+                                        </tr>
+                                    <?php
+                                            
+                                        }
+                                    
+                                    ?>    
+                                        
+                                        
+                                    </tbody>
+                                    </table>
+                        </div>
+                        </div>
+                        <?php          
+                         }          
+                        ?>
+
+
                     </div>
                 </main>
                 

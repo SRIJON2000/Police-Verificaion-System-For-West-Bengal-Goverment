@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/PVR/';
-//$config['base_url'] = 'https://3a5c-2405-201-800a-20cc-f826-bbc4-4ef1-6136.ngrok.io/PVR/';
+//$config['base_url'] = 'https://7840-2405-201-800a-20cc-d57-f4df-6334-6bc3.ngrok.io/PVR/';
 /*
 |--------------------------------------------------------------------------
 | Index File

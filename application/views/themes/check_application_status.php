@@ -231,12 +231,7 @@
                 </div>
                 <h4 class="step-title">Application Submitted</h4>
               </div>
-			  <!-- <div class="step">
-                <div class="step-icon-wrap">
-                  <div class="step-icon"><i class="pe-7s-user"></i></div>
-                </div>
-                <h4 class="step-title">CA Section</h4>
-              </div> -->
+			 
 
               
               <div class="step completed">
@@ -313,11 +308,10 @@
           <?php }?>
         <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
           <div class="custom-control custom-checkbox mr-3">
-            <!-- <input class="custom-control-input" type="checkbox" id="notify_me" checked=""> -->
-            <!-- <label class="custom-control-label" for="notify_me">Notify me when application is verified</label> -->
+            
           </div>
           <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/application_details/<?php echo $detail['pvr_id_pk']?>" data-toggle="modal" data-target="#orderDetails"><b>View Application Details<b></a>&nbsp;&nbsp;&nbsp;
-          <a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/dashboard_adm"><b>Back</b></a></div>
+          <a class="btn btn-outline-primary btn-rounded btn-sm" href="<?php echo base_url()?>Home/dashboard_adm"><b>Back To Dashboard</b></a></div>
         </div>
       </div>
       
