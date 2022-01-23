@@ -55,12 +55,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                        
-                        <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
-                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
-                            
-                            
+                    <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
                     </ul>
@@ -89,7 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     
                                     <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
-                                    <a class="nav-link" href="<?php base_url()?>status">Check Status</a>
+                                    <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
+                                    
                                    
                                 </nav>
                                 
@@ -106,8 +105,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Monitoring Report</a>
-                                    <a class="nav-link" href="#">Daily Application Report</a>
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/date_range_for_quarterly_report">Monitoring Report</a>
+                                    <a class="nav-link" href="<?php echo base_url()?>Home/date_range">Daily Application Report</a>
                                 </nav>
                             </div>
 
@@ -116,6 +115,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 </nav>
             </div>
+            
+            <?php 
+                            if($this->session->userdata('user_type')!='SUPER ADMIN')
+                            {
+                        ?>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    
+                                    <a class="nav-link" href="<?php echo  base_url();?>/Home/adduser">Add User</a>
+                                    <a class="nav-link" href="<?php echo  base_url();?>/Home/alluser">All Users</a>
+                                </nav>
+                                
+            </div> 
+<?php }?>
+
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -258,7 +278,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url();?>/theme_css2/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>/theme_css2/js/datatables-simple-demo.js"></script>
-        
+        <script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
     
     </div>
     </body>

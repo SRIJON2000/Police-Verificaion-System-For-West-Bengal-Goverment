@@ -559,7 +559,11 @@ function no4()
   modal4.style.display = "none";
 }
 </script>
-
+<script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
 
 </body>
 <?php $this->load->view('layouts/footer_view'); ?>

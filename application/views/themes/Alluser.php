@@ -75,10 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li id="sm_show"><div class="text-dark">Logged in as:
                                 <strong><?php echo $this->session->userdata('user_type')." "?>(<?php echo $this->session->userdata('district_name')?>)</strong></div></li>
                             <hr id="sm_show">
-                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
-                            
-                            
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
@@ -104,8 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a class="nav-link" href="<?php base_url()?>dashboard_adm">Dashboard</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                     <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
-                                    
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
+                                 
                                 </nav>
                                 
 
@@ -142,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <nav class="sb-sidenav-menu-nested nav">
                                     
                                     <a class="nav-link" href="<?php echo  base_url();?>/Home/adduser">Add User</a>
-                                    <a class="nav-link" href="#">Update User</a>
+                                    <a class="nav-link" href="<?php echo  base_url();?>/Home/alluser">All Users</a>
                                 </nav>
                                 
                             </div> 
@@ -209,7 +207,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 b.style.display="table";
             }
             </script>
-    
+    <script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
     </div>
     </body>
     <?php $this->load->view('layouts/footer_view'); ?>

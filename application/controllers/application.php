@@ -196,7 +196,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('dob', 'Date Of Birth', 'required');
         
         $this->form_validation->set_rules('gender', 'Gender', 'required');
-        $this->form_validation->set_rules('aadhaarno', 'Aadhaar No', 'required|max_length[12]|trim');
+        $this->form_validation->set_rules('aadhaarno', 'Aadhaar No', 'required|max_length[12]|min_length[12]|trim');
         $this->form_validation->set_rules('caste', 'Caste', 'required');
         $this->form_validation->set_rules('houseno1', 'House No1', 'required');
         $this->form_validation->set_rules('street1', 'Street1', 'required');

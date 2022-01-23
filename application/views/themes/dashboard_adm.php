@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a class="nav-link" href="<?php base_url()?>application">New Application</a>
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
-                                    <a class="nav-link" href="<?php base_url()?>verify_reject">Update Application</a>
+                                    <a class="nav-link" href="<?php base_url()?>verify_reject">Scrutiny Application</a>
                                     
                                     <!-- <a class="nav-link" href="#">Send Reminder</a> -->
                                 </nav>
@@ -133,11 +133,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     {
                                 ?>
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
+                                    
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
-                                    <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
+                                    
                                 </nav>
                                 <?php 
                                     }
@@ -148,12 +147,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     {
                                 ?>
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" href="<?php base_url()?>application">New Application</a> -->
+                                    
                                     <a class="nav-link" href="<?php base_url()?>addoffice">Add Office</a>
                                     <a class="nav-link" href="<?php base_url()?>statussearch">Check Status</a>
                                     <a class="nav-link" href="<?php base_url()?>all_verified_list">All verified applications</a>
-                                    <!-- <a class="nav-link" href="#">Update Application</a> -->
-                                    <!-- <a class="nav-link" href="#">Send Reminder</a> -->
+                                    
                                 </nav>
                                 <?php 
                                     }
@@ -572,7 +570,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 b.style.display="table";
             }
             </script>
-    
+    <script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
     </div>
     </body>
     <?php $this->load->view('layouts/footer_view'); ?>

@@ -352,7 +352,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
 
     </script>
-    
+    <script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
     </div>
     </body>
     <?php $this->load->view('layouts/footer_view'); ?>

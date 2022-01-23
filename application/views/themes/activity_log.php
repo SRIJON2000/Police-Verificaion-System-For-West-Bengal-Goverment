@@ -75,10 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li id="sm_show"><div class="text-dark">Logged in as:
                                 <strong><?php echo $this->session->userdata('user_type')." "?>(<?php echo $this->session->userdata('district_name')?>)</strong></div></li>
                             <hr id="sm_show">
-                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/dashboard_adm">Dashboard</a></li>
-                            
-                            
+                            <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/notification">Notification&nbsp;<?php $num=$this->Application_model->count_seen_status($this->session->userdata('login_id')); if($num!=0) {?><i class="fa fa-bell" style="font-size:17px;color:red"></i><b>(<?php echo $num;?>+)</b><?php }?></a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
@@ -279,7 +277,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 b.style.display="table";
             }
             </script>
-    
+    <script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
     </div>
     </body>
     <?php $this->load->view('layouts/footer_view'); ?>

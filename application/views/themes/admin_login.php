@@ -136,6 +136,11 @@ $this->load->library('session');
 	});
 });
 </script>
+<script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
 </body>
 <?php $this->load->view('layouts/footer_view'); ?>
 </html>

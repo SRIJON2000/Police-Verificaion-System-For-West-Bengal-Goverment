@@ -80,6 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/activity_log">Activity Log</a></li>
                             
+                            
                             <li><hr class="dropdown-divider" /></li>
                             
                             <li><a class="dropdown-item" href="<?php echo base_url()?>Home/logout">Logout</a></li>
@@ -310,7 +311,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 b.style.display="table";
             }
             </script>
-    
+    <script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
     </div>
     </body>
     <?php $this->load->view('layouts/footer_view'); ?>
