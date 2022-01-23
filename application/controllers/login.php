@@ -39,8 +39,8 @@ class Login extends CI_Controller
             array(
                 'field' => 'captcha',
                 'label' => 'Captcha',
-                'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
-                
+                //'rules' => 'required|callback_username_check['.$this->input->post('security_code').']'
+                'rules'=>''
             )
         );
 
