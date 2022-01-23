@@ -23,10 +23,6 @@
             $data=$this->load_captcha();
             $this->load->view('themes/admin_login',$data);
         }
-        function dashboard_employer()
-        {
-            $this->load->view('themes/dashboard_employer');
-        }
         function activity_log()
         {
             if($this->session->userdata('isloggedin')==False || empty($this->session->userdata('user_type')))
@@ -159,10 +155,7 @@
             $data['issues']=$this->Application_model->issues();
             $this->load->view('themes/issues',$data);
         }
-        function employer_login()
-        {
-            $this->load->view('themes/employer_login');
-        }
+        
         
         function application()
         {
