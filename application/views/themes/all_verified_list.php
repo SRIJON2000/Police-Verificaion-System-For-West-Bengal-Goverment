@@ -110,14 +110,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </nav>
                             </div>
 
-                        </div>
-                    </div>
-                    
-                </nav>
-            </div>
-            
-            <?php 
-                            if($this->session->userdata('user_type')!='SUPER ADMIN')
+                            <?php 
+                            if($this->session->userdata('user_type')=='SUPER ADMIN')
                             {
                         ?>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapsePages">
@@ -135,6 +129,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 
             </div> 
 <?php }?>
+
+                        </div>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
 
             <div id="layoutSidenav_content">
                 <main>

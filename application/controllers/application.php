@@ -363,7 +363,7 @@ class Application extends CI_Controller
         $this->form_validation->set_rules('memo', 'Memo No', 'required');
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Fields are requiredup');
+            $this->session->set_flashdata('error', 'Fields are required');
             redirect('Home/statussearch');
         }
         else
