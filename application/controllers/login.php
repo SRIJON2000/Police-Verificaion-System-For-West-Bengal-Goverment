@@ -4,6 +4,7 @@ class Login extends CI_Controller
     /**
      * This is default constructor of the class
      */
+    //written by Srijon Mallick, Rupak Pal
     public function __construct()
     {
         parent::__construct();

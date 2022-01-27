@@ -1,4 +1,5 @@
 <?php 
+//written by Srijon Mallick
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/header_view');
 ?>

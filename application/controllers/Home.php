@@ -1,4 +1,5 @@
 <?php
+//written by Srijon Mallick, Rupak Pal
     defined('BASEPATH') OR exit('No direct script access allowed');
     class Home extends CI_Controller
     {

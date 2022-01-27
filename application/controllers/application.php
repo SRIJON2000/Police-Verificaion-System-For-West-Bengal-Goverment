@@ -1,4 +1,5 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
+//written by Srijon Mallick, Rupak Pal, Soumyadeb Dhar, Indranil Sen, Jit Saha
 class Application extends CI_Controller
 {
     public function __construct()
