@@ -53,10 +53,8 @@ $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-/**
- * Define Api-routes
- * 
- */
+/* Define Api-routes */
+//Written By Pritam Roy, Rupak Pal
 $route['api/login'] = 'api_test/login';
 $route['api/view'] = 'api_test/view';
 $route['api/search'] = 'api_test/search';

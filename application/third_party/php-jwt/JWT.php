@@ -1,4 +1,5 @@
 <?php
+// Written for API
 
 namespace Firebase\JWT;
 use \DomainException;

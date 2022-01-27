@@ -21,8 +21,6 @@ class Api_test extends API_Controller
                 $this->_apiConfig(['methods' => ['GET']]);
                 $email = $this->input->get('email');
                 $password = $this->input->get('password');
-                //$email = "abc-adm@gmail.com";
-                //$password = "Nic@1234";
 
                 // Validate the post data
                 if(!empty($email) && !empty($password)){
@@ -82,9 +80,6 @@ class Api_test extends API_Controller
                 $result = $this->authorization_token->validateToken($token);
                 if (isset($result['status']) AND $result['status'] === true)
                 {
-                  //  $token_data = $result['data'];
-                   // unset($token_data->API_TIME);
-                   
                     $this->api_return( [
                         'status' => true,
                         "result" => [
@@ -145,16 +140,13 @@ class Api_test extends API_Controller
                     ],
                     API_Controller::HTTP_OK);
        
-                      // return $pvrid->pvr_id_pk;
                    }
                    else{
                     $this->api_return([
                         'status' => FALSE,
                         'message'=>"Applicant Not Found!!."
                     ],API_Controller::HTTP_BAD_REQUEST);
-                   }
-                   
-                  
+                   }  
         
                 } else {
                     $this->api_return([
