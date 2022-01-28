@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => '172.20.176.53',
 	'username' => 'postgres',
-	'password' => '1234',
+	'password' => 'Nichwrdb@123',
 	'database' => 'PVR',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
