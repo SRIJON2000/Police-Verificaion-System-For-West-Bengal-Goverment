@@ -297,8 +297,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- <ol class="breadcrumb mb-4"> -->
                             <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                         <!-- </ol> -->
-                        <?php //$fetched_data= $this->application_model->activity_log_update();
-                        //$lim = $this->application_model->bind();
+                        <?php //$fetched_data= $this->Application_model->activity_log_update();
+                        //$lim = $this->Application_model->bind();
                         
                         ?>
                         <table class="table table-bordered table-hover table-secondary" style="font-size:22px;">

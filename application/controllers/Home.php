@@ -41,12 +41,12 @@
             {
                 redirect('Home/access_denied');
             }
-            $this->load->model('application_model');
+            $this->load->model('Application_model');
             $data['applications']=$this->Application_model->fetch_all_applications($this->session->userdata('office_district'));
-            $a= $this->application_model->a();
-            $b =$this->application_model->b();
-            $c =$this->application_model->c();
-            $d =$this->application_model->d();
+            $a= $this->Application_model->a();
+            $b =$this->Application_model->b();
+            $c =$this->Application_model->c();
+            $d =$this->Application_model->d();
             $data['numbers']=array(array(
                 'a'=>$a,
                 'b'=>$b,
@@ -152,7 +152,7 @@
             {
                 redirect('Home/access_denied');
             }
-            $this->load->model('application_model');
+            $this->load->model('Application_model');
             $data['issues']=$this->Application_model->issues();
             $this->load->view('themes/issues',$data);
         }

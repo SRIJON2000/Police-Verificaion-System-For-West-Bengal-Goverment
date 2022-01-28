@@ -72,7 +72,7 @@ class Login extends CI_Controller
         else
         {
             $this->load->model('Login_model');
-            $this->load->model('application_model');
+            $this->load->model('Application_model');
             $email = strtolower($this->security->xss_clean($this->input->post('login_id')));
             //$_SESSION['salt'] = hash('sha256',microtime());
             $password = $this->input->post('password');
@@ -103,7 +103,7 @@ class Login extends CI_Controller
                                     'ip_address'=>$this->input->ip_address(),
                                     'isloggedin'=>True); 
  
-                $this->application_model->activity_log($result['department'],'Login Successful',current_url(),$this->input->ip_address(),$email);
+                $this->Application_model->activity_log($result['department'],'Login Successful',current_url(),$this->input->ip_address(),$email);
                 $this->load->library('session');
                 $this->session->set_userdata($sessionArray);
                 

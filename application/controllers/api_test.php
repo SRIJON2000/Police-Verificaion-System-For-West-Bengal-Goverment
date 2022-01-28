@@ -6,8 +6,8 @@ class Api_test extends API_Controller
 {
     public function __construct() {
         parent::__construct();
-        $this->load->model('login_model');
-        $this->load->model('application_model');
+        $this->load->model('Login_model');
+        $this->load->model('Application_model');
         $this->load->library('authorization_token');
         //Loading view
         // $this->load->view('themes/admin-login');
@@ -84,10 +84,10 @@ class Api_test extends API_Controller
                         'status' => true,
                         "result" => [
                             //'user_data' => $token_data,
-                            'pending1' => $this->application_model->a(),
-                            'pending2' => $this->application_model->b(),
-                            'pending3' => $this->application_model->c(),
-                            'pending4' => $this->application_model->d(),
+                            'pending1' => $this->Application_model->a(),
+                            'pending2' => $this->Application_model->b(),
+                            'pending3' => $this->Application_model->c(),
+                            'pending4' => $this->Application_model->d(),
                         ],
                     ],
                     API_Controller::HTTP_OK);
@@ -135,7 +135,7 @@ class Api_test extends API_Controller
                         'status' => true,
                         "result" => [
                             //'user_data' => $token_data,
-                            'verify' =>  $this->application_model->fetch_application_details($pvr_id->pvr_id_pk)
+                            'verify' =>  $this->Application_model->fetch_application_details($pvr_id->pvr_id_pk)
                         ],
                     ],
                     API_Controller::HTTP_OK);
